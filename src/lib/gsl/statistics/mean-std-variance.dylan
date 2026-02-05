@@ -27,11 +27,11 @@ define function variance
     (data :: <vector>, 
      #key stride :: <integer> = 1,
           mean :: <double-float?> = #f,
-          fixed-mean? :: <boolean> = #f) 
+          unbiased? :: <boolean> = #f) 
  => (variance :: <double-float>)
   with-c-double-array (c-data = data) 
     if (mean)
-      if (fixed-mean?)
+      if (unbiased?)
         gsl-stats-variance-with-fixed-mean(c-data, stride, data.size, mean)
       else
         gsl-stats-variance-m(c-data, stride, data.size, mean)

@@ -9,8 +9,14 @@ define test test-mean ()
 end test;
 
 define test test-variance ()
-  let v = variance($stats-dataset);
-  assert-true(f=(v, 5.373d0)); 
+  let m = mean($stats-dataset);
+
+  assert-true(f=(variance($stats-dataset),
+                 variance($stats-dataset, mean: m)),
+              "Variance of sample with and without mean are equal");
+
+  assert-true(f=(4.2984d0,
+                 variance($stats-dataset, mean: m, unbiased?: #t))); 
 end test;
 
 define test test-maximum ()
