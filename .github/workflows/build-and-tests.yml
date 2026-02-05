@@ -1,0 +1,36 @@
+name: Build and Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Install GSL libraries
+        run: |
+          sudo apt-get install -y libgsl-dev libgslcblas0
+
+      - name: Install Opendylan
+        uses: dylan-lang/install-opendylan@v3
+
+      - name: Download dependencies
+        run: deft update
+
+      - name: Build project
+        run: deft build dylan-gsl-test-suite
+
+      - name: Run tests
+        run: _build/bin/dylan-gsl-test-suite --progress none --report surefire > _build/TEST-dylan-gsl-test-suite.xml
+
+      - name: Publish Test Report
+        if: success() || failure()
+        uses: mikepenz/action-junit-report@v6
+        with:
+          report_paths: '**/_build/TEST-*.xml'

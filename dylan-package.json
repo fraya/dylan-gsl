@@ -1,0 +1,23 @@
+{
+    "dependencies": [
+        "uncommon-dylan@1.0.0"
+    ],
+    "dev-dependencies": [
+        "sphinx-extensions",
+        "testworks"
+    ],
+    "description": "Bindings for GNU Scientific Library",
+    "name": "dylan-gsl",
+    "version": "0.1.0",
+    "url": "https://github.com/fraya/dylan-gsl",
+    "keywords": [
+        "gsl",
+        "math",
+        "statistics",
+        "linear-algebra",
+        "numerical-methods"
+    ],
+    "contact": "https://github.com/fraya/dylan-gsl/issues",
+    "license": "GNU",
+    "license-url": "https://www.gnu.org/licenses/gpl-3.0.html"
+}
