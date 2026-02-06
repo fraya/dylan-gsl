@@ -145,8 +145,6 @@ Correlation
    :parameter data2: An instance of :drm:`<vector>`.
    :parameter #key stride1: An instance of :drm:`<integer>`.
    :parameter #key stride2: An instance of :drm:`<integer>`.
-   :parameter #key mean1: An instance of :const:`<double-float?>`.
-   :parameter #key mean2: An instance of :const:`<double-float?>`.
    :value correlation: An instance of :drm:`<double-float>`.
 
 .. function:: spearman
