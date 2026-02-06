@@ -4,6 +4,8 @@ The GSL-MATH module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-math
 
+Double-float comparison functions
+==================================
 
 .. constant:: $default-epsilon
 
@@ -63,79 +65,111 @@ The GSL-MATH module
    :parameter #key epsilon: An instance of :drm:`<double-float>`.
    :value is-not-equal: An instance of :drm:`<boolean>`.
 
-.. function:: nan? (x) => (is-nan?)
+Infinity and NaN functions
+==========================
+
+.. function:: nan? 
+
+   :signature: nan? (x) => (is-nan?)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value is-nan?: An instance of :drm:`<boolean>`.
 
-.. function:: infinity? (x) => (is-infinity?)
+.. function:: infinity?
+
+   :signature: infinity? (x) => (is-infinity?)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value is-infinity?: An instance of :drm:`<boolean>`
 
-.. function:: positive-infinity? (x) => (is-positive-infinity?)
+.. function:: positive-infinity?
+
+   :signature: positive-infinity? (x) => (is-positive-infinity?)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value is-positive-infinity?: An instance of :drm:`<boolean>`.
 
-.. function:: negative-infinity? (x) => (is-negative-infinity?)
+.. function:: negative-infinity?
+
+   :signature: negative-infinity? (x) => (is-negative-infinity?)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value is-negative-infinity?: An instance of :drm:`<boolean>`.
 
-// elementary functions
+Elementary functions
+====================
 
-.. function:: log1p (x) => (log1p-x)
+.. function:: log1p
+
+   :signature: log1p (x) => (log1p-x)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value log1p-x: An instance of :drm:`<double-float>`.
 
-.. function:: expm1 (x) => (expm1-x)
+.. function:: expm1
+
+   :signature: expm1 (x) => (expm1-x)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value expm1-x: An instance of :drm:`<double-float>`.
 
-.. function:: hypot (x y) => (hypot-xy)
+.. function:: hypot
+
+   :signature: hypot (x y) => (hypot-xy)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :parameter y: An instance of :drm:`<double-float>`.
    :value hypot-xy: An instance of :drm:`<double-float>`.
 
-.. function:: hypot3 (x y z) => (hypot3-xyz)
+.. function:: hypot3
+
+   :signature: hypot3 (x y z) => (hypot3-xyz)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :parameter y: An instance of :drm:`<double-float>`.
    :parameter z: An instance of :drm:`<double-float>`.
    :value hypot3-xyz: An instance of :drm:`<double-float>`.
 
-.. function:: acosh (x) => (acosh-x)
+.. function:: acosh
+
+   :signature: acosh (x) => (acosh-x)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value acosh-x: An instance of :drm:`<double-float>`.
 
-.. function:: asinh (x) => (asinh-x)
+.. function:: asinh
+
+   :signature: asinh (x) => (asinh-x)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value asinh-x: An instance of :drm:`<double-float>`.
 
-.. function:: atanh (x) => (atanh-x)
+.. function:: atanh
+
+   :signature: atanh (x) => (atanh-x)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value atanh-x: An instance of :drm:`<double-float>`.
 
-.. function:: atan2 (x y) => (atan2-xy)
+.. function:: atan2
+
+   :signature: atan2 (x y) => (atan2-xy)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :parameter y: An instance of :drm:`<double-float>`.
    :value atan2-xy: An instance of :drm:`<double-float>`.
 
-.. function:: ldexp (x n) => (ldexp-xn)
+.. function:: ldexp
+
+   :signature: ldexp (x n) => (ldexp-xn)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :parameter n: An instance of :drm:`<integer>`.
    :value ldexp-xn: An instance of :drm:`<double-float>`.
 
-.. function:: frexp (x) => (values mantissa exponent)
+.. function:: frexp
+
+   :signature: frexp (x) => (values mantissa exponent)
 
    :parameter x: An instance of :drm:`<double-float>`.
    :value mantissa: An instance of :drm:`<double-float>`.
