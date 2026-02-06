@@ -139,7 +139,7 @@ Correlation
 
 .. function:: correlation
 
-   :signature: correlation (data1 data2 #key stride1 stride2 mean1 mean2) => (correlation)
+   :signature: correlation (data1 data2 #key stride1 stride2) => (correlation)
 
    :parameter data1: An instance of :drm:`<vector>`.
    :parameter data2: An instance of :drm:`<vector>`.
