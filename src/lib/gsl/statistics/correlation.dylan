@@ -3,6 +3,9 @@ Synopsis: Correlation
 Author: Fernando Raya
 Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
+Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#correlation
+           https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_correlation
+           https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_spearman
 
 define function correlation
   (data1 :: <vector>, data2 :: <vector>,
