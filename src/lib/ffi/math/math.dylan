@@ -103,13 +103,6 @@ define c-function gsl-atanh
   c-name: "gsl_atanh";
 end;
 
-define c-function gsl-atan2
-  input parameter x :: <c-double>;
-  input parameter y :: <c-double>;
-  result atan2-xy :: <c-double>;
-  c-name: "gsl_atan2";
-end;
-
 define c-function gsl-ldexp
   input parameter x :: <c-double>;
   input parameter n :: <c-int>;

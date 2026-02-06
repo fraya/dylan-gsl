@@ -32,7 +32,6 @@ define module gsl-ffi-math
     gsl-acosh,
     gsl-asinh,
     gsl-atanh,
-    gsl-atan2,
     gsl-ldexp,
     gsl-frexp;
 
