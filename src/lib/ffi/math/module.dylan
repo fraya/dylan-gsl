@@ -19,7 +19,9 @@ define module gsl-ffi-math
     $gsl-pi/4;
 
   create
-    gsl-fcmp;
+    gsl-fcmp,
+    gsl-isnan,
+    gsl-isinf;
 
 end module;
 

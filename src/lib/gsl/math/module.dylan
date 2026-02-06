@@ -19,7 +19,11 @@ define module gsl-math
     f<,
     f>,
     f<=,
-    f>=;
+    f>=,
+    is-nan?,
+    is-infinity?,
+    is-positive-infinity?,
+    is-negative-infinity?;
 
 end module;
 

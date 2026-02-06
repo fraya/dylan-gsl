@@ -62,3 +62,23 @@ The GSL-MATH module
    :parameter y: An instance of :drm:`<double-float>`.
    :parameter #key epsilon: An instance of :drm:`<double-float>`.
    :value is-not-equal: An instance of :drm:`<boolean>`.
+
+.. function:: nan? (x) => (is-nan?)
+
+   :parameter x: An instance of :drm:`<double-float>`.
+   :value is-nan?: An instance of :drm:`<boolean>`.
+
+.. function:: infinity? (x) => (is-infinity?)
+
+   :parameter x: An instance of :drm:`<double-float>`.
+   :value is-infinity?: An instance of :drm:`<boolean>`
+
+.. function:: positive-infinity? (x) => (is-positive-infinity?)
+
+   :parameter x: An instance of :drm:`<double-float>`.
+   :value is-positive-infinity?: An instance of :drm:`<boolean>`.
+
+.. function:: negative-infinity? (x) => (is-negative-infinity?)
+
+   :parameter x: An instance of :drm:`<double-float>`.
+   :value is-negative-infinity?: An instance of :drm:`<boolean>`.

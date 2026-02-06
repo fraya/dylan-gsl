@@ -42,4 +42,17 @@ define c-function gsl-fcmp
   input parameter epsilon :: <c-double>;
   result comparison :: <c-int>;
   c-name: "gsl_fcmp";
-end;  
+end;
+
+define c-function gsl-isnan
+  input parameter x :: <c-double>;
+  result is-not-a-number :: <c-int>;
+  c-name: "gsl_isnan";
+end;
+
+define c-function gsl-isinf
+  input parameter x :: <c-double>;
+  result is-infinity :: <c-int>;
+  c-name: "gsl_isinf";
+end;
+

@@ -45,3 +45,29 @@ define function f>=
  => (is-greater-than-or-equal-to :: <boolean>)
   gsl-fcmp(x, y, epsilon) >= 0
 end;
+
+define function nan?
+    (x :: <double-float>)
+ => (is-nan? :: <boolean>)
+  gsl-isnan(x) = 1
+end;
+
+define function infinity?
+    (x :: <double-float>)
+ => (is-infinity? :: <boolean>)
+  gsl-isinf(x) ~= 0
+end;
+
+define function positive-infinity?
+    (x :: <double-float>)
+ => (is-positive-infinity? :: <boolean>)
+  gsl-isinf(x) = 1
+end;
+
+define function negative-infinity?
+    (x :: <double-float>)
+ => (is-negative-infinity? :: <boolean>)
+  gsl-isinf(x) = -1
+end;
+
+
