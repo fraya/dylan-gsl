@@ -16,7 +16,7 @@ define test test-variance ()
               "Variance of sample with and without mean are equal");
 
   assert-true(f=(4.2984d0,
-                 variance($stats-dataset, mean: m, unbiased?: #t))); 
+                 variance($stats-dataset, mean: m, population?: #t))); 
 end test;
 
 define test test-maximum ()

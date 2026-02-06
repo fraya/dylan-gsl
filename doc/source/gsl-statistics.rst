@@ -114,5 +114,5 @@ The GSL-STATISTICS module
    :parameter data: An instance of :drm:`<vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
-   :parameter #key unbiased?: An instance of :drm:`<boolean>`.
+   :parameter #key population?: An instance of :drm:`<boolean>`.
    :value variance: An instance of :drm:`<double-float>`.
