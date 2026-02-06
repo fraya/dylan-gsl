@@ -8,7 +8,8 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#correlation
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_spearman
 
 define function correlation
-  (data1 :: <vector>, data2 :: <vector>,
+  (data1 :: <vector>,
+   data2 :: <vector>,
    #key stride1 :: <integer> = 1,
         stride2 :: <integer> = 1)
   => (correlation :: <double-float>)
@@ -20,7 +21,9 @@ define function correlation
 end;
 
 define function spearman
-  (data1 :: <vector>, data2 :: <vector>, work :: <vector>,
+  (data1 :: <vector>, 
+   data2 :: <vector>, 
+   work :: <vector>,
    #key stride1 :: <integer> = 1,
         stride2 :: <integer> = 1)
   => (correlation-sd :: <double-float>)
