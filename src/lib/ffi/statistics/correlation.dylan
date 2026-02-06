@@ -7,20 +7,20 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#correlation
 
 define c-function gsl-stats-correlation
   input parameter data1 :: <c-double*>;
-  input parameter stride1 :: <c-int>;
+  input parameter stride1 :: <c-size-t>;
   input parameter data2 :: <c-double*>;
-  input parameter stride2 :: <c-int>;
-  input parameter n :: <c-int>;
+  input parameter stride2 :: <c-size-t>;
+  input parameter n :: <c-size-t>;
   result correlation :: <c-double>;
   c-name: "gsl_stats_correlation";
 end;
 
 define c-function gsl-stats-spearman
   input parameter data1 :: <c-double*>;
-  input parameter stride1 :: <c-int>;
+  input parameter stride1 :: <c-size-t>;
   input parameter data2 :: <c-double*>;
-  input parameter stride2 :: <c-int>;
-  input parameter n :: <c-int>;
+  input parameter stride2 :: <c-size-t>;
+  input parameter n :: <c-size-t>;
   input parameter work :: <c-double*>;
   result correlation-sd :: <c-double>;
   c-name: "gsl_stats_spearman";
