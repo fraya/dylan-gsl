@@ -23,6 +23,19 @@ define module gsl-ffi-math
     gsl-isnan,
     gsl-isinf;
 
+  // Elementary functions
+  create
+    gsl-log1p,
+    gsl-expm1,
+    gsl-hypot,
+    gsl-hypot3,
+    gsl-acosh,
+    gsl-asinh,
+    gsl-atanh,
+    gsl-atan2,
+    gsl-ldexp,
+    gsl-frexp;
+
 end module;
 
 define module gsl-ffi-math-impl

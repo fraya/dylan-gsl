@@ -56,3 +56,70 @@ define c-function gsl-isinf
   c-name: "gsl_isinf";
 end;
 
+// Elementary functions
+
+define c-function gsl-log1p
+  input parameter x :: <c-double>;
+  result log1p-x :: <c-double>;
+  c-name: "gsl_log1p";
+end;
+
+define c-function gsl-expm1
+  input parameter x :: <c-double>;
+  result expm1-x :: <c-double>;
+  c-name: "gsl_expm1";
+end;
+
+define c-function gsl-hypot
+  input parameter x :: <c-double>;
+  input parameter y :: <c-double>;
+  result hypot-xy :: <c-double>;
+  c-name: "gsl_hypot";
+end;
+
+define c-function gsl-hypot3
+  input parameter x :: <c-double>;
+  input parameter y :: <c-double>;
+  input parameter z :: <c-double>;
+  result hypot3-xyz :: <c-double>;
+  c-name: "gsl_hypot3";
+end;
+
+define c-function gsl-acosh
+  input parameter x :: <c-double>;
+  result acosh-x :: <c-double>;
+  c-name: "gsl_acosh";
+end;
+
+define c-function gsl-asinh
+  input parameter x :: <c-double>;
+  result asinh-x :: <c-double>;
+  c-name: "gsl_asinh";
+end;
+
+define c-function gsl-atanh
+  input parameter x :: <c-double>;
+  result atanh-x :: <c-double>;
+  c-name: "gsl_atanh";
+end;
+
+define c-function gsl-atan2
+  input parameter x :: <c-double>;
+  input parameter y :: <c-double>;
+  result atan2-xy :: <c-double>;
+  c-name: "gsl_atan2";
+end;
+
+define c-function gsl-ldexp
+  input parameter x :: <c-double>;
+  input parameter n :: <c-int>;
+  result ldexp-xn :: <c-double>;
+  c-name: "gsl_ldexp";
+end;
+
+define c-function gsl-frexp
+  input parameter x :: <c-double>;
+  input parameter n :: <c-int>;
+  result frexp-xn :: <c-double>;
+  c-name: "gsl_frexp";
+end;
