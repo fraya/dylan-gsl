@@ -14,6 +14,7 @@ Files: library.dylan
        ffi/statistics/autocorrelation.dylan
        ffi/statistics/covariance.dylan
        ffi/statistics/maximum-minimum.dylan
+       ffi/statistics/correlation.dylan
        gsl/common/module.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
@@ -27,6 +28,7 @@ Files: library.dylan
        gsl/statistics/autocorrelation.dylan
        gsl/statistics/covariance.dylan
        gsl/statistics/maximum-minimum.dylan
+       gsl/statistics/correlation.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

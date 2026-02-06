@@ -53,6 +53,12 @@ define module gsl-ffi-statistics
     gsl-stats-min,
     gsl-stats-minmax;
 
+  // Correlation (file:./correlation.dylan)
+
+  create
+    gsl-stats-correlation,
+    gsl-stats-spearman;
+
 end module;
 
 define module gsl-ffi-statistics-impl

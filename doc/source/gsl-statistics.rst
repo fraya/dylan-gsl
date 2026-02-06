@@ -133,3 +133,29 @@ Maximum and Minimum
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value minimum: An instance of :drm:`<double-float>`.
    :value maximum: An instance of :drm:`<double-float>`.
+
+Correlation
+===========
+
+.. function:: correlation
+
+   :signature: correlation (data1 data2 #key stride1 stride2 mean1 mean2) => (correlation)
+
+   :parameter data1: An instance of :drm:`<vector>`.
+   :parameter data2: An instance of :drm:`<vector>`.
+   :parameter #key stride1: An instance of :drm:`<integer>`.
+   :parameter #key stride2: An instance of :drm:`<integer>`.
+   :parameter #key mean1: An instance of :const:`<double-float?>`.
+   :parameter #key mean2: An instance of :const:`<double-float?>`.
+   :value correlation: An instance of :drm:`<double-float>`.
+
+.. function:: spearman
+
+   :signature: spearman (data1 data2 #key stride1 stride2 work) => (correlation-sd)
+
+   :parameter data1: An instance of :drm:`<vector>`.
+   :parameter data2: An instance of :drm:`<vector>`.
+   :parameter #key stride1: An instance of :drm:`<integer>`.
+   :parameter #key stride2: An instance of :drm:`<integer>`.
+   :parameter #key work: An instance of :drm:`<vector>`.
+   :value correlation-sd: An instance of :drm:`<double-float>`.

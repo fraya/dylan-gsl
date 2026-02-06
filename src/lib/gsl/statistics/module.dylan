@@ -37,7 +37,12 @@ define module gsl-statistics
     
     maximum,
     minimum,
-    minimum-maximum;
+    minimum-maximum,
+
+    // file:./correlation.dylan
+
+    correlation,
+    spearman;
 
 end module;
 
