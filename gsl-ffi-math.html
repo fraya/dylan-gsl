@@ -253,6 +253,8 @@
         <article role="main" id="furo-main-content">
           <section id="the-gsl-ffi-math-module">
 <h1>The GSL-FFI-MATH module<a class="headerlink" href="#the-gsl-ffi-math-module" title="Link to this heading">¶</a></h1>
+<section id="mathematical-constants">
+<h2>Mathematical constants<a class="headerlink" href="#mathematical-constants" title="Link to this heading">¶</a></h2>
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:$gsl-e">
 <span class="sig-name descname"><span class="pre">$gsl-e</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:$gsl-e" title="Link to this definition">¶</a></dt>
@@ -303,6 +305,9 @@
 <span class="sig-name descname"><span class="pre">$gsl-sqrt3</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:$gsl-sqrt3" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="floating-point-comparison">
+<h2>Floating point comparison<a class="headerlink" href="#floating-point-comparison" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-fcmp">
 <span class="sig-name descname"><span class="pre">gsl-fcmp</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-fcmp" title="Link to this definition">¶</a></dt>
@@ -325,6 +330,319 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="elementary-functions">
+<h2>Elementary functions<a class="headerlink" href="#elementary-functions" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-log1p">
+<span class="sig-name descname"><span class="pre">gsl-log1p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-log1p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-log1p (x) =&gt; (log1p-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log1p-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-expm1">
+<span class="sig-name descname"><span class="pre">gsl-expm1</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-expm1" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-expm1 (x) =&gt; (expm1-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expm1-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-hypot">
+<span class="sig-name descname"><span class="pre">gsl-hypot</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-hypot" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-hypot (x y) =&gt; (hypot-xy)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>y</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hypot-xy</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-hypot3">
+<span class="sig-name descname"><span class="pre">gsl-hypot3</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-hypot3" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-hypot3 (x y z) =&gt; (hypot3-xyz)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>y</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>z</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hypot3-xyz</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-acosh">
+<span class="sig-name descname"><span class="pre">gsl-acosh</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-acosh" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-acosh (x) =&gt; (acosh-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>acosh-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-asinh">
+<span class="sig-name descname"><span class="pre">gsl-asinh</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-asinh" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-asinh (x) =&gt; (asinh-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>asinh-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-atanh">
+<span class="sig-name descname"><span class="pre">gsl-atanh</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-atanh" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-atanh (x) =&gt; (atanh-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atanh-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-ldexp">
+<span class="sig-name descname"><span class="pre">gsl-ldexp</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-ldexp" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-ldexp (x n) =&gt; (ldexp-xn)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>n</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-int&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ldexp-xn</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-math:gsl-frexp">
+<span class="sig-name descname"><span class="pre">gsl-frexp</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-math:gsl-frexp" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-frexp (x n) =&gt; (frexp-xn)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>n</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-int&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frexp-xn</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-hypot3</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-hypot3 (x y z) =&gt; (hypot3-xyz)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>y</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>z</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hypot3-xyz</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-acosh</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-acosh (x) =&gt; (acosh-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>acosh-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-asinh</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-asinh (x) =&gt; (asinh-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>asinh-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-atanh</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-atanh (x) =&gt; (atanh-x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atanh-x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-ldexp</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-ldexp (x n) =&gt; (ldexp-xn)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>n</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-int&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ldexp-xn</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-frexp</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-frexp (x n) =&gt; (frexp-xn)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+<li><p><strong>n</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">export-type-for(&lt;c-int&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frexp-xn</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">import-type-for(&lt;c-double&gt;)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -383,6 +701,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The GSL-FFI-MATH module</a><ul>
+<li><a class="reference internal" href="#mathematical-constants">Mathematical constants</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:$gsl-e"><code class="docutils literal notranslate"><span class="pre">$gsl-e</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:$gsl-log10e"><code class="docutils literal notranslate"><span class="pre">$gsl-log10e</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:$gsl-log2e"><code class="docutils literal notranslate"><span class="pre">$gsl-log2e</span></code></a></li>
@@ -393,7 +712,24 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:$gsl-sqrt1/3"><code class="docutils literal notranslate"><span class="pre">$gsl-sqrt1/3</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:$gsl-sqrt2"><code class="docutils literal notranslate"><span class="pre">$gsl-sqrt2</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:$gsl-sqrt3"><code class="docutils literal notranslate"><span class="pre">$gsl-sqrt3</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#floating-point-comparison">Floating point comparison</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-fcmp"><code class="docutils literal notranslate"><span class="pre">gsl-fcmp</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#elementary-functions">Elementary functions</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-log1p"><code class="docutils literal notranslate"><span class="pre">gsl-log1p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-expm1"><code class="docutils literal notranslate"><span class="pre">gsl-expm1</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-hypot"><code class="docutils literal notranslate"><span class="pre">gsl-hypot</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-hypot3"><code class="docutils literal notranslate"><span class="pre">gsl-hypot3</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-acosh"><code class="docutils literal notranslate"><span class="pre">gsl-acosh</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-asinh"><code class="docutils literal notranslate"><span class="pre">gsl-asinh</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-atanh"><code class="docutils literal notranslate"><span class="pre">gsl-atanh</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-ldexp"><code class="docutils literal notranslate"><span class="pre">gsl-ldexp</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-math:gsl-frexp"><code class="docutils literal notranslate"><span class="pre">gsl-frexp</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
