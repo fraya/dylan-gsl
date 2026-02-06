@@ -109,7 +109,7 @@ The GSL-STATISTICS module
 
 .. function:: variance
 
-   :signature: variance (data #key stride mean unbiased?) => (variance)
+   :signature: variance (data #key stride mean population?) => (variance)
 
    :parameter data: An instance of :drm:`<vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
