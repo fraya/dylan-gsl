@@ -253,6 +253,66 @@
         <article role="main" id="furo-main-content">
           <section id="the-gsl-error-module">
 <h1>The GSL-ERROR module<a class="headerlink" href="#the-gsl-error-module" title="Link to this heading">¶</a></h1>
+<section id="base-error-class">
+<h2>Base error class<a class="headerlink" href="#base-error-class" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Condition_Classes#error"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;error&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>code</strong> (<em>required</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-code">
+<span class="sig-name descname"><span class="pre">gsl-error-code</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-code" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-error-code (object) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>object</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">{&lt;gsl-error&gt;</span> <span class="pre">in</span> <span class="pre">gsl-error}</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-message">
+<span class="sig-name descname"><span class="pre">gsl-error-message</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-message" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-error-message (err) =&gt; (message)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>err</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="error-types">
+<h2>Error types<a class="headerlink" href="#error-types" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-bad-function]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-bad-function&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-bad-function]" title="Link to this definition">¶</a></dt>
@@ -329,21 +389,6 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-error&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Condition_Classes#error"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;error&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>code</strong> (<em>required</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
-</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -608,46 +653,7 @@
 </dl>
 </dd></dl>
 
-<dl class="dylan generic-function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-code">
-<span class="sig-name descname"><span class="pre">gsl-error-code</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-code" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-error-code (object) =&gt; (value)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>object</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">{&lt;gsl-error&gt;</span> <span class="pre">in</span> <span class="pre">gsl-error}</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Values<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan generic-function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-message">
-<span class="sig-name descname"><span class="pre">gsl-error-message</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-message" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-error-message (err) =&gt; (message)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>err</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a>.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Values<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>message</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+</section>
 </section>
 
         </article>
@@ -706,6 +712,13 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The GSL-ERROR module</a><ul>
+<li><a class="reference internal" href="#base-error-class">Base error class</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-code"><code class="docutils literal notranslate"><span class="pre">gsl-error-code</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-message"><code class="docutils literal notranslate"><span class="pre">gsl-error-message</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-types">Error types</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-bad-function]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-bad-function&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-bad-length]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-bad-length&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-bad-tolerance]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-bad-tolerance&gt;</span></code></a></li>
@@ -714,7 +727,6 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-divergence]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-divergence&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-domain-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-domain-error&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-end-of-file]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-end-of-file&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-factorization-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-factorization-failed&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-failed&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-failure]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-failure&gt;</span></code></a></li>
@@ -741,8 +753,8 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-unimplemented]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-unimplemented&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-unsupported]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-unsupported&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-zero-division]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-zero-division&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-code"><code class="docutils literal notranslate"><span class="pre">gsl-error-code</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-message"><code class="docutils literal notranslate"><span class="pre">gsl-error-message</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -4,6 +4,31 @@ The GSL-ERROR module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-error
 
+Base error class
+================
+
+.. class:: <gsl-error>
+
+   :superclasses: :drm:`<error>`
+
+   :keyword required code: An instance of :drm:`<integer>`.
+
+.. generic-function:: gsl-error-code
+
+   :signature: gsl-error-code (object) => (value)
+
+   :parameter object: An instance of ``{<gsl-error> in gsl-error}``.
+   :value value: An instance of :drm:`<integer>`.
+
+.. generic-function:: gsl-error-message
+
+   :signature: gsl-error-message (err) => (message)
+
+   :parameter err: An instance of :class:`<gsl-error>`.
+   :value message: An instance of :drm:`<string>`.
+
+Error types
+===========
 
 .. class:: <gsl-bad-function>
 
@@ -44,12 +69,6 @@ The GSL-ERROR module
 
    :superclasses: :class:`<gsl-error>`
 
-
-.. class:: <gsl-error>
-
-   :superclasses: :drm:`<error>`
-
-   :keyword required code: An instance of :drm:`<integer>`.
 
 .. class:: <gsl-factorization-failed>
 
@@ -180,17 +199,3 @@ The GSL-ERROR module
 
    :superclasses: :class:`<gsl-error>`
 
-
-.. generic-function:: gsl-error-code
-
-   :signature: gsl-error-code (object) => (value)
-
-   :parameter object: An instance of ``{<gsl-error> in gsl-error}``.
-   :value value: An instance of :drm:`<integer>`.
-
-.. generic-function:: gsl-error-message
-
-   :signature: gsl-error-message (err) => (message)
-
-   :parameter err: An instance of :class:`<gsl-error>`.
-   :value message: An instance of :drm:`<string>`.

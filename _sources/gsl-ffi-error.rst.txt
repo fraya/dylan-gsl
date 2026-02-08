@@ -4,6 +4,9 @@ The GSL-FFI-ERROR module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-error
 
+Error constants
+===============
+
 .. constant:: $gsl-continue
 
 .. constant:: $gsl-ebadfunc
@@ -71,6 +74,9 @@ The GSL-FFI-ERROR module
 .. constant:: $gsl-failure
 
 .. constant:: $gsl-ovrflw
+
+Error functions
+===============
 
 .. function:: gsl-strerror
 

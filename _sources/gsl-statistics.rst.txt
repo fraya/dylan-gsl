@@ -72,7 +72,7 @@ Covariance
    :value covariance: An instance of :drm:`<double-float>`.
 
 Higher moments
-===============
+==============
 
 .. function:: skew
 

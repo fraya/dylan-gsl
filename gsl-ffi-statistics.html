@@ -253,6 +253,8 @@
         <article role="main" id="furo-main-content">
           <section id="the-gsl-ffi-statistics-module">
 <h1>The GSL-FFI-STATISTICS module<a class="headerlink" href="#the-gsl-ffi-statistics-module" title="Link to this heading">¶</a></h1>
+<section id="absolute-deviation">
+<h2>Absolute deviation<a class="headerlink" href="#absolute-deviation" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev">
 <span class="sig-name descname"><span class="pre">gsl-stats-abs-dev</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev" title="Link to this definition">¶</a></dt>
@@ -298,6 +300,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="covariance">
+<h2>Covariance<a class="headerlink" href="#covariance" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-covariance">
 <span class="sig-name descname"><span class="pre">gsl-stats-covariance</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-covariance" title="Link to this definition">¶</a></dt>
@@ -348,6 +353,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="kurtosis">
+<h2>Kurtosis<a class="headerlink" href="#kurtosis" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-kurtosis">
 <span class="sig-name descname"><span class="pre">gsl-stats-kurtosis</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-kurtosis" title="Link to this definition">¶</a></dt>
@@ -394,6 +402,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="autocorrelation">
+<h2>Autocorrelation<a class="headerlink" href="#autocorrelation" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-lag1-autocorrelation">
 <span class="sig-name descname"><span class="pre">gsl-stats-lag1-autocorrelation</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-lag1-autocorrelation" title="Link to this definition">¶</a></dt>
@@ -439,6 +450,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="max-min">
+<h2>Max/Min<a class="headerlink" href="#max-min" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-max">
 <span class="sig-name descname"><span class="pre">gsl-stats-max</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-max" title="Link to this definition">¶</a></dt>
@@ -456,28 +470,6 @@
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>maximum</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-mean">
-<span class="sig-name descname"><span class="pre">gsl-stats-mean</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mean" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-stats-mean (data stride n) =&gt; (mean)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
-<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
-<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Values<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -528,6 +520,34 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="mean">
+<h2>Mean<a class="headerlink" href="#mean" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-mean">
+<span class="sig-name descname"><span class="pre">gsl-stats-mean</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mean" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-mean (data stride n) =&gt; (mean)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="standard-deviation">
+<h2>Standard deviation<a class="headerlink" href="#standard-deviation" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-sd">
 <span class="sig-name descname"><span class="pre">gsl-stats-sd</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-sd" title="Link to this definition">¶</a></dt>
@@ -596,6 +616,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="skewness">
+<h2>Skewness<a class="headerlink" href="#skewness" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-skew">
 <span class="sig-name descname"><span class="pre">gsl-stats-skew</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-skew" title="Link to this definition">¶</a></dt>
@@ -642,6 +665,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="total-sum-of-squares">
+<h2>Total sum of squares<a class="headerlink" href="#total-sum-of-squares" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-tss">
 <span class="sig-name descname"><span class="pre">gsl-stats-tss</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-tss" title="Link to this definition">¶</a></dt>
@@ -687,6 +713,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="variance">
+<h2>Variance<a class="headerlink" href="#variance" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-variance">
 <span class="sig-name descname"><span class="pre">gsl-stats-variance</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-variance" title="Link to this definition">¶</a></dt>
@@ -755,6 +784,9 @@
 </dl>
 </dd></dl>
 
+</section>
+<section id="correlation">
+<h2>Correlation<a class="headerlink" href="#correlation" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-correlation">
 <span class="sig-name descname"><span class="pre">gsl-stats-correlation</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-correlation" title="Link to this definition">¶</a></dt>
@@ -805,6 +837,7 @@
 </dd></dl>
 
 </section>
+</section>
 
         </article>
       </div>
@@ -854,30 +887,63 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The GSL-FFI-STATISTICS module</a><ul>
+<li><a class="reference internal" href="#absolute-deviation">Absolute deviation</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev"><code class="docutils literal notranslate"><span class="pre">gsl-stats-abs-dev</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-abs-dev-m</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#covariance">Covariance</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-covariance"><code class="docutils literal notranslate"><span class="pre">gsl-stats-covariance</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-covariance-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-covariance-m</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kurtosis">Kurtosis</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-kurtosis"><code class="docutils literal notranslate"><span class="pre">gsl-stats-kurtosis</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-kurtosis-m-sd"><code class="docutils literal notranslate"><span class="pre">gsl-stats-kurtosis-m-sd</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#autocorrelation">Autocorrelation</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-lag1-autocorrelation"><code class="docutils literal notranslate"><span class="pre">gsl-stats-lag1-autocorrelation</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-lag1-autocorrelation-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-lag1-autocorrelation-m</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#max-min">Max/Min</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-max"><code class="docutils literal notranslate"><span class="pre">gsl-stats-max</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mean"><code class="docutils literal notranslate"><span class="pre">gsl-stats-mean</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-min"><code class="docutils literal notranslate"><span class="pre">gsl-stats-min</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-minmax"><code class="docutils literal notranslate"><span class="pre">gsl-stats-minmax</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mean">Mean</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mean"><code class="docutils literal notranslate"><span class="pre">gsl-stats-mean</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#standard-deviation">Standard deviation</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-sd"><code class="docutils literal notranslate"><span class="pre">gsl-stats-sd</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-sd-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-sd-m</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-sd-with-fixed-mean"><code class="docutils literal notranslate"><span class="pre">gsl-stats-sd-with-fixed-mean</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skewness">Skewness</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-skew"><code class="docutils literal notranslate"><span class="pre">gsl-stats-skew</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-skew-m-sd"><code class="docutils literal notranslate"><span class="pre">gsl-stats-skew-m-sd</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#total-sum-of-squares">Total sum of squares</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-tss"><code class="docutils literal notranslate"><span class="pre">gsl-stats-tss</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-tss-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-tss-m</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variance">Variance</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-variance"><code class="docutils literal notranslate"><span class="pre">gsl-stats-variance</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-variance-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-variance-m</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-variance-with-fixed-mean"><code class="docutils literal notranslate"><span class="pre">gsl-stats-variance-with-fixed-mean</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#correlation">Correlation</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-correlation"><code class="docutils literal notranslate"><span class="pre">gsl-stats-correlation</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-spearman"><code class="docutils literal notranslate"><span class="pre">gsl-stats-spearman</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
