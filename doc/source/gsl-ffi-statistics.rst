@@ -3,6 +3,8 @@ The GSL-FFI-STATISTICS module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-statistics
 
+Absolute deviation
+==================
 
 .. function:: gsl-stats-abs-dev
 
@@ -22,6 +24,9 @@ The GSL-FFI-STATISTICS module
    :parameter n: An instance of `<c-size-t>`.  
    :parameter mean: An instance of `<c-double>`.  
    :value mean: An instance of `<c-double>`.  
+
+Covariance
+==========
 
 .. function:: gsl-stats-covariance
 
@@ -47,6 +52,9 @@ The GSL-FFI-STATISTICS module
    :parameter mean2: An instance of `<c-double>`.  
    :value covariance: An instance of `<c-double>`.  
 
+Kurtosis
+========
+
 .. function:: gsl-stats-kurtosis
 
    :signature: gsl-stats-kurtosis (data n stride) => (kurtosis)
@@ -67,6 +75,9 @@ The GSL-FFI-STATISTICS module
    :parameter sd: An instance of `<c-double>`.  
    :value kurtosis: An instance of `<c-double>`.  
 
+Autocorrelation
+=============
+
 .. function:: gsl-stats-lag1-autocorrelation
 
    :signature: gsl-stats-lag1-autocorrelation (data stride n) => (autocorrelation)
@@ -86,6 +97,9 @@ The GSL-FFI-STATISTICS module
    :parameter mean: An instance of `<c-double>`.  
    :value autocorrelation: An instance of `<c-double>`.  
 
+Max/Min
+=======
+
 .. function:: gsl-stats-max
 
    :signature: gsl-stats-max (data stride n) => (maximum)
@@ -93,16 +107,7 @@ The GSL-FFI-STATISTICS module
    :parameter data: An instance of `<c-double*>`.  
    :parameter stride: An instance of `<c-size-t>`.  
    :parameter n: An instance of `<c-size-t>`.  
-   :value maximum: An instance of `<c-double>`.  
-
-.. function:: gsl-stats-mean
-
-   :signature: gsl-stats-mean (data stride n) => (mean)
-
-   :parameter data: An instance of `<c-double*>`.  
-   :parameter stride: An instance of `<c-size-t>`.  
-   :parameter n: An instance of `<c-size-t>`.  
-   :value mean: An instance of `<c-double>`.  
+   :value maximum: An instance of `<c-double>`.   
 
 .. function:: gsl-stats-min
 
@@ -122,6 +127,21 @@ The GSL-FFI-STATISTICS module
    :parameter n: An instance of `<c-size-t>`.  
    :value minimum: An instance of `<c-double*>`.  
    :value maximum: An instance of `<c-double*>`.  
+
+Mean
+====
+
+.. function:: gsl-stats-mean
+
+   :signature: gsl-stats-mean (data stride n) => (mean)
+
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value mean: An instance of `<c-double>`. 
+
+Standard deviation
+==================
 
 .. function:: gsl-stats-sd
 
@@ -152,6 +172,9 @@ The GSL-FFI-STATISTICS module
    :parameter mean: An instance of `<c-double>`.  
    :value sd: An instance of `<c-double>`.  
 
+Skewness
+========
+
 .. function:: gsl-stats-skew
 
    :signature: gsl-stats-skew (data n stride) => (skewness)
@@ -172,6 +195,9 @@ The GSL-FFI-STATISTICS module
    :parameter sd: An instance of `<c-double>`.  
    :value skewness: An instance of `<c-double>`.  
 
+Total sum of squares
+====================
+
 .. function:: gsl-stats-tss
 
    :signature: gsl-stats-tss (data stride n) => (tss)
@@ -190,6 +216,9 @@ The GSL-FFI-STATISTICS module
    :parameter n: An instance of `<c-size-t>`.  
    :parameter mean: An instance of `<c-double>`.  
    :value tss: An instance of `<c-double>`.  
+
+Variance
+========
 
 .. function:: gsl-stats-variance
 
@@ -219,6 +248,9 @@ The GSL-FFI-STATISTICS module
    :parameter n: An instance of `<c-size-t>`.  
    :parameter mean: An instance of `<c-double>`.  
    :value variance: An instance of `<c-double>`.  
+
+Correlation
+===========
 
 .. function:: gsl-stats-correlation
 
