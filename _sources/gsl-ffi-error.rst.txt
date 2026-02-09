@@ -82,5 +82,5 @@ Error functions
 
    :signature: gsl-strerror (status) => (message)
 
-   :parameter status: An instance of ``export-type-for(<c-int>)``.
-   :value message: An instance of ``import-type-for(<c-string>)``.
+   :parameter status: An instance of :class:`<c-int>`.
+   :value message: An instance of :class:`<c-string>`.

@@ -17,7 +17,7 @@ Base error class
 
    :signature: gsl-error-code (object) => (value)
 
-   :parameter object: An instance of ``{<gsl-error> in gsl-error}``.
+   :parameter object: An instance of :class:`<gsl-error>`.
    :value value: An instance of :drm:`<integer>`.
 
 .. generic-function:: gsl-error-message
