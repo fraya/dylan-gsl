@@ -15,6 +15,7 @@ Files: library.dylan
        ffi/statistics/covariance.dylan
        ffi/statistics/maximum-minimum.dylan
        ffi/statistics/correlation.dylan
+       ffi/statistics/weighted-samples.dylan
        gsl/common/module.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
@@ -29,6 +30,7 @@ Files: library.dylan
        gsl/statistics/covariance.dylan
        gsl/statistics/maximum-minimum.dylan
        gsl/statistics/correlation.dylan
+       gsl/statistics/weighted-samples.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

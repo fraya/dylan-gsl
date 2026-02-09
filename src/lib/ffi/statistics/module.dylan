@@ -59,6 +59,24 @@ define module gsl-ffi-statistics
     gsl-stats-correlation,
     gsl-stats-spearman;
 
+  // Weighted samples (file:./weighted-samples.dylan)
+
+  create
+    gsl-stats-wmean,
+    gsl-stats-wvariance,
+    gsl-stats-wvariance-m,
+    gsl-stats-wsd,
+    gsl-stats-wsd-m,
+    gsl-stats-wvariance-with-fixed-mean,
+    gsl-stats-wsd-with-fixed-mean,
+    gsl-stats-wtss,
+    gsl-stats-wtss-m,
+    gsl-stats-wabsdev,
+    gsl-stats-wabsdev-m,
+    gsl-stats-wskew,
+    gsl-stats-wkurtosis,
+    gsl-stats-wkurtosis-m-sd;
+
 end module;
 
 define module gsl-ffi-statistics-impl

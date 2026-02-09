@@ -42,7 +42,17 @@ define module gsl-statistics
     // file:./correlation.dylan
 
     correlation,
-    spearman;
+    spearman,
+
+    // file:./weighted-samples.dylan
+
+   wmean,
+   wvariance,
+   wsd,
+   wtss,
+   wabs-dev,
+   wskew,
+   wkurtosis;
 
 end module;
 
