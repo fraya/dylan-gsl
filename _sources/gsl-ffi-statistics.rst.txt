@@ -273,4 +273,157 @@ Correlation
    :parameter stride2: An instance of `<c-size-t>`.  
    :parameter n: An instance of `<c-size-t>`.  
    :parameter work: An instance of `<c-double*>`.  
-   :value correlation-sd: An instance of `<c-double>`.  
+   :value correlation-sd: An instance of `<c-double>`.
+
+Weighted samples
+================
+
+.. function:: gsl-stats-wmean
+
+   :signature: gsl-stats-wmean (w wstride data stride n) => (wmean)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wmean: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wvariance
+
+   :signature: gsl-stats-wvariance (w wstride data stride n) => (wvariance)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wvariance: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wvariance-m
+
+   :signature: gsl-stats-wvariance-m (w wstride data stride n mean) => (wvariance)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :parameter mean: An instance of `<c-double>`.  
+   :value wvariance: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wsd
+
+   :signature: gsl-stats-wsd (w wstride data stride n) => (wsd)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wsd: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wsd-m
+
+   :signature: gsl-stats-wsd-m (w wstride data stride n mean) => (wsd)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :parameter mean: An instance of `<c-double>`.  
+   :value wsd: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wsd-with-fixed-mean
+
+   :signature: gsl-stats-wsd-with-fixed-mean (w wstride data stride n mean) => (wsd)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :parameter mean: An instance of `<c-double>`.  
+   :value wsd: An instance of `<c-double>`.     
+
+.. function:: gsl-stats-wtss
+
+   :signature: gsl-stats-wtss (w wstride data stride n) => (wtss)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wtss: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wtss-m
+
+   :signature: gsl-stats-wtss-m (w wstride data stride n mean) => (wtss)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :parameter mean: An instance of `<c-double>`.  
+   :value wtss: An instance of `<c-double>`.
+
+.. function:: gsl-stats-wabsdev
+
+   :signature: gsl-stats-wabsdev (w wstride data stride n) => (wabsdev)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wabsdev: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wabsdev-m
+
+   :signature: gsl-stats-wabsdev-m (w wstride data stride n mean) => (wabsdev)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :parameter mean: An instance of `<c-double>`.  
+   :value wabsdev: An instance of `<c-double>`.  
+
+.. function:: gsl-stats-wskew
+
+   :signature: gsl-stats-wskew (w wstride data stride n) => (wskew)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wskew: An instance of `<c-double>`. 
+
+.. function:: gsl-stats-wkurtosis
+
+   :signature: gsl-stats-wkurtosis (w wstride data stride n) => (wkurtosis)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :value wkurtosis: An instance of `<c-double>`. 
+
+.. function:: gsl-stats-wkurtosis-m-sd
+
+   :signature: gsl-stats-wkurtosis-m-sd (w wstride data stride n mean sd) => (wkurtosis)
+
+   :parameter w: An instance of `<c-double*>`.  
+   :parameter wstride: An instance of `<c-size-t>`.  
+   :parameter data: An instance of `<c-double*>`.  
+   :parameter stride: An instance of `<c-size-t>`.  
+   :parameter n: An instance of `<c-size-t>`.  
+   :parameter mean: An instance of `<c-double>`.  
+   :parameter sd: An instance of `<c-double>`.  
+   :value wkurtosis: An instance of `<c-double>`. 

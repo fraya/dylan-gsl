@@ -589,6 +589,178 @@
 </dd></dl>
 
 </section>
+<section id="weighted-samples">
+<h2>Weighted samples<a class="headerlink" href="#weighted-samples" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wmean">
+<span class="sig-name descname"><span class="pre">wmean</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wmean" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wmean (weights data #key weights-stride data-stride) =&gt; (wmean)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wmean</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wvariance">
+<span class="sig-name descname"><span class="pre">wvariance</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wvariance" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wvariance (weights data #key weights-stride data-stride mean fixed-mean? population?) =&gt; (wvariance)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>mean</strong> (<em>#key</em>) – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a>.</p></li>
+<li><p><strong>fixed-mean?</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Simple_Object_Classes#boolean"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;boolean&gt;</span></code></a>.</p></li>
+<li><p><strong>population?</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Simple_Object_Classes#boolean"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;boolean&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wvariance</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wsd">
+<span class="sig-name descname"><span class="pre">wsd</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wsd" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wsd (weights data #key weights-stride data-stride mean) =&gt; (wsd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>mean</strong> (<em>#key</em>) – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wsd</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wtss">
+<span class="sig-name descname"><span class="pre">wtss</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wtss" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wtss (weights data #key weights-stride data-stride mean) =&gt; (wtss)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>mean</strong> (<em>#key</em>) – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wtss</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wabs-dev">
+<span class="sig-name descname"><span class="pre">wabs-dev</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wabs-dev" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wabs-dev (weights data #key weights-stride data-stride mean) =&gt; (wabs-dev)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>mean</strong> (<em>#key</em>) – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wabs-dev</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wskew">
+<span class="sig-name descname"><span class="pre">wskew</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wskew" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wskew (weights data #key weights-stride data-stride) =&gt; (wskew)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wskew</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:wkurtosis">
+<span class="sig-name descname"><span class="pre">wkurtosis</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:wkurtosis" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wkurtosis (weights data #key weights-stride data-stride mean sd) =&gt; (wkurtosis)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>weights</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>data</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/&lt;vector-double-float&gt;"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>weights-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>data-stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>mean</strong> (<em>#key</em>) – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a>.</p></li>
+<li><p><strong>sd</strong> (<em>#key</em>) – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wkurtosis</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -680,6 +852,16 @@
 <li><a class="reference internal" href="#correlation">Correlation</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:correlation"><code class="docutils literal notranslate"><span class="pre">correlation</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:spearman"><code class="docutils literal notranslate"><span class="pre">spearman</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#weighted-samples">Weighted samples</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wmean"><code class="docutils literal notranslate"><span class="pre">wmean</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wvariance"><code class="docutils literal notranslate"><span class="pre">wvariance</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wsd"><code class="docutils literal notranslate"><span class="pre">wsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wtss"><code class="docutils literal notranslate"><span class="pre">wtss</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wabs-dev"><code class="docutils literal notranslate"><span class="pre">wabs-dev</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wskew"><code class="docutils literal notranslate"><span class="pre">wskew</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:wkurtosis"><code class="docutils literal notranslate"><span class="pre">wkurtosis</span></code></a></li>
 </ul>
 </li>
 </ul>

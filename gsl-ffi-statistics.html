@@ -837,6 +837,328 @@
 </dd></dl>
 
 </section>
+<section id="weighted-samples">
+<h2>Weighted samples<a class="headerlink" href="#weighted-samples" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wmean">
+<span class="sig-name descname"><span class="pre">gsl-stats-wmean</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wmean" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wmean (w wstride data stride n) =&gt; (wmean)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wmean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wvariance">
+<span class="sig-name descname"><span class="pre">gsl-stats-wvariance</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wvariance" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wvariance (w wstride data stride n) =&gt; (wvariance)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wvariance</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wvariance-m">
+<span class="sig-name descname"><span class="pre">gsl-stats-wvariance-m</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wvariance-m" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wvariance-m (w wstride data stride n mean) =&gt; (wvariance)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wvariance</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd">
+<span class="sig-name descname"><span class="pre">gsl-stats-wsd</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wsd (w wstride data stride n) =&gt; (wsd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wsd</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd-m">
+<span class="sig-name descname"><span class="pre">gsl-stats-wsd-m</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd-m" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wsd-m (w wstride data stride n mean) =&gt; (wsd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wsd</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd-with-fixed-mean">
+<span class="sig-name descname"><span class="pre">gsl-stats-wsd-with-fixed-mean</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd-with-fixed-mean" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wsd-with-fixed-mean (w wstride data stride n mean) =&gt; (wsd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wsd</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wtss">
+<span class="sig-name descname"><span class="pre">gsl-stats-wtss</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wtss" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wtss (w wstride data stride n) =&gt; (wtss)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wtss</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wtss-m">
+<span class="sig-name descname"><span class="pre">gsl-stats-wtss-m</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wtss-m" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wtss-m (w wstride data stride n mean) =&gt; (wtss)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wtss</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wabsdev">
+<span class="sig-name descname"><span class="pre">gsl-stats-wabsdev</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wabsdev" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wabsdev (w wstride data stride n) =&gt; (wabsdev)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wabsdev</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wabsdev-m">
+<span class="sig-name descname"><span class="pre">gsl-stats-wabsdev-m</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wabsdev-m" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wabsdev-m (w wstride data stride n mean) =&gt; (wabsdev)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wabsdev</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wskew">
+<span class="sig-name descname"><span class="pre">gsl-stats-wskew</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wskew" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wskew (w wstride data stride n) =&gt; (wskew)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wskew</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wkurtosis">
+<span class="sig-name descname"><span class="pre">gsl-stats-wkurtosis</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wkurtosis" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wkurtosis (w wstride data stride n) =&gt; (wkurtosis)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wkurtosis</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-wkurtosis-m-sd">
+<span class="sig-name descname"><span class="pre">gsl-stats-wkurtosis-m-sd</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wkurtosis-m-sd" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-wkurtosis-m-sd (w wstride data stride n mean sd) =&gt; (wkurtosis)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>wstride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>mean</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+<li><p><strong>sd</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wkurtosis</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -942,6 +1264,22 @@
 <li><a class="reference internal" href="#correlation">Correlation</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-correlation"><code class="docutils literal notranslate"><span class="pre">gsl-stats-correlation</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-spearman"><code class="docutils literal notranslate"><span class="pre">gsl-stats-spearman</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#weighted-samples">Weighted samples</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wmean"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wmean</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wvariance"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wvariance</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wvariance-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wvariance-m</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wsd-m</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wsd-with-fixed-mean"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wsd-with-fixed-mean</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wtss"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wtss</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wtss-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wtss-m</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wabsdev"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wabsdev</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wabsdev-m"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wabsdev-m</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wskew"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wskew</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wkurtosis"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wkurtosis</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-wkurtosis-m-sd"><code class="docutils literal notranslate"><span class="pre">gsl-stats-wkurtosis-m-sd</span></code></a></li>
 </ul>
 </li>
 </ul>
