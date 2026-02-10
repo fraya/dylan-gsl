@@ -18,7 +18,7 @@ define module gsl-ffi-statistics
     gsl-stats-tss,
     gsl-stats-tss-m,
     gsl-stats-variance-with-fixed-mean,
-    gsl-stats-sd-with-fixed-mean; 
+    gsl-stats-sd-with-fixed-mean;
 
   // Absolute deviation (file:./absolute-deviation.dylan)
 

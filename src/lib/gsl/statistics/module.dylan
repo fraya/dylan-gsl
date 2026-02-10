@@ -14,17 +14,17 @@ define module gsl-statistics
     mean,
     variance,
     standard-deviation,
-    tss,    
-    
+    tss,
+
     // file:./absolute-deviation.dylan
 
     abs-dev,
-  
+
     // file:./higher-moments.dylan
 
     skew,
     kurtosis,
-  
+
     // file:./autocorrelation.dylan
 
     lag1-autocorrelation,
@@ -32,9 +32,9 @@ define module gsl-statistics
     // file:./covariance.dylan
 
     covariance,
-    
+
     // file:./maximum-minimum.dylan
-    
+
     maximum,
     minimum,
     minimum-maximum,

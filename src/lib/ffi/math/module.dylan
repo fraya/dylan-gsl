@@ -40,7 +40,7 @@ end module;
 define module gsl-ffi-math-impl
   use common-dylan;
   use c-ffi;
-  
+
   use gsl-ffi-math;
 end module;
   

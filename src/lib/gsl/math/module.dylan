@@ -19,13 +19,13 @@ define module gsl-math
       gsl-ldexp => ldexp,
       gsl-frexp => frexp
     },
-    export: { 
+    export: {
       all
     },
-    exclude: { 
+    exclude: {
       gsl-fcmp
     };
- 
+
 
   // double float comparison
 

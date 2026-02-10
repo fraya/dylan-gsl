@@ -9,9 +9,9 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_absdev_m
 
 define function abs-dev
-    (data :: <vector>, 
-    #key stride :: <integer> = 1, 
-         mean :: <double-float?> = #f) 
+    (data :: <vector>,
+    #key stride :: <integer> = 1,
+         mean :: <double-float?> = #f)
  => (mean :: <double-float>)
   with-c-double-array (c-data = data)
     if (mean)

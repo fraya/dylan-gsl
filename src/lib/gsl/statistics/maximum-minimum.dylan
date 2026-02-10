@@ -30,4 +30,4 @@ define function minimum-maximum
   with-c-double-array (c-data = data)
     gsl-stats-minmax(c-data, stride, data.size)
   end
-end;  
+end;

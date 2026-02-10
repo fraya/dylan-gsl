@@ -44,7 +44,7 @@ define module gsl-ffi-error
     $gsl-etolx,
     $gsl-etolg,
     $gsl-eof;
-    
+
 end module;
 
 define module gsl-ffi-error-impl
