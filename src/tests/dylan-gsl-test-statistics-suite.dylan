@@ -35,10 +35,22 @@ define test test-minimum-maximum ()
   assert-true(f=(max, 18.3d0));
 end test;
 
+define test test-median ()
+  let m1 = median($stats-dataset);
+  assert-true(f=(m1, 17.2d0));
+  assert-equal($stats-dataset,
+               vector-double-float(#[17.2d0, 18.1d0, 16.5d0, 18.3d0, 12.6d0]),
+               "Dataset is not modified in sorting");
+  let sorted-stats-dataset = vector-double-float(#[12.6d0, 16.5d0, 17.2d0, 18.1d0, 18.3d0]);
+  let m2 = median(sorted-stats-dataset, sorted?: #t);
+  assert-true(f=(m1, m2));
+end test;
+
 define suite gsl-statistics-suite ()
   test test-mean;
   test test-variance;
   test test-maximum;
   test test-minimum;
   test test-minimum-maximum;
+  test test-median;
 end suite;
