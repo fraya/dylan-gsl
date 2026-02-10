@@ -242,11 +242,11 @@ Weighted samples
 Median and Percentiles
 =====================
 
-   .. function:: median
+.. function:: median
 
-      :signature: median (data #key stride sorted?) => (median)
+   :signature: median (data #key stride sorted?) => (median)
 
-      :parameter data: An instance of :class:`<vector-double-float>`.
-      :parameter #key stride: An instance of :drm:`<integer>`.
-      :parameter #key sorted?: An instance of :drm:`<boolean>`.
-      :value median: An instance of :drm:`<double-float>`.
+   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter #key stride: An instance of :drm:`<integer>`.
+   :parameter #key sorted?: An instance of :drm:`<boolean>`.
+   :value median: An instance of :drm:`<double-float>`.
