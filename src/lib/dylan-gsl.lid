@@ -16,6 +16,7 @@ Files: library.dylan
        ffi/statistics/maximum-minimum.dylan
        ffi/statistics/correlation.dylan
        ffi/statistics/weighted-samples.dylan
+       ffi/statistics/median-percentiles.dylan
        gsl/common/module.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan

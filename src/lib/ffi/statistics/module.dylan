@@ -77,6 +77,12 @@ define module gsl-ffi-statistics
     gsl-stats-wkurtosis,
     gsl-stats-wkurtosis-m-sd;
 
+  // Median and percentiles (file:./median-percentiles.dylan)
+
+  create
+    gsl-stats-median-from-from-sorted-data,
+    gsl-stats-median;
+
 end module;
 
 define module gsl-ffi-statistics-impl
