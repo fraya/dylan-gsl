@@ -80,7 +80,7 @@ define module gsl-ffi-statistics
   // Median and percentiles (file:./median-percentiles.dylan)
 
   create
-    gsl-stats-median-from-from-sorted-data,
+    gsl-stats-median-from-sorted-data,
     gsl-stats-median;
 
 end module;

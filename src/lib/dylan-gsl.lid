@@ -32,6 +32,7 @@ Files: library.dylan
        gsl/statistics/maximum-minimum.dylan
        gsl/statistics/correlation.dylan
        gsl/statistics/weighted-samples.dylan
+       gsl/statistics/median-percentiles.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

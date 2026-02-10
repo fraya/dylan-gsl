@@ -52,7 +52,12 @@ define module gsl-statistics
    wtss,
    wabs-dev,
    wskew,
-   wkurtosis;
+   wkurtosis,
+
+    // file:./median-percentiles.dylan
+
+   median;
+   
 
 end module;
 
