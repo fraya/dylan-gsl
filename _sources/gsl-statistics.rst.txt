@@ -239,8 +239,8 @@ Weighted samples
    :parameter #key sd: An instance of :const:`<double-float?>`.  
    :value wkurtosis: An instance of :drm:`<double-float>`.
 
-   Median and Percentiles
-   =====================
+Median and Percentiles
+=====================
 
    .. function:: median
 
