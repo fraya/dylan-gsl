@@ -7,61 +7,68 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
 
 define module gsl-statistics
 
+  // file:./mean-std-variance.dylan
+
   create
-
-    // file:./mean-std-variance.dylan
-
     mean,
     variance,
     standard-deviation,
-    tss,
+    tss;
 
-    // file:./absolute-deviation.dylan
+  // file:./absolute-deviation.dylan
 
-    abs-dev,
+  create
+    abs-dev;
 
-    // file:./higher-moments.dylan
+  // file:./higher-moments.dylan
 
+  create
     skew,
-    kurtosis,
+    kurtosis;
 
-    // file:./autocorrelation.dylan
+  // file:./autocorrelation.dylan
 
-    lag1-autocorrelation,
+  create
+    lag1-autocorrelation;
 
-    // file:./covariance.dylan
+  // file:./covariance.dylan
 
-    covariance,
+  create
+    covariance;
 
-    // file:./maximum-minimum.dylan
+  // file:./maximum-minimum.dylan
 
+  create
     maximum,
     minimum,
-    minimum-maximum,
+    minimum-maximum;
 
-    // file:./correlation.dylan
+  // file:./correlation.dylan
 
+  create
     correlation,
-    spearman,
+    spearman;
 
-    // file:./weighted-samples.dylan
+  // file:./weighted-samples.dylan
 
-   wmean,
-   wvariance,
-   wsd,
-   wtss,
-   wabs-dev,
-   wskew,
-   wkurtosis,
+  create
+    wmean,
+    wvariance,
+    wsd,
+    wtss,
+    wabs-dev,
+    wskew,
+    wkurtosis;
 
-    // file:./median-percentiles.dylan
+  // file:./median-percentiles.dylan
 
-    median,
+  create
+    median;
 
-    // file:./order-statistic.dylan
+  // file:./order-statistic.dylan
 
-   kth-order-statistic;
-
+  create
+    kth-order-statistic;
 
 end module;
 
