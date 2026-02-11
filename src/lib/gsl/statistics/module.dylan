@@ -59,9 +59,9 @@ define module gsl-statistics
     median,
 
     // file:./order-statistic.dylan
-    
+
    kth-order-statistic;
-   
+
 
 end module;
 

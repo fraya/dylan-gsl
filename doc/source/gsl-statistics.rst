@@ -165,78 +165,78 @@ Weighted samples
 
    :signature: wmean (weights data #key weights-stride data-stride) => (wmean)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
    :value wmean: An instance of :drm:`<double-float>`.
 
 .. function:: wvariance
 
    :signature: wvariance (weights data #key weights-stride data-stride mean fixed-mean? population?) => (wvariance)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
-   :parameter #key mean: An instance of :const:`<double-float?>`.  
-   :parameter #key fixed-mean?: An instance of :drm:`<boolean>`.  
-   :parameter #key population?: An instance of :drm:`<boolean>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
+   :parameter #key mean: An instance of :const:`<double-float?>`.
+   :parameter #key fixed-mean?: An instance of :drm:`<boolean>`.
+   :parameter #key population?: An instance of :drm:`<boolean>`.
    :value wvariance: An instance of :drm:`<double-float>`.
 
 .. function:: wsd
 
    :signature: wsd (weights data #key weights-stride data-stride mean) => (wsd)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
-   :parameter #key mean: An instance of :const:`<double-float?>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
+   :parameter #key mean: An instance of :const:`<double-float?>`.
    :value wsd: An instance of :drm:`<double-float>`.
 
 .. function:: wtss
 
    :signature: wtss (weights data #key weights-stride data-stride mean) => (wtss)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
-   :parameter #key mean: An instance of :const:`<double-float?>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
+   :parameter #key mean: An instance of :const:`<double-float?>`.
    :value wtss: An instance of :drm:`<double-float>`.
 
 .. function:: wabs-dev
 
    :signature: wabs-dev (weights data #key weights-stride data-stride mean) => (wabs-dev)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
-   :parameter #key mean: An instance of :const:`<double-float?>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
+   :parameter #key mean: An instance of :const:`<double-float?>`.
    :value wabs-dev: An instance of :drm:`<double-float>`.
 
 .. function:: wskew
 
    :signature: wskew (weights data #key weights-stride data-stride) => (wskew)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
    :value wskew: An instance of :drm:`<double-float>`.
 
 .. function:: wkurtosis
 
    :signature: wkurtosis (weights data #key weights-stride data-stride mean sd) => (wkurtosis)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.  
-   :parameter data: An instance of :drm:`<vector-double-float>`.  
-   :parameter #key weights-stride: An instance of :drm:`<integer>`.  
-   :parameter #key data-stride: An instance of :drm:`<integer>`.  
-   :parameter #key mean: An instance of :const:`<double-float?>`.  
-   :parameter #key sd: An instance of :const:`<double-float?>`.  
+   :parameter weights: An instance of :drm:`<vector-double-float>`.
+   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter #key weights-stride: An instance of :drm:`<integer>`.
+   :parameter #key data-stride: An instance of :drm:`<integer>`.
+   :parameter #key mean: An instance of :const:`<double-float?>`.
+   :parameter #key sd: An instance of :const:`<double-float?>`.
    :value wkurtosis: An instance of :drm:`<double-float>`.
 
 Median and Percentiles

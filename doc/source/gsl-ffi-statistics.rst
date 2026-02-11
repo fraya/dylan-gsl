@@ -345,7 +345,7 @@ Weighted samples
    :parameter stride: An instance of `<c-size-t>`.
    :parameter n: An instance of `<c-size-t>`.
    :parameter mean: An instance of `<c-double>`.
-   :value wsd: An instance of `<c-double>`.     
+   :value wsd: An instance of `<c-double>`.
 
 .. function:: gsl-stats-wtss
 
