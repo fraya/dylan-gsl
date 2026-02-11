@@ -76,7 +76,7 @@ Kurtosis
    :value kurtosis: An instance of `<c-double>`.
 
 Autocorrelation
-=============
+===============
 
 .. function:: gsl-stats-lag1-autocorrelation
 
