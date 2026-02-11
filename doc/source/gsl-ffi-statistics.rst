@@ -448,3 +448,16 @@ Median and Percentiles
    :parameter stride: An instance of `<c-size-t>`.
    :parameter n: An instance of `<c-size-t>`.
    :value median: An instance of `<c-double>`.
+
+Order Statistics
+================
+
+.. function:: gsl-stats-select
+
+   :signature: gsl-stats-select (data stride n k) => (kth-order-statistic)
+
+   :parameter data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter k: An instance of `<c-size-t>`.
+   :value kth-order-statistic: An instance of `<c-double>`.

@@ -17,6 +17,7 @@ Files: library.dylan
        ffi/statistics/correlation.dylan
        ffi/statistics/weighted-samples.dylan
        ffi/statistics/median-percentiles.dylan
+       ffi/statistics/order-statistics.dylan  
        gsl/common/module.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
@@ -33,6 +34,7 @@ Files: library.dylan
        gsl/statistics/correlation.dylan
        gsl/statistics/weighted-samples.dylan
        gsl/statistics/median-percentiles.dylan
+       gsl/statistics/order-statistics.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

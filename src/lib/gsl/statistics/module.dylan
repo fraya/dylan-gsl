@@ -56,7 +56,11 @@ define module gsl-statistics
 
     // file:./median-percentiles.dylan
 
-   median;
+    median,
+
+    // file:./order-statistic.dylan
+    
+   kth-order-statistic;
    
 
 end module;

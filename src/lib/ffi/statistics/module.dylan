@@ -83,6 +83,11 @@ define module gsl-ffi-statistics
     gsl-stats-median-from-sorted-data,
     gsl-stats-median;
 
+  // Order statistics (file:./order-statistic.dylan)
+
+  create
+    gsl-stats-select;
+
 end module;
 
 define module gsl-ffi-statistics-impl

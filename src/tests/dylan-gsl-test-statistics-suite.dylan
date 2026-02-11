@@ -46,6 +46,11 @@ define test test-median ()
   assert-true(f=(m1, m2));
 end test;
 
+define test test-order-statistic! ()
+  let kth = kth-order-statistic($stats-dataset, 0);
+  assert-equal(kth, 12.6d0);
+end;
+
 define suite gsl-statistics-suite ()
   test test-mean;
   test test-variance;
@@ -53,4 +58,5 @@ define suite gsl-statistics-suite ()
   test test-minimum;
   test test-minimum-maximum;
   test test-median;
+  test test-order-statistic!;
 end suite;

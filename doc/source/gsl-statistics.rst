@@ -250,3 +250,15 @@ Median and Percentiles
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key sorted?: An instance of :drm:`<boolean>`.
    :value median: An instance of :drm:`<double-float>`.
+
+Order Statistics
+================
+
+.. function:: kth-order-statistic
+
+   :signature: kth-order-statistic (data k #key stride) => (kth-order-statistic)
+
+   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter k: An instance of :drm:`<double-float>`.
+   :parameter #key stride: An instance of :drm:`<integer>`.
+   :value kth-order-statistic: An instance of :drm:`<double-float>`.
