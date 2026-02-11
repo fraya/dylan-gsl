@@ -71,8 +71,8 @@ Covariance
    :parameter #key mean2: An instance of :const:`<double-float?>`.
    :value covariance: An instance of :drm:`<double-float>`.
 
-Higher moments
-==============
+Higher moments (skewness and kurtosis)
+======================================
 
 .. function:: skew
 
