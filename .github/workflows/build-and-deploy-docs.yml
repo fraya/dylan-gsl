@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: dylan-gsl-doc-html
-          path: documentation/build/html/
+          path: doc/build/html/
 
       - name: Bypassing Jekyll on GH Pages
         run: sudo touch doc/build/html/.nojekyll
