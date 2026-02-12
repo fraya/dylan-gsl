@@ -461,3 +461,13 @@ Order Statistics
    :parameter n: An instance of `<c-size-t>`.
    :parameter k: An instance of `<c-size-t>`.
    :value kth-order-statistic: An instance of `<c-double>`.
+
+.. function:: gsl-stats-trmean-from-sorted-data
+
+   :signature: gsl-stats-trmean-from-sorted-data (alpha sorted-data stride n) => (trmean)
+
+   :parameter alpha: An instance of `<c-double>`.
+   :parameter sorted-data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :value trmean: An instance of `<c-double>`.

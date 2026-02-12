@@ -262,3 +262,12 @@ Order Statistics
    :parameter k: An instance of :drm:`<double-float>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value kth-order-statistic: An instance of :drm:`<double-float>`.
+
+.. function:: trimmed-mean
+
+   :signature: trimmed-mean (sorted-data alpha #key stride) => (trimmed-mean)
+
+   :parameter sorted-data: An instance of :class:`<vector-double-float>`.
+   :parameter alpha: An instance of :drm:`<double-float>`.
+   :parameter #key stride: An instance of :drm:`<integer>`.
+   :value trimmed-mean: An instance of :drm:`<double-float>`.

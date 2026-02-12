@@ -86,7 +86,8 @@ define module gsl-ffi-statistics
   // Order statistics (file:./order-statistic.dylan)
 
   create
-    gsl-stats-select;
+    gsl-stats-select,
+    gsl-stats-trmean-from-sorted-data;
 
 end module;
 
