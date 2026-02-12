@@ -22,7 +22,7 @@ define function trimmed-mean
      alpha :: <double-float>,
      #key stride :: <integer> = 1)
  => (trimmed-mean :: <double-float>)
-  with-c-double-array (c-data = data)
-    gsl-stats-trmean-from-sorted-data(alpha, c-data, stride, data.size)
+  with-c-double-array (c-data = sorted-data)
+    gsl-stats-trmean-from-sorted-data(alpha, c-data, stride, sorted-data.size)
   end
 end;
