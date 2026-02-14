@@ -263,6 +263,9 @@ Order Statistics
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value kth-order-statistic: An instance of :drm:`<double-float>`.
 
+Robust Location Estimates
+=========================
+
 .. function:: trimmed-mean
 
    :signature: trimmed-mean (sorted-data alpha #key stride) => (trimmed-mean)

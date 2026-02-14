@@ -462,6 +462,9 @@ Order Statistics
    :parameter k: An instance of `<c-size-t>`.
    :value kth-order-statistic: An instance of `<c-double>`.
 
+Robust Location Estimates
+=========================
+
 .. function:: gsl-stats-trmean-from-sorted-data
 
    :signature: gsl-stats-trmean-from-sorted-data (alpha sorted-data stride n) => (trmean)

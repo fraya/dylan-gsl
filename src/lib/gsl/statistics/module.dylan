@@ -68,7 +68,11 @@ define module gsl-statistics
   // file:./order-statistic.dylan
 
   create
-    kth-order-statistic,
+    kth-order-statistic;
+
+  // file:./robust-location-estimates.dylan
+
+  create
     trimmed-mean;
 
 end module;

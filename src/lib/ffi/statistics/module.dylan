@@ -86,7 +86,11 @@ define module gsl-ffi-statistics
   // Order statistics (file:./order-statistic.dylan)
 
   create
-    gsl-stats-select,
+    gsl-stats-select;
+
+  // Robust location estimates (file:./robust-location-estimates.dylan)
+
+  create
     gsl-stats-trmean-from-sorted-data;
 
 end module;
