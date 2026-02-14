@@ -91,7 +91,8 @@ define module gsl-ffi-statistics
   // Robust location estimates (file:./robust-location-estimates.dylan)
 
   create
-    gsl-stats-trmean-from-sorted-data;
+    gsl-stats-trmean-from-sorted-data,
+    gsl-stats-gastwirth-from-sorted-data;
 
 end module;
 

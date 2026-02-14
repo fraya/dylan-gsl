@@ -474,3 +474,12 @@ Robust Location Estimates
    :parameter stride: An instance of `<c-size-t>`.
    :parameter n: An instance of `<c-size-t>`.
    :value trmean: An instance of `<c-double>`.
+
+.. function:: gsl-stats-gastwirth-from-sorted-data
+
+   :signature: gsl-stats-gastwirth-from-sorted-data (sorted-data stride n) => (gastwirth)
+
+   :parameter sorted-data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :value gastwirth: An instance of `<c-double>`.

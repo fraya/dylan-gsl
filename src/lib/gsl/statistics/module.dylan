@@ -73,7 +73,8 @@ define module gsl-statistics
   // file:./robust-location-estimates.dylan
 
   create
-    trimmed-mean;
+    trimmed-mean,
+    gastwirth-estimator;
 
 end module;
 

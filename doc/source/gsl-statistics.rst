@@ -274,3 +274,11 @@ Robust Location Estimates
    :parameter alpha: An instance of :drm:`<double-float>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value trimmed-mean: An instance of :drm:`<double-float>`.
+
+.. function:: gastwirth-estimator
+
+   :signature: gastwirth-estimator (sorted-data #key stride) => (gastwirth-estimator)
+
+   :parameter sorted-data: An instance of :class:`<vector-double-float>`.
+   :parameter #key stride: An instance of :drm:`<integer>`.
+   :value gastwirth-estimator: An instance of :drm:`<double-float>`.

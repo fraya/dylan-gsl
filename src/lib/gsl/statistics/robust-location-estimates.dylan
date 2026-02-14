@@ -5,6 +5,8 @@ Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#robust-location-estimates
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_trmean_from_sorted_data
+           https://www.gnu.org/software/gsl/doc/html/statistics.html#gastwirth-estimator
+           https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_gastwirth_from_sorted_data
 
 define function trimmed-mean
     (sorted-data :: <vector-double-float>,
@@ -13,5 +15,14 @@ define function trimmed-mean
  => (trimmed-mean :: <double-float>)
   with-c-double-array (c-data = sorted-data)
     gsl-stats-trmean-from-sorted-data(alpha, c-data, stride, sorted-data.size)
+  end
+end;
+
+define function gastwirth-estimator
+    (sorted-data :: <vector-double-float>,
+     #key stride :: <integer> = 1)
+ => (gastwirth-estimator :: <double-float>)
+  with-c-double-array (c-data = sorted-data)
+    gsl-stats-gastwirth-from-sorted-data(c-data, stride, sorted-data.size)
   end
 end;
