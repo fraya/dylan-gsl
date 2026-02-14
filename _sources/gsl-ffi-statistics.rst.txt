@@ -483,3 +483,27 @@ Robust Location Estimates
    :parameter stride: An instance of `<c-size-t>`.
    :parameter n: An instance of `<c-size-t>`.
    :value gastwirth: An instance of `<c-double>`.
+
+Robust Scale Estimates
+======================
+
+.. function:: gsl-stats-mad0
+
+   :signature: gsl-stats-mad0 (data stride n work) => (mad)
+
+   :parameter data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter work: An instance of `<c-double*>`.
+   :value mad: An instance of `<c-double>`.
+
+.. function:: gsl-stats-mad
+
+   :signature: gsl-stats-mad (data stride n work) => (mad)
+
+   :parameter data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter work: An instance of `<c-double*>`.
+   :value mad: An instance of `<c-double>`.
+

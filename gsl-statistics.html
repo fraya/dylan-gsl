@@ -857,6 +857,51 @@
 </dd></dl>
 
 </section>
+<section id="robust-scale-estimates">
+<h2>Robust Scale Estimates<a class="headerlink" href="#robust-scale-estimates" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:mad">
+<span class="sig-name descname"><span class="pre">mad</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:mad" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mad (data #key stride) =&gt; (mad)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[vector-double-float]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mad</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:mad0">
+<span class="sig-name descname"><span class="pre">mad0</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:mad0" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mad0 (data #key stride) =&gt; (mad0)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-common.html#dylan-gsl:gsl-common:[vector-double-float]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mad0</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -971,6 +1016,11 @@
 <li><a class="reference internal" href="#robust-location-estimates">Robust Location Estimates</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:trimmed-mean"><code class="docutils literal notranslate"><span class="pre">trimmed-mean</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:gastwirth-estimator"><code class="docutils literal notranslate"><span class="pre">gastwirth-estimator</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#robust-scale-estimates">Robust Scale Estimates</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:mad"><code class="docutils literal notranslate"><span class="pre">mad</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:mad0"><code class="docutils literal notranslate"><span class="pre">mad0</span></code></a></li>
 </ul>
 </li>
 </ul>

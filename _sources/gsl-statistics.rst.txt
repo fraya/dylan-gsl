@@ -282,3 +282,22 @@ Robust Location Estimates
    :parameter sorted-data: An instance of :class:`<vector-double-float>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value gastwirth-estimator: An instance of :drm:`<double-float>`.
+
+Robust Scale Estimates
+======================
+
+.. function:: mad
+
+   :signature: mad (data #key stride) => (mad)
+
+   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter #key stride: An instance of :drm:`<integer>`.
+   :value mad: An instance of :drm:`<double-float>`.
+
+.. function:: mad0
+
+   :signature: mad0 (data #key stride) => (mad0)
+
+   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter #key stride: An instance of :drm:`<integer>`.
+   :value mad0: An instance of :drm:`<double-float>`.

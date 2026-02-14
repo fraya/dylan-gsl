@@ -1280,6 +1280,55 @@
 </dd></dl>
 
 </section>
+<section id="robust-scale-estimates">
+<h2>Robust Scale Estimates<a class="headerlink" href="#robust-scale-estimates" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-mad0">
+<span class="sig-name descname"><span class="pre">gsl-stats-mad0</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mad0" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-mad0 (data stride n work) =&gt; (mad)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>work</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mad</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-mad">
+<span class="sig-name descname"><span class="pre">gsl-stats-mad</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mad" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-mad (data stride n work) =&gt; (mad)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>work</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mad</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1415,6 +1464,11 @@
 <li><a class="reference internal" href="#robust-location-estimates">Robust Location Estimates</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-trmean-from-sorted-data"><code class="docutils literal notranslate"><span class="pre">gsl-stats-trmean-from-sorted-data</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-gastwirth-from-sorted-data"><code class="docutils literal notranslate"><span class="pre">gsl-stats-gastwirth-from-sorted-data</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#robust-scale-estimates">Robust Scale Estimates</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mad0"><code class="docutils literal notranslate"><span class="pre">gsl-stats-mad0</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-mad"><code class="docutils literal notranslate"><span class="pre">gsl-stats-mad</span></code></a></li>
 </ul>
 </li>
 </ul>
