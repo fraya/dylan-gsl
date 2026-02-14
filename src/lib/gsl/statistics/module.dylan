@@ -76,6 +76,12 @@ define module gsl-statistics
     trimmed-mean,
     gastwirth-estimator;
 
+  // file:./robust-scale-estimates.dylan
+
+  create
+    mad,
+    mad0;
+
 end module;
 
 define module gsl-statistics-impl

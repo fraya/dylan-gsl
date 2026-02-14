@@ -94,6 +94,12 @@ define module gsl-ffi-statistics
     gsl-stats-trmean-from-sorted-data,
     gsl-stats-gastwirth-from-sorted-data;
 
+  // Robust scale estimates (file:./robust-scale-estimates.dylan)
+
+  create
+    gsl-stats-mad,
+    gsl-stats-mad0;
+
 end module;
 
 define module gsl-ffi-statistics-impl

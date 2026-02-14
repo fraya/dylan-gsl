@@ -19,6 +19,7 @@ Files: library.dylan
        ffi/statistics/median-percentiles.dylan
        ffi/statistics/order-statistics.dylan
        ffi/statistics/robust-location-estimates.dylan
+       ffi/statistics/robust-scale-estimates.dylan
        gsl/common/module.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
@@ -37,6 +38,7 @@ Files: library.dylan
        gsl/statistics/median-percentiles.dylan
        gsl/statistics/order-statistics.dylan
        gsl/statistics/robust-location-estimates.dylan
+       gsl/statistics/robust-scale-estimates.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 
