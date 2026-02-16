@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The GSL-ERROR module" href="gsl-error.html" /><link rel="prev" title="The DYLAN-GSL library" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The GSL-FFI-VECTOR module" href="gsl-ffi-vector.html" /><link rel="prev" title="The GSL-FFI-MATH module" href="gsl-ffi-math.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>The GSL-COMMON module - Dylan GSL 0.1.0 documentation</title>
+        <title>The GSL-FFI-BLOCK module - Dylan GSL 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -200,17 +200,17 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">GSL modules:</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">The GSL-COMMON module</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gsl-common.html">The GSL-COMMON module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-error.html">The GSL-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-math.html">The GSL-MATH module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FFI modules:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-error.html">The GSL-FFI-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-math.html">The GSL-FFI-MATH module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-block.html">The GSL-FFI-BLOCK module</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">The GSL-FFI-BLOCK module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-vector.html">The GSL-FFI-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">The GSL-FFI-STATISTICS module</a></li>
 </ul>
@@ -233,7 +233,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/gsl-common.rst.txt" title="View this page">
+  <a class="muted-link" href="_sources/gsl-ffi-block.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -253,53 +253,90 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="the-gsl-common-module">
-<h1>The GSL-COMMON module<a class="headerlink" href="#the-gsl-common-module" title="Link to this heading">¶</a></h1>
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-common:[double-float?]">
-<span class="sig-name descname"><span class="pre">&lt;double-float?&gt;</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-common:[double-float?]" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+          <section id="the-gsl-ffi-block-module">
+<h1>The GSL-FFI-BLOCK module<a class="headerlink" href="#the-gsl-ffi-block-module" title="Link to this heading">¶</a></h1>
+<section id="the-gsl-block-type">
+<h2>The &lt;gsl-block&gt; type<a class="headerlink" href="#the-gsl-block-type" title="Link to this heading">¶</a></h2>
+<dl class="dylan type">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:[gsl-block]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-block&gt;</span></span> <em class="property"><span class="pre">Type</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:[gsl-block]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p>&lt;c-struct&gt;</p>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>A block of memory allocated by the GSL.</p>
+</dd>
+<dt class="field-odd">Slots<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
 
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-common:[numeric-sequence]">
-<span class="sig-name descname"><span class="pre">&lt;numeric-sequence&gt;</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-common:[numeric-sequence]" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-common:[vector-double-float]">
-<span class="sig-name descname"><span class="pre">&lt;vector-double-float&gt;</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-common:[vector-double-float]" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-common:[vector-double-float?]">
-<span class="sig-name descname"><span class="pre">&lt;vector-double-float?&gt;</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-common:[vector-double-float?]" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</section>
+<section id="allocation-functions">
+<h2>Allocation functions<a class="headerlink" href="#allocation-functions" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-common:vector-double-float">
-<span class="sig-name descname"><span class="pre">vector-double-float</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-common:vector-double-float" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:gsl-block-alloc">
+<span class="sig-name descname"><span class="pre">gsl-block-alloc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:gsl-block-alloc" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>vector-double-float (seq) =&gt; (vec)</p>
+<dd class="field-odd"><p>gsl-block-alloc (n) =&gt; (block)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>seq</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#sequence"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code></a>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vec</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-common:[vector-double-float]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>block</strong> – An instance of <cite>&lt;gsl-block*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Allocate an array of n elements in a block of memory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:gsl-block-calloc">
+<span class="sig-name descname"><span class="pre">gsl-block-calloc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:gsl-block-calloc" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-block-calloc (n) =&gt; (block)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block</strong> – An instance of <cite>&lt;gsl-block*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Allocate an array of n elements in a block of memory and initialize all elements to zero.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:gsl-block-free">
+<span class="sig-name descname"><span class="pre">gsl-block-free</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:gsl-block-free" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-block-free (block) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>block</strong> – An instance of <cite>&lt;gsl-block*&gt;</cite>.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan macro">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-common:with-c-double-array">
-<span class="sig-name descname"><span class="pre">with-c-double-array</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#dylan-gsl:gsl-common:with-c-double-array" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</section>
 </section>
 
         </article>
@@ -307,23 +344,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="gsl-error.html">
+          <a class="next-page" href="gsl-ffi-vector.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">The GSL-ERROR module</div>
+                <div class="title">The GSL-FFI-VECTOR module</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="gsl-ffi-math.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">The GSL-FFI-MATH module</div>
                 
               </div>
             </a>
@@ -357,13 +394,17 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">The GSL-COMMON module</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-common:[double-float?]"><code class="docutils literal notranslate"><span class="pre">&lt;double-float?&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-common:[numeric-sequence]"><code class="docutils literal notranslate"><span class="pre">&lt;numeric-sequence&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-common:[vector-double-float]"><code class="docutils literal notranslate"><span class="pre">&lt;vector-double-float&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-common:[vector-double-float?]"><code class="docutils literal notranslate"><span class="pre">&lt;vector-double-float?&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-common:vector-double-float"><code class="docutils literal notranslate"><span class="pre">vector-double-float</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-common:with-c-double-array"><code class="docutils literal notranslate"><span class="pre">with-c-double-array</span></code></a></li>
+<li><a class="reference internal" href="#">The GSL-FFI-BLOCK module</a><ul>
+<li><a class="reference internal" href="#the-gsl-block-type">The &lt;gsl-block&gt; type</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:[gsl-block]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-block&gt;</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#allocation-functions">Allocation functions</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:gsl-block-alloc"><code class="docutils literal notranslate"><span class="pre">gsl-block-alloc</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:gsl-block-calloc"><code class="docutils literal notranslate"><span class="pre">gsl-block-calloc</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:gsl-block-free"><code class="docutils literal notranslate"><span class="pre">gsl-block-free</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

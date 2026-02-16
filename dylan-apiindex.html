@@ -208,6 +208,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-error.html">The GSL-FFI-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-math.html">The GSL-FFI-MATH module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-block.html">The GSL-FFI-BLOCK module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-vector.html">The GSL-FFI-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">The GSL-FFI-STATISTICS module</a></li>
 </ul>
 
@@ -678,6 +680,12 @@
   <tr>
     <td></td>
     <td>
+        <a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:[gsl-block]"><code class="xref">&lt;gsl-block&gt;</code></a> <em>(type)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
         <a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-cache-limit-exceeded]"><code class="xref">&lt;gsl-cache-limit-exceeded&gt;</code></a> <em>(class)</em></td><td>
     <em></em></td>
   </tr>
@@ -864,6 +872,12 @@
   <tr>
     <td></td>
     <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:[gsl-vector*]"><code class="xref">&lt;gsl-vector*&gt;</code></a> <em>(type)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
         <a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-zero-division]"><code class="xref">&lt;gsl-zero-division&gt;</code></a> <em>(class)</em></td><td>
     <em></em></td>
   </tr>
@@ -889,6 +903,24 @@
     <td></td>
     <td>
         <a href="gsl-ffi-math.html#dylan-gsl:gsl-ffi-math:gsl-atanh"><code class="xref">gsl-atanh</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:gsl-block-alloc"><code class="xref">gsl-block-alloc</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:gsl-block-calloc"><code class="xref">gsl-block-calloc</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:gsl-block-free"><code class="xref">gsl-block-free</code></a> <em>(function)</em></td><td>
     <em></em></td>
   </tr>
   <tr>
@@ -1213,6 +1245,138 @@
     <td></td>
     <td>
         <a href="gsl-ffi-error.html#dylan-gsl:gsl-ffi-error:gsl-strerror"><code class="xref">gsl-strerror</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-add"><code class="xref">gsl-vector-add</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-add-constant"><code class="xref">gsl-vector-add-constant</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-alloc"><code class="xref">gsl-vector-alloc</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-axpby"><code class="xref">gsl-vector-axpby</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-calloc"><code class="xref">gsl-vector-calloc</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-const-ptr"><code class="xref">gsl-vector-const-ptr</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-div"><code class="xref">gsl-vector-div</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-free"><code class="xref">gsl-vector-free</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-max"><code class="xref">gsl-vector-max</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-max-index"><code class="xref">gsl-vector-max-index</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-min"><code class="xref">gsl-vector-min</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-min-index"><code class="xref">gsl-vector-min-index</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-mul"><code class="xref">gsl-vector-mul</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-ptr"><code class="xref">gsl-vector-ptr</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-reverse"><code class="xref">gsl-vector-reverse</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-scale"><code class="xref">gsl-vector-scale</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-set-all"><code class="xref">gsl-vector-set-all</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-set-basis"><code class="xref">gsl-vector-set-basis</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-set-zero"><code class="xref">gsl-vector-set-zero</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-sub"><code class="xref">gsl-vector-sub</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-sum"><code class="xref">gsl-vector-sum</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-swap-elements"><code class="xref">gsl-vector-swap-elements</code></a> <em>(function)</em></td><td>
     <em></em></td>
   </tr>
   <tr class="pcap">

@@ -22,4 +22,6 @@ FFI modules
 
    gsl-ffi-error
    gsl-ffi-math
+   gsl-ffi-block
+   gsl-ffi-vector
    gsl-ffi-statistics

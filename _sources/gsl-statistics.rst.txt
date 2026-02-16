@@ -240,7 +240,7 @@ Weighted samples
    :value wkurtosis: An instance of :drm:`<double-float>`.
 
 Median and Percentiles
-=====================
+======================
 
 .. function:: median
 
