@@ -20,6 +20,10 @@ Files: library.dylan
        ffi/statistics/order-statistics.dylan
        ffi/statistics/robust-location-estimates.dylan
        ffi/statistics/robust-scale-estimates.dylan
+       ffi/vector-and-matrices/module-block.dylan
+       ffi/vector-and-matrices/block.dylan
+       ffi/vector-and-matrices/module-vector.dylan
+       ffi/vector-and-matrices/vector.dylan
        gsl/common/module.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
