@@ -201,7 +201,7 @@ Accessing elements
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       sum(v);
 
-.. method:: \+
+.. method:: +
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \+ (v w) => (sum)
@@ -218,7 +218,7 @@ Accessing elements
       let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
       let z = v + w;
 
-.. method:: \-
+.. method:: -
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \- (v w) => (difference)
@@ -235,7 +235,7 @@ Accessing elements
       let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
       let z = v - w;
 
-.. method:: \*
+.. method:: *
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \* (v w) => (product)
@@ -252,7 +252,7 @@ Accessing elements
       let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
       let z = v * w;
 
-.. method:: \/
+.. method:: /
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \/ (v w) => (division)
@@ -269,7 +269,7 @@ Accessing elements
       let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
       let q = v / w;
 
-.. method:: \*
+.. method:: *
    :specializer: <gsl-vector>, <double-float>
 
    :signature: \* (vector value) => (scaled)
@@ -285,7 +285,7 @@ Accessing elements
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       let scaled = v * 2.0d0; 
 
-.. method:: \+
+.. method:: +
    :specializer: <gsl-vector>, <double-float>
 
    :signature: \+ (vector addend) => (sum)
