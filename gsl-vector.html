@@ -1310,12 +1310,12 @@
 </dl>
 </dd></dl>
 
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:v=">
-<span class="sig-name descname"><span class="pre">v=</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:v=" title="Link to this definition">¶</a></dt>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:f=([gsl-vector])">
+<span class="sig-name descname"><span class="pre">f=(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:f=([gsl-vector])" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v= (vector vector) =&gt; (boolean)</p>
+<dd class="field-odd"><p>f= (vector vector #key epsilon) =&gt; (boolean)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1333,7 +1333,7 @@
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
 <span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
-<span class="n">v=</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">epsilon:</span><span class="w"> </span><span class="mf">0.00001</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">f=</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">epsilon:</span><span class="w"> </span><span class="mf">0.00001</span><span class="n">d0</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd>
@@ -1458,7 +1458,7 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:negative([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">negative(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:negative?([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">negative?(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:non-negative?"><code class="docutils literal notranslate"><span class="pre">non-negative?</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:v="><code class="docutils literal notranslate"><span class="pre">v=</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:f=([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">f=(&lt;gsl-vector&gt;)</span></code></a></li>
 </ul>
 </li>
 </ul>

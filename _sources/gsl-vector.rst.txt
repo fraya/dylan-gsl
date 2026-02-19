@@ -629,9 +629,10 @@ Vector properties
          let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
          v.non-negative?;
 
-.. function:: v=
+.. method:: f=
+   :specializer: <gsl-vector>
 
-   :signature: v= (vector vector) => (boolean)
+   :signature: f= (vector vector #key epsilon) => (boolean)
 
    :parameter vector: An instance of `<gsl-vector>`.
    :value boolean: An instance of `<boolean>`.
@@ -644,4 +645,4 @@ Vector properties
 
          let a = make(<gsl-vector>, size: 10, fill: 1.0d0);
          let b = make(<gsl-vector>, size: 10, fill: 1.0d0);
-         v=(a, b, epsilon: 0.00001d0);
+         f=(a, b, epsilon: 0.00001d0);
