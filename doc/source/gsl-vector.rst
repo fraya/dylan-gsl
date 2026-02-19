@@ -98,6 +98,9 @@ Accessing elements
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       element-setter(v, 0, 2.0d0);
 
+Initializing vector elements
+============================
+
 .. function:: set-all!
 
    :signature: set-all! (vector value) => (vector)
@@ -141,6 +144,9 @@ Accessing elements
 
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       set-basis!(v, 0);
+
+Exchanging elements
+===================
 
 .. function:: swap!
 
@@ -186,6 +192,9 @@ Accessing elements
 
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       reverse!(v);  
+
+Vector operations
+=================
 
 .. function:: sum
 
@@ -355,6 +364,9 @@ Accessing elements
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
       axpby!(alpha, v, beta, w);
+
+Finding maximum and minimum elements of vectors
+===============================================
 
 .. function:: gsl-max
 
