@@ -130,6 +130,12 @@ define method \*
   scaled
 end;
 
+define method \* 
+   (value :: <double-float>, a :: <gsl-vector>) 
+=> (scaled :: <gsl-vector>)
+  a * value
+end;
+
 define method \+
    (a :: <gsl-vector>, value :: <double-float>)
 => (v :: <gsl-vector>)
@@ -217,6 +223,14 @@ define method positive?
   ffi/gsl-vector-ispos(a.%gsl-vector) = 1
 end;
 
+define method negative
+   (a :: <gsl-vector>)
+=> (negative :: <gsl-vector>)
+  let negative = make(<gsl-vector>, size: a.size, fill: 0.0d0);
+  ffi/gsl-vector-sub(negative.%gsl-vector, a.%gsl-vector);
+  negative
+end;
+
 define method negative?
    (a :: <gsl-vector>) 
 => (negative? :: <boolean>)
@@ -229,3 +243,20 @@ define method non-negative?
   ffi/gsl-vector-isnonneg(a.%gsl-vector) = 1
 end;
 
+define function v=
+   (a :: <gsl-vector>, b :: <gsl-vector>, 
+    #key epsilon :: <double-float> = math/*epsilon*) 
+=> (equal? :: <boolean>)
+  block (equal?)
+    if (a.size ~= b.size)
+      equal?(#f)
+    end;
+    for (i from 0 below a.size)
+      let comparison = math/gsl-fcmp(a[i], b[i], epsilon);
+      if (comparison ~= 0)
+        equal?(#f)
+      end;
+    end for;
+    #t
+  end block;
+end;

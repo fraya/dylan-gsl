@@ -5,7 +5,7 @@ Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 
 define module gsl-vector
-   
+
    create 
      <gsl-vector>,
      copy-gsl-vector;
@@ -29,12 +29,15 @@ define module gsl-vector
 
   create
     null?,
-    non-negative?;
+    non-negative?,
+    v=;
 
 end module;
 
 define module gsl-vector-impl
    use common-dylan;
+   use gsl-math,
+     prefix: "math/";
    use gsl-ffi-vector,
      prefix: "ffi/";
 
