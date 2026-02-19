@@ -276,17 +276,18 @@
 </section>
 <section id="allocation-functions">
 <h2>Allocation functions<a class="headerlink" href="#allocation-functions" title="Link to this heading">¶</a></h2>
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:make-gsl-vector">
-<span class="sig-name descname"><span class="pre">make-gsl-vector</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:make-gsl-vector" title="Link to this definition">¶</a></dt>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:make([gsl-vector])">
+<span class="sig-name descname"><span class="pre">make(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:make([gsl-vector])" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>make-gsl-vector (#key size fill) =&gt; (vector)</p>
+<dd class="field-odd"><p>make (&lt;gsl-vector&gt; #key size fill stride) =&gt; (vector)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>size</strong> – An instance of <cite>&lt;integer&gt;</cite>.</p></li>
-<li><p><strong>fill</strong> – An instance of <cite>&lt;double-float&gt;</cite>.</p></li>
+<li><p><strong>size</strong> (<em>#key</em>) – An instance of <cite>&lt;integer&gt;</cite>.</p></li>
+<li><p><strong>fill</strong> (<em>#key</em>) – An instance of <cite>&lt;double-float&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> (<em>#key</em>) – An instance of <cite>&lt;integer&gt;</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -1404,7 +1405,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#allocation-functions">Allocation functions</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:make-gsl-vector"><code class="docutils literal notranslate"><span class="pre">make-gsl-vector</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:make([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">make(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:size([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">size(&lt;gsl-vector&gt;)</span></code></a></li>
 </ul>
 </li>
