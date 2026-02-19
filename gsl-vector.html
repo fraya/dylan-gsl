@@ -279,7 +279,7 @@
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:make-gsl-vector">
 <span class="sig-name descname"><span class="pre">make-gsl-vector</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:make-gsl-vector" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>make-gsl-vector (#key size fill) =&gt; (vector)</p>
 </dd>
@@ -298,7 +298,9 @@
 <dd class="field-even"><p>Allocate an array of size elements in a block of memory.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -332,7 +334,7 @@
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:copy-gsl-vector">
 <span class="sig-name descname"><span class="pre">copy-gsl-vector</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:copy-gsl-vector" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>copy-gsl-vector (vector) =&gt; (copy)</p>
 </dd>
@@ -350,8 +352,10 @@
 <dd class="field-even"><p>Return a copy of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let w = copy-gsl-vector(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy-gsl-vector</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -362,7 +366,7 @@ let w = copy-gsl-vector(v);</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:element([gsl-vector])">
 <span class="sig-name descname"><span class="pre">element(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:element([gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>element (vector index) =&gt; (element)</p>
 </dd>
@@ -381,8 +385,10 @@ let w = copy-gsl-vector(v);</p>
 <dd class="field-even"><p>Return the element at the given index.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-element(v, 0);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="nb">element</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -390,7 +396,7 @@ element(v, 0);</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:element-setter([gsl-vector])">
 <span class="sig-name descname"><span class="pre">element-setter(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:element-setter([gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>element-setter (value vector index) =&gt; (value)</p>
 </dd>
@@ -410,16 +416,21 @@ element(v, 0);</p>
 <dd class="field-even"><p>Set the element at the given index to the given value.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-element-setter(v, 0, 2.0d0);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="nb">element-setter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="initializing-vector-elements">
+<h2>Initializing vector elements<a class="headerlink" href="#initializing-vector-elements" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:set-all!">
 <span class="sig-name descname"><span class="pre">set-all!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:set-all!" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set-all! (vector value) =&gt; (vector)</p>
 </dd>
@@ -438,8 +449,10 @@ element-setter(v, 0, 2.0d0);</p>
 <dd class="field-even"><p>Set all elements of the vector to the given value.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-set-all!(v, 2.0d0);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">set-all!</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -447,7 +460,7 @@ set-all!(v, 2.0d0);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:set-zero!">
 <span class="sig-name descname"><span class="pre">set-zero!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:set-zero!" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set-zero! (vector) =&gt; (vector)</p>
 </dd>
@@ -465,8 +478,10 @@ set-all!(v, 2.0d0);</p>
 <dd class="field-even"><p>Set all elements of the vector to zero.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-set-zero!(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">set-zero!</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -474,7 +489,7 @@ set-zero!(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:set-basis!">
 <span class="sig-name descname"><span class="pre">set-basis!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:set-basis!" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set-basis! (vector index) =&gt; (vector)</p>
 </dd>
@@ -493,16 +508,21 @@ set-zero!(v);</p>
 <dd class="field-even"><p>Set all elements of the vector to zero except for the element at the given index.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-set-basis!(v, 0);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">set-basis!</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="exchanging-elements">
+<h2>Exchanging elements<a class="headerlink" href="#exchanging-elements" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:swap!">
 <span class="sig-name descname"><span class="pre">swap!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:swap!" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>swap! (vector index) =&gt; (vector)</p>
 </dd>
@@ -521,8 +541,10 @@ set-basis!(v, 0);</p>
 <dd class="field-even"><p>Swap the elements at the given index with the element at the given index.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-swap!(v, 0, 1);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">swap!</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -530,7 +552,7 @@ swap!(v, 0, 1);</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:reverse([gsl-vector])">
 <span class="sig-name descname"><span class="pre">reverse(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:reverse([gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>reverse (vector) =&gt; (reversed)</p>
 </dd>
@@ -548,8 +570,10 @@ swap!(v, 0, 1);</p>
 <dd class="field-even"><p>Return a reversed copy of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let reversed = reverse(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">reversed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reverse</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -557,7 +581,7 @@ let reversed = reverse(v);</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:reverse!([gsl-vector])">
 <span class="sig-name descname"><span class="pre">reverse!(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:reverse!([gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>reverse! (vector) =&gt; (vector)</p>
 </dd>
@@ -575,16 +599,21 @@ let reversed = reverse(v);</p>
 <dd class="field-even"><p>Reverse the vector in place.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-reverse!(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="nb">reverse!</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="vector-operations">
+<h2>Vector operations<a class="headerlink" href="#vector-operations" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:sum">
 <span class="sig-name descname"><span class="pre">sum</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:sum" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sum (vector) =&gt; (sum)</p>
 </dd>
@@ -602,16 +631,18 @@ reverse!(v);</p>
 <dd class="field-even"><p>Return the sum of the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-sum(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">sum</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:\+([gsl-vector],[gsl-vector])">
-<span class="sig-name descname"><span class="pre">\+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:\+([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:+([gsl-vector],[gsl-vector])">
+<span class="sig-name descname"><span class="pre">+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:+([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>+ (v w) =&gt; (sum)</p>
 </dd>
@@ -630,17 +661,19 @@ sum(v);</p>
 <dd class="field-even"><p>Return the sum of the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let w = make(&lt;gsl-vector&gt;, size: 10, fill: 2.0d0);
-let z = v + w;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:\-([gsl-vector],[gsl-vector])">
-<span class="sig-name descname"><span class="pre">\-(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:\-([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:-([gsl-vector],[gsl-vector])">
+<span class="sig-name descname"><span class="pre">-(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:-([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>- (v w) =&gt; (difference)</p>
 </dd>
@@ -659,17 +692,19 @@ let z = v + w;</p>
 <dd class="field-even"><p>Return the sum of the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let w = make(&lt;gsl-vector&gt;, size: 10, fill: 2.0d0);
-let z = v - w;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:\*([gsl-vector],[gsl-vector])">
-<span class="sig-name descname"><span class="pre">\*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:\*([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:*([gsl-vector],[gsl-vector])">
+<span class="sig-name descname"><span class="pre">*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:*([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>* (v w) =&gt; (product)</p>
 </dd>
@@ -688,17 +723,19 @@ let z = v - w;</p>
 <dd class="field-even"><p>Return the sum of the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let w = make(&lt;gsl-vector&gt;, size: 10, fill: 2.0d0);
-let z = v * w;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:\/([gsl-vector],[gsl-vector])">
-<span class="sig-name descname"><span class="pre">\/(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:\/([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:/([gsl-vector],[gsl-vector])">
+<span class="sig-name descname"><span class="pre">/(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:/([gsl-vector],[gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>/ (v w) =&gt; (division)</p>
 </dd>
@@ -717,17 +754,19 @@ let z = v * w;</p>
 <dd class="field-even"><p>Return the division of the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 10.0d0);
-let w = make(&lt;gsl-vector&gt;, size: 10, fill: 2.0d0);
-let q = v / w;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">10.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">/</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:\*([gsl-vector],[double-float])">
-<span class="sig-name descname"><span class="pre">\*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:\*([gsl-vector],[double-float])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:*([gsl-vector],[double-float])">
+<span class="sig-name descname"><span class="pre">*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:*([gsl-vector],[double-float])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>* (vector value) =&gt; (scaled)</p>
 </dd>
@@ -746,16 +785,18 @@ let q = v / w;</p>
 <dd class="field-even"><p>Return the scaled version of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let scaled = v * 2.0d0;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">scaled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:\+([gsl-vector],[double-float])">
-<span class="sig-name descname"><span class="pre">\+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:\+([gsl-vector],[double-float])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:+([gsl-vector],[double-float])">
+<span class="sig-name descname"><span class="pre">+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:+([gsl-vector],[double-float])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>+ (vector addend) =&gt; (sum)</p>
 </dd>
@@ -774,8 +815,10 @@ let scaled = v * 2.0d0;</p>
 <dd class="field-even"><p>Adds a constant value to the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let sum = v + 2.0d0;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -783,7 +826,7 @@ let sum = v + 2.0d0;</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan">
 <span class="sig-name descname"><span class="pre">sum</span></span> <em class="property"><span class="pre">Function</span></em></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sum (vector) =&gt; (sum)</p>
 </dd>
@@ -801,8 +844,10 @@ let sum = v + 2.0d0;</p>
 <dd class="field-even"><p>Return the sum of the elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-sum(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">sum</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -810,7 +855,7 @@ sum(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:axpby">
 <span class="sig-name descname"><span class="pre">axpby</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:axpby" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>axpby (alpha x beta y) =&gt; (v)</p>
 </dd>
@@ -831,11 +876,13 @@ sum(v);</p>
 <dd class="field-even"><p>Return the result of the operation alpha * x + beta * y.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let alpha = 1.0d0;
-let beta = 2.0d0;
-let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let w = make(&lt;gsl-vector&gt;, size: 10, fill: 2.0d0);
-let v = axpby(alpha, v, beta, w);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">;</span>
+<span class="k">let</span><span class="w"> </span><span class="n">beta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">;</span>
+<span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axpby</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -843,7 +890,7 @@ let v = axpby(alpha, v, beta, w);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:axpby!">
 <span class="sig-name descname"><span class="pre">axpby!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:axpby!" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>axpby! (alpha x beta y) =&gt; (v)</p>
 </dd>
@@ -864,19 +911,24 @@ let v = axpby(alpha, v, beta, w);</p>
 <dd class="field-even"><p>Return the result of the operation alpha * x + beta * y in place.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let alpha = 1.0d0;
-let beta = 2.0d0;
-let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-let w = make(&lt;gsl-vector&gt;, size: 10, fill: 2.0d0);
-axpby!(alpha, v, beta, w);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">;</span>
+<span class="k">let</span><span class="w"> </span><span class="n">beta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">;</span>
+<span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">2.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">axpby!</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="finding-maximum-and-minimum-elements-of-vectors">
+<h2>Finding maximum and minimum elements of vectors<a class="headerlink" href="#finding-maximum-and-minimum-elements-of-vectors" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:gsl-max">
 <span class="sig-name descname"><span class="pre">gsl-max</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:gsl-max" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-max (vector) =&gt; (max)</p>
 </dd>
@@ -894,8 +946,10 @@ axpby!(alpha, v, beta, w);</p>
 <dd class="field-even"><p>Return the maximum element of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-gsl-max(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">gsl-max</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -903,7 +957,7 @@ gsl-max(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:gsl-min">
 <span class="sig-name descname"><span class="pre">gsl-min</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:gsl-min" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-min (vector) =&gt; (min)</p>
 </dd>
@@ -921,8 +975,10 @@ gsl-max(v);</p>
 <dd class="field-even"><p>Return the minimum element of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-gsl-min(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">gsl-min</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -930,7 +986,7 @@ gsl-min(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:max-index">
 <span class="sig-name descname"><span class="pre">max-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:max-index" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>max-index (vector) =&gt; (max-index)</p>
 </dd>
@@ -948,8 +1004,10 @@ gsl-min(v);</p>
 <dd class="field-even"><p>Return the index of the maximum element of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-max-index(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">max-index</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -957,7 +1015,7 @@ max-index(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:min-index">
 <span class="sig-name descname"><span class="pre">min-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:min-index" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>min-index (vector) =&gt; (min-index)</p>
 </dd>
@@ -975,8 +1033,10 @@ max-index(v);</p>
 <dd class="field-even"><p>Return the index of the minimum element of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-min-index(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">min-index</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -984,7 +1044,7 @@ min-index(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:min-max">
 <span class="sig-name descname"><span class="pre">min-max</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:min-max" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>min-max (vector) =&gt; (min max)</p>
 </dd>
@@ -1003,8 +1063,10 @@ min-index(v);</p>
 <dd class="field-even"><p>Return the minimum and maximum elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-min-max(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">min-max</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -1012,7 +1074,7 @@ min-max(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:min-max-index">
 <span class="sig-name descname"><span class="pre">min-max-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:min-max-index" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>min-max-index (vector) =&gt; (min-index max-index)</p>
 </dd>
@@ -1031,8 +1093,10 @@ min-max(v);</p>
 <dd class="field-even"><p>Return the indices of the minimum and maximum elements of the vector.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-min-max-index(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">min-max-index</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -1043,7 +1107,7 @@ min-max-index(v);</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:null?">
 <span class="sig-name descname"><span class="pre">null?</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:null?" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>null? (vector) =&gt; (null?)</p>
 </dd>
@@ -1061,37 +1125,47 @@ min-max-index(v);</p>
 <dd class="field-even"><p>Return true if the vector is null.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-null?(v);</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">null?</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
-<p>define method zero?</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">signature<span class="colon">:</span></dt>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:zero?([gsl-vector])">
+<span class="sig-name descname"><span class="pre">zero?(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:zero?([gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>zero? (vector) =&gt; (zero?)</p>
 </dd>
-<dt class="field-even">parameter vector<span class="colon">:</span></dt>
-<dd class="field-even"><p>An instance of <cite>&lt;gsl-vector&gt;</cite>.</p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vector</strong> – An instance of <cite>&lt;gsl-vector&gt;</cite>.</p></li>
+</ul>
 </dd>
-<dt class="field-odd">value zero?<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An instance of <cite>&lt;boolean&gt;</cite>.</p>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zero?</strong> – An instance of <cite>&lt;boolean&gt;</cite>.</p></li>
+</ul>
 </dd>
-<dt class="field-even">description<span class="colon">:</span></dt>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
 <dd class="field-even"><p>Return true if the vector is zero.</p>
 </dd>
-<dt class="field-odd">examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-v.zero?;</p>
+<dt class="field-odd">Examples<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">v</span><span class="p">.</span><span class="nb">zero?</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:positive?([gsl-vector])">
 <span class="sig-name descname"><span class="pre">positive?(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:positive?([gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>positive? (vector) =&gt; (positive?)</p>
 </dd>
@@ -1109,8 +1183,10 @@ v.zero?;</p>
 <dd class="field-even"><p>Return true if the vector is positive.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-v.positive?;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">v</span><span class="p">.</span><span class="nb">positive?</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -1118,7 +1194,7 @@ v.positive?;</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:negative?([gsl-vector])">
 <span class="sig-name descname"><span class="pre">negative?(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:negative?([gsl-vector])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>negative? (vector) =&gt; (negative?)</p>
 </dd>
@@ -1136,8 +1212,10 @@ v.positive?;</p>
 <dd class="field-even"><p>Return true if the vector is negative.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: -1.0d0);
-v.negative?;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">-1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">v</span><span class="p">.</span><span class="nb">negative?</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -1145,7 +1223,7 @@ v.negative?;</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:non-negative?">
 <span class="sig-name descname"><span class="pre">non-negative?</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:non-negative?" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>non-negative? (vector) =&gt; (non-negative?)</p>
 </dd>
@@ -1163,8 +1241,10 @@ v.negative?;</p>
 <dd class="field-even"><p>Return true if the vector is non-negative.</p>
 </dd>
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
-<dd class="field-odd"><p>let v = make(&lt;gsl-vector&gt;, size: 10, fill: 1.0d0);
-v.non-negative?;</p>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">v</span><span class="p">.</span><span class="n">non-negative?</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -1244,21 +1324,33 @@ v.non-negative?;</p>
 <li><a class="reference internal" href="#accessing-elements">Accessing elements</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:element([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">element(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:element-setter([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">element-setter(&lt;gsl-vector&gt;)</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initializing-vector-elements">Initializing vector elements</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:set-all!"><code class="docutils literal notranslate"><span class="pre">set-all!</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:set-zero!"><code class="docutils literal notranslate"><span class="pre">set-zero!</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:set-basis!"><code class="docutils literal notranslate"><span class="pre">set-basis!</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exchanging-elements">Exchanging elements</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:swap!"><code class="docutils literal notranslate"><span class="pre">swap!</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:reverse([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">reverse(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:reverse!([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">reverse!(&lt;gsl-vector&gt;)</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vector-operations">Vector operations</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:sum"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:\+([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">\+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:\-([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">\-(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:\*([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">\*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:\/([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">\/(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:\*([gsl-vector],[double-float])"><code class="docutils literal notranslate"><span class="pre">\*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-vector:\+([gsl-vector],[double-float])"><code class="docutils literal notranslate"><span class="pre">\+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:+([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:-([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">-(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:*([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:/([gsl-vector],[gsl-vector])"><code class="docutils literal notranslate"><span class="pre">/(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;gsl-vector&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:*([gsl-vector],[double-float])"><code class="docutils literal notranslate"><span class="pre">*(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:+([gsl-vector],[double-float])"><code class="docutils literal notranslate"><span class="pre">+(&lt;gsl-vector&gt;,</span> <span class="pre">&lt;double-float&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:axpby"><code class="docutils literal notranslate"><span class="pre">axpby</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:axpby!"><code class="docutils literal notranslate"><span class="pre">axpby!</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finding-maximum-and-minimum-elements-of-vectors">Finding maximum and minimum elements of vectors</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:gsl-max"><code class="docutils literal notranslate"><span class="pre">gsl-max</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:gsl-min"><code class="docutils literal notranslate"><span class="pre">gsl-min</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:max-index"><code class="docutils literal notranslate"><span class="pre">max-index</span></code></a></li>
@@ -1269,6 +1361,7 @@ v.non-negative?;</p>
 </li>
 <li><a class="reference internal" href="#vector-properties">Vector properties</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:null?"><code class="docutils literal notranslate"><span class="pre">null?</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:zero?([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">zero?(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:positive?([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">positive?(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:negative?([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">negative?(&lt;gsl-vector&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:non-negative?"><code class="docutils literal notranslate"><span class="pre">non-negative?</span></code></a></li>

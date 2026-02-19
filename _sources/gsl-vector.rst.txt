@@ -30,7 +30,9 @@ Allocation functions
 
    :examples:
 
-      make(<gsl-vector>, size: 10, fill: 1.0d0);
+      .. code-block:: dylan
+
+         make(<gsl-vector>, size: 10, fill: 1.0d0);
       
 
 .. method:: size
@@ -58,8 +60,10 @@ Copying vectors
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let w = copy-gsl-vector(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let w = copy-gsl-vector(v);
 
 Accessing elements
 ==================
@@ -77,8 +81,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      element(v, 0);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         element(v, 0);
 
 
 .. method:: element-setter
@@ -95,8 +101,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      element-setter(v, 0, 2.0d0);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         element-setter(v, 0, 2.0d0);
+
+Initializing vector elements
+============================
 
 .. function:: set-all!
 
@@ -110,8 +121,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      set-all!(v, 2.0d0);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         set-all!(v, 2.0d0);
 
 .. function:: set-zero!
 
@@ -124,8 +137,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      set-zero!(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         set-zero!(v);
 
 .. function:: set-basis!
 
@@ -139,8 +154,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      set-basis!(v, 0);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         set-basis!(v, 0);
+
+Exchanging elements
+===================
 
 .. function:: swap!
 
@@ -154,8 +174,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      swap!(v, 0, 1);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         swap!(v, 0, 1);
 
 .. method:: reverse
    :specializer: <gsl-vector>
@@ -169,8 +191,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let reversed = reverse(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let reversed = reverse(v);
 
 .. method:: reverse!
    :specializer: <gsl-vector>
@@ -184,8 +208,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      reverse!(v);  
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         reverse!(v);  
+
+Vector operations
+=================
 
 .. function:: sum
 
@@ -198,10 +227,12 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      sum(v);
+      .. code-block:: dylan
 
-.. method:: \+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         sum(v);
+
+.. method:: +
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \+ (v w) => (sum)
@@ -214,11 +245,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
-      let z = v + w;
+      .. code-block:: dylan
 
-.. method:: \-
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+         let z = v + w;
+
+.. method:: -
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \- (v w) => (difference)
@@ -231,11 +264,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
-      let z = v - w;
+      .. code-block:: dylan
 
-.. method:: \*
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+         let z = v - w;
+
+.. method:: *
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \* (v w) => (product)
@@ -248,11 +283,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
-      let z = v * w;
+      .. code-block:: dylan
 
-.. method:: \/
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+         let z = v * w;
+
+.. method:: /
    :specializer: <gsl-vector>, <gsl-vector>
 
    :signature: \/ (v w) => (division)
@@ -265,11 +302,13 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 10.0d0);
-      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
-      let q = v / w;
+      .. code-block:: dylan
 
-.. method:: \*
+         let v = make(<gsl-vector>, size: 10, fill: 10.0d0);
+         let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+         let q = v / w;
+
+.. method:: *
    :specializer: <gsl-vector>, <double-float>
 
    :signature: \* (vector value) => (scaled)
@@ -282,10 +321,12 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let scaled = v * 2.0d0; 
+      .. code-block:: dylan
 
-.. method:: \+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let scaled = v * 2.0d0; 
+
+.. method:: +
    :specializer: <gsl-vector>, <double-float>
 
    :signature: \+ (vector addend) => (sum)
@@ -298,8 +339,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let sum = v + 2.0d0; 
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let sum = v + 2.0d0; 
 
 
 .. function:: sum
@@ -313,8 +356,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      sum(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         sum(v);
 
 .. function:: axpby
 
@@ -329,12 +374,14 @@ Accessing elements
    :description: Return the result of the operation alpha * x + beta * y.
 
    :examples:
- 
-      let alpha = 1.0d0;
-      let beta = 2.0d0;
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
-      let v = axpby(alpha, v, beta, w);
+
+      .. code-block:: dylan
+
+         let alpha = 1.0d0;
+         let beta = 2.0d0;
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+         let v = axpby(alpha, v, beta, w);
    
 .. function:: axpby!
 
@@ -349,12 +396,17 @@ Accessing elements
    :description: Return the result of the operation alpha * x + beta * y in place.
 
    :examples:
- 
-      let alpha = 1.0d0;
-      let beta = 2.0d0;
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
-      axpby!(alpha, v, beta, w);
+
+      .. code-block:: dylan
+
+         let alpha = 1.0d0;
+         let beta = 2.0d0;
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+         axpby!(alpha, v, beta, w);
+
+Finding maximum and minimum elements of vectors
+===============================================
 
 .. function:: gsl-max
 
@@ -367,8 +419,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      gsl-max(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         gsl-max(v);
 
 .. function:: gsl-min
 
@@ -381,8 +435,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      gsl-min(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         gsl-min(v);
 
 .. function:: max-index
 
@@ -395,8 +451,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      max-index(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         max-index(v);
 
 .. function:: min-index
 
@@ -409,8 +467,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      min-index(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         min-index(v);
 
 .. function:: min-max
 
@@ -424,8 +484,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      min-max(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         min-max(v);
 
 .. function:: min-max-index
 
@@ -439,8 +501,10 @@ Accessing elements
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      min-max-index(v);
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         min-max-index(v);
 
 Vector properties
 =================
@@ -456,10 +520,13 @@ Vector properties
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      null?(v);
+      .. code-block:: dylan
 
-define method zero?
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         null?(v);
+
+.. method:: zero?
+   :specializer: <gsl-vector>
 
    :signature: zero? (vector) => (zero?)
 
@@ -470,8 +537,10 @@ define method zero?
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      v.zero?;
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         v.zero?;
 
 .. method:: positive?
    :specializer: <gsl-vector>
@@ -485,8 +554,10 @@ define method zero?
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      v.positive?;
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         v.positive?;
 
 .. method:: negative?
    :specializer: <gsl-vector>
@@ -500,8 +571,10 @@ define method zero?
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: -1.0d0);
-      v.negative?;
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: -1.0d0);
+         v.negative?;
 
 .. function:: non-negative?
 
@@ -514,5 +587,7 @@ define method zero?
 
    :examples:
 
-      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      v.non-negative?;
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         v.non-negative?;
