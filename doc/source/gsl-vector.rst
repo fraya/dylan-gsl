@@ -5,7 +5,7 @@ The GSL-VECTOR module
 .. current-module:: gsl-vector
 
 The <gsl-vector> type
-====================
+=====================
 
 .. type:: <gsl-vector>
 
@@ -34,6 +34,7 @@ Allocation functions
       
 
 .. method:: size
+   :specializer: <gsl-vector>
 
    :signature: size (vector) => (size)
 
@@ -46,7 +47,7 @@ Allocation functions
 Copying vectors
 ===============
 
-.. method:: copy-gsl-vector
+.. function:: copy-gsl-vector
 
    :signature: copy-gsl-vector (vector) => (copy)
 
@@ -64,6 +65,7 @@ Accessing elements
 ==================
 
 .. method:: element
+   :specializer: <gsl-vector>
 
    :signature: element (vector index) => (element)
 
@@ -80,6 +82,7 @@ Accessing elements
 
 
 .. method:: element-setter
+   :specializer: <gsl-vector>
 
    :signature: element-setter (value vector index) => (value)
 
@@ -155,6 +158,7 @@ Accessing elements
       swap!(v, 0, 1);
 
 .. method:: reverse
+   :specializer: <gsl-vector>
 
    :signature: reverse (vector) => (reversed)
 
@@ -169,6 +173,7 @@ Accessing elements
       let reversed = reverse(v);
 
 .. method:: reverse!
+   :specializer: <gsl-vector>
 
    :signature: reverse! (vector) => (vector)
 
@@ -182,7 +187,7 @@ Accessing elements
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       reverse!(v);  
 
-.. method:: sum
+.. function:: sum
 
    :signature: sum (vector) => (sum)
 
@@ -197,53 +202,63 @@ Accessing elements
       sum(v);
 
 .. method:: \+
+   :specializer: <gsl-vector>, <gsl-vector>
 
-   :signature: \+ (vector) => (sum)
+   :signature: \+ (v w) => (sum)
 
-   :parameter vector: An instance of `<gsl-vector>`.
-   :value sum: An instance of `<double-float>`.
+   :parameter v: An instance of `<gsl-vector>`.
+   :parameter w: An instance of `<gsl-vector>`
+   :value sum: An instance of `<gsl-vector>`.
 
    :description: Return the sum of the elements of the vector.
 
    :examples:
 
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      \+(v);
+      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+      let z = v + w;
 
 .. method:: \-
+   :specializer: <gsl-vector>, <gsl-vector>
 
-   :signature: \- (vector) => (sum)
+   :signature: \- (v w) => (difference)
 
-   :parameter vector: An instance of `<gsl-vector>`.
-   :value sum: An instance of `<double-float>`.
+   :parameter v: An instance of `<gsl-vector>`.
+   :parameter w: An instance of `<gsl-vector>`
+   :value difference: An instance of `<gsl-vector>`.
 
    :description: Return the sum of the elements of the vector.
 
    :examples:
 
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      \-(v);
+      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+      let z = v - w;
 
 .. method:: \*
+   :specializer: <gsl-vector>, <gsl-vector>
 
-   :signature: \* (vector) => (sum)
+   :signature: \* (v w) => (product)
 
-   :parameter vector: An instance of `<gsl-vector>`.
-   :value sum: An instance of `<double-float>`.
+   :parameter v: An instance of `<gsl-vector>`.
+   :parameter w: An instance of `<gsl-vector>`
+   :value product: An instance of `<gsl-vector>`.
 
    :description: Return the sum of the elements of the vector.
 
    :examples:
 
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
-      \*(v);
+      let w = make(<gsl-vector>, size: 10, fill: 2.0d0);
+      let z = v * w;
 
 .. method:: \/
+   :specializer: <gsl-vector>, <gsl-vector>
 
-   :signature: \/ (dividend divisor) => (division)
+   :signature: \/ (v w) => (division)
 
-   :parameter dividend: An instance of `<gsl-vector>`.
-   :parameter divisor: An instance of `<gsl-vector>`.
+   :parameter v: An instance of `<gsl-vector>`.
+   :parameter w: An instance of `<gsl-vector>`.
    :value division: An instance of `<gsl-vector>`.
 
    :description: Return the division of the elements of the vector.
@@ -255,6 +270,7 @@ Accessing elements
       let q = v / w;
 
 .. method:: \*
+   :specializer: <gsl-vector>, <double-float>
 
    :signature: \* (vector value) => (scaled)
 
@@ -270,6 +286,7 @@ Accessing elements
       let scaled = v * 2.0d0; 
 
 .. method:: \+
+   :specializer: <gsl-vector>, <double-float>
 
    :signature: \+ (vector addend) => (sum)
 
@@ -457,6 +474,7 @@ define method zero?
       v.zero?;
 
 .. method:: positive?
+   :specializer: <gsl-vector>
 
    :signature: positive? (vector) => (positive?)
 
@@ -471,6 +489,7 @@ define method zero?
       v.positive?;
 
 .. method:: negative?
+   :specializer: <gsl-vector>
 
    :signature: negative? (vector) => (negative?)
 
