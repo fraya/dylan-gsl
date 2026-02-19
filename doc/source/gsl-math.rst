@@ -11,7 +11,7 @@ Double-float comparison functions
 
 .. variable:: *epsilon*
 
-.. generic:: f=
+.. generic-function:: f=
 
    :signature: f= (x y #key epsilon) => (is-equal)
 
