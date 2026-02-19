@@ -248,7 +248,7 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#Symbols"><strong>Symbols</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#Symbols"><strong>Symbols</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
 </section>
 <section id="Symbols" class="genindex-section">
   <h2>Symbols</h2>
@@ -340,8 +340,6 @@
 </li>
         <li><a href="gsl-ffi-math.html#dylan-gsl:gsl-ffi-math:$gsl-sqrt1/3">$gsl-sqrt1/3</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-math.html#dylan-gsl:gsl-ffi-math:$gsl-sqrt2">$gsl-sqrt2</a>
 </li>
         <li><a href="gsl-ffi-math.html#dylan-gsl:gsl-ffi-math:$gsl-sqrt3">$gsl-sqrt3</a>
@@ -354,6 +352,8 @@
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-bad-length]">&lt;gsl-bad-length&gt;</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-bad-tolerance]">&lt;gsl-bad-tolerance&gt;</a>
 </li>
         <li><a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:[gsl-block]">&lt;gsl-block&gt;</a>
@@ -422,6 +422,8 @@
 </li>
         <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:[gsl-vector*]">&lt;gsl-vector*&gt;</a>
 </li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]">&lt;gsl-vector&gt;</a>
+</li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-zero-division]">&lt;gsl-zero-division&gt;</a>
 </li>
         <li><a href="gsl-common.html#dylan-gsl:gsl-common:[numeric-sequence]">&lt;numeric-sequence&gt;</a>
@@ -430,6 +432,38 @@
 </li>
         <li><a href="gsl-common.html#dylan-gsl:gsl-common:[vector-double-float?]">&lt;vector-double-float?&gt;</a>
 </li>
+        <li>
+    \*
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:\*([gsl-vector],[double-float])">\*(&lt;gsl-vector&gt;, &lt;double-float&gt;)</a>
+</li>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:\*([gsl-vector],[gsl-vector])">\*(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+        <li>
+    \+
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:\+([gsl-vector],[double-float])">\+(&lt;gsl-vector&gt;, &lt;double-float&gt;)</a>
+</li>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:\+([gsl-vector],[gsl-vector])">\+(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+        <li>
+    \-
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:\-([gsl-vector],[gsl-vector])">\-(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+        <li>
+    \/
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:\/([gsl-vector],[gsl-vector])">\/(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -442,13 +476,17 @@
 </li>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:acosh">acosh</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:asinh">asinh</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:atan2">atan2</a>
 </li>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:atanh">atanh</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:axpby">axpby</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:axpby!">axpby!</a>
 </li>
     </ul></td>
   </tr></table>
@@ -458,10 +496,12 @@
   <h2>C</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:correlation">correlation</a>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:copy-gsl-vector">copy-gsl-vector</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:correlation">correlation</a>
+</li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:covariance">covariance</a>
 </li>
     </ul></td>
@@ -472,6 +512,22 @@
   <h2>E</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    element
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:element([gsl-vector])">element(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    element-setter
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:element-setter([gsl-vector])">element-setter(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:expm1">expm1</a>
 </li>
     </ul></td>
@@ -538,6 +594,10 @@
 </li>
         <li><a href="gsl-ffi-math.html#dylan-gsl:gsl-ffi-math:gsl-log1p">gsl-log1p</a>
 </li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-max">gsl-max</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-min">gsl-min</a>
+</li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev">gsl-stats-abs-dev</a>
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev-m">gsl-stats-abs-dev-m</a>
@@ -588,12 +648,12 @@
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-spearman">gsl-stats-spearman</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-trmean-from-sorted-data">gsl-stats-trmean-from-sorted-data</a>
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-tss">gsl-stats-tss</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-tss-m">gsl-stats-tss-m</a>
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-variance">gsl-stats-variance</a>
@@ -644,7 +704,17 @@
 </li>
         <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-div">gsl-vector-div</a>
 </li>
+        <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-equal">gsl-vector-equal</a>
+</li>
         <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-free">gsl-vector-free</a>
+</li>
+        <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-isneg">gsl-vector-isneg</a>
+</li>
+        <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-isnonneg">gsl-vector-isnonneg</a>
+</li>
+        <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-isnull">gsl-vector-isnull</a>
+</li>
+        <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-ispos">gsl-vector-ispos</a>
 </li>
         <li><a href="gsl-ffi-vector.html#dylan-gsl:gsl-ffi-vector:gsl-vector-max">gsl-vector-max</a>
 </li>
@@ -740,13 +810,23 @@
 </li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:mad0">mad0</a>
 </li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:make-gsl-vector">make-gsl-vector</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:max-index">max-index</a>
+</li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:maximum">maximum</a>
+</li>
+        <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:mean">mean</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:mean">mean</a>
-</li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:median">median</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:min-index">min-index</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:min-max">min-max</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:min-max-index">min-max-index</a>
 </li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:minimum">minimum</a>
 </li>
@@ -762,9 +842,20 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:nan?">nan?</a>
 </li>
+        <li><a href="gsl-math.html#dylan-gsl:gsl-math:negative-infinity?">negative-infinity?</a>
+</li>
+        <li>
+    negative?
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:negative?([gsl-vector])">negative?(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="gsl-math.html#dylan-gsl:gsl-math:negative-infinity?">negative-infinity?</a>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:non-negative?">non-negative?</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:null?">null?</a>
 </li>
     </ul></td>
   </tr></table>
@@ -777,6 +868,39 @@
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:positive-infinity?">positive-infinity?</a>
 </li>
     </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    positive?
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:positive?([gsl-vector])">positive?(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    reverse
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:reverse([gsl-vector])">reverse(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    reverse!
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:reverse!([gsl-vector])">reverse!(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
+    </ul></td>
   </tr></table>
 </section>
 
@@ -784,13 +908,30 @@
   <h2>S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:skew">skew</a>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:set-all!">set-all!</a>
 </li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:set-basis!">set-basis!</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:set-zero!">set-zero!</a>
+</li>
+        <li>
+    size
+
+        <ul>
+          <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:size([gsl-vector])">size(&lt;gsl-vector&gt;)</a>
+</li>
+        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:skew">skew</a>
+</li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:spearman">spearman</a>
 </li>
         <li><a href="gsl-statistics.html#dylan-gsl:gsl-statistics:standard-deviation">standard-deviation</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:sum">sum</a>, <a href="gsl-vector.html#dylan-gsl:gsl-vector:sum">[1]</a>
+</li>
+        <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:swap!">swap!</a>
 </li>
     </ul></td>
   </tr></table>

@@ -825,6 +825,125 @@
 </dd></dl>
 
 </section>
+<section id="vector-properties">
+<h2>Vector properties<a class="headerlink" href="#vector-properties" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-vector:gsl-vector-equal">
+<span class="sig-name descname"><span class="pre">gsl-vector-equal</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-equal" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-equal (a, b) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> – An instance of <cite>&lt;gsl-vector*&gt;</cite>.</p></li>
+<li><p><strong>b</strong> – An instance of <cite>&lt;gsl-vector*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <cite>&lt;c-int&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return true if the vectors a and b are equal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-vector:gsl-vector-isnull">
+<span class="sig-name descname"><span class="pre">gsl-vector-isnull</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-isnull" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-isnull (a) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> – An instance of <cite>&lt;gsl-vector*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <cite>&lt;c-int&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return true if the vector a is null.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-vector:gsl-vector-ispos">
+<span class="sig-name descname"><span class="pre">gsl-vector-ispos</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-ispos" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-ispos (a) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> – An instance of <cite>&lt;gsl-vector*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <cite>&lt;c-int&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return true if the vector a is positive.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-vector:gsl-vector-isneg">
+<span class="sig-name descname"><span class="pre">gsl-vector-isneg</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-isneg" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-isneg (a) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> – An instance of <cite>&lt;gsl-vector*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <cite>&lt;c-int&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return true if the vector a is negative.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-vector:gsl-vector-isnonneg">
+<span class="sig-name descname"><span class="pre">gsl-vector-isnonneg</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-isnonneg" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-isnonneg (a) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> – An instance of <cite>&lt;gsl-vector*&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <cite>&lt;c-int&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return true if the vector a is non-negative.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -922,6 +1041,14 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-min"><code class="docutils literal notranslate"><span class="pre">gsl-vector-min</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-max-index"><code class="docutils literal notranslate"><span class="pre">gsl-vector-max-index</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-min-index"><code class="docutils literal notranslate"><span class="pre">gsl-vector-min-index</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vector-properties">Vector properties</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-equal"><code class="docutils literal notranslate"><span class="pre">gsl-vector-equal</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-isnull"><code class="docutils literal notranslate"><span class="pre">gsl-vector-isnull</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-ispos"><code class="docutils literal notranslate"><span class="pre">gsl-vector-ispos</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-isneg"><code class="docutils literal notranslate"><span class="pre">gsl-vector-isneg</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-vector:gsl-vector-isnonneg"><code class="docutils literal notranslate"><span class="pre">gsl-vector-isnonneg</span></code></a></li>
 </ul>
 </li>
 </ul>
