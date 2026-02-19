@@ -11,13 +11,15 @@ end;
 define method initialize
   (v :: <gsl-vector>, 
    #key size   :: <integer> = 0,
-        fill   :: false-or(<double-float>) = #f)
+        fill   :: false-or(<double-float>) = #f,
+        stride :: <integer> = 1)
   if (fill)
     v.%gsl-vector := ffi/gsl-vector-alloc(size);
     ffi/gsl-vector-set-all(v.%gsl-vector, fill);
   else
     v.%gsl-vector := ffi/gsl-vector-alloc(size);
   end;
+  v.%gsl-vector.ffi/gsl-vector-stride := stride;
 end;
 
 define method size

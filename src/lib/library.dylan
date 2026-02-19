@@ -14,6 +14,7 @@ define library dylan-gsl
   export
     gsl-ffi-error,          // file:ffi/error/module.dylan
     gsl-ffi-math,           // file:ffi/math/module.dylan
+    gsl-ffi-vector,         // file:ffi/vector-and-matrices/module-vector.dylan
     gsl-ffi-statistics;     // file:ffi/statistics/module.dylan
 
   // gsl dylan idiomatic modules
@@ -22,7 +23,6 @@ define library dylan-gsl
     gsl-common,             // file:gsl/common/module.dylan
     gsl-error,              // file:gsl/error/module.dylan
     gsl-math,               // file:gsl/math/module.dylan
-    gsl-statistics,         // file:gsl/statistics/module.dylan
-    gsl-vector;             // file:gsl/vector-and-matrices/module-vector.dylan
-
+    gsl-vector,             // file:gsl/vector-and-matrices/module-vector.dylan
+    gsl-statistics;         // file:gsl/statistics/module.dylan
 end library;
