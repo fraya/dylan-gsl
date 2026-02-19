@@ -326,6 +326,24 @@ Vector operations
          let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
          let scaled = v * 2.0d0; 
 
+.. method:: *
+   :specializer: <double-float>, <gsl-vector>
+
+   :signature: \* (value vector) => (scaled)
+
+   :parameter value: An instance of `<double-float>`.
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value scaled: An instance of `<gsl-vector>`.
+
+   :description: Return the scaled version of the vector.
+
+   :examples:
+
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let scaled = 2.0d0 * v;
+
 .. method:: +
    :specializer: <gsl-vector>, <double-float>
 
@@ -559,6 +577,25 @@ Vector properties
          let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
          v.positive?;
 
+.. method:: negative
+   :specializer: <gsl-vector>
+
+   :signature: negative (vector) => (vector)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value vector: An instance of `<gsl-vector>`.
+
+   :description: Return the negative of the vector.
+
+   :examples:
+
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 3, fill: 1.0d0);
+         let r = v + (-v);
+         r.zero?
+         // #t
+
 .. method:: negative?
    :specializer: <gsl-vector>
 
@@ -591,3 +628,20 @@ Vector properties
 
          let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
          v.non-negative?;
+
+.. function:: v=
+
+   :signature: v= (vector vector) => (boolean)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value boolean: An instance of `<boolean>`.
+
+   :description: Return true if the vectors are equal.
+
+   :examples:
+
+      .. code-block:: dylan
+
+         let a = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let b = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         v=(a, b, epsilon: 0.00001d0);
