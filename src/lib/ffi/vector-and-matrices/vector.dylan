@@ -108,6 +108,13 @@ end;
 // TODO: Copying vectors
 // https://www.gnu.org/software/gsl/doc/html/vectors.html#copying-vectors
 
+define c-function gsl-vector-memcpy
+  input parameter dest :: <gsl-vector*>;
+  input parameter src :: <gsl-vector*>;
+  result value :: <c-int>;
+  c-name: "gsl_vector_memcpy";
+end;
+
 // TODO:Exchanging elements
 
 // https://www.gnu.org/software/gsl/doc/html/vectors.html#exchanging-elements

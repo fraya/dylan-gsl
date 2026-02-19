@@ -28,6 +28,8 @@ Files: library.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
        gsl/error/error.dylan
+       gsl/vector-and-matrices/module-vector.dylan
+       gsl/vector-and-matrices/vector.dylan
        gsl/math/module.dylan
        gsl/math/math.dylan
        gsl/statistics/module.dylan

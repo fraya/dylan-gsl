@@ -22,6 +22,7 @@ define library dylan-gsl
     gsl-common,             // file:gsl/common/module.dylan
     gsl-error,              // file:gsl/error/module.dylan
     gsl-math,               // file:gsl/math/module.dylan
-    gsl-statistics;         // file:gsl/statistics/module.dylan
+    gsl-statistics,         // file:gsl/statistics/module.dylan
+    gsl-vector;             // file:gsl/vector-and-matrices/module-vector.dylan
 
 end library;

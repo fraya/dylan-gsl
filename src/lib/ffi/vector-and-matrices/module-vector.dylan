@@ -44,6 +44,11 @@ define module gsl-ffi-vector
     gsl-vector-set-zero,
     gsl-vector-set-basis;
 
+  // Copying
+
+  create
+    gsl-vector-memcpy;
+
   // Exchanging elements
 
   create

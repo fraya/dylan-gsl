@@ -12,9 +12,11 @@ define module dylan-gsl-test-suite
 
   use gsl-common;
   use gsl-math;
+  use gsl-vector;
   use gsl-statistics;
 
   export
     gsl-test-suite,
+    gsl-vector-suite,
     gsl-statistics-suite;
 end module;

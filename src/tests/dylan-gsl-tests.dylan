@@ -1,6 +1,7 @@
 Module: dylan-gsl-test-suite
 
 define suite gsl-test-suite ()
+  suite gsl-vector-suite;
   suite gsl-statistics-suite;
 end suite;
 
