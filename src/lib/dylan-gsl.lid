@@ -28,10 +28,10 @@ Files: library.dylan
        gsl/common/common.dylan
        gsl/error/module.dylan
        gsl/error/error.dylan
-       gsl/vector-and-matrices/module-vector.dylan
-       gsl/vector-and-matrices/vector.dylan
        gsl/math/module.dylan
        gsl/math/math.dylan
+       gsl/vector-and-matrices/module-vector.dylan
+       gsl/vector-and-matrices/vector.dylan
        gsl/statistics/module.dylan
        gsl/statistics/mean-std-variance.dylan
        gsl/statistics/absolute-deviation.dylan
