@@ -11,6 +11,7 @@ GSL modules
    gsl-common
    gsl-error
    gsl-math
+   gsl-vector
    gsl-statistics
 
 FFI modules
