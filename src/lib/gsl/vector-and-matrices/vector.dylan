@@ -190,3 +190,42 @@ define function min-max-index
    (v :: <gsl-vector>) => (min-index :: <integer>, max-index :: <integer>)
   ffi/gsl-vector-minmax-index(v.%gsl-vector)
 end;
+
+// Vector properties
+
+define method \=
+   (a :: <gsl-vector>, b :: <gsl-vector>) 
+=> (equal :: <boolean>)
+  ffi/gsl-vector-equal(a.%gsl-vector, b.%gsl-vector) = 0
+end;
+
+define function null?
+   (a :: <gsl-vector>) 
+=> (_ :: <boolean>)
+  ffi/gsl-vector-isnull(a.%gsl-vector) = 1
+end;
+
+define method zero?
+   (a :: <gsl-vector>) 
+=> (zero? :: <boolean>)
+  a.null?
+end;
+
+define method positive?
+   (a :: <gsl-vector>) 
+=> (positive? :: <boolean>)
+  ffi/gsl-vector-ispos(a.%gsl-vector) = 1
+end;
+
+define method negative?
+   (a :: <gsl-vector>) 
+=> (negative? :: <boolean>)
+  ffi/gsl-vector-isneg(a.%gsl-vector) = 1
+end;
+
+define method non-negative?
+   (a :: <gsl-vector>) 
+=> (non-negative? :: <boolean>)
+  ffi/gsl-vector-isnonneg(a.%gsl-vector) = 1
+end;
+

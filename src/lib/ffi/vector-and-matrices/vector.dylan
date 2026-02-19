@@ -76,6 +76,7 @@ define c-function gsl-vector-const-ptr
   c-name: "gsl_vector_const_ptr";
 end;
 
+
 // Initializing vector elements
 
 // https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_vector_set_all
@@ -266,4 +267,47 @@ define c-function gsl-vector-minmax-index
   output parameter min-index :: <c-size-t*>;
   output parameter max-index :: <c-size-t*>;
   c-name: "gsl_vector_minmax_index";
+end;
+
+// Vector properties
+
+// https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_vector_equal
+
+define c-function gsl-vector-equal
+  input parameter a :: <gsl-vector*>;
+  input parameter b :: <gsl-vector*>;
+  result value :: <c-int>;
+  c-name: "gsl_vector_equal";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_vector_isnull
+
+define c-function gsl-vector-isnull
+  input parameter v :: <gsl-vector*>;
+  result value :: <c-int>;
+  c-name: "gsl_vector_isnull";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_vector_ispos
+
+define c-function gsl-vector-ispos
+  input parameter v :: <gsl-vector*>;
+  result value :: <c-int>;
+  c-name: "gsl_vector_ispos";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_vector_isneg
+
+define c-function gsl-vector-isneg
+  input parameter v :: <gsl-vector*>;
+  result value :: <c-int>;
+  c-name: "gsl_vector_isneg";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_vector_isnonneg
+
+define c-function gsl-vector-isnonneg
+  input parameter v :: <gsl-vector*>;
+  result value :: <c-int>;
+  c-name: "gsl_vector_isnonneg";
 end;

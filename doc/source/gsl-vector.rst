@@ -424,3 +424,76 @@ Accessing elements
 
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       min-max-index(v);
+
+Vector properties
+=================
+
+.. function:: null?
+
+   :signature: null? (vector) => (null?)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value null?: An instance of `<boolean>`.
+
+   :description: Return true if the vector is null.
+
+   :examples:
+
+      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+      null?(v);
+
+define method zero?
+
+   :signature: zero? (vector) => (zero?)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value zero?: An instance of `<boolean>`.
+
+   :description: Return true if the vector is zero.
+
+   :examples:
+
+      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+      v.zero?;
+
+.. method:: positive?
+
+   :signature: positive? (vector) => (positive?)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value positive?: An instance of `<boolean>`.
+
+   :description: Return true if the vector is positive.
+
+   :examples:
+
+      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+      v.positive?;
+
+.. method:: negative?
+
+   :signature: negative? (vector) => (negative?)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value negative?: An instance of `<boolean>`.
+
+   :description: Return true if the vector is negative.
+
+   :examples:
+
+      let v = make(<gsl-vector>, size: 10, fill: -1.0d0);
+      v.negative?;
+
+.. function:: non-negative?
+
+   :signature: non-negative? (vector) => (non-negative?)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value non-negative?: An instance of `<boolean>`.
+
+   :description: Return true if the vector is non-negative.
+
+   :examples:
+
+      let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+      v.non-negative?;

@@ -77,6 +77,13 @@ define module gsl-ffi-vector
     gsl-vector-min-index,
     gsl-vector-minmax-index;
 
+  create
+    gsl-vector-equal,
+    gsl-vector-isnull,
+    gsl-vector-ispos,
+    gsl-vector-isneg,
+    gsl-vector-isnonneg;
+
 end module;
 
 define module gsl-ffi-vector-impl

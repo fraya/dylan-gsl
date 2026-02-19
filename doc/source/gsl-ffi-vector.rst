@@ -255,4 +255,51 @@ Finding maximum and minimum elements
 
    :description: Return the index of the minimum element of the vector a.
 
-   
+Vector properties
+=================
+
+.. function:: gsl-vector-equal
+
+   :signature: gsl-vector-equal (a, b) => (value)
+
+   :parameter a: An instance of `<gsl-vector*>`.
+   :parameter b: An instance of `<gsl-vector*>`.
+   :value value: An instance of `<c-int>`.
+
+   :description: Return true if the vectors a and b are equal.
+
+.. function:: gsl-vector-isnull
+
+   :signature: gsl-vector-isnull (a) => (value)
+
+   :parameter a: An instance of `<gsl-vector*>`.
+   :value value: An instance of `<c-int>`.
+
+   :description: Return true if the vector a is null.
+
+.. function:: gsl-vector-ispos
+
+   :signature: gsl-vector-ispos (a) => (value)
+
+   :parameter a: An instance of `<gsl-vector*>`.
+   :value value: An instance of `<c-int>`.
+
+   :description: Return true if the vector a is positive.
+
+.. function:: gsl-vector-isneg
+
+   :signature: gsl-vector-isneg (a) => (value)
+
+   :parameter a: An instance of `<gsl-vector*>`.
+   :value value: An instance of `<c-int>`.
+
+   :description: Return true if the vector a is negative.
+
+.. function:: gsl-vector-isnonneg
+
+   :signature: gsl-vector-isnonneg (a) => (value)
+
+   :parameter a: An instance of `<gsl-vector*>`.
+   :value value: An instance of `<c-int>`.
+
+   :description: Return true if the vector a is non-negative.

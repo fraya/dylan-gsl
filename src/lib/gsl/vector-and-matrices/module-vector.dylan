@@ -27,6 +27,10 @@ define module gsl-vector
      min-max,
      min-max-index;
 
+  create
+    null?,
+    non-negative?;
+
 end module;
 
 define module gsl-vector-impl
