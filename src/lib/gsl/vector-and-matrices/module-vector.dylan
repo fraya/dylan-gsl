@@ -29,15 +29,15 @@ define module gsl-vector
 
   create
     null?,
-    non-negative?,
-    v=;
+    non-negative?;
 
 end module;
 
 define module gsl-vector-impl
    use common-dylan;
    use gsl-math,
-     prefix: "math/";
+     import: { *epsilon*,
+               f= };
    use gsl-ffi-vector,
      prefix: "ffi/";
 

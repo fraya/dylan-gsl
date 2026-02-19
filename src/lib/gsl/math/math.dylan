@@ -10,40 +10,14 @@ define constant $default-epsilon :: <double-float>
 define variable *epsilon* :: <double-float>
   = $default-epsilon;
   
-define function f=
-  (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
- => (is-equal :: <boolean>)
+define generic f=
+    (x :: <object>, y :: <object>, #key epsilon :: <double-float> = *epsilon*)
+ => (aprox-equal? :: <boolean>);
+
+define method f=
+    (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
+ => (aprox-equal :: <boolean>)
   gsl-fcmp(x, y, epsilon) = 0
-end;
-
-define function f~=
-  (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
- => (is-not-equal :: <boolean>)
-  gsl-fcmp(x, y, epsilon) ~= 0
-end;
-
-define function f<
-  (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
- => (is-less-than :: <boolean>)
-  gsl-fcmp(x, y, epsilon) < 0
-end;
-
-define function f>
-  (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
- => (is-greater-than :: <boolean>)
-  gsl-fcmp(x, y, epsilon) > 0
-end;
-
-define function f<=
-  (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
- => (is-less-than-or-equal-to :: <boolean>)
-  gsl-fcmp(x, y, epsilon) <= 0
-end;
-
-define function f>=
-  (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
- => (is-greater-than-or-equal-to :: <boolean>)
-  gsl-fcmp(x, y, epsilon) >= 0
 end;
 
 define function nan?

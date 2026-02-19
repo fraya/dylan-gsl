@@ -11,25 +11,17 @@ Double-float comparison functions
 
 .. variable:: *epsilon*
 
-.. function:: f<
+.. generic:: f=
 
-   :signature: f< (x y #key epsilon) => (is-less-than)
+   :signature: f= (x y #key epsilon) => (is-equal)
 
-   :parameter x: An instance of :drm:`<double-float>`.
-   :parameter y: An instance of :drm:`<double-float>`.
+   :parameter x: An instance of :drm:`<object>`.
+   :parameter y: An instance of :drm:`<object>`.
    :parameter #key epsilon: An instance of :drm:`<double-float>`.
-   :value is-less-than: An instance of :drm:`<boolean>`.
+   :value is-equal: An instance of :drm:`<boolean>`.
 
-.. function:: f<=
-
-   :signature: f<= (x y #key epsilon) => (is-less-than-or-equal-to)
-
-   :parameter x: An instance of :drm:`<double-float>`.
-   :parameter y: An instance of :drm:`<double-float>`.
-   :parameter #key epsilon: An instance of :drm:`<double-float>`.
-   :value is-less-than-or-equal-to: An instance of :drm:`<boolean>`.
-
-.. function:: f=
+.. method:: f=
+   :specializer: <double-float>
 
    :signature: f= (x y #key epsilon) => (is-equal)
 
@@ -37,33 +29,6 @@ Double-float comparison functions
    :parameter y: An instance of :drm:`<double-float>`.
    :parameter #key epsilon: An instance of :drm:`<double-float>`.
    :value is-equal: An instance of :drm:`<boolean>`.
-
-.. function:: f>
-
-   :signature: f> (x y #key epsilon) => (is-greater-than)
-
-   :parameter x: An instance of :drm:`<double-float>`.
-   :parameter y: An instance of :drm:`<double-float>`.
-   :parameter #key epsilon: An instance of :drm:`<double-float>`.
-   :value is-greater-than: An instance of :drm:`<boolean>`.
-
-.. function:: f>=
-
-   :signature: f>= (x y #key epsilon) => (is-greater-than-or-equal-to)
-
-   :parameter x: An instance of :drm:`<double-float>`.
-   :parameter y: An instance of :drm:`<double-float>`.
-   :parameter #key epsilon: An instance of :drm:`<double-float>`.
-   :value is-greater-than-or-equal-to: An instance of :drm:`<boolean>`.
-
-.. function:: f~=
-
-   :signature: f~= (x y #key epsilon) => (is-not-equal)
-
-   :parameter x: An instance of :drm:`<double-float>`.
-   :parameter y: An instance of :drm:`<double-float>`.
-   :parameter #key epsilon: An instance of :drm:`<double-float>`.
-   :value is-not-equal: An instance of :drm:`<boolean>`.
 
 Infinity and NaN functions
 ==========================

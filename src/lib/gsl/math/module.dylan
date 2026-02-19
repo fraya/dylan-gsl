@@ -16,11 +16,6 @@ define module gsl-math
     $default-epsilon,
     *epsilon*,
     f=,
-    f~=,
-    f<,
-    f>,
-    f<=,
-    f>=,
     nan?;
 
   // Infinity numbers

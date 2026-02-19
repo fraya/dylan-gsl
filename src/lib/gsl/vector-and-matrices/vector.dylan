@@ -243,17 +243,17 @@ define method non-negative?
   ffi/gsl-vector-isnonneg(a.%gsl-vector) = 1
 end;
 
-define function v=
+define method f=
    (a :: <gsl-vector>, b :: <gsl-vector>, 
-    #key epsilon :: <double-float> = math/*epsilon*) 
-=> (equal? :: <boolean>)
+    #key epsilon :: <double-float> = *epsilon*) 
+=> (aprox-equal? :: <boolean>)
   block (equal?)
     if (a.size ~= b.size)
       equal?(#f)
     end;
     for (i from 0 below a.size)
-      let comparison = math/gsl-fcmp(a[i], b[i], epsilon);
-      if (comparison ~= 0)
+      let comparison = f=(a[i], b[i], epsilon: epsilon);
+      if (~comparison)
         equal?(#f)
       end;
     end for;
