@@ -459,7 +459,8 @@ Vector properties
       let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
       null?(v);
 
-define method zero?
+.. method:: zero?
+   :specializer: <gsl-vector>
 
    :signature: zero? (vector) => (zero?)
 
