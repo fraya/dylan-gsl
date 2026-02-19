@@ -18,12 +18,14 @@ The <gsl-vector> type
 Allocation functions
 ====================
 
-.. function:: make-gsl-vector
+.. method:: make
+   :specializer: <gsl-vector>
 
-   :signature: make-gsl-vector (#key size fill) => (vector)
+   :signature: make (<gsl-vector> #key size fill stride) => (vector)
 
-   :parameter size: An instance of `<integer>`.
-   :parameter fill: An instance of `<double-float>`.
+   :parameter #key size: An instance of `<integer>`.
+   :parameter #key fill: An instance of `<double-float>`.
+   :parameter #key stride: An instance of `<integer>`.
    :value vector: An instance of `<gsl-vector>`.
 
    :description: Allocate an array of size elements in a block of memory.
