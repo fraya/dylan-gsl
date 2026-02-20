@@ -8,7 +8,7 @@ define module gsl-vector
 
    create 
      <gsl-vector>,
-     copy-gsl-vector;
+     gsl-vector-copy;
 
    create
      set-all!,
