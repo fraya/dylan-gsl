@@ -6,6 +6,7 @@ License: See LICENSE in this distribution for details
 
 define class <gsl-vector> (<mutable-sequence>)
   slot %gsl-vector :: ffi/<gsl-vector*>;
+  virtual slot gsl-vector-stride :: <integer>;
 end;
 
 define method initialize
@@ -33,6 +34,19 @@ define function gsl-vector-copy
   let b = make(<gsl-vector>, size: a.size);
   ffi/gsl-vector-memcpy(b.%gsl-vector, a.%gsl-vector);
   b
+end;
+
+define method gsl-vector-stride
+   (v :: <gsl-vector>) 
+=> (stride :: <integer>)
+  v.%gsl-vector.ffi/gsl-vector-stride
+end;
+
+define method gsl-vector-stride-setter
+   (stride :: <integer>, v :: <gsl-vector>) 
+=> (stride :: <integer>)
+  v.%gsl-vector.ffi/gsl-vector-stride := stride;
+  stride
 end;
 
 define method element

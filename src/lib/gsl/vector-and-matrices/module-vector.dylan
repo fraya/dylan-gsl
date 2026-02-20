@@ -8,7 +8,9 @@ define module gsl-vector
 
    create 
      <gsl-vector>,
-     gsl-vector-copy;
+     gsl-vector-copy,
+     gsl-vector-stride,
+     gsl-vector-stride-setter;
 
    create
      set-all!,
