@@ -88,12 +88,19 @@ define module gsl-statistics-impl
 
   use common-dylan;
   use c-ffi;
+
   use gsl-common,
     import: { <double-float?>,
               <vector-double-float>,
               with-c-double-array };
-  use gsl-ffi-statistics;
 
+  use gsl-vector;
+  use gsl-vector-impl,
+    import: { %gsl-vector,
+              %gsl-vector-data,
+              %gsl-vector-data-setter };
+
+  use gsl-ffi-statistics;
   use gsl-statistics;
 
 end module;

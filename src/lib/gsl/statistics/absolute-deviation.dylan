@@ -9,15 +9,12 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_absdev_m
 
 define function abs-dev
-    (data :: <vector>,
-    #key stride :: <integer> = 1,
-         mean :: <double-float?> = #f)
- => (mean :: <double-float>)
-  with-c-double-array (c-data = data)
-    if (mean)
-      gsl-stats-abs-dev-m(c-data, stride, data.size, mean)
-    else
-      gsl-stats-abs-dev(c-data, stride, data.size)
-    end
+    (data :: <gsl-vector>,
+    #key mean :: <double-float?> = #f)
+ => (abs-dev :: <double-float>) 
+  if (mean)
+    gsl-stats-abs-dev-m(data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
+  else
+    gsl-stats-abs-dev(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
   end
 end;

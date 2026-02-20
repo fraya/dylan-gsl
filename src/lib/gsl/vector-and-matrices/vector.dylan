@@ -6,6 +6,7 @@ License: See LICENSE in this distribution for details
 
 define class <gsl-vector> (<mutable-sequence>)
   slot %gsl-vector :: ffi/<gsl-vector*>;
+  virtual slot %gsl-vector-data :: <c-double*>;
   virtual slot gsl-vector-stride :: <integer>;
 end;
 
@@ -49,6 +50,19 @@ define method gsl-vector-stride-setter
   stride
 end;
 
+define method %gsl-vector-data
+   (v :: <gsl-vector>) 
+=> (data :: <c-double*>)
+  v.%gsl-vector.ffi/gsl-vector-data
+end;
+
+define method %gsl-vector-data-setter
+   (data :: <c-double*>, v :: <gsl-vector>) 
+=> (data :: <c-double*>)
+  v.%gsl-vector.ffi/gsl-vector-data := data;
+  data
+end;
+
 define method element
     (v :: <gsl-vector>, index :: <integer>, #key default)
  => (e :: <double-float>)
@@ -60,6 +74,15 @@ define method element-setter
  => (value :: <double-float>)
   ffi/gsl-vector-set(v.%gsl-vector, index, value);
   value
+end;
+
+define function gsl-vector
+  (seq :: <sequence>, #key stride :: <integer> = 1)
+  let v = make(<gsl-vector>, size: seq.size, stride: stride);
+  for (i from 0 below seq.size)
+    v[i] := seq[i]
+  end;
+  v
 end;
 
 define function set-all!

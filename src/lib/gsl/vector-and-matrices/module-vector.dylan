@@ -8,6 +8,7 @@ define module gsl-vector
 
    create 
      <gsl-vector>,
+     gsl-vector,
      gsl-vector-copy,
      gsl-vector-stride,
      gsl-vector-stride-setter;
@@ -37,6 +38,7 @@ end module;
 
 define module gsl-vector-impl
    use common-dylan;
+   use c-ffi;
    use gsl-math,
      import: { *epsilon*,
                f= };
@@ -44,4 +46,8 @@ define module gsl-vector-impl
      prefix: "ffi/";
 
    use gsl-vector;
+   export
+     %gsl-vector,
+     %gsl-vector-data,
+     %gsl-vector-data-setter;
 end module;

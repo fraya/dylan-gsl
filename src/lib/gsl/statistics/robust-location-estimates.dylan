@@ -9,20 +9,15 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#robust-loca
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_gastwirth_from_sorted_data
 
 define function trimmed-mean
-    (sorted-data :: <vector-double-float>,
-     alpha :: <double-float>,
-     #key stride :: <integer> = 1)
+    (sorted-data :: <gsl-vector>, alpha :: <double-float>)
  => (trimmed-mean :: <double-float>)
-  with-c-double-array (c-data = sorted-data)
-    gsl-stats-trmean-from-sorted-data(alpha, c-data, stride, sorted-data.size)
-  end
+  gsl-stats-trmean-from-sorted-data
+    (alpha, sorted-data.%gsl-vector-data, sorted-data.gsl-vector-stride, sorted-data.size)
 end;
 
 define function gastwirth-estimator
-    (sorted-data :: <vector-double-float>,
-     #key stride :: <integer> = 1)
+    (sorted-data :: <gsl-vector>)
  => (gastwirth-estimator :: <double-float>)
-  with-c-double-array (c-data = sorted-data)
-    gsl-stats-gastwirth-from-sorted-data(c-data, stride, sorted-data.size)
-  end
+  gsl-stats-gastwirth-from-sorted-data
+    (sorted-data.%gsl-vector-data, sorted-data.gsl-vector-stride, sorted-data.size)
 end;
