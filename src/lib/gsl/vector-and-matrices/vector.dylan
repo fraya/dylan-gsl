@@ -63,9 +63,9 @@ define function set-zero!
 end;
 
 define function set-basis!
-   (v :: <gsl-vector>, i :: <integer>) 
+   (v :: <gsl-vector>, index :: <integer>) 
 => (v :: <gsl-vector>)
-  ffi/gsl-vector-set-basis(v.%gsl-vector, i);
+  ffi/gsl-vector-set-basis(v.%gsl-vector, index);
   v
 end;
 
