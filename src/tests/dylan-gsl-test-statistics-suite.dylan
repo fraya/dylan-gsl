@@ -12,15 +12,16 @@ define test test-mean ()
 end test;
 
 define test test-variance ()
-  let m = mean($stats-dataset);
+  let the-mean = mean($stats-dataset);
+  let variance-sample-without-mean = variance($stats-dataset);
+  let variance-sample-with-mean = variance($stats-dataset, mean: the-mean);
+  let variance-population = variance($stats-dataset, mean: the-mean, population?: #t);
 
-  assert-true(f=(variance($stats-dataset),
-                 variance($stats-dataset, mean: m)),
+  assert-true(f=(variance-sample-without-mean,
+                 variance-sample-with-mean),
               "Variance of sample with and without mean are equal");
 
-  let variance-sample = variance($stats-dataset, mean: m);
-  assert-true(f=(13.6d0, variance-sample));
-  let variance-population = variance($stats-dataset, mean: m, population?: #t); 
+  assert-true(f=(13.6d0, variance-sample-with-mean));
   assert-true(f=(11.34d0, variance-population, epsilon: 1d-1)); 
 end test;
 
@@ -36,8 +37,8 @@ end test;
 
 define test test-minimum-maximum ()
   let (min, max) = minimum-maximum($stats-dataset);
-  assert-true(min, 10.0d0);
-  assert-true(max, 21.0d0);
+  assert-true(f=(min, 10.0d0));
+  assert-true(f=(max, 21.0d0));
 end test;
 
 define test test-median ()
@@ -52,7 +53,7 @@ end test;
 
 define test test-order-statistic! ()
   let kth = kth-order-statistic($stats-dataset, 0);
-  assert-equal(kth, 10.0d0  );
+  assert-equal(kth, 10.0d0);
 end;
 
 define suite gsl-statistics-suite ()
