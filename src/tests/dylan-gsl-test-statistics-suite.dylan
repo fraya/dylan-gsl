@@ -44,7 +44,7 @@ define test test-median ()
   let m1 = median($stats-dataset);
   assert-true(f=(m1, 16.0d0));
   assert-equal($stats-dataset,
-               gsl-vector(#[15d0, 17.0d0, 15.0d0, 18.0d0, 21.0d0]),
+               gsl-vector(#[10.0d0, 15.0d0, 15.0d0, 17.0d0, 18.0d0, 21.0d0]),
                "Dataset is not modified in sorting");
   let m2 = median($stats-dataset, sorted?: #t);
   assert-true(f=(m1, m2));
