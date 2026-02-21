@@ -16,6 +16,7 @@ The <gsl-vector> type
    :slots: 
 
 .. method:: gsl-vector-stride
+   :specializer: <gsl-vector>
 
    :signature: gsl-vector-stride (vector) => (stride)
 
@@ -32,6 +33,7 @@ The <gsl-vector> type
          let stride = v.gsl-vector-stride;
 
 .. method:: gsl-vector-stride-setter
+   :specializer: <gsl-vector>
 
    :signature: gsl-vector-stride-setter (stride vector) => (stride)
 
