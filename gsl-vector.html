@@ -258,9 +258,9 @@
 <h1>The GSL-VECTOR module<a class="headerlink" href="#the-gsl-vector-module" title="Link to this heading">¶</a></h1>
 <section id="the-gsl-vector-type">
 <h2>The &lt;gsl-vector&gt; type<a class="headerlink" href="#the-gsl-vector-type" title="Link to this heading">¶</a></h2>
-<dl class="dylan type">
+<dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:[gsl-vector]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-vector&gt;</span></span> <em class="property"><span class="pre">Type</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:[gsl-vector]" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">&lt;gsl-vector&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:[gsl-vector]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
 <dd class="field-odd"><p>&lt;mutable-sequence&gt;</p>
@@ -270,6 +270,65 @@
 </dd>
 <dt class="field-odd">Slots<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:gsl-vector-stride([gsl-vector])">
+<span class="sig-name descname"><span class="pre">gsl-vector-stride(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:gsl-vector-stride([gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-stride (vector) =&gt; (stride)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>vector</strong> – An instance of <cite>&lt;gsl-vector&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stride</strong> – An instance of <cite>&lt;integer&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return the stride of the vector.</p>
+</dd>
+<dt class="field-odd">Examples<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">stride</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">gsl-vector-stride</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-vector:gsl-vector-stride-setter([gsl-vector])">
+<span class="sig-name descname"><span class="pre">gsl-vector-stride-setter(&lt;gsl-vector&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-vector:gsl-vector-stride-setter([gsl-vector])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-vector-stride-setter (stride vector) =&gt; (stride)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>stride</strong> – An instance of <cite>&lt;integer&gt;</cite>.</p></li>
+<li><p><strong>vector</strong> – An instance of <cite>&lt;gsl-vector&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stride</strong> – An instance of <cite>&lt;integer&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Set the stride of the vector.</p>
+</dd>
+<dt class="field-odd">Examples<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-vector&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">size:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">fill:</span><span class="w"> </span><span class="mf">1.0</span><span class="n">d0</span><span class="p">);</span>
+<span class="n">v</span><span class="p">.</span><span class="n">gsl-vector-stride</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
 </dl>
 </dd></dl>
 
@@ -1402,6 +1461,8 @@
 <li><a class="reference internal" href="#">The GSL-VECTOR module</a><ul>
 <li><a class="reference internal" href="#the-gsl-vector-type">The &lt;gsl-vector&gt; type</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-vector:[gsl-vector]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:gsl-vector-stride([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">gsl-vector-stride(&lt;gsl-vector&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-vector:gsl-vector-stride-setter([gsl-vector])"><code class="docutils literal notranslate"><span class="pre">gsl-vector-stride-setter(&lt;gsl-vector&gt;)</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#allocation-functions">Allocation functions</a><ul>

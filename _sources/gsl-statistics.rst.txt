@@ -11,7 +11,7 @@ Mean, Standard Deviation and Variance
 
    :signature: mean (data #key stride) => (mean)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value mean: An instance of :drm:`<double-float>`.
 
@@ -19,7 +19,7 @@ Mean, Standard Deviation and Variance
 
    :signature: standard-deviation (data #key stride mean fixed-mean?) => (sd)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :parameter #key fixed-mean?: An instance of :drm:`<boolean>`.
@@ -29,7 +29,7 @@ Mean, Standard Deviation and Variance
 
    :signature: tss (data #key stride mean) => (tss)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :value tss: An instance of :drm:`<double-float>`.
@@ -38,7 +38,7 @@ Mean, Standard Deviation and Variance
 
    :signature: variance (data #key stride mean population?) => (variance)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :parameter #key population?: An instance of :drm:`<boolean>`.
@@ -51,7 +51,7 @@ Absolute deviation
 
    :signature: abs-dev (data #key stride mean) => (mean)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :value mean: An instance of :drm:`<double-float>`.
@@ -63,8 +63,8 @@ Covariance
 
    :signature: covariance (data1 data2 #key stride1 stride2 mean1 mean2) => (covariance)
 
-   :parameter data1: An instance of :drm:`<vector>`.
-   :parameter data2: An instance of :drm:`<vector>`.
+   :parameter data1: An instance of :drm:`<gsl-vector>`.
+   :parameter data2: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride1: An instance of :drm:`<integer>`.
    :parameter #key stride2: An instance of :drm:`<integer>`.
    :parameter #key mean1: An instance of :const:`<double-float?>`.
@@ -78,7 +78,7 @@ Higher moments (skewness and kurtosis)
 
    :signature: skew (data #key stride mean sd) => (skewness)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :parameter #key sd: An instance of :const:`<double-float?>`.
@@ -88,7 +88,7 @@ Higher moments (skewness and kurtosis)
 
    :signature: kurtosis (data #key stride mean sd) => (kurtosis)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :parameter #key sd: An instance of :const:`<double-float?>`.
@@ -101,7 +101,7 @@ Autocorrelation
 
    :signature: lag1-autocorrelation (data #key stride mean) => (autocorrelation)
 
-   :parameter data: An instance of :drm:`<vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
    :value autocorrelation: An instance of :drm:`<double-float>`.
@@ -113,7 +113,7 @@ Maximum and Minimum
 
    :signature: maximum (data #key stride) => (max)
 
-   :parameter data: An instance of :const:`<vector-double-float>`.
+   :parameter data: An instance of :const:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value max: An instance of :drm:`<double-float>`.
 
@@ -121,7 +121,7 @@ Maximum and Minimum
 
    :signature: minimum (data #key stride) => (min)
 
-   :parameter data: An instance of :const:`<vector-double-float>`.
+   :parameter data: An instance of :const:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value min: An instance of :drm:`<double-float>`.
 
@@ -129,7 +129,7 @@ Maximum and Minimum
 
    :signature: minimum-maximum (data #key stride) => (minimum maximum)
 
-   :parameter data: An instance of :const:`<vector-double-float>`.
+   :parameter data: An instance of :const:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value minimum: An instance of :drm:`<double-float>`.
    :value maximum: An instance of :drm:`<double-float>`.
@@ -141,8 +141,8 @@ Correlation
 
    :signature: correlation (data1 data2 #key stride1 stride2) => (correlation)
 
-   :parameter data1: An instance of :drm:`<vector>`.
-   :parameter data2: An instance of :drm:`<vector>`.
+   :parameter data1: An instance of :drm:`<gsl-vector>`.
+   :parameter data2: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride1: An instance of :drm:`<integer>`.
    :parameter #key stride2: An instance of :drm:`<integer>`.
    :value correlation: An instance of :drm:`<double-float>`.
@@ -151,9 +151,9 @@ Correlation
 
    :signature: spearman (data1 data2 work #key stride1 stride2) => (correlation-sd)
 
-   :parameter data1: An instance of :drm:`<vector>`.
-   :parameter data2: An instance of :drm:`<vector>`.
-   :parameter work: An instance of :drm:`<vector>`.
+   :parameter data1: An instance of :drm:`<gsl-vector>`.
+   :parameter data2: An instance of :drm:`<gsl-vector>`.
+   :parameter work: An instance of :drm:`<gsl-vector>`.
    :parameter #key stride1: An instance of :drm:`<integer>`.
    :parameter #key stride2: An instance of :drm:`<integer>`.
    :value correlation-sd: An instance of :drm:`<double-float>`.
@@ -165,8 +165,8 @@ Weighted samples
 
    :signature: wmean (weights data #key weights-stride data-stride) => (wmean)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :value wmean: An instance of :drm:`<double-float>`.
@@ -175,8 +175,8 @@ Weighted samples
 
    :signature: wvariance (weights data #key weights-stride data-stride mean fixed-mean? population?) => (wvariance)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
@@ -188,8 +188,8 @@ Weighted samples
 
    :signature: wsd (weights data #key weights-stride data-stride mean) => (wsd)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
@@ -199,8 +199,8 @@ Weighted samples
 
    :signature: wtss (weights data #key weights-stride data-stride mean) => (wtss)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
@@ -210,8 +210,8 @@ Weighted samples
 
    :signature: wabs-dev (weights data #key weights-stride data-stride mean) => (wabs-dev)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
@@ -221,8 +221,8 @@ Weighted samples
 
    :signature: wskew (weights data #key weights-stride data-stride) => (wskew)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :value wskew: An instance of :drm:`<double-float>`.
@@ -231,8 +231,8 @@ Weighted samples
 
    :signature: wkurtosis (weights data #key weights-stride data-stride mean sd) => (wkurtosis)
 
-   :parameter weights: An instance of :drm:`<vector-double-float>`.
-   :parameter data: An instance of :drm:`<vector-double-float>`.
+   :parameter weights: An instance of :drm:`<gsl-vector>`.
+   :parameter data: An instance of :drm:`<gsl-vector>`.
    :parameter #key weights-stride: An instance of :drm:`<integer>`.
    :parameter #key data-stride: An instance of :drm:`<integer>`.
    :parameter #key mean: An instance of :const:`<double-float?>`.
@@ -246,7 +246,7 @@ Median and Percentiles
 
    :signature: median (data #key stride sorted?) => (median)
 
-   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter data: An instance of :class:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :parameter #key sorted?: An instance of :drm:`<boolean>`.
    :value median: An instance of :drm:`<double-float>`.
@@ -258,7 +258,7 @@ Order Statistics
 
    :signature: kth-order-statistic (data k #key stride) => (kth-order-statistic)
 
-   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter data: An instance of :class:`<gsl-vector>`.
    :parameter k: An instance of :drm:`<double-float>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value kth-order-statistic: An instance of :drm:`<double-float>`.
@@ -270,7 +270,7 @@ Robust Location Estimates
 
    :signature: trimmed-mean (sorted-data alpha #key stride) => (trimmed-mean)
 
-   :parameter sorted-data: An instance of :class:`<vector-double-float>`.
+   :parameter sorted-data: An instance of :class:`<gsl-vector>`.
    :parameter alpha: An instance of :drm:`<double-float>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value trimmed-mean: An instance of :drm:`<double-float>`.
@@ -279,7 +279,7 @@ Robust Location Estimates
 
    :signature: gastwirth-estimator (sorted-data #key stride) => (gastwirth-estimator)
 
-   :parameter sorted-data: An instance of :class:`<vector-double-float>`.
+   :parameter sorted-data: An instance of :class:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value gastwirth-estimator: An instance of :drm:`<double-float>`.
 
@@ -290,7 +290,7 @@ Robust Scale Estimates
 
    :signature: mad (data #key stride) => (mad)
 
-   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter data: An instance of :class:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value mad: An instance of :drm:`<double-float>`.
 
@@ -298,6 +298,6 @@ Robust Scale Estimates
 
    :signature: mad0 (data #key stride) => (mad0)
 
-   :parameter data: An instance of :class:`<vector-double-float>`.
+   :parameter data: An instance of :class:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value mad0: An instance of :drm:`<double-float>`.

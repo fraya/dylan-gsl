@@ -7,13 +7,48 @@ The GSL-VECTOR module
 The <gsl-vector> type
 =====================
 
-.. type:: <gsl-vector>
+.. class:: <gsl-vector>
 
    :superclasses: <mutable-sequence>
 
    :description: A vector of double precision floating point numbers.
 
    :slots: 
+
+.. method:: gsl-vector-stride
+   :specializer: <gsl-vector>
+
+   :signature: gsl-vector-stride (vector) => (stride)
+
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value stride: An instance of `<integer>`.
+
+   :description: Return the stride of the vector.
+
+   :examples:
+
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         let stride = v.gsl-vector-stride;
+
+.. method:: gsl-vector-stride-setter
+   :specializer: <gsl-vector>
+
+   :signature: gsl-vector-stride-setter (stride vector) => (stride)
+
+   :parameter stride: An instance of `<integer>`.
+   :parameter vector: An instance of `<gsl-vector>`.
+   :value stride: An instance of `<integer>`.
+
+   :description: Set the stride of the vector.
+
+   :examples:
+
+      .. code-block:: dylan
+
+         let v = make(<gsl-vector>, size: 10, fill: 1.0d0);
+         v.gsl-vector-stride := 2;
 
 Allocation functions
 ====================
