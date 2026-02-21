@@ -8,30 +8,23 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#correlation
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_spearman
 
 define function correlation
-  (data1 :: <vector>,
-   data2 :: <vector>,
-   #key stride1 :: <integer> = 1,
-        stride2 :: <integer> = 1)
-  => (correlation :: <double-float>)
-  with-c-double-array (c-data1 = data1)
-    with-c-double-array (c-data2 = data2)
-      gsl-stats-correlation(c-data1, stride1, c-data2, stride2, data1.size)
-    end
-  end
+   (data1 :: <gsl-vector>, data2 :: <gsl-vector>)
+=> (correlation :: <double-float>)
+  gsl-stats-correlation
+    (data1.%gsl-vector-data, 
+     data1.gsl-vector-stride, 
+     data2.%gsl-vector-data, 
+     data2.gsl-vector-stride, data1.size)
 end;
 
 define function spearman
-  (data1 :: <vector>, 
-   data2 :: <vector>, 
-   work :: <vector>,
-   #key stride1 :: <integer> = 1,
-        stride2 :: <integer> = 1)
-  => (correlation-sd :: <double-float>)
-  with-c-double-array (c-data1 = data1)
-    with-c-double-array (c-data2 = data2)
-      with-c-double-array (c-work = work)
-        gsl-stats-spearman(c-data1, stride1, c-data2, stride2, data1.size, c-work)
-      end
-    end
-  end
+    (data1 :: <gsl-vector>, data2 :: <gsl-vector>, work :: <gsl-vector>)
+ => (correlation-sd :: <double-float>)
+  gsl-stats-spearman
+    (data1.%gsl-vector-data, 
+     data1.gsl-vector-stride, 
+     data2.%gsl-vector-data, 
+     data2.gsl-vector-stride, 
+     data1.size, 
+     work.%gsl-vector-data)
 end;

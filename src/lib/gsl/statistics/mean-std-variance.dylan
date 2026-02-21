@@ -16,61 +16,59 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_sd_with_fixed_mean
 
 define function mean
-    (data :: <vector>, #key stride :: <integer> = 1) 
+    (data :: <gsl-vector>) 
  => (mean :: <double-float>)
-  with-c-double-array (c-data = data) 
-    gsl-stats-mean(c-data, stride, data.size)
-  end
+  gsl-stats-mean
+    (data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
 
 define function variance
-    (data :: <vector>, 
-     #key stride :: <integer> = 1,
-          mean :: <double-float?> = #f,
+    (data :: <gsl-vector>, 
+     #key mean :: <double-float?> = #f,
           population? :: <boolean> = #f) 
  => (variance :: <double-float>)
-  with-c-double-array (c-data = data) 
-    if (mean)
-      if (population?)
-        gsl-stats-variance-with-fixed-mean(c-data, stride, data.size, mean)
-      else
-        gsl-stats-variance-m(c-data, stride, data.size, mean)
-      end
+  if (mean)
+    if (population?)
+      gsl-stats-variance-with-fixed-mean
+        (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
     else
-      gsl-stats-variance(c-data, stride, data.size)
-    end
+      gsl-stats-variance-m
+        (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
+    end if;
+  else
+    gsl-stats-variance
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size)
   end
 end;
 
 define function standard-deviation
-    (data :: <vector>, 
-     #key stride :: <integer> = 1,
-          mean :: <double-float?> = #f,
+    (data :: <gsl-vector>, 
+     #key mean :: <double-float?> = #f,
           fixed-mean? :: <boolean> = #f) 
  => (sd :: <double-float>)
-  with-c-double-array (c-data = data) 
-    if (mean)
-      if (fixed-mean?)
-        gsl-stats-sd-with-fixed-mean(c-data, stride, data.size, mean)
-      else
-        gsl-stats-sd-m(c-data, stride, data.size, mean)
-      end
+  if (mean)
+    if (fixed-mean?)
+      gsl-stats-sd-with-fixed-mean
+        (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
     else
-      gsl-stats-sd(c-data, stride, data.size)
-    end
-  end
+      gsl-stats-sd-m
+        (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
+    end if;
+  else
+    gsl-stats-sd
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size)
+  end if;
 end;
 
 define function tss
-    (data :: <vector>, 
-     #key stride :: <integer> = 1,
-          mean :: <double-float?> = #f) 
+    (data :: <gsl-vector>, 
+     #key mean :: <double-float?> = #f) 
  => (tss :: <double-float>)
-  with-c-double-array (c-data = data) 
-    if (mean)
-      gsl-stats-tss-m(c-data, stride, data.size, mean)
-    else
-      gsl-stats-tss(c-data, stride, data.size)
-    end
-  end
+  if (mean)
+    gsl-stats-tss-m
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
+  else
+    gsl-stats-tss
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size)
+  end if;
 end;

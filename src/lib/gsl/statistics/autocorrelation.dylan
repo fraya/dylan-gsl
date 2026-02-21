@@ -8,15 +8,12 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#autocorrela
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_lag1_autocorrelation_m
 
 define function lag1-autocorrelation
-    (data :: <vector>, 
-    #key stride :: <integer> = 1, 
-         mean :: <double-float?> = #f) 
+    (data :: <gsl-vector>, 
+    #key mean :: <double-float?> = #f) 
  => (autocorrelation :: <double-float>)
-  with-c-double-array (c-data = data)
-    if (mean)
-      gsl-stats-lag1-autocorrelation-m(c-data, stride, data.size, mean)
-    else
-      gsl-stats-lag1-autocorrelation(c-data, stride, data.size)
-    end
-  end
+  if (mean)
+    gsl-stats-lag1-autocorrelation-m(data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean)
+  else
+    gsl-stats-lag1-autocorrelation(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
+  end if;
 end;

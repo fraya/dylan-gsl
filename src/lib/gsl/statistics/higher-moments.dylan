@@ -10,31 +10,29 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#higher-mome
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_kurtosis_m
 
 define function skew
-    (data :: <vector>,
-    #key stride :: <integer> = 1,
-         mean :: <double-float?> = #f,
+    (data :: <gsl-vector>,
+    #key mean :: <double-float?> = #f,
          sd :: <double-float?> = #f)
  => (skewness :: <double-float>)
-  with-c-double-array (c-data = data)
-    if (mean & sd)
-      gsl-stats-skew-m-sd(c-data, data.size, stride, mean, sd)
-    else
-      gsl-stats-skew(c-data, data.size, stride)
-    end
+  if (mean & sd)
+    gsl-stats-skew-m-sd
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean, sd)
+  else
+    gsl-stats-skew
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size)
   end
 end;
 
 define function kurtosis
-    (data :: <vector>,
-    #key stride :: <integer> = 1,
-         mean :: <double-float?> = #f,
+    (data :: <gsl-vector>,
+    #key mean :: <double-float?> = #f,
          sd :: <double-float?> = #f)
  => (kurtosis :: <double-float>)
-  with-c-double-array (c-data = data)
-    if (mean & sd)
-      gsl-stats-kurtosis-m-sd(c-data, data.size, stride, mean, sd)
-    else
-      gsl-stats-kurtosis(c-data, data.size, stride)
-    end
+  if (mean & sd)
+    gsl-stats-kurtosis-m-sd
+      (data.%gsl-vector-data, data.gsl-vector-stride, data.size, mean, sd)
+  else
+    gsl-stats-kurtosis(
+      data.%gsl-vector-data, data.gsl-vector-stride, data.size)
   end
 end;

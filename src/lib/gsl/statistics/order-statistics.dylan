@@ -7,11 +7,7 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#order-stati
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_select
 
 define function kth-order-statistic
-    (data :: <vector-double-float>,
-     k :: <integer>,
-     #key stride :: <integer> = 1)
+    (data :: <gsl-vector>, k :: <integer>)
  => (kth-order-statistic :: <double-float>)
-  with-c-double-array (c-data = data)
-    gsl-stats-select(c-data, stride, data.size, k)
-  end
+  gsl-stats-select(data.%gsl-vector-data, data.gsl-vector-stride, data.size, k)
 end;

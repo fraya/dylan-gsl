@@ -9,25 +9,19 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#robust-loca
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_gastwirth_from_sorted_data
 
 define function mad0
-    (data :: <vector-double-float>,
-     #key stride :: <integer> = 1)
+    (data :: <gsl-vector>)
  => (mad0 :: <double-float>)
   let n = data.size;
-  with-c-double-array (c-data = data)
-    with-stack-structure (work :: <c-double*>, element-count: n)
-      gsl-stats-mad0(c-data, stride, n, work)
-    end;
+  with-stack-structure (work :: <c-double*>, element-count: n)
+    gsl-stats-mad0(data.%gsl-vector-data, data.gsl-vector-stride, n, work)
   end
 end;
 
 define function mad
-    (data :: <vector-double-float>,
-     #key stride :: <integer> = 1)
+    (data :: <gsl-vector>)
  => (mad :: <double-float>)
   let n = data.size;
-  with-c-double-array (c-data = data)
-    with-stack-structure (work :: <c-double*>, element-count: n)
-      gsl-stats-mad(c-data, stride, n, work)
-    end;
+  with-stack-structure (work :: <c-double*>, element-count: n)
+    gsl-stats-mad(data.%gsl-vector-data, data.gsl-vector-stride, n, work)
   end
 end;

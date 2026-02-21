@@ -6,6 +6,8 @@ License: See LICENSE in this distribution for details
 
 define class <gsl-vector> (<mutable-sequence>)
   slot %gsl-vector :: ffi/<gsl-vector*>;
+  virtual slot %gsl-vector-data :: <c-double*>;
+  virtual slot gsl-vector-stride :: <integer>;
 end;
 
 define method initialize
@@ -24,14 +26,41 @@ end;
 
 define method size
     (v :: <gsl-vector>) => (_ :: <integer>)
-  ffi/gsl-vector-size(v.%gsl-vector)
+  v.%gsl-vector.ffi/gsl-vector-size
 end;
 
-define method copy-gsl-vector
-    (a :: <gsl-vector>) => (b :: <gsl-vector>)
+define function gsl-vector-copy
+    (a :: <gsl-vector>) 
+ => (b :: <gsl-vector>)
   let b = make(<gsl-vector>, size: a.size);
   ffi/gsl-vector-memcpy(b.%gsl-vector, a.%gsl-vector);
   b
+end;
+
+define method gsl-vector-stride
+   (v :: <gsl-vector>) 
+=> (stride :: <integer>)
+  v.%gsl-vector.ffi/gsl-vector-stride
+end;
+
+define method gsl-vector-stride-setter
+   (stride :: <integer>, v :: <gsl-vector>) 
+=> (stride :: <integer>)
+  v.%gsl-vector.ffi/gsl-vector-stride := stride;
+  stride
+end;
+
+define method %gsl-vector-data
+   (v :: <gsl-vector>) 
+=> (data :: <c-double*>)
+  v.%gsl-vector.ffi/gsl-vector-data
+end;
+
+define method %gsl-vector-data-setter
+   (data :: <c-double*>, v :: <gsl-vector>) 
+=> (data :: <c-double*>)
+  v.%gsl-vector.ffi/gsl-vector-data := data;
+  data
 end;
 
 define method element
@@ -45,6 +74,15 @@ define method element-setter
  => (value :: <double-float>)
   ffi/gsl-vector-set(v.%gsl-vector, index, value);
   value
+end;
+
+define function gsl-vector
+  (seq :: <sequence>, #key stride :: <integer> = 1)
+  let v = make(<gsl-vector>, size: seq.size, stride: stride);
+  for (i from 0 below seq.size)
+    v[i] := seq[i]
+  end;
+  v
 end;
 
 define function set-all!
@@ -62,9 +100,9 @@ define function set-zero!
 end;
 
 define function set-basis!
-   (v :: <gsl-vector>, i :: <integer>) 
+   (v :: <gsl-vector>, index :: <integer>) 
 => (v :: <gsl-vector>)
-  ffi/gsl-vector-set-basis(v.%gsl-vector, i);
+  ffi/gsl-vector-set-basis(v.%gsl-vector, index);
   v
 end;
 
@@ -78,7 +116,7 @@ end;
 define method reverse
    (v :: <gsl-vector>) 
 => (reversed :: <gsl-vector>)
-  let reversed = copy-gsl-vector(v);
+  let reversed = v.gsl-vector-copy;
   ffi/gsl-vector-reverse(reversed.%gsl-vector);
   reversed
 end;
@@ -95,7 +133,7 @@ end;
 define method \+
    (a :: <gsl-vector>, b :: <gsl-vector>) 
 => (sum :: <gsl-vector>)
-  let sum = copy-gsl-vector(a);
+  let sum = a.gsl-vector-copy;
   ffi/gsl-vector-add(sum.%gsl-vector, b.%gsl-vector);
   sum
 end;
@@ -103,7 +141,7 @@ end;
 define method \-
    (a :: <gsl-vector>, b :: <gsl-vector>) 
 => (diff :: <gsl-vector>)
-  let diff = copy-gsl-vector(a);
+  let diff = a.gsl-vector-copy;
   ffi/gsl-vector-sub(diff.%gsl-vector, b.%gsl-vector);
   diff
 end;
@@ -111,7 +149,7 @@ end;
 define method \* 
    (a :: <gsl-vector>, b :: <gsl-vector>) 
 => (product :: <gsl-vector>)
-  let product = copy-gsl-vector(a);
+  let product = a.gsl-vector-copy;
   ffi/gsl-vector-mul(product.%gsl-vector, b.%gsl-vector);
   product
 end;
@@ -119,7 +157,7 @@ end;
 define method \/
    (a :: <gsl-vector>, b :: <gsl-vector>) 
 => (division :: <gsl-vector>)
-  let dividend = copy-gsl-vector(a);
+  let dividend = a.gsl-vector-copy;
   ffi/gsl-vector-div(dividend.%gsl-vector, b.%gsl-vector);
   dividend
 end;
@@ -127,7 +165,7 @@ end;
 define method \* 
    (a :: <gsl-vector>, value :: <double-float>) 
 => (scaled :: <gsl-vector>)
-  let scaled = copy-gsl-vector(a);
+  let scaled = a.gsl-vector-copy;
   ffi/gsl-vector-scale(scaled.%gsl-vector, value);
   scaled
 end;
@@ -141,7 +179,7 @@ end;
 define method \+
    (a :: <gsl-vector>, value :: <double-float>)
 => (v :: <gsl-vector>)
-  let v = copy-gsl-vector(a);
+  let v = a.gsl-vector-copy;
   ffi/gsl-vector-add-constant(v.%gsl-vector, value);
   v
 end;
@@ -155,7 +193,7 @@ end;
 define function axpby
    (alpha :: <double-float>, x :: <gsl-vector>, beta :: <double-float>, y :: <gsl-vector>)
 => (v :: <gsl-vector>)
-  let v = copy-gsl-vector(y);
+  let v = y.gsl-vector-copy;
   ffi/gsl-vector-axpby(alpha, x.%gsl-vector, beta, v.%gsl-vector);
   v
 end;
@@ -204,7 +242,7 @@ end;
 define method \=
    (a :: <gsl-vector>, b :: <gsl-vector>) 
 => (equal :: <boolean>)
-  ffi/gsl-vector-equal(a.%gsl-vector, b.%gsl-vector) = 0
+  ffi/gsl-vector-equal(a.%gsl-vector, b.%gsl-vector) = 1
 end;
 
 define function null?

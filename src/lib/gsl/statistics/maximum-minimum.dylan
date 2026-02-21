@@ -9,25 +9,19 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html#maximum-and
            https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_minmax
 
 define function maximum
-    (data :: <vector-double-float>, #key stride :: <integer> = 1)
+    (data :: <gsl-vector>, #key stride :: <integer> = 1)
  => (max :: <double-float>)
-  with-c-double-array (c-data = data)
-    gsl-stats-max(c-data, stride, data.size)
-  end
+  gsl-stats-max(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
 
 define function minimum
-    (data :: <vector-double-float>, #key stride :: <integer> = 1)
+    (data :: <gsl-vector>, #key stride :: <integer> = 1)
  => (min :: <double-float>)
-  with-c-double-array (c-data = data)
-    gsl-stats-min(c-data, stride, data.size)
-  end
+  gsl-stats-min(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
 
 define function minimum-maximum
-    (data :: <vector-double-float>, #key stride :: <integer> = 1)
+    (data :: <gsl-vector>, #key stride :: <integer> = 1)
  => (minimum :: <double-float>, maximum :: <double-float>)
-  with-c-double-array (c-data = data)
-    gsl-stats-minmax(c-data, stride, data.size)
-  end
+  gsl-stats-minmax(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
