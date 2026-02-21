@@ -242,7 +242,7 @@ end;
 define method \=
    (a :: <gsl-vector>, b :: <gsl-vector>) 
 => (equal :: <boolean>)
-  ffi/gsl-vector-equal(a.%gsl-vector, b.%gsl-vector) = 0
+  ffi/gsl-vector-equal(a.%gsl-vector, b.%gsl-vector) = 1
 end;
 
 define function null?
