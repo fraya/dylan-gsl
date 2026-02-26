@@ -482,12 +482,11 @@
 <span class="sig-name descname"><span class="pre">maximum</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:maximum" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>maximum (data #key stride) =&gt; (max)</p>
+<dd class="field-odd"><p>maximum (data) =&gt; (max)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a>.</p></li>
-<li><p><strong>stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -503,12 +502,11 @@
 <span class="sig-name descname"><span class="pre">minimum</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:minimum" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum (data #key stride) =&gt; (min)</p>
+<dd class="field-odd"><p>minimum (data) =&gt; (min)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a>.</p></li>
-<li><p><strong>stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -524,18 +522,78 @@
 <span class="sig-name descname"><span class="pre">minimum-maximum</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:minimum-maximum" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum-maximum (data #key stride) =&gt; (minimum maximum)</p>
+<dd class="field-odd"><p>minimum-maximum (data) =&gt; (minimum maximum)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a>.</p></li>
-<li><p><strong>stride</strong> (<em>#key</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>minimum</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
 <li><p><strong>maximum</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:maximum-index">
+<span class="sig-name descname"><span class="pre">maximum-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:maximum-index" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>maximum-index (data) =&gt; (max-index)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:minimum-index">
+<span class="sig-name descname"><span class="pre">minimum-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:minimum-index" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>minimum (data) =&gt; (min-index)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-statistics:minmax-index">
+<span class="sig-name descname"><span class="pre">minmax-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-statistics:minmax-index" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>minimum-maximum (data) =&gt; (min-index max-index)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <a class="reference internal" href="gsl-vector.html#dylan-gsl:gsl-vector:[gsl-vector]"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">&lt;gsl-vector&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min-index</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
+<li><p><strong>max-index</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#double-float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1077,6 +1135,9 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:maximum"><code class="docutils literal notranslate"><span class="pre">maximum</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:minimum"><code class="docutils literal notranslate"><span class="pre">minimum</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-statistics:minimum-maximum"><code class="docutils literal notranslate"><span class="pre">minimum-maximum</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:maximum-index"><code class="docutils literal notranslate"><span class="pre">maximum-index</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:minimum-index"><code class="docutils literal notranslate"><span class="pre">minimum-index</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-statistics:minmax-index"><code class="docutils literal notranslate"><span class="pre">minmax-index</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#correlation">Correlation</a><ul>

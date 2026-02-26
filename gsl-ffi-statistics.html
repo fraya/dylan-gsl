@@ -523,6 +523,73 @@
 </dl>
 </dd></dl>
 
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-max-index">
+<span class="sig-name descname"><span class="pre">gsl-stats-max-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-max-index" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-max-index (data stride n) =&gt; (max-index)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max-index</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-min-index">
+<span class="sig-name descname"><span class="pre">gsl-stats-min-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-min-index" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-min-index (data stride n) =&gt; (min-index)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min-index</strong> – An instance of <cite>&lt;c-double&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-statistics:gsl-stats-minmax-index">
+<span class="sig-name descname"><span class="pre">gsl-stats-minmax-index</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-minmax-index" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-stats-minmax-index (data stride n) =&gt; (min-index max-index)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>stride</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min-index</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+<li><p><strong>max-index</strong> – An instance of <cite>&lt;c-double*&gt;</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="mean">
 <h2>Mean<a class="headerlink" href="#mean" title="Link to this heading">¶</a></h2>
@@ -1506,6 +1573,9 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-max"><code class="docutils literal notranslate"><span class="pre">gsl-stats-max</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-min"><code class="docutils literal notranslate"><span class="pre">gsl-stats-min</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-minmax"><code class="docutils literal notranslate"><span class="pre">gsl-stats-minmax</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-max-index"><code class="docutils literal notranslate"><span class="pre">gsl-stats-max-index</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-min-index"><code class="docutils literal notranslate"><span class="pre">gsl-stats-min-index</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-statistics:gsl-stats-minmax-index"><code class="docutils literal notranslate"><span class="pre">gsl-stats-minmax-index</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#mean">Mean</a><ul>
