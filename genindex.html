@@ -204,6 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-math.html">The GSL-MATH module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-vector.html">The GSL-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">The GSL-RUNNING-STATISTICS module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FFI modules:</span></p>
 <ul>
@@ -212,6 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-block.html">The GSL-FFI-BLOCK module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-vector.html">The GSL-FFI-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">The GSL-FFI-STATISTICS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-running-statistics.html">The GSL-FFI-RUNNING-STATISTICS module</a></li>
 </ul>
 
 </div>
@@ -356,10 +358,10 @@
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:*([gsl-vector],[gsl-vector])">*(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:*epsilon*">*epsilon*</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     +
 
@@ -433,6 +435,8 @@
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-roundoff-error]">&lt;gsl-roundoff-error&gt;</a>
 </li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-workspace]">&lt;gsl-rstat-workspace&gt;</a>
+</li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-runaway]">&lt;gsl-runaway&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-sanity-check-failed]">&lt;gsl-sanity-check-failed&gt;</a>
@@ -462,6 +466,8 @@
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-zero-division]">&lt;gsl-zero-division&gt;</a>
 </li>
         <li><a href="gsl-common.html#dylan-gsl:gsl-common:[numeric-sequence]">&lt;numeric-sequence&gt;</a>
+</li>
+        <li><a href="gsl-running-statistics.html#dylan-gsl:gsl-running-statistics:[rstat]">&lt;rstat&gt;</a>
 </li>
         <li><a href="gsl-common.html#dylan-gsl:gsl-common:[vector-double-float]">&lt;vector-double-float&gt;</a>
 </li>
@@ -597,6 +603,36 @@
 </li>
         <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-min">gsl-min</a>
 </li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-add">gsl-rstat-add</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-alloc">gsl-rstat-alloc</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-free">gsl-rstat-free</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-kurtosis">gsl-rstat-kurtosis</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-max">gsl-rstat-max</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-mean">gsl-rstat-mean</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-median">gsl-rstat-median</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-min">gsl-rstat-min</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-n">gsl-rstat-n</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-norm">gsl-rstat-norm</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-reset">gsl-rstat-reset</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-rms">gsl-rstat-rms</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-sd">gsl-rstat-sd</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-skew">gsl-rstat-skew</a>
+</li>
+        <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-variance">gsl-rstat-variance</a>
+</li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev">gsl-stats-abs-dev</a>
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-abs-dev-m">gsl-stats-abs-dev-m</a>
@@ -647,6 +683,8 @@
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-sd-m">gsl-stats-sd-m</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-sd-with-fixed-mean">gsl-stats-sd-with-fixed-mean</a>
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-select">gsl-stats-select</a>
@@ -661,8 +699,6 @@
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-spearman">gsl-stats-spearman</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-trmean-from-sorted-data">gsl-stats-trmean-from-sorted-data</a>
 </li>
         <li><a href="gsl-ffi-statistics.html#dylan-gsl:gsl-ffi-statistics:gsl-stats-tss">gsl-stats-tss</a>
@@ -950,8 +986,6 @@
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:reverse([gsl-vector])">reverse(&lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     reverse!
 
@@ -959,6 +993,12 @@
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:reverse!([gsl-vector])">reverse!(&lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gsl-running-statistics.html#dylan-gsl:gsl-running-statistics:rstat-add!">rstat-add!</a>
+</li>
+        <li><a href="gsl-running-statistics.html#dylan-gsl:gsl-running-statistics:rstat-reset!">rstat-reset!</a>
+</li>
     </ul></td>
   </tr></table>
 </section>

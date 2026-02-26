@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The GSL-FFI-VECTOR module" href="gsl-ffi-vector.html" /><link rel="prev" title="The GSL-FFI-MATH module" href="gsl-ffi-math.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The GSL-FFI-ERROR module" href="gsl-ffi-error.html" /><link rel="prev" title="The GSL-STATISTICS module" href="gsl-statistics.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>The GSL-FFI-BLOCK module - Dylan GSL 0.1.0 documentation</title>
+        <title>The GSL-RUNNING-STATISTICS module - Dylan GSL 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -200,19 +200,19 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">GSL modules:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gsl-common.html">The GSL-COMMON module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-error.html">The GSL-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-math.html">The GSL-MATH module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-vector.html">The GSL-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">The GSL-RUNNING-STATISTICS module</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">The GSL-RUNNING-STATISTICS module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FFI modules:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-error.html">The GSL-FFI-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-math.html">The GSL-FFI-MATH module</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">The GSL-FFI-BLOCK module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-block.html">The GSL-FFI-BLOCK module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-vector.html">The GSL-FFI-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">The GSL-FFI-STATISTICS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-running-statistics.html">The GSL-FFI-RUNNING-STATISTICS module</a></li>
@@ -236,7 +236,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/gsl-ffi-block.rst.txt" title="View this page">
+  <a class="muted-link" href="_sources/gsl-running-statistics.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -256,90 +256,96 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="the-gsl-ffi-block-module">
-<h1>The GSL-FFI-BLOCK module<a class="headerlink" href="#the-gsl-ffi-block-module" title="Link to this heading">¶</a></h1>
-<section id="the-gsl-block-type">
-<h2>The &lt;gsl-block&gt; type<a class="headerlink" href="#the-gsl-block-type" title="Link to this heading">¶</a></h2>
-<dl class="dylan type">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:[gsl-block]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-block&gt;</span></span> <em class="property"><span class="pre">Type</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:[gsl-block]" title="Link to this definition">¶</a></dt>
+          <section id="the-gsl-running-statistics-module">
+<h1>The GSL-RUNNING-STATISTICS module<a class="headerlink" href="#the-gsl-running-statistics-module" title="Link to this heading">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">gsl-running-statistics</span></code> module provides routines for computing running
+statistics. These routines process data in a single pass, making them
+suitable for large datasets where storing all points in memory is impractical.
+The module supports exact calculations for mean, variance, and higher-order
+moments, as well as approximate calculations for medians and quantiles.</p>
+<p>Here is a basic example of how to use the statistical functions:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">#[</span><span class="mf">17.2</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">18.1</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">16.5</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">18.3</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">12.6</span><span class="n">d0</span><span class="p">];</span>
+
+<span class="k">let</span><span class="w"> </span><span class="n">rstat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;rstat&gt;</span><span class="p">);</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sample</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
+<span class="w">  </span><span class="n">rstat-add!</span><span class="p">(</span><span class="n">rstat</span><span class="p">,</span><span class="w"> </span><span class="n">sample</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The dataset is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The sample mean is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-mean</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The estimated variance is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-variance</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The largest value is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-max</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The smallest value is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-min</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The median is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-median</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The standard deviation is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-sd</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The root mean square is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-rms</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The standard devation of the mean is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-sd-mean</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The skew is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-skew</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The kurtosis %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-kurtosis</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;There are %d items in the accumulator</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-n</span><span class="p">);</span>
+
+<span class="n">rstat</span><span class="p">.</span><span class="n">rstat-reset!</span><span class="p">;</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;There are %d items in the accumulator</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-n</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:[rstat]">
+<span class="sig-name descname"><span class="pre">&lt;rstat&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:[rstat]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p>&lt;c-struct&gt;</p>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a></p>
 </dd>
-<dt class="field-even">Discussion<span class="colon">:</span></dt>
-<dd class="field-even"><p>A block of memory allocated by the GSL.</p>
-</dd>
-<dt class="field-odd">Slots<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="allocation-functions">
-<h2>Allocation functions<a class="headerlink" href="#allocation-functions" title="Link to this heading">¶</a></h2>
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:gsl-block-alloc">
-<span class="sig-name descname"><span class="pre">gsl-block-alloc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:gsl-block-alloc" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-block-alloc (n) =&gt; (block)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dt class="field-even">Slots<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>rstat-min</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Minimal value seen so far.</p></li>
+<li><p><strong>rstat-max</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Maximal value seen so far.</p></li>
+<li><p><strong>rstat-mean</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Mean of the values seen so far.</p></li>
+<li><p><strong>rstat-variance</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Variance of the values seen so far.</p></li>
+<li><p><strong>rstat-sd</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Standard deviation of the values seen so far.</p></li>
+<li><p><strong>rstat-sd-mean</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Standard deviation of the mean of the values seen so far.</p></li>
+<li><p><strong>rstat-rms</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Root mean square of the values seen so far.</p></li>
+<li><p><strong>rstat-skew</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Skewness of the values seen so far.</p></li>
+<li><p><strong>rstat-kurtosis</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Kurtosis of the values seen so far.</p></li>
+<li><p><strong>rstat-median</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Median of the values seen so far.</p></li>
+<li><p><strong>rstat-norm</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. Norm of the values seen so far.</p></li>
 </ul>
-</dd>
-<dt class="field-odd">Values<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>block</strong> – An instance of <cite>&lt;gsl-block*&gt;</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Discussion<span class="colon">:</span></dt>
-<dd class="field-even"><p>Allocate an array of n elements in a block of memory.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:gsl-block-calloc">
-<span class="sig-name descname"><span class="pre">gsl-block-calloc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:gsl-block-calloc" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:rstat-add!">
+<span class="sig-name descname"><span class="pre">rstat-add!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-add!" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-block-calloc (n) =&gt; (block)</p>
+<dd class="field-odd"><p>rstat-add! (rstat, x) =&gt; ()</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>n</strong> – An instance of <cite>&lt;c-size-t&gt;</cite>.</p></li>
+<li><p><strong>rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a>.</p></li>
+<li><p><strong>x</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>.</p></li>
 </ul>
-</dd>
-<dt class="field-odd">Values<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>block</strong> – An instance of <cite>&lt;gsl-block*&gt;</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Discussion<span class="colon">:</span></dt>
-<dd class="field-even"><p>Allocate an array of n elements in a block of memory and initialize all elements to zero.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-block:gsl-block-free">
-<span class="sig-name descname"><span class="pre">gsl-block-free</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-block:gsl-block-free" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:rstat-reset!">
+<span class="sig-name descname"><span class="pre">rstat-reset!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-reset!" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-block-free (block) =&gt; ()</p>
+<dd class="field-odd"><p>rstat-reset! (rstat) =&gt; ()</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>block</strong> – An instance of <cite>&lt;gsl-block*&gt;</cite>.</p></li>
+<li><p><strong>rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-</section>
 </section>
 
         </article>
@@ -347,23 +353,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="gsl-ffi-vector.html">
+          <a class="next-page" href="gsl-ffi-error.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">The GSL-FFI-VECTOR module</div>
+                <div class="title">The GSL-FFI-ERROR module</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="gsl-ffi-math.html">
+          <a class="prev-page" href="gsl-statistics.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">The GSL-FFI-MATH module</div>
+                <div class="title">The GSL-STATISTICS module</div>
                 
               </div>
             </a>
@@ -397,17 +403,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">The GSL-FFI-BLOCK module</a><ul>
-<li><a class="reference internal" href="#the-gsl-block-type">The &lt;gsl-block&gt; type</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:[gsl-block]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-block&gt;</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#allocation-functions">Allocation functions</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:gsl-block-alloc"><code class="docutils literal notranslate"><span class="pre">gsl-block-alloc</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:gsl-block-calloc"><code class="docutils literal notranslate"><span class="pre">gsl-block-calloc</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-block:gsl-block-free"><code class="docutils literal notranslate"><span class="pre">gsl-block-free</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">The GSL-RUNNING-STATISTICS module</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:rstat-add!"><code class="docutils literal notranslate"><span class="pre">rstat-add!</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:rstat-reset!"><code class="docutils literal notranslate"><span class="pre">rstat-reset!</span></code></a></li>
 </ul>
 </li>
 </ul>
