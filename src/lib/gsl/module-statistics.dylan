@@ -34,7 +34,9 @@ define module gsl-statistics
     trimmed-mean,
     gastwirth-estimator,
     mad,
-    mad0;
+    mad0,
+    sn0,
+    sn;
 
 end module;
 

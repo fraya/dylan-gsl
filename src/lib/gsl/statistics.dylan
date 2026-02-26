@@ -550,5 +550,35 @@ define function mad
   end
 end;
 
-// TODO: S_n Statistics
+//////////////////////////////////////////////////////////////////////////////
+//
+// S_n Statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#s-n-statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Sn0_from_sorted_data
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Sn_from_sorted_data
+//
+//////////////////////////////////////////////////////////////////////////////
+
+define function sn0
+    (sorted-data :: <gsl-vector>)
+ => (sn0 :: <double-float>)
+ let n = sorted-data.size;
+ with-stack-structure (work :: <c-double*>, element-count: n)
+   gsl-stats-sn0-from-sorted-data
+     (sorted-data.%gsl-vector-data, sorted-data.gsl-vector-stride, n, work)
+ end
+end;
+
+define function sn
+    (sorted-data :: <gsl-vector>)
+ => (sn :: <double-float>)
+ let n = sorted-data.size;
+ with-stack-structure (work :: <c-double*>, element-count: n)
+   gsl-stats-sn-from-sorted-data
+     (sorted-data.%gsl-vector-data, sorted-data.gsl-vector-stride, n, work)
+ end
+end;
+
 // TODO: Q_n Statistics

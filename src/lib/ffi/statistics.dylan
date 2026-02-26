@@ -624,5 +624,33 @@ define c-function gsl-stats-mad
    c-name: "gsl_stats_mad";
 end;
 
-// TODO: S_n Statistics
+//////////////////////////////////////////////////////////////////////////////
+//
+// S_n Statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#s-n-statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Sn0_from_sorted_data
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Sn_from_sorted_data
+//
+//////////////////////////////////////////////////////////////////////////////
+
+define c-function gsl-stats-sn0-from-sorted-data
+   parameter sorted-data :: <c-double*>;
+   parameter stride :: <c-size-t>;
+   parameter n :: <c-size-t>;
+   parameter work :: <c-double*>;
+   result sn0 :: <c-double>;
+   c-name: "gsl_stats_Sn0_from_sorted_data";
+end;
+
+define c-function gsl-stats-sn-from-sorted-data
+   parameter sorted-data :: <c-double*>;
+   parameter stride :: <c-size-t>;
+   parameter n :: <c-size-t>;
+   parameter work :: <c-double*>;
+   result sn :: <c-double>;
+   c-name: "gsl_stats_Sn_from_sorted_data";
+end;
+
 // TODO: Q_n Statistics

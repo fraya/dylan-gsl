@@ -7,7 +7,7 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
 
 define module gsl-ffi-statistics
 
-  // Mean, Standard Deviation and Variance (file:./mean-std-variance.dylan)
+  // Mean, Standard Deviation and Variance
 
   create
     gsl-stats-mean,
@@ -20,13 +20,13 @@ define module gsl-ffi-statistics
     gsl-stats-variance-with-fixed-mean,
     gsl-stats-sd-with-fixed-mean;
 
-  // Absolute deviation (file:./absolute-deviation.dylan)
+  // Absolute deviation
 
   create
     gsl-stats-absdev,
     gsl-stats-absdev-m;
 
-  // Higher moments (file:./higher-moments.dylan)
+  // Higher moments
 
   create
     gsl-stats-skew,
@@ -34,32 +34,32 @@ define module gsl-ffi-statistics
     gsl-stats-kurtosis,
     gsl-stats-kurtosis-m-sd;
 
-  // Autocorrelation (file:./autocorrelation.dylan)
+  // Autocorrelation
 
   create
     gsl-stats-lag1-autocorrelation,
     gsl-stats-lag1-autocorrelation-m;
 
-  // Covariance (file:./covariance.dylan)
+  // Covariance
 
   create
     gsl-stats-covariance,
     gsl-stats-covariance-m;
 
-  // Maximum and Minimum (file:./maximum-minimum.dylan)
+  // Maximum and Minimum
 
   create
     gsl-stats-max,
     gsl-stats-min,
     gsl-stats-minmax;
 
-  // Correlation (file:./correlation.dylan)
+  // Correlation
 
   create
     gsl-stats-correlation,
     gsl-stats-spearman;
 
-  // Weighted samples (file:./weighted-samples.dylan)
+  // Weighted samples
 
   create
     gsl-stats-wmean,
@@ -77,28 +77,34 @@ define module gsl-ffi-statistics
     gsl-stats-wkurtosis,
     gsl-stats-wkurtosis-m-sd;
 
-  // Median and percentiles (file:./median-percentiles.dylan)
+  // Median and percentiles
 
   create
     gsl-stats-median-from-sorted-data,
     gsl-stats-median;
 
-  // Order statistics (file:./order-statistic.dylan)
+  // Order statistics
 
   create
     gsl-stats-select;
 
-  // Robust location estimates (file:./robust-location-estimates.dylan)
+  // Robust location estimates
 
   create
     gsl-stats-trmean-from-sorted-data,
     gsl-stats-gastwirth-from-sorted-data;
 
-  // Robust scale estimates (file:./robust-scale-estimates.dylan)
+  // Robust scale estimates
 
   create
     gsl-stats-mad,
     gsl-stats-mad0;
+
+  // S_n statistic
+
+  create
+    gsl-stats-sn0-from-sorted-data,
+    gsl-stats-sn-from-sorted-data;
 
 end module;
 

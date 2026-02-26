@@ -301,3 +301,20 @@ Robust Scale Estimates
    :parameter data: An instance of :class:`<gsl-vector>`.
    :parameter #key stride: An instance of :drm:`<integer>`.
    :value mad0: An instance of :drm:`<double-float>`.
+
+:math:`S_n` Statistic
+=====================
+
+.. function:: sn0
+
+   :signature: sn0 (sorted-data) => (sn0)
+
+   :parameter data: An instance of :class:`<gsl-vector>`.
+   :value sn0: An instance of :drm:`<double-float>`.
+
+.. function:: sn
+
+   :signature: sn (sorted-data) => (sn)
+
+   :parameter data: An instance of :class:`<gsl-vector>`.
+   :value sn: An instance of :drm:`<double-float>`.
