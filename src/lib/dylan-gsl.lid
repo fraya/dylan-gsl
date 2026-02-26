@@ -3,23 +3,12 @@ Comment: Binding for GNU Scientific Library
 Major-Version: 0
 Minor-Version: 1
 Files: library.dylan
-       ffi/error/module.dylan
-       ffi/error/error.dylan
-       ffi/math/module.dylan
-       ffi/math/math.dylan
-       ffi/statistics/module.dylan
-       ffi/statistics/mean-std-variance.dylan
-       ffi/statistics/absolute-deviation.dylan
-       ffi/statistics/higher-moments.dylan
-       ffi/statistics/autocorrelation.dylan
-       ffi/statistics/covariance.dylan
-       ffi/statistics/maximum-minimum.dylan
-       ffi/statistics/correlation.dylan
-       ffi/statistics/weighted-samples.dylan
-       ffi/statistics/median-percentiles.dylan
-       ffi/statistics/order-statistics.dylan
-       ffi/statistics/robust-location-estimates.dylan
-       ffi/statistics/robust-scale-estimates.dylan
+       ffi/module-error.dylan
+       ffi/error.dylan
+       ffi/module-math.dylan
+       ffi/math.dylan
+       ffi/module-statistics.dylan
+       ffi/statistics.dylan
        ffi/vector-and-matrices/module-block.dylan
        ffi/vector-and-matrices/block.dylan
        ffi/vector-and-matrices/module-vector.dylan
