@@ -118,7 +118,7 @@ end;
 
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_absdev
 
-define c-function gsl-stats-abs-dev
+define c-function gsl-stats-absdev
   parameter data :: <c-double*>;
   parameter stride :: <c-size-t>;
   parameter n :: <c-size-t>;
@@ -129,7 +129,7 @@ end;
 
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_absdev_m
 
-define c-function gsl-stats-abs-dev-m
+define c-function gsl-stats-absdev-m
   parameter data :: <c-double*>;
   parameter stride :: <c-size-t>;
   parameter n :: <c-size-t>;

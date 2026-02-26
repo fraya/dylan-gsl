@@ -3,8 +3,8 @@ Module: dylan-gsl-test-suite
 define constant $stats-dataset
   = gsl-vector(#[10.0d0, 15.0d0, 15.0d0, 17.0d0, 18.0d0, 21.0d0]);
 
-define test test-abs-dev ()
-  assert-true(f=(abs-dev($stats-dataset), 2.67d0, epsilon: 1d-2));
+define test test-absdev ()
+  assert-true(f=(absdev($stats-dataset), 2.67d0, epsilon: 1d-2));
 end test;
 
 define test test-mean ()
@@ -57,7 +57,7 @@ define test test-order-statistic! ()
 end;
 
 define suite gsl-statistics-suite ()
-  test test-abs-dev;
+  test test-absdev;
   test test-mean;
   test test-variance;
   test test-maximum;

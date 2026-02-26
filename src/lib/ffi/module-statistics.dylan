@@ -23,8 +23,8 @@ define module gsl-ffi-statistics
   // Absolute deviation (file:./absolute-deviation.dylan)
 
   create
-    gsl-stats-abs-dev,
-    gsl-stats-abs-dev-m;
+    gsl-stats-absdev,
+    gsl-stats-absdev-m;
 
   // Higher moments (file:./higher-moments.dylan)
 

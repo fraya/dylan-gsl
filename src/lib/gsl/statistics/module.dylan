@@ -18,7 +18,7 @@ define module gsl-statistics
   // file:./absolute-deviation.dylan
 
   create
-    abs-dev;
+    absdev;
 
   // file:./higher-moments.dylan
 
