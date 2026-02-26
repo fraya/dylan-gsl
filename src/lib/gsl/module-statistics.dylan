@@ -7,78 +7,32 @@ Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
 
 define module gsl-statistics
 
-  // file:./mean-std-variance.dylan
-
   create
     mean,
     variance,
     standard-deviation,
-    tss;
-
-  // file:./absolute-deviation.dylan
-
-  create
-    absdev;
-
-  // file:./higher-moments.dylan
-
-  create
+    tss,
+    absdev,
     skew,
-    kurtosis;
-
-  // file:./autocorrelation.dylan
-
-  create
-    lag1-autocorrelation;
-
-  // file:./covariance.dylan
-
-  create
-    covariance;
-
-  // file:./maximum-minimum.dylan
-
-  create
+    kurtosis,
+    lag1-autocorrelation,
+    covariance,
     maximum,
     minimum,
-    minimum-maximum;
-
-  // file:./correlation.dylan
-
-  create
+    minimum-maximum,
     correlation,
-    spearman;
-
-  // file:./weighted-samples.dylan
-
-  create
+    spearman,
     wmean,
     wvariance,
     wsd,
     wtss,
     wabs-dev,
     wskew,
-    wkurtosis;
-
-  // file:./median-percentiles.dylan
-
-  create
-    median;
-
-  // file:./order-statistic.dylan
-
-  create
-    kth-order-statistic;
-
-  // file:./robust-location-estimates.dylan
-
-  create
+    wkurtosis,
+    median,
+    kth-order-statistic,
     trimmed-mean,
-    gastwirth-estimator;
-
-  // file:./robust-scale-estimates.dylan
-
-  create
+    gastwirth-estimator,
     mad,
     mad0;
 
