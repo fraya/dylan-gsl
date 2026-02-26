@@ -21,19 +21,8 @@ Files: library.dylan
        gsl/math/math.dylan
        gsl/vector-and-matrices/module-vector.dylan
        gsl/vector-and-matrices/vector.dylan
-       gsl/statistics/module.dylan
-       gsl/statistics/mean-std-variance.dylan
-       gsl/statistics/absolute-deviation.dylan
-       gsl/statistics/higher-moments.dylan
-       gsl/statistics/autocorrelation.dylan
-       gsl/statistics/covariance.dylan
-       gsl/statistics/maximum-minimum.dylan
-       gsl/statistics/correlation.dylan
-       gsl/statistics/weighted-samples.dylan
-       gsl/statistics/median-percentiles.dylan
-       gsl/statistics/order-statistics.dylan
-       gsl/statistics/robust-location-estimates.dylan
-       gsl/statistics/robust-scale-estimates.dylan
+       gsl/module-statistics.dylan
+       gsl/statistics.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 
