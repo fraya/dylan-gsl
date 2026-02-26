@@ -507,3 +507,15 @@ Robust Scale Estimates
    :parameter work: An instance of `<c-double*>`.
    :value mad: An instance of `<c-double>`.
 
+:math:`S_n` Statistic
+=====================
+
+.. function:: gsl-stats-sn0-from-sorted-data
+
+   :signature: gsl-stats-sn0-from-sorted-data (sorted-data stride n work) => (sn0)
+
+   :parameter sorted-data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter work: An instance of `<c-double*>`.
+   :value sn0: An instance of `<c-double>`.
