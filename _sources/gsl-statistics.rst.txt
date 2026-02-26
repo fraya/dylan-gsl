@@ -311,3 +311,10 @@ Robust Scale Estimates
 
    :parameter data: An instance of :class:`<gsl-vector>`.
    :value sn0: An instance of :drm:`<double-float>`.
+
+.. function:: sn
+
+   :signature: sn (sorted-data) => (sn)
+
+   :parameter data: An instance of :class:`<gsl-vector>`.
+   :value sn: An instance of :drm:`<double-float>`.
