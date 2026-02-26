@@ -111,26 +111,23 @@ Maximum and Minimum
 
 .. function:: maximum
 
-   :signature: maximum (data #key stride) => (max)
+   :signature: maximum (data) => (max)
 
    :parameter data: An instance of :const:`<gsl-vector>`.
-   :parameter #key stride: An instance of :drm:`<integer>`.
    :value max: An instance of :drm:`<double-float>`.
 
 .. function:: minimum
 
-   :signature: minimum (data #key stride) => (min)
+   :signature: minimum (data) => (min)
 
    :parameter data: An instance of :const:`<gsl-vector>`.
-   :parameter #key stride: An instance of :drm:`<integer>`.
    :value min: An instance of :drm:`<double-float>`.
 
 .. function:: minimum-maximum
 
-   :signature: minimum-maximum (data #key stride) => (minimum maximum)
+   :signature: minimum-maximum (data) => (minimum maximum)
 
    :parameter data: An instance of :const:`<gsl-vector>`.
-   :parameter #key stride: An instance of :drm:`<integer>`.
    :value minimum: An instance of :drm:`<double-float>`.
    :value maximum: An instance of :drm:`<double-float>`.
 

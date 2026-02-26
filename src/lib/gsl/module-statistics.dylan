@@ -20,6 +20,9 @@ define module gsl-statistics
     maximum,
     minimum,
     minimum-maximum,
+    max-index,
+    min-index,
+    minmax-index,
     correlation,
     spearman,
     wmean,
@@ -52,7 +55,12 @@ define module gsl-statistics-impl
               <vector-double-float>,
               with-c-double-array };
 
-  use gsl-vector;
+  use gsl-vector,
+    import: { <gsl-vector>,
+              gsl-vector-stride },
+    rename: { min-index => vector-min-index,
+              max-index => vector-max-index, 
+              minmax-index => vector-minmax-index };
   use gsl-vector-impl,
     import: { %gsl-vector,
               %gsl-vector-data,

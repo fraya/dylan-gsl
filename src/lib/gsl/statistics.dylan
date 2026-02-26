@@ -427,19 +427,19 @@ end;
 ///////////////////////////////////////////////////////////////////////////////
 
 define function maximum
-    (data :: <gsl-vector>, #key stride :: <integer> = 1)
+    (data :: <gsl-vector>)
  => (max :: <double-float>)
   gsl-stats-max(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
 
 define function minimum
-    (data :: <gsl-vector>, #key stride :: <integer> = 1)
+    (data :: <gsl-vector>)
  => (min :: <double-float>)
   gsl-stats-min(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
 
 define function minimum-maximum
-    (data :: <gsl-vector>, #key stride :: <integer> = 1)
+    (data :: <gsl-vector>)
  => (minimum :: <double-float>, maximum :: <double-float>)
   gsl-stats-minmax(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
