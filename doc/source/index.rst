@@ -13,6 +13,7 @@ GSL modules
    gsl-math
    gsl-vector
    gsl-statistics
+   gsl-running-statistics
 
 FFI modules
 ***********
@@ -26,3 +27,4 @@ FFI modules
    gsl-ffi-block
    gsl-ffi-vector
    gsl-ffi-statistics
+   gsl-ffi-running-statistics

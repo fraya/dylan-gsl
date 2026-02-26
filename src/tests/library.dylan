@@ -13,7 +13,10 @@ define module dylan-gsl-test-suite
   use gsl-common;
   use gsl-math;
   use gsl-vector;
-  use gsl-statistics;
+  use gsl-statistics,
+    rename: { min-index => stats/min-index,
+              max-index => stats/max-index,
+              minmax-index => stats/minmax-index };
 
   export
     gsl-test-suite,

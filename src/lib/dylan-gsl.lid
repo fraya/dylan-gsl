@@ -9,6 +9,8 @@ Files: library.dylan
        ffi/math.dylan
        ffi/module-statistics.dylan
        ffi/statistics.dylan
+       ffi/module-running-statistics.dylan
+       ffi/running-statistics.dylan
        ffi/vector-and-matrices/module-block.dylan
        ffi/vector-and-matrices/block.dylan
        ffi/vector-and-matrices/module-vector.dylan
@@ -23,6 +25,8 @@ Files: library.dylan
        gsl/vector-and-matrices/vector.dylan
        gsl/module-statistics.dylan
        gsl/statistics.dylan
+       gsl/module-running-statistics.dylan
+       gsl/running-statistics.dylan
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 
