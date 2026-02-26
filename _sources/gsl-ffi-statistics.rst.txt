@@ -529,3 +529,28 @@ Robust Scale Estimates
    :parameter n: An instance of `<c-size-t>`.
    :parameter work: An instance of `<c-double*>`.
    :value sn: An instance of `<c-double>`.
+
+:math:`Q_n` Statistic
+=====================
+
+.. function:: gsl-stats-qn0-from-sorted-data
+
+   :signature: gsl-stats-qn0-from-sorted-data (sorted-data stride n work work-int) => (qn0)
+
+   :parameter sorted-data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter work: An instance of `<c-double*>`.
+   :parameter work-int: An instance of `<c-int*>`.
+   :value qn0: An instance of `<c-double>`.
+
+.. function:: gsl-stats-qn-from-sorted-data
+
+   :signature: gsl-stats-qn-from-sorted-data (sorted-data stride n work work-int) => (qn)
+
+   :parameter sorted-data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter work: An instance of `<c-double*>`.
+   :parameter work-int: An instance of `<c-int*>`.
+   :value qn: An instance of `<c-double>`.
