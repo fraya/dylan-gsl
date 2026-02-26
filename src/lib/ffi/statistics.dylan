@@ -653,4 +653,33 @@ define c-function gsl-stats-sn-from-sorted-data
    c-name: "gsl_stats_Sn_from_sorted_data";
 end;
 
-// TODO: Q_n Statistics
+//////////////////////////////////////////////////////////////////////////////
+//
+// Q_n Statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#q-n-statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Qn0_from_sorted_data
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Qn_from_sorted_data
+//
+//////////////////////////////////////////////////////////////////////////////
+
+define c-function gsl-stats-qn0-from-sorted-data
+   parameter sorted-data :: <c-double*>;
+   parameter stride :: <c-size-t>;
+   parameter n :: <c-size-t>;
+   parameter work :: <c-double*>;
+   parameter work-int :: <c-int*>;
+   result qn0 :: <c-double>;
+   c-name: "gsl_stats_Qn0_from_sorted_data";
+end;
+
+define c-function gsl-stats-qn-from-sorted-data
+   parameter sorted-data :: <c-double*>;
+   parameter stride :: <c-size-t>;
+   parameter n :: <c-size-t>;
+   parameter work :: <c-double*>;
+   parameter work-int :: <c-int*>;
+   result qn :: <c-double>;
+   c-name: "gsl_stats_Qn_from_sorted_data";
+end;

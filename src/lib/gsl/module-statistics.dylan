@@ -36,7 +36,9 @@ define module gsl-statistics
     mad,
     mad0,
     sn0,
-    sn;
+    sn,
+    qn0,
+    qn;
 
 end module;
 

@@ -106,6 +106,12 @@ define module gsl-ffi-statistics
     gsl-stats-sn0-from-sorted-data,
     gsl-stats-sn-from-sorted-data;
 
+  // Q_n statistic
+
+  create
+    gsl-stats-qn0-from-sorted-data,
+    gsl-stats-qn-from-sorted-data;
+
 end module;
 
 define module gsl-ffi-statistics-impl

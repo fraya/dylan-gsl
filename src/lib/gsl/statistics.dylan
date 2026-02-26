@@ -581,4 +581,37 @@ define function sn
  end
 end;
 
-// TODO: Q_n Statistics
+//////////////////////////////////////////////////////////////////////////////
+//
+// Q_n Statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#q-n-statistic
+//
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Qn0_from_sorted_data
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_Qn_from_sorted_data
+//
+//////////////////////////////////////////////////////////////////////////////
+
+define function qn0
+    (sorted-data :: <gsl-vector>)
+ => (qn0 :: <double-float>)
+  let n = sorted-data.size;
+  with-stack-structure (work :: <c-double*>, element-count: 3 * n)
+    with-stack-structure (work-int :: <c-int*>, element-count: 5 * n)
+      gsl-stats-qn0-from-sorted-data
+        (sorted-data.%gsl-vector-data, sorted-data.gsl-vector-stride, n, work, work-int)
+    end
+  end
+end;
+
+define function qn
+    (sorted-data :: <gsl-vector>)
+ => (qn :: <double-float>)
+  let n = sorted-data.size;
+  with-stack-structure (work :: <c-double*>, element-count: 3 * n)
+    with-stack-structure (work-int :: <c-int*>, element-count: 5 * n)
+      gsl-stats-qn-from-sorted-data
+        (sorted-data.%gsl-vector-data, sorted-data.gsl-vector-stride, n, work, work-int)
+    end
+  end
+end;
