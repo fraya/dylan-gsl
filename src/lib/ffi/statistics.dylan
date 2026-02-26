@@ -510,9 +510,36 @@ define c-function gsl-stats-minmax
   c-name: "gsl_stats_minmax";
 end;
 
-// TODO: https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max_index
-// TODO: https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min_index
-// TODO: https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_minmax_index
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max_index
+
+define c-function gsl-stats-max-index 
+  input parameter data :: <c-double*>;
+  input parameter stride :: <c-size-t>;
+  input parameter n :: <c-size-t>;
+  result max-index :: <c-size-t>;
+  c-name: "gsl_stats_max_index";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min_index
+
+define c-function gsl-stats-min-index 
+  input parameter data :: <c-double*>;
+  input parameter stride :: <c-size-t>;
+  input parameter n :: <c-size-t>;
+  result min-index :: <c-size-t>;
+  c-name: "gsl_stats_min_index";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_minmax_index
+
+define c-function gsl-stats-minmax-index
+  output parameter min-index :: <c-size-t*>;
+  output parameter max-index :: <c-size-t*>; 
+  input parameter data :: <c-double*>;
+  input parameter stride :: <c-size-t>;
+  input parameter n :: <c-size-t>;
+  c-name: "gsl_stats_minmax_index";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

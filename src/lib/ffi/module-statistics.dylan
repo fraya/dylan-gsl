@@ -51,7 +51,10 @@ define module gsl-ffi-statistics
   create
     gsl-stats-max,
     gsl-stats-min,
-    gsl-stats-minmax;
+    gsl-stats-minmax,
+    gsl-stats-min-index,
+    gsl-stats-max-index,
+    gsl-stats-minmax-index;
 
   // Correlation
 

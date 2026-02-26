@@ -134,6 +134,28 @@ Maximum and Minimum
    :value minimum: An instance of :drm:`<double-float>`.
    :value maximum: An instance of :drm:`<double-float>`.
 
+.. function:: maximum-index
+
+   :signature: maximum-index (data) => (max-index)
+
+   :parameter data: An instance of :const:`<gsl-vector>`.
+   :value max: An instance of :drm:`<double-float>`.
+
+.. function:: minimum-index
+
+   :signature: minimum (data) => (min-index)
+
+   :parameter data: An instance of :const:`<gsl-vector>`.
+   :value min: An instance of :drm:`<double-float>`.
+
+.. function:: minmax-index
+
+   :signature: minimum-maximum (data) => (min-index max-index)
+
+   :parameter data: An instance of :const:`<gsl-vector>`.
+   :value min-index: An instance of :drm:`<double-float>`.
+   :value max-index: An instance of :drm:`<double-float>`.
+
 Correlation
 ===========
 

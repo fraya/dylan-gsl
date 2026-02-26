@@ -128,6 +128,34 @@ Max/Min
    :value minimum: An instance of `<c-double*>`.
    :value maximum: An instance of `<c-double*>`.
 
+.. function:: gsl-stats-max-index
+
+   :signature: gsl-stats-max-index (data stride n) => (max-index)
+
+   :parameter data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :value max-index: An instance of `<c-double>`.
+
+.. function:: gsl-stats-min-index
+
+   :signature: gsl-stats-min-index (data stride n) => (min-index)
+
+   :parameter data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :value min-index: An instance of `<c-double>`.
+
+.. function:: gsl-stats-minmax-index
+
+   :signature: gsl-stats-minmax-index (data stride n) => (min-index max-index)
+
+   :parameter data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :value min-index: An instance of `<c-double*>`.
+   :value max-index: An instance of `<c-double*>`.
+
 Mean
 ====
 

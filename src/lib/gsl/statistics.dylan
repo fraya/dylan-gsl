@@ -420,6 +420,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_minmax
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max_index
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min_index
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_minmax_index
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -441,9 +444,23 @@ define function minimum-maximum
   gsl-stats-minmax(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
 end;
 
-// TODO: https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max_index
-// TODO: https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min_index
-// TODO: https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_minmax_index
+define function max-index
+    (data :: <gsl-vector>)
+ => (max-index :: <integer>)
+  gsl-stats-max-index(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
+end;
+
+define function min-index
+    (data :: <gsl-vector>)
+ => (min-index :: <integer>)
+  gsl-stats-min-index(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
+end;
+
+define function minmax-index
+    (data :: <gsl-vector>)
+ => (min-index :: <integer>, max-index :: <integer>)
+  gsl-stats-minmax-index(data.%gsl-vector-data, data.gsl-vector-stride, data.size)
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
