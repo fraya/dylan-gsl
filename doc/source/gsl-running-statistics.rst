@@ -18,10 +18,9 @@ Here is a basic example of how to use the statistical functions:
 
    let rstat = make(<rstat>);
 
-   for (sample in data)
-     rstat-add!(rstat, sample);
-   end;
-
+   // for (x in data) rstat-add!(rstat, x) end 
+   rstat-add!(rstat, data); 
+   
    format-out("The dataset is %=\n", data);
 
    format-out("The sample mean is %=\n", rstat.rstat-mean);
@@ -37,7 +36,10 @@ Here is a basic example of how to use the statistical functions:
    format-out("There are %d items in the accumulator\n", rstat.rstat-n);
 
    rstat.rstat-reset!;
-   format-out("There are %d items in the accumulator\n", rstat.rstat-n);
+   format-out("There are %d items in the accumulator\n", rstat.size);
+
+Class and current statistics
+============================
 
 .. class:: <rstat>
 
@@ -66,12 +68,41 @@ Here is a basic example of how to use the statistical functions:
    :slot rstat-norm:
       An instance of :class:`<double-float>`. Norm of the values seen so far.
 
-.. function:: rstat-add! 
+.. method:: size
+   :specializer: <rstat>
+   
+   :signature: size (rstat) => (n :: <integer>)
+
+   :parameter rstat: An instance of :class:`<rstat>`.
+
+Adding values to the accumulator
+================================
+
+.. generic:: rstat-add!
+
+   :signature: rstat-add! (rstat, x) => ()
+
+   :parameter rstat: An instance of :class:`<rstat>`.
+   :parameter x: A :drm:`<object>`.
+
+.. method:: rstat-add! 
+   :specializer: <double-float>
    
    :signature: rstat-add! (rstat, x) => ()
 
    :parameter rstat: An instance of :class:`<rstat>`.
    :parameter x: A :class:`<double-float>`.
+
+.. method:: rstat-add! 
+   :specializer: <sequence>
+   
+   :signature: rstat-add! (rstat, x) => ()
+
+   :parameter rstat: An instance of :class:`<rstat>`.
+   :parameter x: A :drm:`<sequence>`.
+
+Resetting the accumulator
+=========================
 
 .. function:: rstat-reset! 
    

@@ -36,10 +36,18 @@ define method size
   ffi/gsl-rstat-n(rstat.%rstat-workspace)
 end;
 
-define function rstat-add!
+define generic rstat-add!
+  (rstat :: <rstat>, x :: <object>) => ();
+
+define method rstat-add!
    (rstat :: <rstat>, x :: <double-float>) 
 => ()
   ffi/gsl-rstat-add(rstat.%rstat-workspace, x)
+end;
+
+define method rstat-add!
+  (rstat :: <rstat>, data :: <sequence>) => ()
+  for (x in data) rstat-add!(rstat, x) end
 end;
 
 define method rstat-min

@@ -17,8 +17,7 @@ define module gsl-ffi-running-statistics
     gsl-rstat-reset;
 
   create
-    gsl-rstat-add,
-    gsl-rstat-n;
+    gsl-rstat-add;
 
   create
     gsl-rstat-min,
@@ -31,7 +30,8 @@ define module gsl-ffi-running-statistics
     gsl-rstat-skew,
     gsl-rstat-kurtosis,
     gsl-rstat-median,
-    gsl-rstat-norm;
+    gsl-rstat-norm,
+    gsl-rstat-n;
 
 end module;
 

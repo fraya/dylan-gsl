@@ -11,8 +11,12 @@ define module gsl-running-statistics
     <rstat>;
 
   create
-    rstat-add!,
-    rstat-reset!,
+    rstat-add!;
+
+  create
+    rstat-reset!;
+
+  create
     rstat-min,
     rstat-max,
     rstat-mean,

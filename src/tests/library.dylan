@@ -17,9 +17,11 @@ define module dylan-gsl-test-suite
     rename: { min-index => stats/min-index,
               max-index => stats/max-index,
               minmax-index => stats/minmax-index };
+  use gsl-running-statistics;
 
   export
     gsl-test-suite,
     gsl-vector-suite,
-    gsl-statistics-suite;
+    gsl-statistics-suite,
+    gsl-running-statistics-suite;
 end module;
