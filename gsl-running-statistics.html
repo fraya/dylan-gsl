@@ -263,14 +263,15 @@ statistics. These routines process data in a single pass, making them
 suitable for large datasets where storing all points in memory is impractical.
 The module supports exact calculations for mean, variance, and higher-order
 moments, as well as approximate calculations for medians and quantiles.</p>
+<section id="statistical-summary">
+<h2>Statistical summary<a class="headerlink" href="#statistical-summary" title="Link to this heading">¶</a></h2>
 <p>Here is a basic example of how to use the statistical functions:</p>
 <div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">#[</span><span class="mf">17.2</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">18.1</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">16.5</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">18.3</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mf">12.6</span><span class="n">d0</span><span class="p">];</span>
 
 <span class="k">let</span><span class="w"> </span><span class="n">rstat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;rstat&gt;</span><span class="p">);</span>
 
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sample</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
-<span class="w">  </span><span class="n">rstat-add!</span><span class="p">(</span><span class="n">rstat</span><span class="p">,</span><span class="w"> </span><span class="n">sample</span><span class="p">);</span>
-<span class="k">end</span><span class="p">;</span>
+<span class="c1">// for (x in data) rstat-add!(rstat, x) end</span>
+<span class="n">rstat-add!</span><span class="p">(</span><span class="n">rstat</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
 
 <span class="n">format-out</span><span class="p">(</span><span class="s">&quot;The dataset is %=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
 
@@ -287,9 +288,11 @@ moments, as well as approximate calculations for medians and quantiles.</p>
 <span class="n">format-out</span><span class="p">(</span><span class="s">&quot;There are %d items in the accumulator</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-n</span><span class="p">);</span>
 
 <span class="n">rstat</span><span class="p">.</span><span class="n">rstat-reset!</span><span class="p">;</span>
-<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;There are %d items in the accumulator</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="n">rstat-n</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;There are %d items in the accumulator</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rstat</span><span class="p">.</span><span class="nb">size</span><span class="p">);</span>
 </pre></div>
 </div>
+<section id="class-and-current-statistics">
+<h3>Class and current statistics<a class="headerlink" href="#class-and-current-statistics" title="Link to this heading">¶</a></h3>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:[rstat]">
 <span class="sig-name descname"><span class="pre">&lt;rstat&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:[rstat]" title="Link to this definition">¶</a></dt>
@@ -315,9 +318,43 @@ moments, as well as approximate calculations for medians and quantiles.</p>
 </dl>
 </dd></dl>
 
-<dl class="dylan function">
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:size([rstat])">
+<span class="sig-name descname"><span class="pre">size(&lt;rstat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:size([rstat])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size (rstat) =&gt; (n :: &lt;integer&gt;)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="adding-values-to-the-accumulator">
+<h3>Adding values to the accumulator<a class="headerlink" href="#adding-values-to-the-accumulator" title="Link to this heading">¶</a></h3>
+<dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:rstat-add!">
-<span class="sig-name descname"><span class="pre">rstat-add!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-add!" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rstat-add!</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-add!" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rstat-add! (rstat, x) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a>.</p></li>
+<li><p><strong>x</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:rstat-add!([double-float])">
+<span class="sig-name descname"><span class="pre">rstat-add!(&lt;double-float&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-add!([double-float])" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>rstat-add! (rstat, x) =&gt; ()</p>
@@ -331,6 +368,25 @@ moments, as well as approximate calculations for medians and quantiles.</p>
 </dl>
 </dd></dl>
 
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:rstat-add!([sequence])">
+<span class="sig-name descname"><span class="pre">rstat-add!(&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-add!([sequence])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rstat-add! (rstat, x) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a>.</p></li>
+<li><p><strong>x</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#sequence"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="resetting-the-accumulator">
+<h3>Resetting the accumulator<a class="headerlink" href="#resetting-the-accumulator" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:rstat-reset!">
 <span class="sig-name descname"><span class="pre">rstat-reset!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:rstat-reset!" title="Link to this definition">¶</a></dt>
@@ -346,6 +402,104 @@ moments, as well as approximate calculations for medians and quantiles.</p>
 </dl>
 </dd></dl>
 
+</section>
+</section>
+<section id="quantiles">
+<h2>Quantiles<a class="headerlink" href="#quantiles" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:[quantile-rstat]">
+<span class="sig-name descname"><span class="pre">&lt;quantile-rstat&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Slots<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile-rstat-p</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>. The probability of the quantile.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:quantile-rstat-add!">
+<span class="sig-name descname"><span class="pre">quantile-rstat-add!</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-add!" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>quantile-rstat-add! (quantile-rstat, x) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile-rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;quantile-rstat&gt;</span></code></a>.</p></li>
+<li><p><strong>x</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:quantile-rstat-add!([double-float])">
+<span class="sig-name descname"><span class="pre">quantile-rstat-add!(&lt;double-float&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-add!([double-float])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>quantile-rstat-add! (quantile-rstat, x) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile-rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;quantile-rstat&gt;</span></code></a>.</p></li>
+<li><p><strong>x</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:quantile-rstat-add!([sequence])">
+<span class="sig-name descname"><span class="pre">quantile-rstat-add!(&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-add!([sequence])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>quantile-rstat-add! (quantile-rstat, x) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile-rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;quantile-rstat&gt;</span></code></a>.</p></li>
+<li><p><strong>x</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#sequence"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:quantile-rstat-get">
+<span class="sig-name descname"><span class="pre">quantile-rstat-get</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-get" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>quantile-rstat-get (quantile-rstat) =&gt; (quantile :: &lt;double-float&gt;)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile-rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;quantile-rstat&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-running-statistics:quantile-rstat-reset!">
+<span class="sig-name descname"><span class="pre">quantile-rstat-reset!</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-reset!" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>quantile-rstat-reset! (quantile-rstat) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile-rstat</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;quantile-rstat&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -404,9 +558,33 @@ moments, as well as approximate calculations for medians and quantiles.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The GSL-RUNNING-STATISTICS module</a><ul>
+<li><a class="reference internal" href="#statistical-summary">Statistical summary</a><ul>
+<li><a class="reference internal" href="#class-and-current-statistics">Class and current statistics</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[rstat]"><code class="docutils literal notranslate"><span class="pre">&lt;rstat&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:size([rstat])"><code class="docutils literal notranslate"><span class="pre">size(&lt;rstat&gt;)</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-values-to-the-accumulator">Adding values to the accumulator</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:rstat-add!"><code class="docutils literal notranslate"><span class="pre">rstat-add!</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:rstat-add!([double-float])"><code class="docutils literal notranslate"><span class="pre">rstat-add!(&lt;double-float&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:rstat-add!([sequence])"><code class="docutils literal notranslate"><span class="pre">rstat-add!(&lt;sequence&gt;)</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resetting-the-accumulator">Resetting the accumulator</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:rstat-reset!"><code class="docutils literal notranslate"><span class="pre">rstat-reset!</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quantiles">Quantiles</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:[quantile-rstat]"><code class="docutils literal notranslate"><span class="pre">&lt;quantile-rstat&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-add!"><code class="docutils literal notranslate"><span class="pre">quantile-rstat-add!</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-add!([double-float])"><code class="docutils literal notranslate"><span class="pre">quantile-rstat-add!(&lt;double-float&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-add!([sequence])"><code class="docutils literal notranslate"><span class="pre">quantile-rstat-add!(&lt;sequence&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-get"><code class="docutils literal notranslate"><span class="pre">quantile-rstat-get</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-running-statistics:quantile-rstat-reset!"><code class="docutils literal notranslate"><span class="pre">quantile-rstat-reset!</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
