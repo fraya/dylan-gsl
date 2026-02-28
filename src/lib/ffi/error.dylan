@@ -5,8 +5,8 @@ Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 
 define enum gsl-error-codes ()
-  $gsl-failure  = -1;
-  $gsl-continue;   /* iteration has not converged */
+  $gsl-continue = -2;   /* iteration has not converged */
+  $gsl-failure;
   $gsl-success;
   $gsl-edom;       /* input domain error, e.g sqrt(-1) */
   $gsl-erange;     /* output range error, e.g. exp(1e100) */
