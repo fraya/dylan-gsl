@@ -33,6 +33,7 @@ define module gsl-statistics
     wskew,
     wkurtosis,
     median,
+    quantile-from-sorted-data,
     kth-order-statistic,
     trimmed-mean,
     gastwirth-estimator,

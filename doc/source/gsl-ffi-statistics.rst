@@ -477,6 +477,16 @@ Median and Percentiles
    :parameter n: An instance of `<c-size-t>`.
    :value median: An instance of `<c-double>`.
 
+.. function:: gsl-stats-quantile-from-sorted-data
+
+   :signature: gsl-stats-quantile-from-sorted-data (sorted-data stride n f) => (quantile)
+
+   :parameter sorted-data: An instance of `<c-double*>`.
+   :parameter stride: An instance of `<c-size-t>`.
+   :parameter n: An instance of `<c-size-t>`.
+   :parameter f: An instance of `<c-double>`.
+   :value quantile: An instance of `<c-double>`.
+
 Order Statistics
 ================
 

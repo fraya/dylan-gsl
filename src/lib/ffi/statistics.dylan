@@ -565,6 +565,17 @@ define c-function gsl-stats-median
   c-name: "gsl_stats_median";
 end;
 
+// https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_quantile_from_sorted_data
+
+define c-function gsl-stats-quantile-from-sorted-data
+  input parameter sorted-data :: <c-double*>;
+  input parameter stride :: <c-size-t>;
+  input parameter n :: <c-size-t>;
+  input parameter f :: <c-double>;
+  result quantile :: <c-double>;
+  c-name: "gsl_stats_quantile_from_sorted_data";
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Order statistics

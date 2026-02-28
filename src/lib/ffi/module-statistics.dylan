@@ -84,7 +84,8 @@ define module gsl-ffi-statistics
 
   create
     gsl-stats-median-from-sorted-data,
-    gsl-stats-median;
+    gsl-stats-median,
+    gsl-stats-quantile-from-sorted-data;
 
   // Order statistics
 

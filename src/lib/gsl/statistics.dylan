@@ -486,6 +486,13 @@ define function median
   end if;
 end;
 
+define function quantile-from-sorted-data
+    (data :: <gsl-vector>, f :: <double-float>)
+ => (quantile :: <double-float>)
+  gsl-stats-quantile-from-sorted-data
+    (data.%gsl-vector-data, data.gsl-vector-stride, data.size, f)
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Order statistics

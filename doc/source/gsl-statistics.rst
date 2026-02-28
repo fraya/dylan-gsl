@@ -270,6 +270,14 @@ Median and Percentiles
    :parameter #key sorted?: An instance of :drm:`<boolean>`.
    :value median: An instance of :drm:`<double-float>`.
 
+.. function:: quantile-from-sorted-data
+
+   :signature: quantile-from-sorted-data (data f) => (quantile)
+
+   :parameter data: An instance of :class:`<gsl-vector>`.
+   :parameter f: An instance of :drm:`<double-float>`.
+   :value quantile: An instance of :drm:`<double-float>`.
+
 Order Statistics
 ================
 
