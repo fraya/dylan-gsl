@@ -12,6 +12,7 @@ define module gsl-ffi-error
   create
     $gsl-failure,
     $gsl-continue,
+    $gsl-success,
     $gsl-edom,
     $gsl-erange,
     $gsl-efault,
