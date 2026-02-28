@@ -151,3 +151,55 @@ define c-function gsl-rstat-norm
   result norm :: <c-double>;
   c-name: "gsl_rstat_norm";
 end;
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Quantiles
+//
+//////////////////////////////////////////////////////////////////////////////
+
+// https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile
+
+define c-struct <gsl-rstat-quantile-workspace>
+  pointer-type-name: <gsl-rstat-quantile-workspace*>;
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_alloc
+
+define c-function gsl-rstat-quantile-alloc
+  input parameter p :: <c-double>;
+  result workspace :: <gsl-rstat-quantile-workspace*>;
+  c-name: "gsl_rstat_quantile_alloc";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_free
+
+define c-function gsl-rstat-quantile-free
+  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  c-name: "gsl_rstat_quantile_free";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_reset
+
+define c-function gsl-rstat-quantile-reset
+  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  result reset :: <c-int>;
+  c-name: "gsl_rstat_quantile_reset";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_add
+
+define c-function gsl-rstat-quantile-add
+  input parameter x :: <c-double>;
+  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  result add :: <c-int>;
+  c-name: "gsl_rstat_quantile_add";
+end;
+
+// https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_get
+
+define c-function gsl-rstat-quantile-get
+  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  result quantile :: <c-double>;
+  c-name: "gsl_rstat_quantile_get";
+end;

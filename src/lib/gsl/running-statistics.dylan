@@ -104,3 +104,45 @@ define method rstat-norm
   (rstat :: <rstat>) => (norm :: <double-float>)
   ffi/gsl-rstat-norm(rstat.%rstat-workspace)
 end;
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Quantile
+//
+//////////////////////////////////////////////////////////////////////////////
+
+define class <quantile-rstat> (<object>)
+  constant slot quantile-rstat-p :: <double-float>,
+    required-init-keyword: p:;
+  slot %quantile-rstat-workspace :: ffi/<gsl-rstat-quantile-workspace*>;
+end;
+
+define method initialize
+  (instance :: <quantile-rstat>, #key) => (instance :: <quantile-rstat>)
+  next-method();
+  instance.%quantile-rstat-workspace := ffi/gsl-rstat-quantile-alloc(instance.quantile-rstat-p);
+  instance
+end;
+
+define function quantile-rstat-reset!
+  (quantile-rstat :: <quantile-rstat>) => ()
+  ffi/gsl-rstat-quantile-reset(quantile-rstat.%quantile-rstat-workspace)
+end;
+
+define generic quantile-rstat-add!
+  (quantile-rstat :: <quantile-rstat>, x :: <object>) => ();
+
+define method quantile-rstat-add!
+  (quantile-rstat :: <quantile-rstat>, x :: <double-float>) => ()
+  ffi/gsl-rstat-quantile-add(x, quantile-rstat.%quantile-rstat-workspace)
+end;
+
+define method quantile-rstat-add!
+  (quantile-rstat :: <quantile-rstat>, data :: <sequence>) => ()
+  for (x in data) quantile-rstat-add!(quantile-rstat, x) end
+end;
+
+define function quantile-rstat-get
+  (quantile-rstat :: <quantile-rstat>) => (quantile :: <double-float>)
+  ffi/gsl-rstat-quantile-get(quantile-rstat.%quantile-rstat-workspace)
+end;

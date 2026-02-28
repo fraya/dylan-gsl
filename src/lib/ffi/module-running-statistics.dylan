@@ -33,6 +33,19 @@ define module gsl-ffi-running-statistics
     gsl-rstat-norm,
     gsl-rstat-n;
 
+  create
+    <gsl-rstat-quantile-workspace>,
+    <gsl-rstat-quantile-workspace*>;
+
+  create
+    gsl-rstat-quantile-alloc,
+    gsl-rstat-quantile-free,
+    gsl-rstat-quantile-reset;
+
+  create
+    gsl-rstat-quantile-add,
+    gsl-rstat-quantile-get;
+
 end module;
 
 define module gsl-ffi-running-statistics-impl

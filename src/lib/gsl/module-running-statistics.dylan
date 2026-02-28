@@ -6,7 +6,7 @@ License: See LICENSE in this distribution for details.
 Reference: https://www.gnu.org/software/gsl/doc/html/statistics.html
 
 define module gsl-running-statistics
-  
+
   create
     <rstat>;
 
@@ -29,12 +29,22 @@ define module gsl-running-statistics
     rstat-median,
     rstat-norm;
 
+  create
+    <quantile-rstat>,
+    quantile-rstat-p;
+
+  create
+    quantile-rstat-add!,
+    quantile-rstat-reset!,
+    quantile-rstat-get;
+
 end module;
 
 define module gsl-running-statistics-impl
 
   use common-dylan;
   use c-ffi;
+  use gsl-error;
 
   use gsl-ffi-running-statistics,
     prefix: "ffi/";

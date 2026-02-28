@@ -10,6 +10,9 @@ suitable for large datasets where storing all points in memory is impractical.
 The module supports exact calculations for mean, variance, and higher-order
 moments, as well as approximate calculations for medians and quantiles.
 
+Statistical summary
+===================
+
 Here is a basic example of how to use the statistical functions:
 
 .. code-block:: dylan
@@ -39,7 +42,7 @@ Here is a basic example of how to use the statistical functions:
    format-out("There are %d items in the accumulator\n", rstat.size);
 
 Class and current statistics
-============================
+----------------------------
 
 .. class:: <rstat>
 
@@ -76,9 +79,9 @@ Class and current statistics
    :parameter rstat: An instance of :class:`<rstat>`.
 
 Adding values to the accumulator
-================================
+--------------------------------
 
-.. generic:: rstat-add!
+.. generic-function:: rstat-add!
 
    :signature: rstat-add! (rstat, x) => ()
 
@@ -102,10 +105,55 @@ Adding values to the accumulator
    :parameter x: A :drm:`<sequence>`.
 
 Resetting the accumulator
-=========================
+-------------------------
 
 .. function:: rstat-reset! 
    
    :signature: rstat-reset! (rstat) => ()
 
    :parameter rstat: An instance of :class:`<rstat>`.
+
+Quantiles
+=========
+
+.. class:: <quantile-rstat>
+
+   :supers: :drm:`<object>`
+
+   :slot quantile-rstat-p:
+      An instance of :class:`<double-float>`. The probability of the quantile.
+
+.. generic-function:: quantile-rstat-add!
+
+   :signature: quantile-rstat-add! (quantile-rstat, x) => ()
+
+   :parameter quantile-rstat: An instance of :class:`<quantile-rstat>`.
+   :parameter x: A :drm:`<object>`.
+
+.. method:: quantile-rstat-add!
+   :specializer: <double-float>
+   
+   :signature: quantile-rstat-add! (quantile-rstat, x) => ()
+
+   :parameter quantile-rstat: An instance of :class:`<quantile-rstat>`.
+   :parameter x: A :class:`<double-float>`.
+
+.. method:: quantile-rstat-add!
+   :specializer: <sequence>
+   
+   :signature: quantile-rstat-add! (quantile-rstat, x) => ()
+
+   :parameter quantile-rstat: An instance of :class:`<quantile-rstat>`.
+   :parameter x: A :drm:`<sequence>`.
+
+.. function:: quantile-rstat-get
+
+   :signature: quantile-rstat-get (quantile-rstat) => (quantile :: <double-float>)
+
+   :parameter quantile-rstat: An instance of :class:`<quantile-rstat>`.
+
+.. function:: quantile-rstat-reset!
+   
+   :signature: quantile-rstat-reset! (quantile-rstat) => ()
+
+   :parameter quantile-rstat: An instance of :class:`<quantile-rstat>`.
