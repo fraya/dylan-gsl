@@ -258,17 +258,16 @@
         <article role="main" id="furo-main-content">
           <section id="the-gsl-ffi-running-statistics-module">
 <h1>The GSL-FFI-RUNNING-STATISTICS module<a class="headerlink" href="#the-gsl-ffi-running-statistics-module" title="Link to this heading">¶</a></h1>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<section id="running-statistics">
+<h2>Running statistics<a class="headerlink" href="#running-statistics" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-workspace]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-rstat-workspace&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-workspace]" title="Link to this definition">¶</a></dt>
 <dd><p>Accumulator used to store the running statistics.</p>
 </dd></dl>
 
-</section>
 <section id="initializing-the-accumulator">
-<h2>Initializing the Accumulator<a class="headerlink" href="#initializing-the-accumulator" title="Link to this heading">¶</a></h2>
+<h3>Initializing the Accumulator<a class="headerlink" href="#initializing-the-accumulator" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-alloc">
 <span class="sig-name descname"><span class="pre">gsl-rstat-alloc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-alloc" title="Link to this definition">¶</a></dt>
@@ -310,22 +309,27 @@
 <span class="sig-name descname"><span class="pre">gsl-rstat-reset</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-reset" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-rstat-reset (workspace) =&gt; ()</p>
+<dd class="field-odd"><p>gsl-rstat-reset (workspace) =&gt; (status)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>workspace</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace*&gt;</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Discussion<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Reset a <a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-workspace]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace&gt;</span></code></a>.</p>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;c-int&gt;</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reset a <a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-workspace]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace&gt;</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
 
 </section>
 <section id="adding-data-to-the-accumulator">
-<h2>Adding Data to the Accumulator<a class="headerlink" href="#adding-data-to-the-accumulator" title="Link to this heading">¶</a></h2>
+<h3>Adding Data to the Accumulator<a class="headerlink" href="#adding-data-to-the-accumulator" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-add">
 <span class="sig-name descname"><span class="pre">gsl-rstat-add</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-add" title="Link to this definition">¶</a></dt>
@@ -336,11 +340,16 @@
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>workspace</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace*&gt;</span></code>.</p></li>
-<li><p><strong>x</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;double-float&gt;</span></code>.</p></li>
+<li><p><strong>x</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Discussion<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Add a new value to the <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace*&gt;</span></code>.</p>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;c-int&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add a new value to the <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace*&gt;</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -370,7 +379,7 @@
 
 </section>
 <section id="current-statistics">
-<h2>Current Statistics<a class="headerlink" href="#current-statistics" title="Link to this heading">¶</a></h2>
+<h3>Current Statistics<a class="headerlink" href="#current-statistics" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-min">
 <span class="sig-name descname"><span class="pre">gsl-rstat-min</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-min" title="Link to this definition">¶</a></dt>
@@ -603,6 +612,133 @@
 
 </section>
 </section>
+<section id="quantiles">
+<h2>Quantiles<a class="headerlink" href="#quantiles" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-quantile]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-rstat-quantile&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-quantile]" title="Link to this definition">¶</a></dt>
+<dd><p>Accumulator used to store the running quantiles.</p>
+</dd></dl>
+
+<section id="id1">
+<h3>Initializing the Accumulator<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-alloc">
+<span class="sig-name descname"><span class="pre">gsl-rstat-quantile-alloc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-alloc" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rstat-quantile-alloc (p) =&gt; (quantile)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – The quantile to compute.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>quantile</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-free">
+<span class="sig-name descname"><span class="pre">gsl-rstat-quantile-free</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-free" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rstat-quantile-free (quantile) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Free a <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-reset">
+<span class="sig-name descname"><span class="pre">gsl-rstat-quantile-reset</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-reset" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rstat-quantile-reset (quantile) =&gt; (status)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;c-int&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reset a <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id2">
+<h3>Adding Data to the Accumulator<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-add">
+<span class="sig-name descname"><span class="pre">gsl-rstat-quantile-add</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-add" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rstat-quantile-add (x quantile) =&gt; (status)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>quantile</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;c-int&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add a new value to the <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h3>Current Statistics<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-get">
+<span class="sig-name descname"><span class="pre">gsl-rstat-quantile-get</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-get" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rstat-quantile-get (quantile) =&gt; (quantile)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>quantile</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>quantile</strong> – The quantile value in the accumulator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Get the quantile value so far added to the <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile*&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
 
         </article>
       </div>
@@ -652,10 +788,8 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The GSL-FFI-RUNNING-STATISTICS module</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#running-statistics">Running statistics</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-workspace]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rstat-workspace&gt;</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#initializing-the-accumulator">Initializing the Accumulator</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-alloc"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-alloc</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-free"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-free</span></code></a></li>
@@ -678,6 +812,26 @@
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-kurtosis"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-kurtosis</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-median"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-median</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-norm"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-norm</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quantiles">Quantiles</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:[gsl-rstat-quantile]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rstat-quantile&gt;</span></code></a></li>
+<li><a class="reference internal" href="#id1">Initializing the Accumulator</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-alloc"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-quantile-alloc</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-free"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-quantile-free</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-reset"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-quantile-reset</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Adding Data to the Accumulator</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-add"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-quantile-add</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Current Statistics</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-get"><code class="docutils literal notranslate"><span class="pre">gsl-rstat-quantile-get</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

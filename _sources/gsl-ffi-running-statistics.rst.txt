@@ -4,15 +4,15 @@ The GSL-FFI-RUNNING-STATISTICS module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-running-statistics
 
-Classes
-=======
+Running statistics
+==================
 
 .. class:: <gsl-rstat-workspace>
 
   Accumulator used to store the running statistics.
 
 Initializing the Accumulator
-============================
+----------------------------
 
 .. function:: gsl-rstat-alloc
 
@@ -36,23 +36,26 @@ Initializing the Accumulator
 
 .. function:: gsl-rstat-reset
 
-   :signature: gsl-rstat-reset (workspace) => ()
+   :signature: gsl-rstat-reset (workspace) => (status)
 
    :parameter workspace: An instance of :class:`<gsl-rstat-workspace*>`.
+   :value status: An instance of :class:`<c-int>`                         
 
    :description: 
 
      Reset a :class:`<gsl-rstat-workspace>`.
 
 Adding Data to the Accumulator
-==============================
+------------------------------
 
 .. function:: gsl-rstat-add
 
    :signature: gsl-rstat-add (workspace x) => (status)
 
    :parameter workspace: An instance of :class:`<gsl-rstat-workspace*>`.
-   :parameter x: An instance of :class:`<double-float>`. 
+   :parameter x: An instance of :class:`<c-double>`.
+   :value status: An instance of :class:`<c-int>`.                 
+                 
 
    :description: 
 
@@ -70,7 +73,7 @@ Adding Data to the Accumulator
      Get the number of values so far added to the :class:`<gsl-rstat-workspace>`.
 
 Current Statistics
-==================
+------------------
 
 .. function:: gsl-rstat-min
 
@@ -181,3 +184,70 @@ Current Statistics
    :description: 
 
      Get the norm value so far added to the :class:`<gsl-rstat-workspace>`.
+
+Quantiles
+=========
+
+.. class:: <gsl-rstat-quantile>
+
+  Accumulator used to store the running quantiles.
+
+Initializing the Accumulator
+----------------------------
+
+.. function:: gsl-rstat-quantile-alloc
+
+  :signature: gsl-rstat-quantile-alloc (p) => (quantile)
+
+  :parameter p: The quantile to compute. 
+  :value quantile: An instance of :class:`<gsl-rstat-quantile*>`. 
+
+.. function:: gsl-rstat-quantile-free
+
+  :signature: gsl-rstat-quantile-free (quantile) => ()
+
+  :parameter quantile: An instance of :class:`<gsl-rstat-quantile*>`. 
+
+  :description: 
+
+    Free a :class:`<gsl-rstat-quantile*>`.
+
+.. function:: gsl-rstat-quantile-reset
+
+  :signature: gsl-rstat-quantile-reset (quantile) => (status)
+
+  :parameter quantile: An instance of :class:`<gsl-rstat-quantile*>`.
+  :value status: An instance of :class:`<c-int>`.
+
+  :description: 
+
+    Reset a :class:`<gsl-rstat-quantile*>`.
+
+Adding Data to the Accumulator
+------------------------------
+
+.. function:: gsl-rstat-quantile-add
+
+  :signature: gsl-rstat-quantile-add (x quantile) => (status)
+
+  :parameter x: An instance of :class:`<c-double>`.
+  :parameter quantile: An instance of :class:`<gsl-rstat-quantile*>`.
+  :value status: An instance of :class:`<c-int>`.
+
+  :description: 
+
+    Add a new value to the :class:`<gsl-rstat-quantile*>`.
+
+Current Statistics
+------------------
+
+.. function:: gsl-rstat-quantile-get
+
+  :signature: gsl-rstat-quantile-get (quantile) => (quantile)
+
+  :parameter quantile: An instance of :class:`<gsl-rstat-quantile*>`.
+  :value quantile: The quantile value in the accumulator.
+
+  :description: 
+
+    Get the quantile value so far added to the :class:`<gsl-rstat-quantile*>`.
