@@ -26,8 +26,8 @@ define module gsl-running-statistics
     rstat-rms,
     rstat-skew,
     rstat-kurtosis,
-    rstat-median,
-    rstat-norm;
+    rstat-median;
+    // rstat-norm;
 
   create
     <quantile-rstat>,

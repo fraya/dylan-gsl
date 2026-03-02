@@ -30,7 +30,7 @@ define module gsl-ffi-running-statistics
     gsl-rstat-skew,
     gsl-rstat-kurtosis,
     gsl-rstat-median,
-    gsl-rstat-norm,
+    // gsl-rstat-norm,
     gsl-rstat-n;
 
   create

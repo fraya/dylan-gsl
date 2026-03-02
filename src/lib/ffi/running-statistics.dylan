@@ -145,12 +145,12 @@ define c-function gsl-rstat-median
 end;
 
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_norm
-
-define c-function gsl-rstat-norm
-  input parameter workspace :: <gsl-rstat-workspace*>;
-  result norm :: <c-double>;
-  c-name: "gsl_rstat_norm";
-end;
+// v.2.8 not supported in Ubuntu 24.04 of GH Actions
+// define c-function gsl-rstat-norm
+//   input parameter workspace :: <gsl-rstat-workspace*>;
+//   result norm :: <c-double>;
+//   c-name: "gsl_rstat_norm";
+// end;
 
 //////////////////////////////////////////////////////////////////////////////
 //

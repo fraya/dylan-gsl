@@ -17,7 +17,7 @@ define class <rstat> (<object>)
   constant virtual slot rstat-skew :: <double-float>;
   constant virtual slot rstat-kurtosis :: <double-float>;
   constant virtual slot rstat-median :: <double-float>;
-  constant virtual slot rstat-norm :: <double-float>;
+  // constant virtual slot rstat-norm :: <double-float>;
 end;
 
 define method initialize
@@ -100,10 +100,11 @@ define method rstat-median
   ffi/gsl-rstat-median(rstat.%rstat-workspace)
 end;
 
-define method rstat-norm
-  (rstat :: <rstat>) => (norm :: <double-float>)
-  ffi/gsl-rstat-norm(rstat.%rstat-workspace)
-end;
+// v.2.8
+// define method rstat-norm
+//   (rstat :: <rstat>) => (norm :: <double-float>)
+//   ffi/gsl-rstat-norm(rstat.%rstat-workspace)
+// end;
 
 //////////////////////////////////////////////////////////////////////////////
 //
