@@ -45,6 +45,8 @@ define module gsl-running-statistics-impl
   use common-dylan;
   use c-ffi;
   use gsl-error;
+  use gsl-error-impl,
+    import: { $gsl-success };
 
   use gsl-ffi-running-statistics,
     prefix: "ffi/";

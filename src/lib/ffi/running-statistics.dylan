@@ -33,6 +33,7 @@ end;
 
 define c-function gsl-rstat-reset
   input parameter workspace :: <gsl-rstat-workspace*>;
+  result status :: <c-int>;
   c-name: "gsl_rstat_reset";
 end;
 
@@ -47,6 +48,7 @@ end;
 define c-function gsl-rstat-add
   input parameter workspace :: <gsl-rstat-workspace*>;
   input parameter x :: <c-double>;
+  result status :: <c-int>;
   c-name: "gsl_rstat_add";
 end;
 

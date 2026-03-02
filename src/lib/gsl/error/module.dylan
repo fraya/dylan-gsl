@@ -53,7 +53,8 @@ define module gsl-error-impl
 
   use common-dylan;
   use c-ffi;
-  use gsl-ffi-error;
+  use gsl-ffi-error,
+    export: { $gsl-success };
 
   use gsl-error;
 
