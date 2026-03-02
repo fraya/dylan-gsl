@@ -11,8 +11,8 @@ define variable *epsilon* :: <double-float>
   = $default-epsilon;
   
 define generic f=
-    (x :: <object>, y :: <object>, #key epsilon :: <double-float> = *epsilon*)
- => (aprox-equal? :: <boolean>);
+  (x :: <object>, y :: <object>, #key epsilon :: <double-float> = *epsilon*)
+  => (aprox-equal? :: <boolean>);
 
 define method f=
     (x :: <double-float>, y :: <double-float>, #key epsilon :: <double-float> = *epsilon*)
@@ -43,5 +43,3 @@ define function negative-infinity?
  => (is-negative-infinity? :: <boolean>)
   gsl-isinf(x) = -1
 end;
-
-
