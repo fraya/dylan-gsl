@@ -15,10 +15,10 @@ Files: library.dylan
        ffi/vector-and-matrices/block.dylan
        ffi/vector-and-matrices/module-vector.dylan
        ffi/vector-and-matrices/vector.dylan
-       gsl/common/module.dylan
-       gsl/common/common.dylan
        gsl/error/module.dylan
        gsl/error/error.dylan
+       gsl/common/module.dylan
+       gsl/common/common.dylan
        gsl/math/module.dylan
        gsl/math/math.dylan
        gsl/vector-and-matrices/module-vector.dylan

@@ -6,6 +6,9 @@ License: See License.txt in this distribution for details.
 
 define module gsl-error
 
+  use gsl-ffi-error,
+    export: { $gsl-success };
+
   create
     <gsl-error>,
     gsl-error-code,
@@ -53,8 +56,7 @@ define module gsl-error-impl
 
   use common-dylan;
   use c-ffi;
-  use gsl-ffi-error,
-    export: { $gsl-success };
+  use gsl-ffi-error;
 
   use gsl-error;
 

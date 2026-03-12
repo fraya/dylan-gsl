@@ -6,6 +6,10 @@ License: See LICENSE in this distribution for details.
 
 define module gsl-common
 
+  use gsl-error,
+    export: { $gsl-success,
+              <gsl-error> };
+
   create
     <double-float?>,
     <vector-double-float>,
@@ -14,7 +18,8 @@ define module gsl-common
     <numeric-sequence>;
 
   create
-    with-c-double-array;
+    with-c-double-array,
+    with-gsl-check-success;
 
 end module;
 
@@ -22,7 +27,6 @@ define module gsl-common-impl
 
   use common-dylan;
   use c-ffi;
-
   use gsl-common;
 
 end module;

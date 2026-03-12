@@ -28,9 +28,8 @@ end;
 
 define function rstat-reset!
   (rstat :: <rstat>) => ()
-  let status = ffi/gsl-rstat-reset(rstat.%rstat-workspace);
-  if (status ~= $gsl-success)
-    error(make(<gsl-error>, code: status))
+  with-gsl-check-success ()
+    ffi/gsl-rstat-reset(rstat.%rstat-workspace)
   end
 end;
 
@@ -45,9 +44,8 @@ define generic rstat-add!
 define method rstat-add!
    (rstat :: <rstat>, x :: <double-float>) 
 => ()
-  let status = ffi/gsl-rstat-add(rstat.%rstat-workspace, x);
-  if (status ~= $gsl-success)
-    error(make(<gsl-error>, code: status))
+  with-gsl-check-success ()
+    ffi/gsl-rstat-add(rstat.%rstat-workspace, x)
   end
 end;
 
@@ -144,9 +142,8 @@ define generic quantile-rstat-add!
 
 define method quantile-rstat-add!
   (quantile-rstat :: <quantile-rstat>, x :: <double-float>) => ()
-  let status = ffi/gsl-rstat-quantile-add(x, quantile-rstat.%quantile-rstat-workspace);
-  if (status ~= $gsl-success)
-    error(make(<gsl-error>, code: status))
+  with-gsl-check-success ()
+    ffi/gsl-rstat-quantile-add(x, quantile-rstat.%quantile-rstat-workspace)
   end
 end;
 

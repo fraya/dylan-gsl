@@ -22,3 +22,5 @@ The GSL-COMMON module
    :value vec: An instance of :const:`<vector-double-float>`.
 
 .. macro:: with-c-double-array
+
+.. macro:: with-gsl-check-success
