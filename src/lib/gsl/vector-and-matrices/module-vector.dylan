@@ -39,6 +39,8 @@ end module;
 define module gsl-vector-impl
   use common-dylan;
   use c-ffi;
+  use gsl-common,
+    import: { with-gsl-check-success };
   use gsl-math,
     import: { *epsilon*,
               f= };
