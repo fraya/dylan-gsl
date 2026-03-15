@@ -11,10 +11,10 @@ define class <gsl-vector> (<mutable-sequence>)
 end;
 
 define method initialize
-  (v :: <gsl-vector>, 
-   #key size   :: <integer> = 0,
-        fill   :: false-or(<double-float>) = #f,
-        stride :: <integer> = 1)
+    (v :: <gsl-vector>,
+     #key size   :: <integer> = 0,
+          fill   :: false-or(<double-float>) = #f,
+          stride :: <integer> = 1)
   if (fill)
     v.%gsl-vector := ffi/gsl-vector-alloc(size);
     ffi/gsl-vector-set-all(v.%gsl-vector, fill);
@@ -30,7 +30,7 @@ define method size
 end;
 
 define function gsl-vector-copy
-    (a :: <gsl-vector>) 
+    (a :: <gsl-vector>)
  => (b :: <gsl-vector>)
   let b = make(<gsl-vector>, size: a.size);
   with-gsl-check-success ()
@@ -40,27 +40,27 @@ define function gsl-vector-copy
 end;
 
 define method gsl-vector-stride
-   (v :: <gsl-vector>) 
-=> (stride :: <integer>)
+    (v :: <gsl-vector>)
+ => (stride :: <integer>)
   v.%gsl-vector.ffi/gsl-vector-stride
 end;
 
 define method gsl-vector-stride-setter
-   (stride :: <integer>, v :: <gsl-vector>) 
-=> (stride :: <integer>)
+    (stride :: <integer>, v :: <gsl-vector>)
+ => (stride :: <integer>)
   v.%gsl-vector.ffi/gsl-vector-stride := stride;
   stride
 end;
 
 define method %gsl-vector-data
-   (v :: <gsl-vector>) 
-=> (data :: <c-double*>)
+    (v :: <gsl-vector>)
+ => (data :: <c-double*>)
   v.%gsl-vector.ffi/gsl-vector-data
 end;
 
 define method %gsl-vector-data-setter
-   (data :: <c-double*>, v :: <gsl-vector>) 
-=> (data :: <c-double*>)
+    (data :: <c-double*>, v :: <gsl-vector>)
+ => (data :: <c-double*>)
   v.%gsl-vector.ffi/gsl-vector-data := data;
   data
 end;
@@ -79,7 +79,7 @@ define method element-setter
 end;
 
 define function gsl-vector
-  (seq :: <sequence>, #key stride :: <integer> = 1)
+    (seq :: <sequence>, #key stride :: <integer> = 1)
   let v = make(<gsl-vector>, size: seq.size, stride: stride);
   for (i from 0 below seq.size)
     v[i] := seq[i]
@@ -88,21 +88,21 @@ define function gsl-vector
 end;
 
 define function set-all!
-   (v :: <gsl-vector>, value :: <double-float>) 
-=> (value :: <double-float>)
+    (v :: <gsl-vector>, value :: <double-float>)
+ => (value :: <double-float>)
   ffi/gsl-vector-set-all(v.%gsl-vector, value);
   value
 end;
 
 define function set-zero!
-   (v :: <gsl-vector>) 
-=> (v :: <gsl-vector>)
+    (v :: <gsl-vector>)
+ => (v :: <gsl-vector>)
   ffi/gsl-vector-set-zero(v.%gsl-vector);
   v
 end;
 
 define function set-basis!
-   (v :: <gsl-vector>, index :: <integer>) 
+    (v :: <gsl-vector>, index :: <integer>)
  => (v :: <gsl-vector>)
   with-gsl-check-success ()
     ffi/gsl-vector-set-basis(v.%gsl-vector, index);
@@ -111,7 +111,7 @@ define function set-basis!
 end;
 
 define function swap!
-    (v :: <gsl-vector>, i :: <integer>, j :: <integer>) 
+    (v :: <gsl-vector>, i :: <integer>, j :: <integer>)
  => (v :: <gsl-vector>)
   with-gsl-check-success ()
     ffi/gsl-vector-swap-elements(v.%gsl-vector, i, j);
@@ -120,16 +120,16 @@ define function swap!
 end;
 
 define method reverse
-   (v :: <gsl-vector>) 
-=> (reversed :: <gsl-vector>)
+    (v :: <gsl-vector>)
+ => (reversed :: <gsl-vector>)
   let reversed = v.gsl-vector-copy;
   ffi/gsl-vector-reverse(reversed.%gsl-vector);
   reversed
 end;
 
 define method reverse!
-   (v :: <gsl-vector>) 
-=> (v :: <gsl-vector>)
+    (v :: <gsl-vector>)
+ => (v :: <gsl-vector>)
   ffi/gsl-vector-reverse(v.%gsl-vector);
   v
 end;
@@ -137,8 +137,8 @@ end;
 // Vector operations
 
 define method \+
-   (a :: <gsl-vector>, b :: <gsl-vector>) 
-=> (sum :: <gsl-vector>)
+    (a :: <gsl-vector>, b :: <gsl-vector>)
+ => (sum :: <gsl-vector>)
   let sum = a.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-add(sum.%gsl-vector, b.%gsl-vector);
@@ -147,8 +147,8 @@ define method \+
 end;
 
 define method \-
-   (a :: <gsl-vector>, b :: <gsl-vector>) 
-=> (diff :: <gsl-vector>)
+    (a :: <gsl-vector>, b :: <gsl-vector>)
+ => (diff :: <gsl-vector>)
   let diff = a.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-sub(diff.%gsl-vector, b.%gsl-vector);
@@ -156,9 +156,9 @@ define method \-
   diff
 end;
 
-define method \* 
-   (a :: <gsl-vector>, b :: <gsl-vector>) 
-=> (product :: <gsl-vector>)
+define method \*
+    (a :: <gsl-vector>, b :: <gsl-vector>)
+ => (product :: <gsl-vector>)
   let product = a.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-mul(product.%gsl-vector, b.%gsl-vector);
@@ -167,8 +167,8 @@ define method \*
 end;
 
 define method \/
-   (a :: <gsl-vector>, b :: <gsl-vector>) 
-=> (division :: <gsl-vector>)
+    (a :: <gsl-vector>, b :: <gsl-vector>)
+ => (division :: <gsl-vector>)
   let dividend = a.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-div(dividend.%gsl-vector, b.%gsl-vector);
@@ -176,9 +176,9 @@ define method \/
   dividend
 end;
 
-define method \* 
-   (a :: <gsl-vector>, value :: <double-float>) 
-=> (scaled :: <gsl-vector>)
+define method \*
+    (a :: <gsl-vector>, value :: <double-float>)
+ => (scaled :: <gsl-vector>)
   let scaled = a.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-scale(scaled.%gsl-vector, value);
@@ -186,15 +186,15 @@ define method \*
   scaled
 end;
 
-define method \* 
-   (value :: <double-float>, a :: <gsl-vector>) 
-=> (scaled :: <gsl-vector>)
+define method \*
+    (value :: <double-float>, a :: <gsl-vector>)
+ => (scaled :: <gsl-vector>)
   a * value
 end;
 
 define method \+
-   (a :: <gsl-vector>, value :: <double-float>)
-=> (v :: <gsl-vector>)
+    (a :: <gsl-vector>, value :: <double-float>)
+ => (v :: <gsl-vector>)
   let v = a.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-add-constant(v.%gsl-vector, value);
@@ -203,14 +203,14 @@ define method \+
 end;
 
 define function sum
-   (a :: <gsl-vector>)
-=> (sum :: <double-float>)
+    (a :: <gsl-vector>)
+ => (sum :: <double-float>)
   ffi/gsl-vector-sum(a.%gsl-vector)
 end;
 
 define function axpby
-   (alpha :: <double-float>, x :: <gsl-vector>, beta :: <double-float>, y :: <gsl-vector>)
-=> (v :: <gsl-vector>)
+    (alpha :: <double-float>, x :: <gsl-vector>, beta :: <double-float>, y :: <gsl-vector>)
+ => (v :: <gsl-vector>)
   let v = y.gsl-vector-copy;
   with-gsl-check-success ()
     ffi/gsl-vector-axpby(alpha, x.%gsl-vector, beta, v.%gsl-vector);
@@ -219,8 +219,8 @@ define function axpby
 end;
 
 define function axpby!
-   (alpha :: <double-float>, x :: <gsl-vector>, beta :: <double-float>, y :: <gsl-vector>)
-=> (v :: <gsl-vector>)
+    (alpha :: <double-float>, x :: <gsl-vector>, beta :: <double-float>, y :: <gsl-vector>)
+ => (v :: <gsl-vector>)
   ffi/gsl-vector-axpby(alpha, x.%gsl-vector, beta, y.%gsl-vector);
   y
 end;
@@ -228,12 +228,12 @@ end;
 // Finding maximum and minimum elements of vectors
 
 define function gsl-max
-   (v :: <gsl-vector>) => (max :: <double-float>)
+    (v :: <gsl-vector>) => (max :: <double-float>)
   ffi/gsl-vector-max(v.%gsl-vector)
 end;
 
 define function gsl-min
-   (v :: <gsl-vector>) => (min :: <double-float>)
+    (v :: <gsl-vector>) => (min :: <double-float>)
   ffi/gsl-vector-min(v.%gsl-vector)
 end;
 
@@ -243,70 +243,70 @@ define function max-index
 end;
 
 define function min-index
-   (v :: <gsl-vector>) => (min-index :: <integer>)
+    (v :: <gsl-vector>) => (min-index :: <integer>)
   ffi/gsl-vector-min-index(v.%gsl-vector)
 end;
 
 define function min-max
-   (v :: <gsl-vector>) => (min :: <double-float>, max :: <double-float>)
+    (v :: <gsl-vector>) => (min :: <double-float>, max :: <double-float>)
   ffi/gsl-vector-minmax(v.%gsl-vector)
 end;
 
 define function min-max-index
-   (v :: <gsl-vector>) => (min-index :: <integer>, max-index :: <integer>)
+    (v :: <gsl-vector>) => (min-index :: <integer>, max-index :: <integer>)
   ffi/gsl-vector-minmax-index(v.%gsl-vector)
 end;
 
 // Vector properties
 
 define method \=
-   (a :: <gsl-vector>, b :: <gsl-vector>) 
-=> (equal :: <boolean>)
+    (a :: <gsl-vector>, b :: <gsl-vector>)
+ => (equal :: <boolean>)
   ffi/gsl-vector-equal(a.%gsl-vector, b.%gsl-vector) = 1
 end;
 
 define function null?
-   (a :: <gsl-vector>) 
-=> (_ :: <boolean>)
+    (a :: <gsl-vector>)
+ => (_ :: <boolean>)
   ffi/gsl-vector-isnull(a.%gsl-vector) = 1
 end;
 
 define method zero?
-   (a :: <gsl-vector>) 
-=> (zero? :: <boolean>)
+    (a :: <gsl-vector>)
+ => (zero? :: <boolean>)
   a.null?
 end;
 
 define method positive?
-   (a :: <gsl-vector>) 
-=> (positive? :: <boolean>)
+    (a :: <gsl-vector>)
+ => (positive? :: <boolean>)
   ffi/gsl-vector-ispos(a.%gsl-vector) = 1
 end;
 
 define method negative
-   (a :: <gsl-vector>)
-=> (negative :: <gsl-vector>)
+    (a :: <gsl-vector>)
+ => (negative :: <gsl-vector>)
   let negative = make(<gsl-vector>, size: a.size, fill: 0.0d0);
   ffi/gsl-vector-sub(negative.%gsl-vector, a.%gsl-vector);
   negative
 end;
 
 define method negative?
-   (a :: <gsl-vector>) 
-=> (negative? :: <boolean>)
+    (a :: <gsl-vector>)
+ => (negative? :: <boolean>)
   ffi/gsl-vector-isneg(a.%gsl-vector) = 1
 end;
 
 define method non-negative?
-   (a :: <gsl-vector>) 
-=> (non-negative? :: <boolean>)
+    (a :: <gsl-vector>)
+ => (non-negative? :: <boolean>)
   ffi/gsl-vector-isnonneg(a.%gsl-vector) = 1
 end;
 
 define method f=
-   (a :: <gsl-vector>, b :: <gsl-vector>, 
-    #key epsilon :: <double-float> = *epsilon*) 
-=> (aprox-equal? :: <boolean>)
+    (a :: <gsl-vector>, b :: <gsl-vector>,
+     #key epsilon :: <double-float> = *epsilon*)
+ => (aprox-equal? :: <boolean>)
   block (equal?)
     if (a.size ~= b.size)
       equal?(#f)

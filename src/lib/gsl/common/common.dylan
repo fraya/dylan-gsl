@@ -27,8 +27,8 @@ end;
 define macro with-c-double-array
   { with-c-double-array (?c-data:name = ?data:variable) ?body:body end }
     => { let n :: <integer> = ?data.size;
-         with-stack-structure (temp-c-data :: <c-double*>, element-count: n) 
-           for (i from 0 below n) 
+         with-stack-structure (temp-c-data :: <c-double*>, element-count: n)
+           for (i from 0 below n)
              temp-c-data[i] := ?data[i]
            end;
            let ?c-data :: <c-double*> = temp-c-data;
@@ -38,8 +38,8 @@ end macro;
 
 define macro with-gsl-check-success
   { with-gsl-check-success () ?body:body end }
-    => { let status :: <integer> = ?body; 
-         if (status ~= $gsl-success) 
+    => { let status :: <integer> = ?body;
+         if (status ~= $gsl-success)
            error(make(<gsl-error>, code: status))
          end }
 end macro;
