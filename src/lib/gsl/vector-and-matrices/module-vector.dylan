@@ -37,17 +37,17 @@ define module gsl-vector
 end module;
 
 define module gsl-vector-impl
-   use common-dylan;
-   use c-ffi;
-   use gsl-math,
-     import: { *epsilon*,
-               f= };
-   use gsl-ffi-vector,
-     prefix: "ffi/";
+  use common-dylan;
+  use c-ffi;
+  use gsl-math,
+    import: { *epsilon*,
+              f= };
+  use gsl-ffi-vector,
+    prefix: "ffi/";
 
-   use gsl-vector;
-   export
-     %gsl-vector,
-     %gsl-vector-data,
-     %gsl-vector-data-setter;
+  use gsl-vector;
+  export
+    %gsl-vector,
+    %gsl-vector-data,
+    %gsl-vector-data-setter;
 end module;
