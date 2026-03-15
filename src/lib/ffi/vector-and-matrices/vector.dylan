@@ -99,6 +99,7 @@ end;
 define c-function gsl-vector-set-basis
   input parameter gsl-vector :: <gsl-vector*>;
   input parameter i :: <c-size-t>;
+  result status :: <c-int>;
   c-name: "gsl_vector_set_basis";
 end;
 
