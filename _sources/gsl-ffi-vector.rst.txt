@@ -86,10 +86,11 @@ Initializing vector elements
 
 .. function:: gsl-vector-set-basis
 
-   :signature: gsl-vector-set-basis (vector, i) => ()
+   :signature: gsl-vector-set-basis (vector, i) => (status)
 
    :parameter vector: An instance of `<gsl-vector*>`.
    :parameter i: An instance of `<c-size-t>`.
+   :value status: An instance of `<c-int>`.
 
    :description: Set all elements of the vector to zero except for the i-th element which is set to one.
 
