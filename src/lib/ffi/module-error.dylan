@@ -46,6 +46,10 @@ define module gsl-ffi-error
     $gsl-etolg,
     $gsl-eof;
 
+  create
+    gsl-set-error-handler,
+    gsl-set-error-handler-off;
+
 end module;
 
 define module gsl-ffi-error-impl

@@ -12,8 +12,8 @@ define test test-vector-get-set ()
   
   assert-equal(0.0d0, v[0]); 
   assert-equal(0.0d0, v[1]); 
-  assert-equal(0.0d0, v[2]); 
-                            
+  assert-equal(0.0d0, v[2]);
+  
   v[0] := 1.0d0;             
   v[1] := 2.0d0;             
   v[2] := 3.0d0;             
@@ -44,6 +44,12 @@ define test test-addition ()
 	       "0 is and additive identity");
   expect-true(f=(z0, v1 + (-v1)),
 	       "Additive inverses exists");
+end;
+
+define test test-addition-with-different-length ()
+  let v1 = make(<gsl-vector>, size: 3, fill: 1.0d0);
+  let v2 = make(<gsl-vector>, size: 2, fill: 2.0d0);
+  assert-signals(<gsl-bad-length>, v1 + v2);
 end;
 
 define test test-minus ()
@@ -83,6 +89,7 @@ define suite gsl-vector-suite ()
   test test-vector-get-set;
   test test-zero?;
   test test-addition;
+  test test-addition-with-different-length;
   test test-minus;
   test test-scalar;
   test test-div;

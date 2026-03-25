@@ -12,7 +12,11 @@ define module gsl-error
   create
     <gsl-error>,
     gsl-error-code,
-    gsl-error-message;
+    gsl-error-filename,
+    gsl-error-line,
+    gsl-error-reason,
+    gsl-error-message,
+    gsl-error-details;
 
   create
     <gsl-failure>,
@@ -50,12 +54,18 @@ define module gsl-error
     <gsl-tolerance-gradient>,
     <gsl-end-of-file>;
 
+  create
+    *gsl-error-handler*,
+    with-gsl-error-handler;
+
 end module;
 
 define module gsl-error-impl
 
   use common-dylan;
   use c-ffi;
+  use format,
+    import: { format-to-string };
   use gsl-ffi-error;
 
   use gsl-error;

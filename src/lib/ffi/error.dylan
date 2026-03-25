@@ -47,3 +47,14 @@ define c-function gsl-strerror
   result message :: <c-string>;
   c-name: "gsl_strerror";
 end;
+
+define c-function gsl-set-error-handler
+  input parameter new-handler :: <c-void*>;
+  result previous-handler :: <c-void*>;
+  c-name: "gsl_set_error_handler";
+end;
+
+define c-function gsl-set-error-handler-off
+  result previous-handler :: <c-void*>;
+  c-name: "gsl_set_error_handler_off";
+end;
