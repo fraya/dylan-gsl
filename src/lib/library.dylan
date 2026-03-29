@@ -13,11 +13,12 @@ define library dylan-gsl
   // gsl ffi modules
 
   export
-    gsl-ffi-error,          // file:ffi/error/module.dylan
-    gsl-ffi-math,           // file:ffi/math/module.dylan
-    gsl-ffi-vector,         // file:ffi/vector-and-matrices/module-vector.dylan
-    gsl-ffi-statistics,     // file:ffi/statistics/module.dylan
-    gsl-ffi-running-statistics; // file:ffi/running-statistics/module.dylan
+    gsl-ffi-error,              // file:ffi/module-error.dylan
+    gsl-ffi-math,               // file:ffi/module-math.dylan
+    gsl-ffi-complex,            // file:ffi/module-complex.dylan
+    gsl-ffi-vector,             // file:ffi/module-vector.dylan
+    gsl-ffi-statistics,         // file:ffi/module-statistics.dylan
+    gsl-ffi-running-statistics; // file:ffi/module-running-statistics.dylan
 
   // gsl dylan idiomatic modules
 

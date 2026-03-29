@@ -7,6 +7,8 @@ Files: library.dylan
        ffi/error.dylan
        ffi/module-math.dylan
        ffi/math.dylan
+       ffi/module-complex.dylan
+       ffi/complex.dylan
        ffi/module-statistics.dylan
        ffi/statistics.dylan
        ffi/module-running-statistics.dylan
