@@ -23,12 +23,15 @@ Files: library.dylan
        gsl/common/common.dylan
        gsl/math/module.dylan
        gsl/math/math.dylan
+       gsl/module-complex.dylan
+       gsl/complex.dylan
        gsl/vector-and-matrices/module-vector.dylan
        gsl/vector-and-matrices/vector.dylan
        gsl/module-statistics.dylan
        gsl/statistics.dylan
        gsl/module-running-statistics.dylan
        gsl/running-statistics.dylan
+C-Source-Files: complex-shim.c
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

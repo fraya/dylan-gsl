@@ -11,10 +11,12 @@ define module dylan-gsl-test-suite
   use common-dylan;
   use format-out;
   use testworks;
+  use transcendentals;
 
   use gsl-error;
   use gsl-common;
   use gsl-math;
+  use gsl-complex;
   use gsl-vector;
   use gsl-statistics,
     rename: { min-index => stats/min-index,
@@ -24,6 +26,7 @@ define module dylan-gsl-test-suite
 
   export
     gsl-test-suite,
+    gsl-complex-suite,
     gsl-vector-suite,
     gsl-statistics-suite,
     gsl-running-statistics-suite;

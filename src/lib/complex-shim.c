@@ -1,0 +1,36 @@
+#include <gsl/gsl_complex.h>
+#include <gsl/gsl_complex_math.h>
+
+void gsl_complex_polar_shim (double r, double i, double* rr, double* ii) {
+  gsl_complex c = gsl_complex_polar(r, i);
+  *rr = GSL_REAL(c);
+  *ii = GSL_IMAG(c);
+}
+
+#define DEFINE_GSL_SHIM_UNARY(name) \
+double gsl_complex_##name##_shim (double r, double i) { \
+  gsl_complex z; \
+  z.dat[0] = r; z.dat[1] = i; \
+  return gsl_complex_##name(z); \
+}
+
+DEFINE_GSL_SHIM_UNARY(arg)
+DEFINE_GSL_SHIM_UNARY(abs)
+DEFINE_GSL_SHIM_UNARY(abs2)
+DEFINE_GSL_SHIM_UNARY(logabs)
+
+#define DEFINE_GSL_SHIM_BIN(name) \
+void gsl_complex_##name##_shim (double r1, double i1, double r2, double i2, double *r, double *i) { \
+  gsl_complex a, b, c; \
+  a.dat[0] = r1; a.dat[1] = i1; \
+  b.dat[0] = r2; b.dat[1] = i2; \
+  c = gsl_complex_##name(a, b); \
+  *r = GSL_REAL(c); \
+  *i = GSL_IMAG(c); \
+}
+
+DEFINE_GSL_SHIM_BIN(add)
+DEFINE_GSL_SHIM_BIN(sub)
+DEFINE_GSL_SHIM_BIN(mul)
+DEFINE_GSL_SHIM_BIN(div)
+

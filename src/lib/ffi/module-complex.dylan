@@ -7,11 +7,15 @@ License: See License.txt in this distribution for details.
 define module gsl-ffi-complex
 
   create
-    <gsl-complex>,
-    gsl-complex-real,
-    gsl-complex-imag,
-    gsl-complex-rect,
-    gsl-complex-polar;
+    gsl-complex-polar,
+    gsl-complex-arg,
+    gsl-complex-abs,
+    gsl-complex-abs2,
+    gsl-complex-logabs,
+    gsl-complex-add,
+    gsl-complex-sub,
+    gsl-complex-mul,
+    gsl-complex-div;
 
 end module;
 
