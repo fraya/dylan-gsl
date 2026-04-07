@@ -12,36 +12,23 @@ define c-function gsl-complex-polar
   c-name: "gsl_complex_polar_shim";
 end;
 
-define c-function gsl-complex-arg
-  input parameter r :: <c-double>;
-  input parameter i :: <c-double>;
-  result arg :: <c-double>;
-  c-name: "gsl_complex_arg_shim";
-end;
+define macro ffi-complex-property-definer
+  { define ffi-complex-property ?fname:name => ?cname:token }
+    => { define c-function ?fname
+           input parameter r :: <c-double>;
+           input parameter i :: <c-double>;
+           result n :: <c-double>;
+           c-name: ?cname;
+         end; }
+end macro;
 
-define c-function gsl-complex-abs
-  input parameter r :: <c-double>;
-  input parameter i :: <c-double>;
-  result abs :: <c-double>;
-  c-name: "gsl_complex_abs_shim";
-end;
-
-define c-function gsl-complex-abs2
-  input parameter r :: <c-double>;
-  input parameter i :: <c-double>;
-  result abs :: <c-double>;
-  c-name: "gsl_complex_abs2_shim";
-end;
-
-define c-function gsl-complex-logabs
-  input parameter r :: <c-double>;
-  input parameter i :: <c-double>;
-  result logabs :: <c-double>;
-  c-name: "gsl_complex_logabs_shim";
-end;
+define ffi-complex-property gsl-complex-arg    => "gsl_complex_arg_shim";
+define ffi-complex-property gsl-complex-abs    => "gsl_complex_abs_shim";
+define ffi-complex-property gsl-complex-abs2   => "gsl_complex_abs2_shim";
+define ffi-complex-property gsl-complex-logabs => "gsl_complex_logabs_shim";
 
 define macro ffi-complex-binary-operator-definer
-  { define ffi-complex-binary-operator ?operator:name using ?cname:token end }
+  { define ffi-complex-binary-operator ?operator:name => ?cname:token }
     => { define c-function ?operator
            input  parameter r1 :: <c-double>;
            input  parameter i1 :: <c-double>;
@@ -53,7 +40,7 @@ define macro ffi-complex-binary-operator-definer
          end; }
 end macro;
 
-define ffi-complex-binary-operator gsl-complex-add using "gsl_complex_add_shim" end;
-define ffi-complex-binary-operator gsl-complex-sub using "gsl_complex_sub_shim" end;
-define ffi-complex-binary-operator gsl-complex-mul using "gsl_complex_mul_shim" end;
-define ffi-complex-binary-operator gsl-complex-div using "gsl_complex_div_shim" end;
+define ffi-complex-binary-operator gsl-complex-add => "gsl_complex_add_shim";
+define ffi-complex-binary-operator gsl-complex-sub => "gsl_complex_sub_shim";
+define ffi-complex-binary-operator gsl-complex-mul => "gsl_complex_mul_shim";
+define ffi-complex-binary-operator gsl-complex-div => "gsl_complex_div_shim";
