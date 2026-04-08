@@ -37,7 +37,7 @@ define complex-property gsl-complex-abs2 using ffi/gsl-complex-abs2 end;
 define complex-property gsl-complex-logabs using ffi/gsl-complex-logabs end;
 
 define macro complex-binary-operator-definer
-  { define complex-binary-operator ?operator:name using ?ffi:expression end }
+  { define complex-binary-operator ?operator:name => ?ffi:expression end }
     => { define method ?operator
              (a :: <gsl-complex>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
            let ar = a.gsl-complex-real; let ai = a.gsl-complex-imag;
@@ -47,7 +47,7 @@ define macro complex-binary-operator-definer
          end; }
 end macro;
 
-define complex-binary-operator \+ using ffi/gsl-complex-add end;
-define complex-binary-operator \- using ffi/gsl-complex-sub end;
-define complex-binary-operator \* using ffi/gsl-complex-mul end;
-define complex-binary-operator \/ using ffi/gsl-complex-div end;                                   
+define complex-binary-operator \+ => ffi/gsl-complex-add end;
+define complex-binary-operator \- => ffi/gsl-complex-sub end;
+define complex-binary-operator \* => ffi/gsl-complex-mul end;
+define complex-binary-operator \/ => ffi/gsl-complex-div end;
