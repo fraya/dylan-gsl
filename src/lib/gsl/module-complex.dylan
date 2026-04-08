@@ -16,7 +16,15 @@ define module gsl-complex
     gsl-complex-arg,
     gsl-complex-abs,
     gsl-complex-abs2,
-    gsl-complex-logabs;
+    gsl-complex-logabs,
+    gsl-complex-add-real,
+    gsl-complex-sub-real,
+    gsl-complex-mul-real,
+    gsl-complex-div-real,
+    gsl-complex-add-imag,
+    gsl-complex-sub-imag,
+    gsl-complex-mul-imag,
+    gsl-complex-div-imag;
 
 end module;
 

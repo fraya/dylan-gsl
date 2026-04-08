@@ -44,3 +44,25 @@ define ffi-complex-binary-operator gsl-complex-add => "gsl_complex_add_shim";
 define ffi-complex-binary-operator gsl-complex-sub => "gsl_complex_sub_shim";
 define ffi-complex-binary-operator gsl-complex-mul => "gsl_complex_mul_shim";
 define ffi-complex-binary-operator gsl-complex-div => "gsl_complex_div_shim";
+
+define macro ffi-complex-binary-operator-real-definer
+  { define ffi-complex-binary-operator-real ?operator:name => ?cname:token }
+    => { define c-function ?operator
+           input parameter r1 :: <c-double>;
+           input parameter i1 :: <c-double>;
+           input parameter x  :: <c-double>;
+           output parameter r :: <c-double*>;
+           output parameter i :: <c-double*>;
+           c-name: ?cname;
+         end; }
+end macro;
+
+define ffi-complex-binary-operator-real gsl-complex-add-real => "gsl_complex_add_real_shim";
+define ffi-complex-binary-operator-real gsl-complex-sub-real => "gsl_complex_sub_real_shim";
+define ffi-complex-binary-operator-real gsl-complex-mul-real => "gsl_complex_mul_real_shim";
+define ffi-complex-binary-operator-real gsl-complex-div-real => "gsl_complex_div_real_shim";
+
+define ffi-complex-binary-operator-real gsl-complex-add-imag => "gsl_complex_add_imag_shim";
+define ffi-complex-binary-operator-real gsl-complex-sub-imag => "gsl_complex_sub_imag_shim";
+define ffi-complex-binary-operator-real gsl-complex-mul-imag => "gsl_complex_mul_imag_shim";
+define ffi-complex-binary-operator-real gsl-complex-div-imag => "gsl_complex_div_imag_shim";

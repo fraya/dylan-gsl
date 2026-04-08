@@ -15,7 +15,15 @@ define module gsl-ffi-complex
     gsl-complex-add,
     gsl-complex-sub,
     gsl-complex-mul,
-    gsl-complex-div;
+    gsl-complex-div,
+    gsl-complex-add-real,
+    gsl-complex-sub-real,
+    gsl-complex-mul-real,
+    gsl-complex-div-real,
+    gsl-complex-add-imag,
+    gsl-complex-sub-imag,
+    gsl-complex-mul-imag,
+    gsl-complex-div-imag;
 
 end module;
 

@@ -34,3 +34,26 @@ DEFINE_GSL_SHIM_BIN(sub)
 DEFINE_GSL_SHIM_BIN(mul)
 DEFINE_GSL_SHIM_BIN(div)
 
+// Macro to make operations (+,-,*,/) between a complex number and a
+// double (real o imaginary part)
+
+#define DEFINE_GSL_SHIM_BIN_REAL(name) \
+void gsl_complex_##name##_shim (double r1, double i1, double x, double *r, double *i) { \
+  gsl_complex a, b; \
+  a.dat[0] = r1; \
+  a.dat[1] = i1; \
+  b = gsl_complex_##name(a, x); \
+  *r = GSL_REAL(b); \
+  *i = GSL_IMAG(b); \
+}
+
+DEFINE_GSL_SHIM_BIN_REAL(add_real)
+DEFINE_GSL_SHIM_BIN_REAL(sub_real)
+DEFINE_GSL_SHIM_BIN_REAL(mul_real)
+DEFINE_GSL_SHIM_BIN_REAL(div_real)
+
+DEFINE_GSL_SHIM_BIN_REAL(add_imag)
+DEFINE_GSL_SHIM_BIN_REAL(sub_imag)
+DEFINE_GSL_SHIM_BIN_REAL(mul_imag)
+DEFINE_GSL_SHIM_BIN_REAL(div_imag)
+
