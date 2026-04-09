@@ -56,7 +56,7 @@ define complex-binary-operator \/ => ffi/gsl-complex-div end;
 // complex number from results
 define macro complex-binary-real-operator-definer
   { define complex-binary-real-operator ?operator:name => ?ffi:expression end }
-    => { define method ?operator
+    => { define function ?operator
              (a :: <gsl-complex>, x :: <float>) => (_ :: <gsl-complex>)
            let (r, i) = ?ffi(a.gsl-complex-real, a.gsl-complex-imag, x);
            make(<gsl-complex>, r: r, i: i);
