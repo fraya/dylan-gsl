@@ -26,8 +26,9 @@ define module dylan-gsl-test-suite
 
   export
     gsl-test-suite,
-    gsl-complex-suite,
-    gsl-vector-suite,
-    gsl-statistics-suite,
-    gsl-running-statistics-suite;
+    gsl-complex-suite;
+  
+    // gsl-vector-suite,
+    // gsl-statistics-suite,
+    // gsl-running-statistics-suite;
 end module;

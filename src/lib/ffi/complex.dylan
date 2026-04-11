@@ -4,19 +4,46 @@ Author: Fernando Raya
 Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 
+define c-struct <gsl-complex>
+  array slot gsl-complex-data :: <c-double>,
+    length: 2,
+    setter: #f;
+  pointer-type-name: <gsl-complex*>;
+  c-name: "gsl_complex";
+end;
+
+ignore(gsl-complex-data);
+
+define c-function gsl-complex-real
+  input parameter c :: <gsl-complex*>;
+  result r :: <c-double>;
+  c-name: "gsl_complex_real_shim";
+end;
+
+define c-function gsl-complex-imag
+  input parameter c :: <gsl-complex*>;
+  result r :: <c-double>;
+  c-name: "gsl_complex_imag_shim";
+end;
+
+define c-function gsl-complex
+  input parameter  r :: <c-double>;
+  input parameter  i :: <c-double>;
+  result c :: <gsl-complex*>;
+  c-name: "gsl_complex_shim";
+end;
+
 define c-function gsl-complex-polar
-  input parameter r   :: <c-double>;
-  input parameter i   :: <c-double>;
-  output parameter rr :: <c-double*>;
-  output parameter ii :: <c-double*>;
+  input parameter  r  :: <c-double>;
+  input parameter  i  :: <c-double>;
+  result c :: <gsl-complex*>;
   c-name: "gsl_complex_polar_shim";
 end;
 
 define macro ffi-complex-property-definer
   { define ffi-complex-property ?fname:name => ?cname:token }
     => { define c-function ?fname
-           input parameter r :: <c-double>;
-           input parameter i :: <c-double>;
+           input parameter c :: <gsl-complex*>;
            result n :: <c-double>;
            c-name: ?cname;
          end; }
@@ -30,12 +57,9 @@ define ffi-complex-property gsl-complex-logabs => "gsl_complex_logabs_shim";
 define macro ffi-complex-binary-operator-definer
   { define ffi-complex-binary-operator ?operator:name => ?cname:token }
     => { define c-function ?operator
-           input  parameter r1 :: <c-double>;
-           input  parameter i1 :: <c-double>;
-           input  parameter r2 :: <c-double>;
-           input  parameter i2 :: <c-double>;
-           output parameter r  :: <c-double*>;
-           output parameter i  :: <c-double*>;
+           input  parameter a  :: <gsl-complex*>;
+           input  parameter b  :: <gsl-complex*>;
+           result c :: <gsl-complex*>;
            c-name: ?cname;
          end; }
 end macro;
@@ -48,11 +72,9 @@ define ffi-complex-binary-operator gsl-complex-div => "gsl_complex_div_shim";
 define macro ffi-complex-binary-operator-real-definer
   { define ffi-complex-binary-operator-real ?operator:name => ?cname:token }
     => { define c-function ?operator
-           input parameter r1 :: <c-double>;
-           input parameter i1 :: <c-double>;
-           input parameter x  :: <c-double>;
-           output parameter r :: <c-double*>;
-           output parameter i :: <c-double*>;
+           input parameter  a :: <gsl-complex*>;
+           input parameter  b :: <c-double>;
+           result c :: <gsl-complex*>;
            c-name: ?cname;
          end; }
 end macro;

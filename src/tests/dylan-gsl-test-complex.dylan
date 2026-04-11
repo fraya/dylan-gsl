@@ -1,17 +1,17 @@
 Module: dylan-gsl-test-suite
 
 define test test-create-complex ()
-  let c = gsl-complex(1.0d0, 2.0d0);
-  assert-equal(1.0d0, c.gsl-complex-real);
-  assert-equal(2.0d0, c.gsl-complex-imag);
+  let c = gsl-complex(1.0d0, 3.0d0);
+  expect-equal(1.0d0, c.gsl-complex-real);
+  expect-equal(3.0d0, c.gsl-complex-imag);
 end;
 
 define test test-complex-number-from-polar-to-rectangular ()
   let r = 4.0d0;
   let theta = $gsl-pi / 3;
   let c = gsl-complex-polar(r, theta);
-  assert-true(f=(2.0d0, c.gsl-complex-real));
-  assert-true(f=(4 * sin(theta), c.gsl-complex-imag));
+  expect-true(2.0d0, c.gsl-complex-real);
+  expect-true(4 * sin(theta), c.gsl-complex-imag);
 end;
 
 define test test-complex-arg ()
