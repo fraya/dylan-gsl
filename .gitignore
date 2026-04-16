@@ -16,3 +16,6 @@ _packages/
 
 # Deft-generated registry folder
 registry/
+
+# Ignore test output
+_test/
