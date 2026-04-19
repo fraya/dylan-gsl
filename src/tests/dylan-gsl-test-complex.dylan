@@ -49,6 +49,17 @@ define test test-complex-add ()
   assert-equal(3.0d0, c.gsl-complex-imag);
 end;
 
+define test test-complex-example-from-book ()
+  let z = gsl-complex(4.0d0, 3.0d0);
+  expect-equal(4.0d0, z.gsl-complex-real);
+  expect-equal(3.0d0, z.gsl-complex-imag);
+  expect-equal(5.0d0, z.gsl-complex-abs);
+  expect-equal(atan(3.0d0 / 4.0d0), z.gsl-complex-arg);
+  let c = z.gsl-complex-conjugate;
+  expect-equal(4.0d0, c.gsl-complex-real);
+  // expect-equal(-3.0d0, c.gsl-complex-imag);
+end;
+
 define suite gsl-complex-suite ()
   test test-create-complex;
   test test-complex-number-from-polar-to-rectangular;
@@ -56,4 +67,5 @@ define suite gsl-complex-suite ()
   test test-complex-abs2;
   test test-complex-logabs;
   test test-complex-add;
+  test test-complex-example-from-book;
 end suite;

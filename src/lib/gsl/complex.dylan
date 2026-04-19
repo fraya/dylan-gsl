@@ -5,34 +5,66 @@ Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 Reference: https://www.gnu.org/software/gsl/doc/html/complex.html
 
-// Define common operators (+, -, *, /) for <gsl-complex>, calling
-// the c-binding
+define method \+
+    (a :: <gsl-complex>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-add(a, b);
+end;
 
-define macro complex-binary-operator-definer
-  { define complex-binary-operator ?operator:name => ?ffi:expression end }
-    => { define method ?operator
-             (a :: <gsl-complex>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
-           ?ffi(a, b);
-         end; }
-end macro;
+define method \-
+    (a :: <gsl-complex>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-sub(a, b);
+end;
 
-define complex-binary-operator \+ => gsl-complex-add end;
-define complex-binary-operator \- => gsl-complex-sub end;
-define complex-binary-operator \* => gsl-complex-mul end;
-define complex-binary-operator \/ => gsl-complex-div end;
+define method \*
+    (a :: <gsl-complex>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-mul(a, b);
+end;
 
-// Define common operators (+, -, *, /) when the first operand is a
-// <gsl-complex> and the second a <float>
+define method \/
+    (a :: <gsl-complex>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-div(a, b);
+end;
 
-define macro complex-binary-real-operator-definer
-  { define complex-binary-real-operator ?operator:name => ?ffi:expression end }
-    => { define method ?operator
-             (a :: <gsl-complex>, b :: <float>) => (_ :: <gsl-complex>)
-           ?ffi(a, b);
-         end; }
-end macro;
+// Adds a complex number to a real number (not imaginary part)
 
-define complex-binary-real-operator \+ => gsl-complex-add-real end;
-define complex-binary-real-operator \- => gsl-complex-sub-real end;
-define complex-binary-real-operator \* => gsl-complex-mul-real end;
-define complex-binary-real-operator \/ => gsl-complex-div-real end;
+define method \+
+    (a :: <gsl-complex>, b :: <float>) => (_ :: <gsl-complex>)
+  gsl-complex-add-real(a, b);
+end;
+
+define method \-
+    (a :: <gsl-complex>, b :: <float>) => (_ :: <gsl-complex>)
+  gsl-complex-sub-real(a, b);
+end;
+
+define method \*
+    (a :: <gsl-complex>, b :: <float>) => (_ :: <gsl-complex>)
+  gsl-complex-mul-real(a, b);
+end;
+
+define method \/
+    (a :: <gsl-complex>, b :: <float>) => (_ :: <gsl-complex>)
+  gsl-complex-div-real(a, b);
+end;
+
+// Adds a real number (not the imaginary part) to a complex number
+
+define method \+
+    (a :: <float>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-add-real(b, a);
+end;
+
+define method \-
+    (a :: <float>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-sub-real(b, a);
+end;
+
+define method \*
+    (a :: <float>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-mul-real(b, a);
+end;
+
+define method \/
+    (a :: <float>, b :: <gsl-complex>) => (_ :: <gsl-complex>)
+  gsl-complex-div-real(b, a);
+end;
