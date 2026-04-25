@@ -18,9 +18,9 @@ Complex numbers
 
       A :class:`<c-double>`. The imaginary part of the complex number.
 
-    :value complex:
+   :value complex:
 
-       A :class:`<gsl-complex*>`.
+      A :class:`<gsl-complex*>`.
 
    :description:
 
