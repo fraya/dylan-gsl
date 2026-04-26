@@ -202,6 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-common.html">The GSL-COMMON module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-error.html">The GSL-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-math.html">The GSL-MATH module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-complex.html">The GSL-COMPLEX module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-vector.html">The GSL-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">The GSL-RUNNING-STATISTICS module</a></li>
@@ -354,6 +355,10 @@
         <ul>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:*([double-float],[gsl-vector])">*(&lt;double-float&gt;, &lt;gsl-vector&gt;)</a>
 </li>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:*([gsl-complex],[float])">*(&lt;gsl-complex&gt;,&lt;float&gt;)</a>
+</li>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:*([gsl-complex],[gsl-complex])">*(&lt;gsl-complex&gt;,&lt;gsl-complex&gt;)</a>
+</li>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:*([gsl-vector],[double-float])">*(&lt;gsl-vector&gt;, &lt;double-float&gt;)</a>
 </li>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:*([gsl-vector],[gsl-vector])">*(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
@@ -365,6 +370,10 @@
     +
 
         <ul>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:+([gsl-complex],[float])">+(&lt;gsl-complex&gt;,&lt;float&gt;)</a>
+</li>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:+([gsl-complex],[gsl-complex])">+(&lt;gsl-complex&gt;,&lt;gsl-complex&gt;)</a>
+</li>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:+([gsl-vector],[double-float])">+(&lt;gsl-vector&gt;, &lt;double-float&gt;)</a>
 </li>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:+([gsl-vector],[gsl-vector])">+(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
@@ -376,6 +385,10 @@
     -
 
         <ul>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:-([gsl-complex],[float])">-(&lt;gsl-complex&gt;,&lt;float&gt;)</a>
+</li>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:-([gsl-complex],[gsl-complex])">-(&lt;gsl-complex&gt;,&lt;gsl-complex&gt;)</a>
+</li>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:-([gsl-vector],[gsl-vector])">-(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
@@ -383,6 +396,10 @@
     /
 
         <ul>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:/([gsl-complex],[float])">/(&lt;gsl-complex&gt;,&lt;float&gt;)</a>
+</li>
+          <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:/([gsl-complex],[gsl-complex])">/(&lt;gsl-complex&gt;,&lt;gsl-complex&gt;)</a>
+</li>
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:/([gsl-vector],[gsl-vector])">/(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
@@ -586,125 +603,125 @@
 </li>
         <li><a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:gsl-block-free">gsl-block-free</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex">gsl-complex</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex">gsl-complex</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-abs">gsl-complex-abs</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-abs">gsl-complex-abs</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-abs">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-abs2">gsl-complex-abs2</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-abs2">gsl-complex-abs2</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-abs2">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-add">gsl-complex-add</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-add-imag">gsl-complex-add-imag</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-add-imag">gsl-complex-add-imag</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-add-imag">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-add-real">gsl-complex-add-real</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccos">gsl-complex-arccos</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccos">gsl-complex-arccos</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccos">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccos-real">gsl-complex-arccos-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccos-real">gsl-complex-arccos-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccos-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccosh">gsl-complex-arccosh</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccosh">gsl-complex-arccosh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccosh">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccosh-real">gsl-complex-arccosh-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccosh-real">gsl-complex-arccosh-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccosh-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccot">gsl-complex-arccot</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccot">gsl-complex-arccot</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccot">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccoth">gsl-complex-arccoth</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccoth">gsl-complex-arccoth</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccoth">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccsc">gsl-complex-arccsc</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccsc">gsl-complex-arccsc</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccsc">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccsc-real">gsl-complex-arccsc-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccsc-real">gsl-complex-arccsc-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccsc-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccsch">gsl-complex-arccsch</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arccsch">gsl-complex-arccsch</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arccsch">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsec">gsl-complex-arcsec</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arcsec">gsl-complex-arcsec</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsec">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsec-real">gsl-complex-arcsec-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arcsec-real">gsl-complex-arcsec-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsec-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsech">gsl-complex-arcsech</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arcsech">gsl-complex-arcsech</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsech">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsin">gsl-complex-arcsin</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arcsin">gsl-complex-arcsin</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsin">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsin-real">gsl-complex-arcsin-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arcsin-real">gsl-complex-arcsin-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsin-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsinh">gsl-complex-arcsinh</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arcsinh">gsl-complex-arcsinh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arcsinh">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arctan">gsl-complex-arctan</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arctan">gsl-complex-arctan</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arctan">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arctanh">gsl-complex-arctanh</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arctanh">gsl-complex-arctanh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arctanh">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arctanh-real">gsl-complex-arctanh-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arctanh-real">gsl-complex-arctanh-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arctanh-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arg">gsl-complex-arg</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-arg">gsl-complex-arg</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-arg">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-conjugate">gsl-complex-conjugate</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-conjugate">gsl-complex-conjugate</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-conjugate">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-cos">gsl-complex-cos</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-cos">gsl-complex-cos</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-cos">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-cosh">gsl-complex-cosh</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-cosh">gsl-complex-cosh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-cosh">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-cot">gsl-complex-cot</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-cot">gsl-complex-cot</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-cot">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-coth">gsl-complex-coth</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-coth">gsl-complex-coth</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-coth">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-csc">gsl-complex-csc</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-csc">gsl-complex-csc</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-csc">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-csch">gsl-complex-csch</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-csch">gsl-complex-csch</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-csch">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-div">gsl-complex-div</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-div-imag">gsl-complex-div-imag</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-div-imag">gsl-complex-div-imag</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-div-imag">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-div-real">gsl-complex-div-real</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-exp">gsl-complex-exp</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-exp">gsl-complex-exp</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-exp">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-imag">gsl-complex-imag</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-imag">gsl-complex-imag</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-imag">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-inverse">gsl-complex-inverse</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-inverse">gsl-complex-inverse</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-inverse">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-log">gsl-complex-log</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-log">gsl-complex-log</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-log">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-log-b">gsl-complex-log-b</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-log-b">gsl-complex-log-b</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-log-b">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-log10">gsl-complex-log10</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-log10">gsl-complex-log10</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-log10">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-logabs">gsl-complex-logabs</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-logabs">gsl-complex-logabs</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-logabs">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-mul">gsl-complex-mul</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-mul-imag">gsl-complex-mul-imag</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-mul-imag">gsl-complex-mul-imag</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-mul-imag">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-mul-real">gsl-complex-mul-real</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-negative">gsl-complex-negative</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-negative">gsl-complex-negative</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-negative">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-pow">gsl-complex-pow</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-pow">gsl-complex-pow</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-pow">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-pow-real">gsl-complex-pow-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-pow-real">gsl-complex-pow-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-pow-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-real">gsl-complex-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-real">gsl-complex-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-real">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sec">gsl-complex-sec</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sec">gsl-complex-sec</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sec">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sech">gsl-complex-sech</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sech">gsl-complex-sech</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sech">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sin">gsl-complex-sin</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sin">gsl-complex-sin</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sin">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sinh">gsl-complex-sinh</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sinh">gsl-complex-sinh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sinh">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sqrt">gsl-complex-sqrt</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sqrt">gsl-complex-sqrt</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sqrt">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sqrt-real">gsl-complex-sqrt-real</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sqrt-real">gsl-complex-sqrt-real</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sqrt-real">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sub">gsl-complex-sub</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sub-imag">gsl-complex-sub-imag</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-sub-imag">gsl-complex-sub-imag</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sub-imag">[1]</a>
 </li>
         <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-sub-real">gsl-complex-sub-real</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-tan">gsl-complex-tan</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-tan">gsl-complex-tan</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-tan">[1]</a>
 </li>
-        <li><a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-tanh">gsl-complex-tanh</a>
+        <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-tanh">gsl-complex-tanh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-tanh">[1]</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:gsl-error-code">gsl-error-code</a>
 </li>

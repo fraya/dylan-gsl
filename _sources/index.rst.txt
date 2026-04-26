@@ -11,6 +11,7 @@ GSL modules
    gsl-common
    gsl-error
    gsl-math
+   gsl-complex
    gsl-vector
    gsl-statistics
    gsl-running-statistics
