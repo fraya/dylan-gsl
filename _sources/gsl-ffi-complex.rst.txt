@@ -3,6 +3,17 @@ The GSL-FFI-COMPLEX module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-complex
 
+The GNU Scientific Library (GSL) handles complex numbers (``gsl_complex``)
+as direct structures rather than pointers, meaning functions like
+``gsl_complex_rect`` and ``gsl_complex_polar`` return values by copy. Since
+the Dylan C-FFI does not natively support functions that return or
+accept structs by value (a common limitation in many cross-language FFI
+systems) this module introduces a "shim" layer.
+
+We provide a set of C wrapper functions in ``complex-shim.c`` that
+adapt the GSL interface by handling ``gsl_complex`` structures via
+pointers, ensuring compatibility with Dylan’s FFI.
+
 Complex numbers
 ===============
 

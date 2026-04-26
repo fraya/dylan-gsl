@@ -259,6 +259,15 @@
         <article role="main" id="furo-main-content">
           <section id="the-gsl-ffi-complex-module">
 <h1>The GSL-FFI-COMPLEX module<a class="headerlink" href="#the-gsl-ffi-complex-module" title="Link to this heading">¶</a></h1>
+<p>The GNU Scientific Library (GSL) handles complex numbers (<code class="docutils literal notranslate"><span class="pre">gsl_complex</span></code>)
+as direct structures rather than pointers, meaning functions like
+<code class="docutils literal notranslate"><span class="pre">gsl_complex_rect</span></code> and <code class="docutils literal notranslate"><span class="pre">gsl_complex_polar</span></code> return values by copy. Since
+the Dylan C-FFI does not natively support functions that return or
+accept structs by value (a common limitation in many cross-language FFI
+systems) this module introduces a “shim” layer.</p>
+<p>We provide a set of C wrapper functions in <code class="docutils literal notranslate"><span class="pre">complex-shim.c</span></code> that
+adapt the GSL interface by handling <code class="docutils literal notranslate"><span class="pre">gsl_complex</span></code> structures via
+pointers, ensuring compatibility with Dylan’s FFI.</p>
 <section id="complex-numbers">
 <h2>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">¶</a></h2>
 <dl class="dylan function">
