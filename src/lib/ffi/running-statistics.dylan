@@ -25,14 +25,14 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_free
 
 define c-function gsl-rstat-free
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   c-name: "gsl_rstat_free";
 end;
 
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_reset
 
 define c-function gsl-rstat-reset
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result status :: <c-int>;
   c-name: "gsl_rstat_reset";
 end;
@@ -46,8 +46,8 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_add
 
 define c-function gsl-rstat-add
-  input parameter workspace :: <gsl-rstat-workspace*>;
-  input parameter x :: <c-double>;
+  parameter workspace :: <gsl-rstat-workspace*>;
+  parameter x :: <c-double>;
   result status :: <c-int>;
   c-name: "gsl_rstat_add";
 end;
@@ -55,7 +55,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_n
 
 define c-function gsl-rstat-n
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result n :: <c-size-t>;
   c-name: "gsl_rstat_n";
 end;
@@ -69,7 +69,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_min
 
 define c-function gsl-rstat-min
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result min :: <c-double>;
   c-name: "gsl_rstat_min";
 end;
@@ -77,7 +77,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_max
 
 define c-function gsl-rstat-max
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result max :: <c-double>;
   c-name: "gsl_rstat_max";
 end;
@@ -85,7 +85,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_max
 
 define c-function gsl-rstat-mean
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result mean :: <c-double>;
   c-name: "gsl_rstat_mean";
 end;
@@ -93,7 +93,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_variance
 
 define c-function gsl-rstat-variance
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result variance :: <c-double>;
   c-name: "gsl_rstat_variance";
 end;
@@ -101,7 +101,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_sd
 
 define c-function gsl-rstat-sd
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result sd :: <c-double>;
   c-name: "gsl_rstat_sd";
 end;
@@ -109,7 +109,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_sd_mean
 
 define c-function gsl-rstat-sd-mean
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result sd-mean :: <c-double>;
   c-name: "gsl_rstat_sd_mean";
 end;
@@ -117,7 +117,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_rms
 
 define c-function gsl-rstat-rms
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result rms :: <c-double>;
   c-name: "gsl_rstat_rms";
 end;
@@ -125,7 +125,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_skew
 
 define c-function gsl-rstat-skew
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result skew :: <c-double>;
   c-name: "gsl_rstat_skew";
 end;
@@ -133,7 +133,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_kurtosis
 
 define c-function gsl-rstat-kurtosis
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result kurtosis :: <c-double>;
   c-name: "gsl_rstat_kurtosis";
 end;
@@ -141,7 +141,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_median
 
 define c-function gsl-rstat-median
-  input parameter workspace :: <gsl-rstat-workspace*>;
+  parameter workspace :: <gsl-rstat-workspace*>;
   result median :: <c-double>;
   c-name: "gsl_rstat_median";
 end;
@@ -149,7 +149,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_norm
 // v.2.8 not supported in Ubuntu 24.04 of GH Actions
 // define c-function gsl-rstat-norm
-//   input parameter workspace :: <gsl-rstat-workspace*>;
+//   parameter workspace :: <gsl-rstat-workspace*>;
 //   result norm :: <c-double>;
 //   c-name: "gsl_rstat_norm";
 // end;
@@ -169,7 +169,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_alloc
 
 define c-function gsl-rstat-quantile-alloc
-  input parameter p :: <c-double>;
+  parameter p :: <c-double>;
   result workspace :: <gsl-rstat-quantile-workspace*>;
   c-name: "gsl_rstat_quantile_alloc";
 end;
@@ -177,14 +177,14 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_free
 
 define c-function gsl-rstat-quantile-free
-  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  parameter workspace :: <gsl-rstat-quantile-workspace*>;
   c-name: "gsl_rstat_quantile_free";
 end;
 
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_reset
 
 define c-function gsl-rstat-quantile-reset
-  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  parameter workspace :: <gsl-rstat-quantile-workspace*>;
   result reset :: <c-int>;
   c-name: "gsl_rstat_quantile_reset";
 end;
@@ -192,8 +192,8 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_add
 
 define c-function gsl-rstat-quantile-add
-  input parameter x :: <c-double>;
-  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  parameter x :: <c-double>;
+  parameter workspace :: <gsl-rstat-quantile-workspace*>;
   result add :: <c-int>;
   c-name: "gsl_rstat_quantile_add";
 end;
@@ -201,7 +201,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/rstat.html#c.gsl_rstat_quantile_get
 
 define c-function gsl-rstat-quantile-get
-  input parameter workspace :: <gsl-rstat-quantile-workspace*>;
+  parameter workspace :: <gsl-rstat-quantile-workspace*>;
   result quantile :: <c-double>;
   c-name: "gsl_rstat_quantile_get";
 end;

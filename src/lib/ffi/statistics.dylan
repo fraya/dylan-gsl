@@ -149,9 +149,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_skew
 
 define c-function gsl-stats-skew
-  input parameter data :: <c-double*>;
-  input parameter n :: <c-size-t>;
-  input parameter stride :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter n :: <c-size-t>;
+  parameter stride :: <c-size-t>;
   result skewness :: <c-double>;
   c-name: "gsl_stats_skew";
 end;
@@ -159,11 +159,11 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_skew_m
 
 define c-function gsl-stats-skew-m-sd
-  input parameter data :: <c-double*>;
-  input parameter n :: <c-size-t>;
-  input parameter stride :: <c-size-t>;
-  input parameter mean :: <c-double>;
-  input parameter sd :: <c-double>;
+  parameter data :: <c-double*>;
+  parameter n :: <c-size-t>;
+  parameter stride :: <c-size-t>;
+  parameter mean :: <c-double>;
+  parameter sd :: <c-double>;
   result skewness :: <c-double>;
   c-name: "gsl_stats_skew_m_sd";
 end;
@@ -171,9 +171,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_kurtosis
 
 define c-function gsl-stats-kurtosis
-  input parameter data :: <c-double*>;
-  input parameter n :: <c-size-t>;
-  input parameter stride :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter n :: <c-size-t>;
+  parameter stride :: <c-size-t>;
   result kurtosis :: <c-double>;
   c-name: "gsl_stats_kurtosis";
 end;
@@ -181,11 +181,11 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_kurtosis_m
 
 define c-function gsl-stats-kurtosis-m-sd
-  input parameter data :: <c-double*>;
-  input parameter n :: <c-size-t>;
-  input parameter stride :: <c-size-t>;
-  input parameter mean :: <c-double>;
-  input parameter sd :: <c-double>;
+  parameter data :: <c-double*>;
+  parameter n :: <c-size-t>;
+  parameter stride :: <c-size-t>;
+  parameter mean :: <c-double>;
+  parameter sd :: <c-double>;
   result kurtosis :: <c-double>;
   c-name: "gsl_stats_kurtosis_m_sd";
 end;
@@ -201,9 +201,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_lag1_autocorrelation
 
 define c-function gsl-stats-lag1-autocorrelation
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result autocorrelation :: <c-double>;
   c-name: "gsl_stats_lag1_autocorrelation";
 end;
@@ -212,10 +212,10 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_lag1_autocorrelation_m
 
 define c-function gsl-stats-lag1-autocorrelation-m
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
-  input parameter mean :: <c-double>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
+  parameter mean :: <c-double>;
   result autocorrelation :: <c-double>;
   c-name: "gsl_stats_lag1_autocorrelation_m";
 end;
@@ -231,11 +231,11 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_covariance
 
 define c-function gsl-stats-covariance
-  input parameter data1 :: <c-double*>;
-  input parameter stride1 :: <c-size-t>;
-  input parameter data2 :: <c-double*>;
-  input parameter stride2 :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data1 :: <c-double*>;
+  parameter stride1 :: <c-size-t>;
+  parameter data2 :: <c-double*>;
+  parameter stride2 :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result covariance :: <c-double>;
   c-name: "gsl_stats_covariance";
 end;
@@ -243,13 +243,13 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_covariance_m
 
 define c-function gsl-stats-covariance-m
-  input parameter data1 :: <c-double*>;
-  input parameter stride1 :: <c-size-t>;
-  input parameter data2 :: <c-double*>;
-  input parameter stride2 :: <c-size-t>;
-  input parameter n :: <c-size-t>;
-  input parameter mean1 :: <c-double>;
-  input parameter mean2 :: <c-double>;
+  parameter data1 :: <c-double*>;
+  parameter stride1 :: <c-size-t>;
+  parameter data2 :: <c-double*>;
+  parameter stride2 :: <c-size-t>;
+  parameter n :: <c-size-t>;
+  parameter mean1 :: <c-double>;
+  parameter mean2 :: <c-double>;
   result covariance :: <c-double>;
   c-name: "gsl_stats_covariance_m";
 end;
@@ -265,11 +265,11 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_correlation
 
 define c-function gsl-stats-correlation
-  input parameter data1 :: <c-double*>;
-  input parameter stride1 :: <c-size-t>;
-  input parameter data2 :: <c-double*>;
-  input parameter stride2 :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data1 :: <c-double*>;
+  parameter stride1 :: <c-size-t>;
+  parameter data2 :: <c-double*>;
+  parameter stride2 :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result correlation :: <c-double>;
   c-name: "gsl_stats_correlation";
 end;
@@ -277,12 +277,12 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_spearman
 
 define c-function gsl-stats-spearman
-  input parameter data1 :: <c-double*>;
-  input parameter stride1 :: <c-size-t>;
-  input parameter data2 :: <c-double*>;
-  input parameter stride2 :: <c-size-t>;
-  input parameter n :: <c-size-t>;
-  input parameter work :: <c-double*>;
+  parameter data1 :: <c-double*>;
+  parameter stride1 :: <c-size-t>;
+  parameter data2 :: <c-double*>;
+  parameter stride2 :: <c-size-t>;
+  parameter n :: <c-size-t>;
+  parameter work :: <c-double*>;
   result correlation-sd :: <c-double>;
   c-name: "gsl_stats_spearman";
 end;
@@ -482,9 +482,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max
 
 define c-function gsl-stats-max
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result maximum :: <c-double>;
   c-name: "gsl_stats_max";
 end;
@@ -492,9 +492,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min
 
 define c-function gsl-stats-min
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result minimum :: <c-double>;
   c-name: "gsl_stats_min";
 end;
@@ -504,18 +504,18 @@ end;
 define c-function gsl-stats-minmax
   output parameter minimum :: <c-double*>;
   output parameter maximum :: <c-double*>;
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   c-name: "gsl_stats_minmax";
 end;
 
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_max_index
 
 define c-function gsl-stats-max-index 
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result max-index :: <c-size-t>;
   c-name: "gsl_stats_max_index";
 end;
@@ -523,9 +523,9 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_min_index
 
 define c-function gsl-stats-min-index 
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result min-index :: <c-size-t>;
   c-name: "gsl_stats_min_index";
 end;
@@ -535,9 +535,9 @@ end;
 define c-function gsl-stats-minmax-index
   output parameter min-index :: <c-size-t*>;
   output parameter max-index :: <c-size-t*>; 
-  input parameter data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   c-name: "gsl_stats_minmax_index";
 end;
 
@@ -550,17 +550,17 @@ end;
 ///////////////////////////////////////////////////////////////////////////////
 
 define c-function gsl-stats-median-from-sorted-data
-  input parameter sorted-data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter sorted-data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result median :: <c-double>;
   c-name: "gsl_stats_median_from_sorted_data";
 end;
 
 define c-function gsl-stats-median
-  input parameter sorted-data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
+  parameter sorted-data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result median :: <c-double>;
   c-name: "gsl_stats_median";
 end;
@@ -568,10 +568,10 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/statistics.html#c.gsl_stats_quantile_from_sorted_data
 
 define c-function gsl-stats-quantile-from-sorted-data
-  input parameter sorted-data :: <c-double*>;
-  input parameter stride :: <c-size-t>;
-  input parameter n :: <c-size-t>;
-  input parameter f :: <c-double>;
+  parameter sorted-data :: <c-double*>;
+  parameter stride :: <c-size-t>;
+  parameter n :: <c-size-t>;
+  parameter f :: <c-double>;
   result quantile :: <c-double>;
   c-name: "gsl_stats_quantile_from_sorted_data";
 end;

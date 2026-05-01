@@ -14,7 +14,7 @@ end c-struct;
 // https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_block_alloc
 
 define c-function gsl-block-alloc
-  input parameter n :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result new-block :: <gsl-block*>;
   c-name: "gsl_block_alloc";
 end;
@@ -22,7 +22,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_block_calloc
 
 define c-function gsl-block-calloc
-  input parameter n :: <c-size-t>;
+  parameter n :: <c-size-t>;
   result new-block :: <gsl-block*>;
   c-name: "gsl_block_calloc";
 end;
@@ -30,7 +30,7 @@ end;
 // https://www.gnu.org/software/gsl/doc/html/vectors.html#c.gsl_block_free
 
 define c-function gsl-block-free
-  input parameter the-block :: <gsl-block*>;
+  parameter the-block :: <gsl-block*>;
   c-name: "gsl_block_free";
 end;
 
