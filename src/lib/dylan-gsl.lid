@@ -12,7 +12,6 @@ Files: library.dylan
        ffi/block.dylan
        ffi/vector.dylan
        gsl/gsl-modules.dylan
-       gsl/error.dylan
        gsl/common.dylan
        gsl/math.dylan
        gsl/complex.dylan

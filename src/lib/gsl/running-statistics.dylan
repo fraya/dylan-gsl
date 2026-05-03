@@ -28,9 +28,7 @@ end;
 
 define function rstat-reset!
   (rstat :: <rstat>) => ()
-  with-gsl-check-success ()
-    ffi/gsl-rstat-reset(rstat.%rstat-workspace)
-  end
+  ffi/gsl-rstat-reset(rstat.%rstat-workspace)
 end;
 
 define method size
@@ -44,9 +42,7 @@ define generic rstat-add!
 define method rstat-add!
    (rstat :: <rstat>, x :: <double-float>) 
 => ()
-  with-gsl-check-success ()
-    ffi/gsl-rstat-add(rstat.%rstat-workspace, x)
-  end
+  ffi/gsl-rstat-add(rstat.%rstat-workspace, x)
 end;
 
 define method rstat-add!
@@ -131,10 +127,7 @@ end;
 
 define function quantile-rstat-reset!
   (quantile-rstat :: <quantile-rstat>) => ()
-  let status = ffi/gsl-rstat-quantile-reset(quantile-rstat.%quantile-rstat-workspace);
-  if (status ~= $gsl-success)
-    error(make(<gsl-error>, code: status))
-  end
+  ffi/gsl-rstat-quantile-reset(quantile-rstat.%quantile-rstat-workspace);
 end;
 
 define generic quantile-rstat-add!
@@ -142,9 +135,7 @@ define generic quantile-rstat-add!
 
 define method quantile-rstat-add!
   (quantile-rstat :: <quantile-rstat>, x :: <double-float>) => ()
-  with-gsl-check-success ()
-    ffi/gsl-rstat-quantile-add(x, quantile-rstat.%quantile-rstat-workspace)
-  end
+  ffi/gsl-rstat-quantile-add(x, quantile-rstat.%quantile-rstat-workspace)
 end;
 
 define method quantile-rstat-add!

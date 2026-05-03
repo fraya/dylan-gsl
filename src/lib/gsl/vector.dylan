@@ -33,9 +33,7 @@ define function gsl-vector-copy
     (a :: <gsl-vector>)
  => (b :: <gsl-vector>)
   let b = make(<gsl-vector>, size: a.size);
-  with-gsl-check-success ()
-    ffi/gsl-vector-memcpy(b.%gsl-vector, a.%gsl-vector);
-  end;
+  ffi/gsl-vector-memcpy(b.%gsl-vector, a.%gsl-vector);
   b
 end;
 
@@ -104,18 +102,14 @@ end;
 define function set-basis!
     (v :: <gsl-vector>, index :: <integer>)
  => (v :: <gsl-vector>)
-  with-gsl-check-success ()
-    ffi/gsl-vector-set-basis(v.%gsl-vector, index);
-  end;
+  ffi/gsl-vector-set-basis(v.%gsl-vector, index);
   v
 end;
 
 define function swap!
     (v :: <gsl-vector>, i :: <integer>, j :: <integer>)
  => (v :: <gsl-vector>)
-  with-gsl-check-success ()
-    ffi/gsl-vector-swap-elements(v.%gsl-vector, i, j);
-  end;
+  ffi/gsl-vector-swap-elements(v.%gsl-vector, i, j);
   v
 end;
 
@@ -140,9 +134,7 @@ define method \+
     (a :: <gsl-vector>, b :: <gsl-vector>)
  => (sum :: <gsl-vector>)
   let sum = a.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-add(sum.%gsl-vector, b.%gsl-vector);
-  end;
+  ffi/gsl-vector-add(sum.%gsl-vector, b.%gsl-vector);
   sum
 end;
 
@@ -150,9 +142,7 @@ define method \-
     (a :: <gsl-vector>, b :: <gsl-vector>)
  => (diff :: <gsl-vector>)
   let diff = a.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-sub(diff.%gsl-vector, b.%gsl-vector);
-  end;
+  ffi/gsl-vector-sub(diff.%gsl-vector, b.%gsl-vector);
   diff
 end;
 
@@ -160,9 +150,7 @@ define method \*
     (a :: <gsl-vector>, b :: <gsl-vector>)
  => (product :: <gsl-vector>)
   let product = a.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-mul(product.%gsl-vector, b.%gsl-vector);
-  end;
+  ffi/gsl-vector-mul(product.%gsl-vector, b.%gsl-vector);
   product
 end;
 
@@ -170,9 +158,7 @@ define method \/
     (a :: <gsl-vector>, b :: <gsl-vector>)
  => (division :: <gsl-vector>)
   let dividend = a.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-div(dividend.%gsl-vector, b.%gsl-vector);
-  end;
+  ffi/gsl-vector-div(dividend.%gsl-vector, b.%gsl-vector);
   dividend
 end;
 
@@ -180,9 +166,7 @@ define method \*
     (a :: <gsl-vector>, value :: <double-float>)
  => (scaled :: <gsl-vector>)
   let scaled = a.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-scale(scaled.%gsl-vector, value);
-  end;
+  ffi/gsl-vector-scale(scaled.%gsl-vector, value);
   scaled
 end;
 
@@ -196,9 +180,7 @@ define method \+
     (a :: <gsl-vector>, value :: <double-float>)
  => (v :: <gsl-vector>)
   let v = a.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-add-constant(v.%gsl-vector, value);
-  end;
+  ffi/gsl-vector-add-constant(v.%gsl-vector, value);
   v
 end;
 
@@ -212,9 +194,7 @@ define function axpby
     (alpha :: <double-float>, x :: <gsl-vector>, beta :: <double-float>, y :: <gsl-vector>)
  => (v :: <gsl-vector>)
   let v = y.gsl-vector-copy;
-  with-gsl-check-success ()
-    ffi/gsl-vector-axpby(alpha, x.%gsl-vector, beta, v.%gsl-vector);
-  end;
+  ffi/gsl-vector-axpby(alpha, x.%gsl-vector, beta, v.%gsl-vector);
   v
 end;
 

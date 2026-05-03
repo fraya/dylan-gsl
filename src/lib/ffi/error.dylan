@@ -4,6 +4,8 @@ Author: Fernando Raya
 Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 
+// GSL constant error codes
+
 define enum gsl-error-codes ()
   $gsl-continue = -2;   /* iteration has not converged */
   $gsl-failure;
@@ -58,3 +60,64 @@ define c-function gsl-set-error-handler-off
   result previous-handler :: <c-void*>;
   c-name: "gsl_set_error_handler_off";
 end;
+
+define class <gsl-error> (<error>)
+  constant slot gsl-error-code :: <integer>,
+    required-init-keyword: code:;
+  constant slot gsl-error-filename :: <string>,
+    required-init-keyword: filename:;
+  constant slot gsl-error-line :: <integer>,
+    required-init-keyword: line:;
+  constant slot gsl-error-reason :: <string>,
+    required-init-keyword: reason:,
+end;
+
+define method gsl-error-message
+  (err :: <gsl-error>) => (message :: <string>)
+  gsl-strerror(err.gsl-error-code)
+end;
+
+define method gsl-error-details
+    (err :: <gsl-error>) => (details :: <string>)
+  format-to-string("gsl: %s:%d: %s",
+                   err.gsl-error-filename,
+                   err.gsl-error-line,
+                   err.gsl-error-reason)
+end;
+
+define function gsl-error-handler-callback
+    (reason :: <string>, filename :: <string>, line :: <integer>, errno :: <integer>)
+ => ()
+  *gsl-error-handler*(reason, filename, line, errno)
+end;
+
+define c-callable-wrapper $gsl-error-handler of gsl-error-handler-callback
+  parameter reason   :: <c-string>;
+  parameter filename :: <c-string>;
+  parameter line     :: <c-int>;
+  parameter errno    :: <c-int>;
+end c-callable-wrapper;
+
+define function default-gsl-error-handler
+    (reason :: <string>, filename :: <string>, line :: <integer>, errno :: <integer>)
+ => ()
+  error(make(<gsl-error>, code: errno, filename: filename, line: line, reason: reason))
+end;
+
+define variable *gsl-error-handler* :: <function>
+  = default-gsl-error-handler;
+
+define macro with-gsl-error-handler
+  { with-gsl-error-handler (?error-handler:expression) ?body:body end }
+    => { let previous-handler :: false-or(<object>) = #f;
+         block ()
+           previous-handler := gsl-set-error-handler(?error-handler);
+           ?body
+         cleanup
+           if (previous-handler)
+             gsl-set-error-handler(previous-handler);
+           end;
+         end; }
+end macro;
+
+gsl-set-error-handler($gsl-error-handler);

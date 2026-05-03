@@ -14,9 +14,6 @@ License: See License.txt in this distribution for details.
 define module gsl-ffi-error
 
   create
-    gsl-strerror;
-
-  create
     $gsl-failure,
     $gsl-continue,
     $gsl-success,
@@ -54,8 +51,24 @@ define module gsl-ffi-error
     $gsl-eof;
 
   create
+    gsl-strerror,
+    gsl-error-message;
+
+  create
     gsl-set-error-handler,
     gsl-set-error-handler-off;
+
+  create
+    <gsl-error>,
+    gsl-error-code,
+    gsl-error-filename,
+    gsl-error-line,
+    gsl-error-reason,
+    gsl-error-details;
+
+  create
+    *gsl-error-handler*,
+    with-gsl-error-handler;
 
 end module gsl-ffi-error;
 
@@ -63,6 +76,8 @@ define module gsl-ffi-error-impl
 
   use common-dylan;
   use c-ffi;
+  use format,
+    import: { format-to-string };
   use uncommon-utils,
     import: { enum-definer };
 
