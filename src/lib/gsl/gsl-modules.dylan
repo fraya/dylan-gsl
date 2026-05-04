@@ -75,7 +75,6 @@ end module gsl-math-impl;
 define module gsl-complex
 
   use gsl-ffi-complex,
-    rename: { <gsl-complex*> => <gsl-complex> },
     export: all;
 
 end module gsl-complex;
