@@ -144,7 +144,7 @@ define module gsl-ffi-complex
   // Complex number
 
   create
-    <gsl-complex>,
+    <gsl-complex*>,
     gsl-complex-real,
     gsl-complex-imag;
 
@@ -152,7 +152,8 @@ define module gsl-ffi-complex
 
   create
     gsl-complex,
-    gsl-complex-polar;
+    gsl-complex-polar,
+    gsl-complex-destroy;
 
   // Properties of complex numbers
 

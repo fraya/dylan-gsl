@@ -4,12 +4,18 @@
 
 // Complex number
 
+gsl_complex* gsl_complex_ptr(gsl_complex c) {
+  gsl_complex *r = (gsl_complex*) malloc(sizeof(gsl_complex));
+  GSL_SET_COMPLEX(r, GSL_REAL(c), GSL_IMAG(c));
+  return r;
+}
+
 gsl_complex* gsl_complex_shim (double r, double i) {
-  gsl_complex *c = (gsl_complex *)calloc(1, sizeof(gsl_complex));
-  if (c != NULL) {
-    GSL_SET_COMPLEX(c, r, i);
-  }
-  return c;
+  return gsl_complex_ptr(gsl_complex_rect(r, i));
+}
+
+void gsl_complex_destroy(gsl_complex* c) {
+  free(c);
 }
 
 double gsl_complex_real_shim (gsl_complex *c) {
@@ -21,10 +27,7 @@ double gsl_complex_imag_shim (gsl_complex *c) {
 }
 
 gsl_complex* gsl_complex_polar_shim (double r, double i) {
-  gsl_complex p = gsl_complex_polar(r, i);
-  gsl_complex *c = (gsl_complex *)calloc(1,sizeof(gsl_complex));
-  GSL_SET_COMPLEX(c, GSL_REAL(p), GSL_IMAG(p));
-  return c;
+  return gsl_complex_ptr(gsl_complex_polar(r, i));
 }
 
 #define DEFINE_COMPLEX_DOUBLE_SHIM(name)            \
@@ -35,33 +38,29 @@ double gsl_complex_##name##_shim (gsl_complex* x) { \
 // real -> complex
 
 #define DEFINE_REAL_COMPLEX_SHIM(name) \
-gsl_complex* gsl_complex_##name##_shim (double x) { \
-  gsl_complex c = gsl_complex_##name(x); \
-  return gsl_complex_shim(GSL_REAL(c), GSL_IMAG(c)); \
+gsl_complex* gsl_complex_##name##_shim (double x) {  \
+  return gsl_complex_ptr(gsl_complex_##name(x)); \
 }
 
 // complex -> real -> complex
 
-#define DEFINE_COMPLEX_REAL_COMPLEX_SHIM(name)                      \
-gsl_complex* gsl_complex_##name##_shim (gsl_complex *a, double x) { \
-  gsl_complex c = gsl_complex_##name(*a, x); \
-  return gsl_complex_shim(GSL_REAL(c), GSL_IMAG(c)); \
+#define DEFINE_COMPLEX_REAL_COMPLEX_SHIM(name) \
+gsl_complex* gsl_complex_##name##_shim (gsl_complex *a, double x) {  \
+  return gsl_complex_ptr(gsl_complex_##name(*a, x)); \
 }
 
 // complex -> complex
 
-#define DEFINE_COMPLEX_COMPLEX_SHIM(name)                 \
-gsl_complex* gsl_complex_##name##_shim (gsl_complex *a) { \
-  gsl_complex b = gsl_complex_##name(*a); \
-  return gsl_complex_shim(GSL_REAL(b), GSL_IMAG(b)); \
+#define DEFINE_COMPLEX_COMPLEX_SHIM(name) \
+gsl_complex* gsl_complex_##name##_shim (gsl_complex *a) {  \
+  return gsl_complex_ptr(gsl_complex_##name(*a)); \
 }
 
 // complex -> complex -> complex
 
 #define DEFINE_COMPLEX_COMPLEX_COMPLEX_SHIM(name) \
-gsl_complex* gsl_complex_##name##_shim (gsl_complex *a, gsl_complex *b) {  \
-  gsl_complex c = gsl_complex_##name(*a, *b); \
-  return gsl_complex_shim(GSL_REAL(c), GSL_IMAG(c)); \
+gsl_complex* gsl_complex_##name##_shim (gsl_complex *a, gsl_complex *b) { \
+  return gsl_complex_ptr(gsl_complex_##name(*a, *b)); \
 }
 
 // Properties of complex numbers

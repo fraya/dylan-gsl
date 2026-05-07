@@ -1,12 +1,12 @@
 Module: dylan-gsl-test-suite
 
-define test test-create-complex ()
-  let c = gsl-complex(1.0d0, 3.0d0);
-  expect-equal(1.0d0, c.gsl-complex-real);
-  expect-equal(3.0d0, c.gsl-complex-imag);
+define test test-complex-create ()
+  let c = make(<gsl-complex>, r: 3.0d0, i: 1.0d0);
+  expect-equal(3.0d0, c.gsl-complex-real);
+  expect-equal(1.0d0, c.gsl-complex-imag);
 end;
-
-define test test-complex-number-from-polar-to-rectangular ()
+  
+define test test-complex-polar ()
   let r = 4.0d0;
   let theta = $gsl-pi / 3;
   let c = gsl-complex-polar(r, theta);
@@ -24,7 +24,7 @@ define test test-complex-arg ()
 end;
 
 define test test-complex-abs ()
-  let c = gsl-complex(3.0d0, 4.0d0);
+  let c = make(<gsl-complex>, r: 3.0d0, i: 4.0d0);
   let a = c.gsl-complex-abs;
   assert-true(f=(5.0d0, a));
 end;
@@ -43,7 +43,11 @@ end;
 
 define test test-complex-add ()
   let a = gsl-complex(1.0d0, 1.0d0);
+  expect-equal(1.0d0, a.gsl-complex-real);
+  expect-equal(1.0d0, a.gsl-complex-imag);
   let b = gsl-complex(2.0d0, 2.0d0);
+  expect-equal(2.0d0, b.gsl-complex-real);
+  expect-equal(2.0d0, b.gsl-complex-imag);
   let c = a + b;
   assert-equal(3.0d0, c.gsl-complex-real);
   assert-equal(3.0d0, c.gsl-complex-imag);
@@ -57,12 +61,21 @@ define test test-complex-example-from-book ()
   expect-equal(atan(3.0d0 / 4.0d0), z.gsl-complex-arg);
   let c = z.gsl-complex-conjugate;
   expect-equal(4.0d0, c.gsl-complex-real);
-  // expect-equal(-3.0d0, c.gsl-complex-imag);
+  expect-equal(-3.0d0, c.gsl-complex-imag);
 end;
 
+define benchmark test-complex-leak ()
+  benchmark-repeat (iterations: 100)
+    for (i from 0 below 10)
+      let c = gsl-complex(0.0d0, 0.0d0);
+    end;
+  end;
+end benchmark;
+
 define suite gsl-complex-suite ()
-  test test-create-complex;
-  test test-complex-number-from-polar-to-rectangular;
+  test test-complex-create;
+  test test-complex-leak;
+  test test-complex-polar;
   test test-complex-abs;
   test test-complex-abs2;
   test test-complex-logabs;
