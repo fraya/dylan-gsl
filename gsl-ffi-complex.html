@@ -204,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-common.html">The GSL-COMMON module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-error.html">The GSL-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-math.html">The GSL-MATH module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gsl-complex.html">The GSL-COMPLEX module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-complex.html">GSL-COMPLEX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-vector.html">The GSL-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">The GSL-RUNNING-STATISTICS module</a></li>
@@ -292,6 +292,24 @@ pointers, ensuring compatibility with Dylan’s FFI.</p>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
 <dd class="field-even"><p>Creates a new complex number with the given real and imaginary
 parts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-complex:gsl-complex-destroy">
+<span class="sig-name descname"><span class="pre">gsl-complex-destroy</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-complex:gsl-complex-destroy" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-complex-destroy (complex)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>complex</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex*&gt;</span></code>. The complex number to destroy.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Destroys a complex number.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1807,6 +1825,7 @@ the complex number.</p></li>
 <li><a class="reference internal" href="#">The GSL-FFI-COMPLEX module</a><ul>
 <li><a class="reference internal" href="#complex-numbers">Complex numbers</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-complex:gsl-complex"><code class="docutils literal notranslate"><span class="pre">gsl-complex</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-complex:gsl-complex-destroy"><code class="docutils literal notranslate"><span class="pre">gsl-complex-destroy</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-complex:gsl-complex-real"><code class="docutils literal notranslate"><span class="pre">gsl-complex-real</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-complex:gsl-complex-imag"><code class="docutils literal notranslate"><span class="pre">gsl-complex-imag</span></code></a></li>
 </ul>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The GSL-VECTOR module" href="gsl-vector.html" /><link rel="prev" title="The GSL-MATH module" href="gsl-math.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>The GSL-COMPLEX module - Dylan GSL 0.1.0 documentation</title>
+        <title>GSL-COMPLEX - Dylan GSL 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -204,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-common.html">The GSL-COMMON module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-error.html">The GSL-ERROR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-math.html">The GSL-MATH module</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">The GSL-COMPLEX module</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">GSL-COMPLEX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-vector.html">The GSL-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">The GSL-RUNNING-STATISTICS module</a></li>
@@ -258,10 +258,26 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="the-gsl-complex-module">
-<h1>The GSL-COMPLEX module<a class="headerlink" href="#the-gsl-complex-module" title="Link to this heading">¶</a></h1>
+          <section id="gsl-complex">
+<h1>GSL-COMPLEX<a class="headerlink" href="#gsl-complex" title="Link to this heading">¶</a></h1>
 <section id="complex-numbers">
 <h2>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-complex:[gsl-complex]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-complex&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-complex:[gsl-complex]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Represents a complex number.  It is a wrapper around the C
+structure <code class="docutils literal notranslate"><span class="pre">gsl_complex</span></code>.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-complex&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">r:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="k">i:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-complex:gsl-complex">
 <span class="sig-name descname"><span class="pre">gsl-complex</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-complex:gsl-complex" title="Link to this definition">¶</a></dt>
@@ -283,6 +299,24 @@
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
 <dd class="field-even"><p>Creates a new complex number with the given real and imaginary
 parts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-complex:finalize([gsl-complex])">
+<span class="sig-name descname"><span class="pre">finalize(&lt;gsl-complex&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-complex:finalize([gsl-complex])" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>finalize (complex) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>complex</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number to finalize.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Finalizes the complex number, freeing its memory.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -319,7 +353,7 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>complex</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>complex</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -345,7 +379,7 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>complex</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>complex</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -368,7 +402,7 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>complex</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>complex</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -391,7 +425,7 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>complex</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>complex</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -414,7 +448,7 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>complex</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>complex</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
@@ -442,13 +476,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
-<li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
+<li><p><strong>b</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -466,13 +500,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
-<li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
+<li><p><strong>b</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -490,13 +524,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
-<li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
+<li><p><strong>b</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -514,13 +548,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
-<li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
+<li><p><strong>b</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -541,13 +575,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 <li><p><strong>b</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -565,13 +599,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 <li><p><strong>b</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -589,13 +623,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 <li><p><strong>b</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -613,13 +647,13 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 <li><p><strong>b</strong> – A <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>.</p></li>
+<li><p><strong>c</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -640,14 +674,14 @@ parts.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 <li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>. The imaginary number to add to the
 complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of adding the imaginary
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of adding the imaginary
 number to the complex number.</p></li>
 </ul>
 </dd>
@@ -666,14 +700,14 @@ number to the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 <li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>. The imaginary number to subtract from the
 complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of subtracting the
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of subtracting the
 imaginary number from the complex number.</p></li>
 </ul>
 </dd>
@@ -692,14 +726,14 @@ imaginary number from the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 <li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>. The imaginary number to multiply the
 complex number by.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of multiplying the complex
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of multiplying the complex
 number by the imaginary number.</p></li>
 </ul>
 </dd>
@@ -718,14 +752,14 @@ number by the imaginary number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 <li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>. The imaginary number to divide the
 complex number by.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of dividing the complex
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of dividing the complex
 number by the imaginary number.</p></li>
 </ul>
 </dd>
@@ -744,12 +778,12 @@ number by the imaginary number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of conjugating the complex number.</p></li>
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of conjugating the complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
@@ -767,12 +801,12 @@ number by the imaginary number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of inverting the complex
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of inverting the complex
 number.</p></li>
 </ul>
 </dd>
@@ -791,12 +825,12 @@ number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of negating the complex
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of negating the complex
 number.</p></li>
 </ul>
 </dd>
@@ -819,12 +853,12 @@ number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the square root
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the square root
 of the complex number.</p></li>
 </ul>
 </dd>
@@ -843,12 +877,12 @@ of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the exponential
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the exponential
 of the complex number.</p></li>
 </ul>
 </dd>
@@ -867,12 +901,12 @@ of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the natural
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the natural
 logarithm of the complex number.</p></li>
 </ul>
 </dd>
@@ -891,12 +925,12 @@ logarithm of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the base-10
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the base-10
 logarithm of the complex number.</p></li>
 </ul>
 </dd>
@@ -920,7 +954,7 @@ logarithm of the complex number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the square root
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the square root
 of the real number.</p></li>
 </ul>
 </dd>
@@ -939,13 +973,13 @@ of the real number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The base.</p></li>
-<li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The exponent.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The base.</p></li>
+<li><p><strong>b</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The exponent.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of raising the base to the
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of raising the base to the
 power of the exponent.</p></li>
 </ul>
 </dd>
@@ -965,13 +999,13 @@ another complex number.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The base.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The base.</p></li>
 <li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>. The exponent.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of raising the base to the
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of raising the base to the
 power of the exponent.</p></li>
 </ul>
 </dd>
@@ -991,13 +1025,13 @@ real number.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The number.</p></li>
-<li><p><strong>b</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The base.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The number.</p></li>
+<li><p><strong>b</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The base.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the logarithm of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the logarithm of
 the number with the given base.</p></li>
 </ul>
 </dd>
@@ -1019,12 +1053,12 @@ the number with the given base.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the sine of the
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the sine of the
 complex number.</p></li>
 </ul>
 </dd>
@@ -1043,12 +1077,12 @@ complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the cosine of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the cosine of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1067,12 +1101,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the tangent of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the tangent of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1091,12 +1125,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the secant of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the secant of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1115,12 +1149,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the cosecant of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the cosecant of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1139,12 +1173,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the cotangent of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the cotangent of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1166,12 +1200,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arcsine of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arcsine of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1190,12 +1224,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccosine of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccosine of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1214,12 +1248,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arctangent
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arctangent
 of the complex number.</p></li>
 </ul>
 </dd>
@@ -1238,12 +1272,12 @@ of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arcsecant of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arcsecant of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1262,12 +1296,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccosecant
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccosecant
 of the complex number.</p></li>
 </ul>
 </dd>
@@ -1286,12 +1320,12 @@ of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccotangent
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccotangent
 of the complex number.</p></li>
 </ul>
 </dd>
@@ -1315,7 +1349,7 @@ of the complex number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arcsine of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arcsine of
 the real number.</p></li>
 </ul>
 </dd>
@@ -1339,7 +1373,7 @@ the real number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccosine of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccosine of
 the real number.</p></li>
 </ul>
 </dd>
@@ -1363,7 +1397,7 @@ the real number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arcsecant of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arcsecant of
 the real number.</p></li>
 </ul>
 </dd>
@@ -1387,7 +1421,7 @@ the real number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccosecant
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccosecant
 of the real number.</p></li>
 </ul>
 </dd>
@@ -1411,7 +1445,7 @@ of the real number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccosh of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccosh of
 the real number.</p></li>
 </ul>
 </dd>
@@ -1435,7 +1469,7 @@ the real number.</p></li>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arctanh of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arctanh of
 the real number.</p></li>
 </ul>
 </dd>
@@ -1457,12 +1491,12 @@ the real number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the hyperbolic
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the hyperbolic
 sine of the complex number.</p></li>
 </ul>
 </dd>
@@ -1481,12 +1515,12 @@ sine of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the hyperbolic
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the hyperbolic
 cosine of the complex number.</p></li>
 </ul>
 </dd>
@@ -1505,12 +1539,12 @@ cosine of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the hyperbolic
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the hyperbolic
 tangent of the complex number.</p></li>
 </ul>
 </dd>
@@ -1529,12 +1563,12 @@ tangent of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the hyperbolic
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the hyperbolic
 secant of the complex number.</p></li>
 </ul>
 </dd>
@@ -1553,12 +1587,12 @@ secant of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the hyperbolic
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the hyperbolic
 cosecant of the complex number.</p></li>
 </ul>
 </dd>
@@ -1577,12 +1611,12 @@ cosecant of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the hyperbolic
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the hyperbolic
 cotangent of the complex number.</p></li>
 </ul>
 </dd>
@@ -1604,12 +1638,12 @@ cotangent of the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arcsinh of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arcsinh of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1628,12 +1662,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccosh of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccosh of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1652,12 +1686,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arctanh of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arctanh of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1676,12 +1710,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arcsech of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arcsech of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1700,12 +1734,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccsch of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccsch of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1724,12 +1758,12 @@ the complex number.</p></li>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>a</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The complex number.</p></li>
+<li><p><strong>a</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The complex number.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – A <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code>. The result of taking the arccoth of
+<li><p><strong>z</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a>. The result of taking the arccoth of
 the complex number.</p></li>
 </ul>
 </dd>
@@ -1797,9 +1831,11 @@ the complex number.</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">The GSL-COMPLEX module</a><ul>
+<li><a class="reference internal" href="#">GSL-COMPLEX</a><ul>
 <li><a class="reference internal" href="#complex-numbers">Complex numbers</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-complex:[gsl-complex]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-complex&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-complex:gsl-complex"><code class="docutils literal notranslate"><span class="pre">gsl-complex</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-complex:finalize([gsl-complex])"><code class="docutils literal notranslate"><span class="pre">finalize(&lt;gsl-complex&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-complex:gsl-complex-real"><code class="docutils literal notranslate"><span class="pre">gsl-complex-real</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-complex:gsl-complex-imag"><code class="docutils literal notranslate"><span class="pre">gsl-complex-imag</span></code></a></li>
 </ul>

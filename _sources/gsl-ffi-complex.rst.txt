@@ -38,6 +38,18 @@ Complex numbers
      Creates a new complex number with the given real and imaginary
      parts.
 
+.. function:: gsl-complex-destroy
+
+   :signature: gsl-complex-destroy (complex)
+
+   :parameter complex:
+
+      A :class:`<gsl-complex*>`. The complex number to destroy.
+
+   :description:
+
+     Destroys a complex number.
+
 .. function:: gsl-complex-real
 
    :signature: gsl-complex-real (complex) => (real)

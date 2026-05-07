@@ -1,10 +1,23 @@
-The GSL-COMPLEX module
-**************************
+GSL-COMPLEX
+***********
 .. current-library:: dylan-gsl
 .. current-module:: gsl-complex
 
 Complex numbers
 ===============
+
+.. class:: <gsl-complex>
+
+   :description:
+
+     Represents a complex number.  It is a wrapper around the C
+     structure ``gsl_complex``.
+
+   :example:
+
+   .. code-block:: dylan
+
+     let c = make(<gsl-complex>, r: 1.0, i: 2.0);
 
 .. function:: gsl-complex
 
@@ -26,6 +39,22 @@ Complex numbers
 
      Creates a new complex number with the given real and imaginary
      parts.
+
+.. method:: finalize
+   :specializer: <gsl-complex>
+
+   :signature:
+
+     finalize (complex) => ()
+
+   :parameter complex:
+
+      A :class:`<gsl-complex>`. The complex number to finalize.
+
+   :description:
+
+     Finalizes the complex number, freeing its memory.
+
 
 .. function:: gsl-complex-real
 
