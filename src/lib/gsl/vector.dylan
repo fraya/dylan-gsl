@@ -136,6 +136,14 @@ define method reverse!
   v
 end;
 
+define function gsl-vector-memcpy
+    (src :: <gsl-vector>)
+ => (dst :: <gsl-vector>)
+  let dst = make(<gsl-vector>, size: src.size, stride: src.gsl-vector-stride);
+  ffi/gsl-vector-memcpy(dst.%gsl-vector, src.%gsl-vector);
+  dst
+end;
+
 // Vector operations
 
 define method \+

@@ -186,7 +186,8 @@ define module gsl-vector
     set-all!,
     set-zero!,
     set-basis!,
-    swap!;
+    swap!,
+    gsl-vector-memcpy;
 
   create
     sum,
