@@ -15,6 +15,8 @@ define method initialize
      #key size   :: <integer> = 0,
           fill   :: false-or(<double-float>) = #f,
           stride :: <integer> = 1)
+  drain-finalization-queue();
+  next-method();
   if (fill)
     v.%gsl-vector := ffi/gsl-vector-alloc(size);
     ffi/gsl-vector-set-all(v.%gsl-vector, fill);
@@ -22,6 +24,12 @@ define method initialize
     v.%gsl-vector := ffi/gsl-vector-alloc(size);
   end;
   v.%gsl-vector.ffi/gsl-vector-stride := stride;
+  finalize-when-unreachable(v);
+end;
+
+define method finalize
+    (v :: <gsl-vector>) => ()
+  ffi/gsl-vector-free(v.%gsl-vector);
 end;
 
 define method size

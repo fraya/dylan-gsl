@@ -208,6 +208,7 @@ end module gsl-vector;
 define module gsl-vector-impl
   use common-dylan;
   use c-ffi;
+  use finalization;
   use gsl-math,
     import: { *epsilon*,
               f= };
