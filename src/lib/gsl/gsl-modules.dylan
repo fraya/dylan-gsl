@@ -77,13 +77,13 @@ define module gsl-complex
     <gsl-complex>,
     gsl-complex-real,
     gsl-complex-imag;
-  
+
   // Assigning complex numbers
 
   create
     gsl-complex,
     gsl-complex-polar;
- 
+
   // Properties of complex numbers
 
   create
@@ -170,34 +170,34 @@ define module gsl-complex-impl
   use gsl-ffi-complex,
     prefix: "ffi/";
   use gsl-complex;
-  
+
 end module gsl-complex-impl;
 
 define module gsl-vector
 
-   create 
-     <gsl-vector>,
-     gsl-vector,
-     gsl-vector-copy,
-     gsl-vector-stride,
-     gsl-vector-stride-setter;
-
    create
-     set-all!,
-     set-zero!,
-     set-basis!,
-     swap!;
+    <gsl-vector>,
+    gsl-vector,
+    gsl-vector-copy,
+    gsl-vector-stride,
+    gsl-vector-stride-setter;
 
-   create
-     sum,
-     axpby,
-     axpby!,
-     gsl-max,
-     gsl-min,
-     max-index,
-     min-index,
-     min-max,
-     min-max-index;
+  create
+    set-all!,
+    set-zero!,
+    set-basis!,
+    swap!;
+
+  create
+    sum,
+    axpby,
+    axpby!,
+    gsl-max,
+    gsl-min,
+    max-index,
+    min-index,
+    min-max,
+    min-max-index;
 
   create
     null?,
