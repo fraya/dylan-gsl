@@ -33,7 +33,7 @@ Complex numbers
 
    :value complex:
 
-      A :class:`<gsl-complex*>`.
+      A :class:`<gsl-complex>`.
 
    :description:
 
@@ -62,7 +62,7 @@ Complex numbers
 
    :parameter complex:
 
-      A :class:`<gsl-complex*>`. The complex number.
+      A :class:`<gsl-complex>`. The complex number.
 
    :value real:
 
