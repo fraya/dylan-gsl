@@ -206,6 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-vector.html">The GSL-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">The GSL-STATISTICS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">The GSL-RUNNING-STATISTICS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-rng.html">The GSL-RNG module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FFI modules:</span></p>
 <ul>
@@ -216,6 +217,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-vector.html">The GSL-FFI-VECTOR module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">The GSL-FFI-STATISTICS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-running-statistics.html">The GSL-FFI-RUNNING-STATISTICS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-rng.html">The GSL-FFI-RNG module</a></li>
 </ul>
 
 </div>
@@ -379,8 +381,6 @@
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:+([gsl-vector],[gsl-vector])">+(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     -
 
@@ -451,7 +451,141 @@
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-overflow]">&lt;gsl-overflow&gt;</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-range-error]">&lt;gsl-range-error&gt;</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng*]">&lt;gsl-rng*&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-borosh13]">&lt;gsl-rng-borosh13&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-cmrg]">&lt;gsl-rng-cmrg&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-coveyou]">&lt;gsl-rng-coveyou&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-fishman18]">&lt;gsl-rng-fishman18&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-fishman20]">&lt;gsl-rng-fishman20&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-fishman2x]">&lt;gsl-rng-fishman2x&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-gfsr4]">&lt;gsl-rng-gfsr4&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-knuthran2002]">&lt;gsl-rng-knuthran2002&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-knuthran2]">&lt;gsl-rng-knuthran2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-knuthran]">&lt;gsl-rng-knuthran&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-lecuyer21]">&lt;gsl-rng-lecuyer21&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-minstd]">&lt;gsl-rng-minstd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-mrg]">&lt;gsl-rng-mrg&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-mt19937-1998]">&lt;gsl-rng-mt19937-1998&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-mt19937-1999]">&lt;gsl-rng-mt19937-1999&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-mt19937]">&lt;gsl-rng-mt19937&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-r250]">&lt;gsl-rng-r250&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ran0]">&lt;gsl-rng-ran0&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ran1]">&lt;gsl-rng-ran1&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ran2]">&lt;gsl-rng-ran2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ran3]">&lt;gsl-rng-ran3&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-rand48]">&lt;gsl-rng-rand48&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-rand]">&lt;gsl-rng-rand&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random-bsd]">&lt;gsl-rng-random-bsd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random-glibc2]">&lt;gsl-rng-random-glibc2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random-libc5]">&lt;gsl-rng-random-libc5&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random128-bsd]">&lt;gsl-rng-random128-bsd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random128-glibc2]">&lt;gsl-rng-random128-glibc2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random128-libc5]">&lt;gsl-rng-random128-libc5&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random256-bsd]">&lt;gsl-rng-random256-bsd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random256-glibc2]">&lt;gsl-rng-random256-glibc2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random256-libc5]">&lt;gsl-rng-random256-libc5&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random32-bsd]">&lt;gsl-rng-random32-bsd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random32-glibc2]">&lt;gsl-rng-random32-glibc2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random32-libc5]">&lt;gsl-rng-random32-libc5&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random64-bsd]">&lt;gsl-rng-random64-bsd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random64-glibc2]">&lt;gsl-rng-random64-glibc2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random64-libc5]">&lt;gsl-rng-random64-libc5&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random8-bsd]">&lt;gsl-rng-random8-bsd&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random8-glibc2]">&lt;gsl-rng-random8-glibc2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-random8-libc5]">&lt;gsl-rng-random8-libc5&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-randu]">&lt;gsl-rng-randu&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranf]">&lt;gsl-rng-ranf&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlux389]">&lt;gsl-rng-ranlux389&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlux]">&lt;gsl-rng-ranlux&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlxd1]">&lt;gsl-rng-ranlxd1&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlxd2]">&lt;gsl-rng-ranlxd2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlxs0]">&lt;gsl-rng-ranlxs0&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlxs1]">&lt;gsl-rng-ranlxs1&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranlxs2]">&lt;gsl-rng-ranlxs2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-ranmar]">&lt;gsl-rng-ranmar&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-slatec]">&lt;gsl-rng-slatec&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-taus113]">&lt;gsl-rng-taus113&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-taus2]">&lt;gsl-rng-taus2&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-taus]">&lt;gsl-rng-taus&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-transputer]">&lt;gsl-rng-transputer&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-tt800]">&lt;gsl-rng-tt800&gt;</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng-type**]">&lt;gsl-rng-type**&gt;</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng-type*]">&lt;gsl-rng-type*&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-uni32]">&lt;gsl-rng-uni32&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-uni]">&lt;gsl-rng-uni&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-vax]">&lt;gsl-rng-vax&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-waterman14]">&lt;gsl-rng-waterman14&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng-zuf]">&lt;gsl-rng-zuf&gt;</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng]">&lt;gsl-rng&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-roundoff-error]">&lt;gsl-roundoff-error&gt;</a>
 </li>
@@ -756,6 +890,34 @@
 </li>
         <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-min">gsl-min</a>
 </li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-alloc">gsl-rng-alloc</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-default">gsl-rng-default</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-free">gsl-rng-free</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-get">gsl-rng-get</a>, <a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-get">[1]</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-max">gsl-rng-max</a>, <a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-max">[1]</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-min">gsl-rng-min</a>, <a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-min">[1]</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-name">gsl-rng-name</a>, <a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-name">[1]</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-set">gsl-rng-set</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-type-element">gsl-rng-type-element</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-types-setup">gsl-rng-types-setup</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-uniform">gsl-rng-uniform</a>, <a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-uniform">[1]</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-uniform-int">gsl-rng-uniform-int</a>, <a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-uniform-int">[1]</a>
+</li>
+        <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-uniform-pos">gsl-rng-uniform-pos</a>
+</li>
+        <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-uniform-positive">gsl-rng-uniform-positive</a>
+</li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-add">gsl-rstat-add</a>
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-alloc">gsl-rstat-alloc</a>
@@ -766,6 +928,8 @@
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-max">gsl-rstat-max</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-mean">gsl-rstat-mean</a>
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-median">gsl-rstat-median</a>
@@ -780,8 +944,6 @@
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-alloc">gsl-rstat-quantile-alloc</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-free">gsl-rstat-quantile-free</a>
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-quantile-get">gsl-rstat-quantile-get</a>

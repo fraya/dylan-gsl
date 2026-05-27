@@ -1,0 +1,538 @@
+The GSL-RNG module
+**********************
+
+.. current-library:: dylan-gsl
+.. current-module:: gsl-rng
+
+Random generator base class
+---------------------------
+
+.. class:: <gsl-rng>
+   :abstract:
+
+   The abstract base class for random number generators.
+
+   :supers:
+
+     :class:`<object>`
+
+   :keyword seed:
+
+    An instance of :class:`<integer>` that will be used as the seed for the random number generator.
+
+    :example:
+
+    .. code-block::
+
+       let rng = make(<gsl-rng-mt19937>, seed: 123456);
+
+Sampling
+--------
+.. function:: gsl-rng-get
+
+    Returns a random number between the minimum and maximum value of the random number generator.
+
+    :signature:
+
+      gsl-rng-get (rng) => (number)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :values number:
+
+      A random number between the minimum and maximum value of the random number generator as an instance of :class:`<integer>`.
+
+.. function:: gsl-rng-uniform
+
+    Returns a random floating point number uniformly distributed in the range [0,1).
+
+    :signature:
+
+      gsl-rng-uniform (rng) => (number)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :values number:
+
+      An instance of :class:`<float>`.
+      The range includes 0.0 but excludes 1.0.
+
+.. function:: gsl-rng-uniform-positive
+
+    Returns a positive random number uniformly distributed in the range (0,1),
+    excluding both 0.0 and 1.0.
+    The number is obtained by sampling the generator with the algorithm of
+    :func:`gsl-rng-uniform` until a non-zero value is obtained.
+
+    :signature:
+
+      gsl-rng-uniform-positive (rng) => (number)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :values number:
+
+      An instance of :class:`<float>`, between 0.0 and 1.0 excluding both endpoints.
+
+.. function:: gsl-rng-uniform-int
+
+    Returns a random number between 0 and n-1 of the random number generator.
+
+    :signature:
+
+      gsl-rng-uniform-int (rng, n) => (number)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :param n:
+
+      An instance of :class:`<integer>`. The parameter must be less than or equal
+      to the range or the generator ``rng``. If ``n`` is larger than the range of
+      the generator an error will be signaled.
+
+    :values number:
+
+      A random number between 0 and n-1 of the random number generator as an instance of :class:`<integer>`.
+
+Auxiliary functions
+-------------------
+
+.. function:: gsl-rng-name
+
+    Returns the name of the random number generator.
+
+    :signature:
+
+      gsl-rng-name (rng) => (name)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :values name:
+
+      The name of the random number generator as an instance of :class:`<string>`.
+
+.. function:: gsl-rng-min
+
+    Returns the smallest value returned by the random number generator.
+
+    :signature:
+
+      gsl-rng-min (rng) => (min)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :values min:
+
+      The minimum value returned by the random number generator as an instance of :class:`<integer>`.
+
+.. function:: gsl-rng-max
+
+    Returns the maximum value returned by the random number generator.
+
+    :signature:
+
+      gsl-rng-max (rng) => (max)
+
+    :param rng:
+
+      An instance of :class:`<gsl-rng>`.
+
+    :values max:
+
+      The maximum value returned by the random number generator as an instance of :class:`<integer>`.
+
+Random number generator algorithms
+----------------------------------
+
+.. class:: <gsl-rng-borosh13>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-cmrg>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg
+
+.. class:: <gsl-rng-coveyou>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou
+
+.. class:: <gsl-rng-fishman18>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18
+
+.. class:: <gsl-rng-fishman20>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20
+
+.. class:: <gsl-rng-fishman2x>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x
+
+.. class:: <gsl-rng-gfsr4>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4
+
+.. class:: <gsl-rng-knuthran>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran
+
+.. class:: <gsl-rng-knuthran2>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2
+
+.. class:: <gsl-rng-knuthran2002>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002
+
+.. class:: <gsl-rng-lecuyer21>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21
+
+.. class:: <gsl-rng-minstd>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd
+
+.. class:: <gsl-rng-mrg>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg
+
+.. class:: <gsl-rng-mt19937>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mt19937
+
+.. class:: <gsl-rng-mt19937-1999>
+
+    :supers: :class:`<gsl-rng>`
+
+
+.. class:: <gsl-rng-mt19937-1998>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-r250>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250
+
+.. class:: <gsl-rng-ran0>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-ran1>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-ran2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-ran3>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-rand>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-rand48>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random128-bsd>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random128-glibc2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random128-libc5>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random256-bsd>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random256-glibc2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random256-libc5>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random32-bsd>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random32-glibc2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random32-libc5>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random64-bsd>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random64-glibc2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random64-libc5>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random8-bsd>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random8-glibc2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random8-libc5>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random-bsd>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random-glibc2>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-random-libc5>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-randu>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-ranf>
+
+    :supers: :class:`<gsl-rng>`
+
+.. class:: <gsl-rng-ranlux>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux
+
+.. class:: <gsl-rng-ranlux389>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389
+
+.. class:: <gsl-rng-ranlxd1>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1
+
+.. class:: <gsl-rng-ranlxd2>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2
+
+.. class:: <gsl-rng-ranlxs0>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs0
+
+.. class:: <gsl-rng-ranlxs1>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs1
+
+.. class:: <gsl-rng-ranlxs2>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs2
+
+.. class:: <gsl-rng-ranmar>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi
+
+.. class:: <gsl-rng-slatec>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec
+
+.. class:: <gsl-rng-taus>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus
+
+.. class:: <gsl-rng-taus2>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus2005
+
+.. class:: <gsl-rng-taus113>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800
+
+.. class:: <gsl-rng-transputer>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup
+
+.. class:: <gsl-rng-tt800>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800
+
+.. class:: <gsl-rng-uni>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni
+
+.. class:: <gsl-rng-uni32>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32
+
+.. class:: <gsl-rng-vax>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vax
+
+.. class:: <gsl-rng-waterman14>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_waterman14
+
+.. class:: <gsl-rng-zuf>
+
+    :supers: :class:`<gsl-rng>`
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf
