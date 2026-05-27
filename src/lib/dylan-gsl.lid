@@ -7,6 +7,7 @@ Files: library.dylan
        ffi/error.dylan
        ffi/math.dylan
        ffi/complex.dylan
+       ffi/rng.dylan
        ffi/statistics.dylan
        ffi/running-statistics.dylan
        ffi/block.dylan
@@ -16,9 +17,11 @@ Files: library.dylan
        gsl/math.dylan
        gsl/complex.dylan
        gsl/vector.dylan
+       gsl/rng.dylan
        gsl/statistics.dylan
        gsl/running-statistics.dylan
 C-Source-Files: complex-shim.c
+C-Source-Files: rng-shim.c
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

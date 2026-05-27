@@ -15,6 +15,7 @@ GSL modules
    gsl-vector
    gsl-statistics
    gsl-running-statistics
+   gsl-rng
 
 FFI modules
 ***********
@@ -30,3 +31,4 @@ FFI modules
    gsl-ffi-vector
    gsl-ffi-statistics
    gsl-ffi-running-statistics
+   gsl-ffi-rng

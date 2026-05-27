@@ -336,3 +336,96 @@ define module gsl-running-statistics-impl
   use gsl-running-statistics;
 
 end module gsl-running-statistics-impl;
+
+define module gsl-rng
+
+  create
+    gsl-rng-env-setup;
+
+  create
+    <gsl-rng>,
+    gsl-rng-seed,
+    gsl-rng-name,
+    gsl-rng-min,
+    gsl-rng-max;
+
+  create
+    gsl-rng-get,
+    gsl-rng-uniform,
+    gsl-rng-uniform-int,
+    gsl-rng-uniform-positive;
+
+  create
+    $gsl-rng-borosh13,
+    $gsl-rng-coveyou,
+    $gsl-rng-cmrg,
+    $gsl-rng-fishman18,
+    $gsl-rng-fishman20,
+    $gsl-rng-fishman2x,
+    $gsl-rng-gfsr4,
+    $gsl-rng-knuthran,
+    $gsl-rng-knuthran2,
+    $gsl-rng-knuthran2002,
+    $gsl-rng-lecuyer21,
+    $gsl-rng-minstd,
+    $gsl-rng-mrg,
+    $gsl-rng-mt19937,
+    $gsl-rng-mt19937-1999,
+    $gsl-rng-mt19937-1998,
+    $gsl-rng-r250,
+    $gsl-rng-ran0,
+    $gsl-rng-ran1,
+    $gsl-rng-ran2,
+    $gsl-rng-ran3,
+    $gsl-rng-rand,
+    $gsl-rng-rand48,
+    $gsl-rng-random128-bsd,
+    $gsl-rng-random128-glibc2,
+    $gsl-rng-random128-libc5,
+    $gsl-rng-random256-bsd,
+    $gsl-rng-random256-glibc2,
+    $gsl-rng-random256-libc5,
+    $gsl-rng-random32-bsd,
+    $gsl-rng-random32-glibc2,
+    $gsl-rng-random32-libc5,
+    $gsl-rng-random64-bsd,
+    $gsl-rng-random64-glibc2,
+    $gsl-rng-random64-libc5,
+    $gsl-rng-random8-bsd,
+    $gsl-rng-random8-glibc2,
+    $gsl-rng-random8-libc5,
+    $gsl-rng-random-bsd,
+    $gsl-rng-random-glibc2,
+    $gsl-rng-random-libc5,
+    $gsl-rng-randu,
+    $gsl-rng-ranf,
+    $gsl-rng-ranlux,
+    $gsl-rng-ranlux389,
+    $gsl-rng-ranlxd1,
+    $gsl-rng-ranlxd2,
+    $gsl-rng-ranlxs0,
+    $gsl-rng-ranlxs1,
+    $gsl-rng-ranlxs2,
+    $gsl-rng-ranmar,
+    $gsl-rng-slatec,
+    $gsl-rng-taus,
+    $gsl-rng-taus2,
+    $gsl-rng-taus113,
+    $gsl-rng-transputer,
+    $gsl-rng-tt800,
+    $gsl-rng-uni,
+    $gsl-rng-uni32,
+    $gsl-rng-vax,
+    $gsl-rng-waterman14,
+    $gsl-rng-zuf;
+
+end module;
+
+define module gsl-rng-impl
+  use common-dylan;
+  use finalization;
+  use gsl-ffi-rng,
+    prefix: "ffi/";
+  use uncommon-utils;
+  use gsl-rng;
+end module gsl-rng-impl;

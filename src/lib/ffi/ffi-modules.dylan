@@ -564,3 +564,37 @@ define module gsl-ffi-vector-impl
   use gsl-ffi-vector;
 
 end module gsl-ffi-vector-impl;
+
+define module gsl-ffi-rng
+  create
+    <gsl-rng-type*>,
+    <gsl-rng-type**>,
+    gsl-rng-types-setup,
+    gsl-rng-env-setup,
+    gsl-rng-default-type,
+    gsl-rng-default-seed;
+
+  create
+    <gsl-rng*>,
+    gsl-rng-set,
+    gsl-rng-alloc,
+    gsl-rng-free;
+
+  create
+    gsl-rng-max,
+    gsl-rng-min,
+    gsl-rng-name;
+
+  create
+    gsl-rng-get,
+    gsl-rng-uniform,
+    gsl-rng-uniform-int,
+    gsl-rng-uniform-pos;
+
+end module gsl-ffi-rng;
+
+define module gsl-ffi-rng-impl
+  use common-dylan;
+  use c-ffi;
+  use gsl-ffi-rng;
+end module;
