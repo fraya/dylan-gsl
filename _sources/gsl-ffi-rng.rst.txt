@@ -22,13 +22,13 @@ The Random Number Generator interface
 Random number generator initialization
 --------------------------------------
 
-.. function:: gsl-rng-default
+.. function:: gsl-rng-default-type
 
     Returns the default random number generator.
 
     :signature:
 
-      gsl-rng-default () => (generator)
+      gsl-rng-default-type () => (generator)
 
     :value generator:
 
@@ -54,6 +54,15 @@ Random number generator initialization
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_types_setup
+
+.. function:: gsl-rng-env-setup
+
+    This function reads the environment variables ``GSL_RNG_TYPE`` and
+    ``GSL_RNG_SEED`` and uses their values to set the defaults.
+
+    :seealso:
+
+       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_env_setup
 
 .. function:: gsl-rng-type-element
 

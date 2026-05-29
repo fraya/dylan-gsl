@@ -262,26 +262,111 @@
         <article role="main" id="furo-main-content">
           <section id="the-gsl-rng-module">
 <h1>The GSL-RNG module<a class="headerlink" href="#the-gsl-rng-module" title="Link to this heading">¶</a></h1>
+<p>This module introduce the class <a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a> that provides a
+uniform interface to a large collection of random number generators.</p>
+<p>To create a random number generator with the BSD <code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$gsl-rng-rand</span></code>
+generator and a seed:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">type:</span><span class="w"> </span><span class="no">$gsl-rng-rand</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">1234</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;generator type: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gsl-rng-name</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;seed = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gsl-rng-seed</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;first value = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gsl-rng-get</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="random-number-environment-variables">
+<h2>Random number environment variables<a class="headerlink" href="#random-number-environment-variables" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-env-setup">
+<span class="sig-name descname"><span class="pre">gsl-rng-env-setup</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-env-setup" title="Link to this definition">¶</a></dt>
+<dd><p>This function reads the environment variables <code class="docutils literal notranslate"><span class="pre">GSL_RNG_TYPE</span></code> and
+<code class="docutils literal notranslate"><span class="pre">GSL_RNG_SEED</span></code> and uses their values to set the corresponding
+library variables gsl_rng_default and gsl_rng_default_seed.</p>
+<p>If you don’t specify a generator for <code class="docutils literal notranslate"><span class="pre">GSL_RNG_TYPE</span></code> then
+<code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$gsl-rng-mt19937</span></code> is used as the default. The initial value
+of <code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-default-seed</span></code> is zero.</p>
+<dl class="field-list">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rng-env-setup () =&gt; ()</p>
+</dd>
+<dt class="field-even">See also<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_env_setup">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_env_setup</a></p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Here we create a default random number generator with default seed:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">gsl-rng-env-setup</span><span class="p">();</span>
+
+<span class="k">let</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;generator type: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gsl-rng-name</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;seed = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gsl-rng-seed</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;first value = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gsl-rng-get</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p>Running the program without any environment variables,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>generator<span class="w"> </span>type:<span class="w"> </span>mt19937
+<span class="nv">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+first<span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4293858116</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p>We can pass the environment variables to choose type of
+algorithm and seed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nv">GSL_RNG_TYPE</span><span class="o">=</span><span class="s2">&quot;taus&quot;</span><span class="w"> </span><span class="nv">GSL_RNG_SEED</span><span class="o">=</span><span class="m">123</span><span class="w"> </span>test-rng.exe
+<span class="nv">GSL_RNG_TYPE</span><span class="o">=</span>taus
+<span class="nv">GSL_RNG_SEED</span><span class="o">=</span><span class="m">123</span>
+generator<span class="w"> </span>type:<span class="w"> </span>taus
+<span class="nv">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">123</span>
+first<span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2720986350</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="random-generator-base-class">
 <h2>Random generator base class<a class="headerlink" href="#random-generator-base-class" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng]" title="Link to this definition">¶</a></dt>
-<dd><p>The abstract base class for random number generators.</p>
+<span class="sig-name descname"><span class="pre">&lt;gsl-rng&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng]" title="Link to this definition">¶</a></dt>
+<dd><p>The class for random number generators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>seed</strong> – <p>An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> that will be used as the seed for the random number generator.</p>
+<li><p><strong>type</strong> – Type of random number generator. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.
+If no type is provided, it defaults to the environment variable
+<code class="docutils literal notranslate"><span class="pre">GLS_RNG_TYPE</span></code>.</p></li>
+<li><p><strong>seed</strong> – <p>An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a> that will be used as the seed for
+the random number generator. If no seed is provided it defaults to
+the <code class="docutils literal notranslate"><span class="pre">GLS_RNG_SEED</span></code> environment variable or 0, if the variable is
+absent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">example<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">let</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">make</span><span class="p">(</span><span class="o">&lt;</span><span class="n">gsl</span><span class="o">-</span><span class="n">rng</span><span class="o">-</span><span class="n">mt19937</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="mi">123456</span><span class="p">);</span>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">type:</span><span class="w"> </span><span class="no">$gsl-rng-cmrg&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">123456</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">123456</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">operations<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-get"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-get</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-positive"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform-positive</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-integer"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform-integer</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-name"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-name</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-min"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-min</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-max"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-max</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
 </p></li>
 </ul>
 </dd>
@@ -294,8 +379,9 @@
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-get">
 <span class="sig-name descname"><span class="pre">gsl-rng-get</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-get" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a random number between the minimum and maximum value of the random number generator.</p>
-<dl class="field-list simple">
+<dd><p>Returns a random number between the minimum and maximum value of
+the random number generator.</p>
+<dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-rng-get (rng) =&gt; (number)</p>
 </dd>
@@ -305,7 +391,14 @@
 </ul>
 </dd>
 <dt class="field-odd">Values number<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A random number between the minimum and maximum value of the random number generator as an instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>.</p>
+<dd class="field-odd"><p>A random number between the minimum and maximum value of the
+random number generator as an instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">gsl-rng-get</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -313,8 +406,9 @@
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-uniform">
 <span class="sig-name descname"><span class="pre">gsl-rng-uniform</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-uniform" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a random floating point number uniformly distributed in the range [0,1).</p>
-<dl class="field-list simple">
+<dd><p>Returns a random floating point number uniformly distributed in
+the range [0,1).</p>
+<dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-rng-uniform (rng) =&gt; (number)</p>
 </dd>
@@ -324,8 +418,14 @@
 </ul>
 </dd>
 <dt class="field-odd">Values number<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>.
-The range includes 0.0 but excludes 1.0.</p>
+<dd class="field-odd"><p>An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.  The range includes 0.0 but
+excludes 1.0.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">gsl-rng-uniform</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -333,11 +433,11 @@ The range includes 0.0 but excludes 1.0.</p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-uniform-positive">
 <span class="sig-name descname"><span class="pre">gsl-rng-uniform-positive</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-positive" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a positive random number uniformly distributed in the range (0,1),
-excluding both 0.0 and 1.0.
-The number is obtained by sampling the generator with the algorithm of
+<dd><p>Returns a positive random number uniformly distributed in the
+range (0,1), excluding both 0.0 and 1.0.  The number is obtained
+by sampling the generator with the algorithm of
 <a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform</span></code></a> until a non-zero value is obtained.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-rng-uniform-positive (rng) =&gt; (number)</p>
 </dd>
@@ -347,29 +447,45 @@ The number is obtained by sampling the generator with the algorithm of
 </ul>
 </dd>
 <dt class="field-odd">Values number<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code>, between 0.0 and 1.0 excluding both endpoints.</p>
+<dd class="field-odd"><p>An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>, between 0.0 and 1.0 excluding
+both endpoints.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">gsl-rng-uniform-positive</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-uniform-int">
-<span class="sig-name descname"><span class="pre">gsl-rng-uniform-int</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-int" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a random number between 0 and n-1 of the random number generator.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-uniform-integer">
+<span class="sig-name descname"><span class="pre">gsl-rng-uniform-integer</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-integer" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a random number between 0 and n-1 of the random number
+generator.</p>
+<dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-rng-uniform-int (rng, n) =&gt; (number)</p>
+<dd class="field-odd"><p>gsl-rng-uniform-integer (rng, n) =&gt; (number)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>rng</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a>.</p></li>
-<li><p><strong>n</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>. The parameter must be less than or equal
-to the range or the generator <code class="docutils literal notranslate"><span class="pre">rng</span></code>. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is larger than the range of
-the generator an error will be signaled.</p></li>
+<li><p><strong>n</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. The parameter must be less than
+or equal to the range or the generator <code class="docutils literal notranslate"><span class="pre">rng</span></code>. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is
+larger than the range of the generator an error will be
+signaled.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values number<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A random number between 0 and n-1 of the random number generator as an instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>.</p>
+<dd class="field-odd"><p>A random number between 0 and n-1 of the random number generator
+as an instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gsl-rng-uniform-integer</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -381,7 +497,7 @@ the generator an error will be signaled.</p></li>
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-name">
 <span class="sig-name descname"><span class="pre">gsl-rng-name</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-name" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the name of the random number generator.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-rng-name (rng) =&gt; (name)</p>
 </dd>
@@ -391,7 +507,15 @@ the generator an error will be signaled.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values name<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The name of the random number generator as an instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>.</p>
+<dd class="field-odd"><p>The name of the random number generator as an instance of
+<code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">type:</span><span class="w"> </span><span class="no">$gsl-rng-rand</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">gsl-rng-name</span><span class="p">);</span>
+<span class="c1">// rand</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -399,7 +523,8 @@ the generator an error will be signaled.</p></li>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-min">
 <span class="sig-name descname"><span class="pre">gsl-rng-min</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-min" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the smallest value returned by the random number generator.</p>
+<dd><p>Returns the smallest value returned by the random number
+generator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gsl-rng-min (rng) =&gt; (min)</p>
@@ -410,7 +535,8 @@ the generator an error will be signaled.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values min<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The minimum value returned by the random number generator as an instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>.</p>
+<dd class="field-odd"><p>The minimum value returned by the random number generator as an
+instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -429,7 +555,8 @@ the generator an error will be signaled.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values max<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The maximum value returned by the random number generator as an instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>.</p>
+<dd class="field-odd"><p>The maximum value returned by the random number generator as an
+instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -437,721 +564,516 @@ the generator an error will be signaled.</p></li>
 </section>
 <section id="random-number-generator-algorithms">
 <h2>Random number generator algorithms<a class="headerlink" href="#random-number-generator-algorithms" title="Link to this heading">¶</a></h2>
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-borosh13]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-borosh13&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-borosh13]" title="Link to this definition">¶</a></dt>
+<p>Below are all the algorithms of random number generators available,
+whose constants can be passed in the class <a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a>
+construction with the <code class="docutils literal notranslate"><span class="pre">type:</span></code> keyword.</p>
+<section id="mt19937-generators">
+<h3>MT19937 generators<a class="headerlink" href="#mt19937-generators" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$mt19937">
+<span class="sig-name descname"><span class="pre">$mt19937</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$mt19937" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mt19937">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mt19937</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-cmrg]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-cmrg&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-cmrg]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$mt19937-1999">
+<span class="sig-name descname"><span class="pre">$mt19937-1999</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$mt19937-1999" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$mt19937-1998">
+<span class="sig-name descname"><span class="pre">$mt19937-1998</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$mt19937-1998" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="ranlux-generators">
+<h3>RANLUX generators<a class="headerlink" href="#ranlux-generators" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlxs0">
+<span class="sig-name descname"><span class="pre">$ranlxs0</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlxs0" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs0">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs0</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-coveyou]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-coveyou&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-coveyou]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlxs1">
+<span class="sig-name descname"><span class="pre">$ranlxs1</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlxs1" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs1">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs1</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-fishman18]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-fishman18&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-fishman18]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlxs2">
+<span class="sig-name descname"><span class="pre">$ranlxs2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlxs2" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs2">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs2</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-fishman20]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-fishman20&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-fishman20]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlxd1">
+<span class="sig-name descname"><span class="pre">$ranlxd1</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlxd1" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-fishman2x]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-fishman2x&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-fishman2x]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlxd2">
+<span class="sig-name descname"><span class="pre">$ranlxd2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlxd2" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-gfsr4]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-gfsr4&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-gfsr4]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlux">
+<span class="sig-name descname"><span class="pre">$ranlux</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlux" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-knuthran]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-knuthran&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-knuthran]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranlux389">
+<span class="sig-name descname"><span class="pre">$ranlux389</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranlux389" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-knuthran2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-knuthran2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-knuthran2]" title="Link to this definition">¶</a></dt>
+</section>
+<section id="l-ecuyer-generators">
+<h3>L’Ecuyer generators<a class="headerlink" href="#l-ecuyer-generators" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$cmrg">
+<span class="sig-name descname"><span class="pre">$cmrg</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$cmrg" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-knuthran2002]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-knuthran2002&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-knuthran2002]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$mrg">
+<span class="sig-name descname"><span class="pre">$mrg</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$mrg" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-lecuyer21]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-lecuyer21&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-lecuyer21]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$taus">
+<span class="sig-name descname"><span class="pre">$taus</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$taus" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-minstd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-minstd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-minstd]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$taus2">
+<span class="sig-name descname"><span class="pre">$taus2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$taus2" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus2005">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus2005</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-mrg]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-mrg&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-mrg]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$taus113">
+<span class="sig-name descname"><span class="pre">$taus113</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$taus113" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-mt19937]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-mt19937&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-mt19937]" title="Link to this definition">¶</a></dt>
+</section>
+<section id="gsfr4">
+<h3>GSFR4<a class="headerlink" href="#gsfr4" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$gfsr4">
+<span class="sig-name descname"><span class="pre">$gfsr4</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$gfsr4" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mt19937">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mt19937</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-mt19937-1999]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-mt19937-1999&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-mt19937-1999]" title="Link to this definition">¶</a></dt>
+</section>
+</section>
+<section id="unix-random-number-generators">
+<h2>Unix random number generators<a class="headerlink" href="#unix-random-number-generators" title="Link to this heading">¶</a></h2>
+<section id="bsd-generators">
+<h3>BSD generators<a class="headerlink" href="#bsd-generators" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$rand">
+<span class="sig-name descname"><span class="pre">$rand</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$rand" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random-bsd">
+<span class="sig-name descname"><span class="pre">$random-bsd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random-bsd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random-glibc2">
+<span class="sig-name descname"><span class="pre">$random-glibc2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random-glibc2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random-libc5">
+<span class="sig-name descname"><span class="pre">$random-libc5</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random-libc5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random8-bsd">
+<span class="sig-name descname"><span class="pre">$random8-bsd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random8-bsd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random8-glibc2">
+<span class="sig-name descname"><span class="pre">$random8-glibc2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random8-glibc2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random8-libc5">
+<span class="sig-name descname"><span class="pre">$random8-libc5</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random8-libc5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random32-bsd">
+<span class="sig-name descname"><span class="pre">$random32-bsd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random32-bsd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random32-glibc2">
+<span class="sig-name descname"><span class="pre">$random32-glibc2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random32-glibc2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random32-libc5">
+<span class="sig-name descname"><span class="pre">$random32-libc5</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random32-libc5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random64-bsd">
+<span class="sig-name descname"><span class="pre">$random64-bsd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random64-bsd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random64-glibc2">
+<span class="sig-name descname"><span class="pre">$random64-glibc2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random64-glibc2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random64-libc5">
+<span class="sig-name descname"><span class="pre">$random64-libc5</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random64-libc5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random128-bsd">
+<span class="sig-name descname"><span class="pre">$random128-bsd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random128-bsd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random128-glibc2">
+<span class="sig-name descname"><span class="pre">$random128-glibc2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random128-glibc2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random128-libc5">
+<span class="sig-name descname"><span class="pre">$random128-libc5</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random128-libc5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random256-bsd">
+<span class="sig-name descname"><span class="pre">$random256-bsd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random256-bsd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random256-glibc2">
+<span class="sig-name descname"><span class="pre">$random256-glibc2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random256-glibc2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$random256-libc5">
+<span class="sig-name descname"><span class="pre">$random256-libc5</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$random256-libc5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$rand48">
+<span class="sig-name descname"><span class="pre">$rand48</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$rand48" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ran0">
+<span class="sig-name descname"><span class="pre">$ran0</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ran0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ran1">
+<span class="sig-name descname"><span class="pre">$ran1</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ran1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ran2">
+<span class="sig-name descname"><span class="pre">$ran2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ran2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ran3">
+<span class="sig-name descname"><span class="pre">$ran3</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ran3" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="other-random-number-generators">
+<h2>Other random number generators<a class="headerlink" href="#other-random-number-generators" title="Link to this heading">¶</a></h2>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranf">
+<span class="sig-name descname"><span class="pre">$ranf</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranf" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranf">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranf</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-mt19937-1998]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-mt19937-1998&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-mt19937-1998]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$ranmar">
+<span class="sig-name descname"><span class="pre">$ranmar</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$ranmar" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-r250]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-r250&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-r250]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$r250">
+<span class="sig-name descname"><span class="pre">$r250</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$r250" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ran0]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ran0&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ran0]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$tt800">
+<span class="sig-name descname"><span class="pre">$tt800</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$tt800" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ran1]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ran1&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ran1]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$vax">
+<span class="sig-name descname"><span class="pre">$vax</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$vax" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vax">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vax</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ran2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ran2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ran2]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$transputer">
+<span class="sig-name descname"><span class="pre">$transputer</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$transputer" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ran3]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ran3&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ran3]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$randu">
+<span class="sig-name descname"><span class="pre">$randu</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$randu" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_randu">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_randu</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-rand]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-rand&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-rand]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$minstd">
+<span class="sig-name descname"><span class="pre">$minstd</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$minstd" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-rand48]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-rand48&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-rand48]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$uni">
+<span class="sig-name descname"><span class="pre">$uni</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$uni" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random128-bsd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random128-bsd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random128-bsd]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$uni32">
+<span class="sig-name descname"><span class="pre">$uni32</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$uni32" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random128-glibc2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random128-glibc2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random128-glibc2]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$slatec">
+<span class="sig-name descname"><span class="pre">$slatec</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$slatec" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random128-libc5]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random128-libc5&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random128-libc5]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$zuf">
+<span class="sig-name descname"><span class="pre">$zuf</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$zuf" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random256-bsd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random256-bsd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random256-bsd]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$knuthran2">
+<span class="sig-name descname"><span class="pre">$knuthran2</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$knuthran2" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random256-glibc2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random256-glibc2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random256-glibc2]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$knuthran2002">
+<span class="sig-name descname"><span class="pre">$knuthran2002</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$knuthran2002" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random256-libc5]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random256-libc5&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random256-libc5]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$knuthran">
+<span class="sig-name descname"><span class="pre">$knuthran</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$knuthran" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random32-bsd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random32-bsd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random32-bsd]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$borosh13">
+<span class="sig-name descname"><span class="pre">$borosh13</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$borosh13" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_borosh13">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_borosh13</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random32-glibc2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random32-glibc2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random32-glibc2]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$fishman18">
+<span class="sig-name descname"><span class="pre">$fishman18</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$fishman18" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random32-libc5]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random32-libc5&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random32-libc5]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$fishman20">
+<span class="sig-name descname"><span class="pre">$fishman20</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$fishman20" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random64-bsd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random64-bsd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random64-bsd]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$lecuyer21">
+<span class="sig-name descname"><span class="pre">$lecuyer21</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$lecuyer21" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random64-glibc2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random64-glibc2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random64-glibc2]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$waterman14">
+<span class="sig-name descname"><span class="pre">$waterman14</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$waterman14" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_waterman14">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_waterman14</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random64-libc5]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random64-libc5&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random64-libc5]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$fishman2x">
+<span class="sig-name descname"><span class="pre">$fishman2x</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$fishman2x" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random8-bsd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random8-bsd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random8-bsd]" title="Link to this definition">¶</a></dt>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:$coveyou">
+<span class="sig-name descname"><span class="pre">$coveyou</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:$coveyou" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random8-glibc2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random8-glibc2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random8-glibc2]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random8-libc5]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random8-libc5&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random8-libc5]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random-bsd]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random-bsd&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random-bsd]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random-glibc2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random-glibc2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random-glibc2]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-random-libc5]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-random-libc5&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-random-libc5]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-randu]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-randu&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-randu]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranf]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranf&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranf]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlux]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlux&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlux]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlux389]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlux389&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlux389]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlxd1]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlxd1&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxd1]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlxd2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlxd2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxd2]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlxs0]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlxs0&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxs0]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs0">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs0</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlxs1]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlxs1&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxs1]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs1">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs1</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranlxs2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranlxs2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxs2]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs2">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs2</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-ranmar]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-ranmar&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-ranmar]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-slatec]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-slatec&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-slatec]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-taus]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-taus&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-taus]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-taus2]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-taus2&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-taus2]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus2005">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus2005</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-taus113]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-taus113&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-taus113]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-transputer]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-transputer&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-transputer]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-tt800]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-tt800&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-tt800]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-uni]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-uni&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-uni]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-uni32]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-uni32&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-uni32]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-vax]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-vax&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-vax]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vax">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vax</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-waterman14]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-waterman14&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-waterman14]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_waterman14">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_waterman14</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:[gsl-rng-zuf]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-rng-zuf&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:[gsl-rng-zuf]" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p>
-</dd>
-<dt class="field-even">See also<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf</a></p>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou">https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1215,6 +1137,10 @@ the generator an error will be signaled.</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The GSL-RNG module</a><ul>
+<li><a class="reference internal" href="#random-number-environment-variables">Random number environment variables</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-env-setup"><code class="docutils literal notranslate"><span class="pre">gsl-rng-env-setup</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#random-generator-base-class">Random generator base class</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></li>
 </ul>
@@ -1223,7 +1149,7 @@ the generator an error will be signaled.</p></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-get"><code class="docutils literal notranslate"><span class="pre">gsl-rng-get</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform"><code class="docutils literal notranslate"><span class="pre">gsl-rng-uniform</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-positive"><code class="docutils literal notranslate"><span class="pre">gsl-rng-uniform-positive</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-int"><code class="docutils literal notranslate"><span class="pre">gsl-rng-uniform-int</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-integer"><code class="docutils literal notranslate"><span class="pre">gsl-rng-uniform-integer</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#auxiliary-functions">Auxiliary functions</a><ul>
@@ -1233,68 +1159,89 @@ the generator an error will be signaled.</p></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#random-number-generator-algorithms">Random number generator algorithms</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-borosh13]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-borosh13&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-cmrg]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-cmrg&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-coveyou]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-coveyou&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-fishman18]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-fishman18&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-fishman20]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-fishman20&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-fishman2x]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-fishman2x&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-gfsr4]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-gfsr4&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-knuthran]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-knuthran&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-knuthran2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-knuthran2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-knuthran2002]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-knuthran2002&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-lecuyer21]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-lecuyer21&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-minstd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-minstd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-mrg]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-mrg&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-mt19937]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-mt19937&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-mt19937-1999]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-mt19937-1999&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-mt19937-1998]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-mt19937-1998&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-r250]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-r250&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ran0]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ran0&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ran1]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ran1&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ran2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ran2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ran3]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ran3&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-rand]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-rand&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-rand48]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-rand48&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random128-bsd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random128-bsd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random128-glibc2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random128-glibc2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random128-libc5]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random128-libc5&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random256-bsd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random256-bsd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random256-glibc2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random256-glibc2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random256-libc5]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random256-libc5&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random32-bsd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random32-bsd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random32-glibc2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random32-glibc2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random32-libc5]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random32-libc5&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random64-bsd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random64-bsd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random64-glibc2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random64-glibc2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random64-libc5]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random64-libc5&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random8-bsd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random8-bsd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random8-glibc2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random8-glibc2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random8-libc5]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random8-libc5&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random-bsd]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random-bsd&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random-glibc2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random-glibc2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-random-libc5]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-random-libc5&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-randu]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-randu&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranf]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranf&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlux]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlux&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlux389]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlux389&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxd1]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlxd1&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxd2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlxd2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxs0]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlxs0&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxs1]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlxs1&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranlxs2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranlxs2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-ranmar]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-ranmar&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-slatec]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-slatec&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-taus]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-taus&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-taus2]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-taus2&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-taus113]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-taus113&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-transputer]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-transputer&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-tt800]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-tt800&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-uni]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-uni&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-uni32]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-uni32&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-vax]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-vax&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-waterman14]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-waterman14&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng-zuf]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-rng-zuf&gt;</span></code></a></li>
+<li><a class="reference internal" href="#mt19937-generators">MT19937 generators</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$mt19937"><code class="docutils literal notranslate"><span class="pre">$mt19937</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$mt19937-1999"><code class="docutils literal notranslate"><span class="pre">$mt19937-1999</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$mt19937-1998"><code class="docutils literal notranslate"><span class="pre">$mt19937-1998</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ranlux-generators">RANLUX generators</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlxs0"><code class="docutils literal notranslate"><span class="pre">$ranlxs0</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlxs1"><code class="docutils literal notranslate"><span class="pre">$ranlxs1</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlxs2"><code class="docutils literal notranslate"><span class="pre">$ranlxs2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlxd1"><code class="docutils literal notranslate"><span class="pre">$ranlxd1</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlxd2"><code class="docutils literal notranslate"><span class="pre">$ranlxd2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlux"><code class="docutils literal notranslate"><span class="pre">$ranlux</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranlux389"><code class="docutils literal notranslate"><span class="pre">$ranlux389</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#l-ecuyer-generators">L’Ecuyer generators</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$cmrg"><code class="docutils literal notranslate"><span class="pre">$cmrg</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$mrg"><code class="docutils literal notranslate"><span class="pre">$mrg</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$taus"><code class="docutils literal notranslate"><span class="pre">$taus</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$taus2"><code class="docutils literal notranslate"><span class="pre">$taus2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$taus113"><code class="docutils literal notranslate"><span class="pre">$taus113</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gsfr4">GSFR4</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$gfsr4"><code class="docutils literal notranslate"><span class="pre">$gfsr4</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unix-random-number-generators">Unix random number generators</a><ul>
+<li><a class="reference internal" href="#bsd-generators">BSD generators</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$rand"><code class="docutils literal notranslate"><span class="pre">$rand</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random-bsd"><code class="docutils literal notranslate"><span class="pre">$random-bsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random-glibc2"><code class="docutils literal notranslate"><span class="pre">$random-glibc2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random-libc5"><code class="docutils literal notranslate"><span class="pre">$random-libc5</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random8-bsd"><code class="docutils literal notranslate"><span class="pre">$random8-bsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random8-glibc2"><code class="docutils literal notranslate"><span class="pre">$random8-glibc2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random8-libc5"><code class="docutils literal notranslate"><span class="pre">$random8-libc5</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random32-bsd"><code class="docutils literal notranslate"><span class="pre">$random32-bsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random32-glibc2"><code class="docutils literal notranslate"><span class="pre">$random32-glibc2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random32-libc5"><code class="docutils literal notranslate"><span class="pre">$random32-libc5</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random64-bsd"><code class="docutils literal notranslate"><span class="pre">$random64-bsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random64-glibc2"><code class="docutils literal notranslate"><span class="pre">$random64-glibc2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random64-libc5"><code class="docutils literal notranslate"><span class="pre">$random64-libc5</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random128-bsd"><code class="docutils literal notranslate"><span class="pre">$random128-bsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random128-glibc2"><code class="docutils literal notranslate"><span class="pre">$random128-glibc2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random128-libc5"><code class="docutils literal notranslate"><span class="pre">$random128-libc5</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random256-bsd"><code class="docutils literal notranslate"><span class="pre">$random256-bsd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random256-glibc2"><code class="docutils literal notranslate"><span class="pre">$random256-glibc2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$random256-libc5"><code class="docutils literal notranslate"><span class="pre">$random256-libc5</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$rand48"><code class="docutils literal notranslate"><span class="pre">$rand48</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ran0"><code class="docutils literal notranslate"><span class="pre">$ran0</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ran1"><code class="docutils literal notranslate"><span class="pre">$ran1</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ran2"><code class="docutils literal notranslate"><span class="pre">$ran2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ran3"><code class="docutils literal notranslate"><span class="pre">$ran3</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-random-number-generators">Other random number generators</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranf"><code class="docutils literal notranslate"><span class="pre">$ranf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$ranmar"><code class="docutils literal notranslate"><span class="pre">$ranmar</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$r250"><code class="docutils literal notranslate"><span class="pre">$r250</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$tt800"><code class="docutils literal notranslate"><span class="pre">$tt800</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$vax"><code class="docutils literal notranslate"><span class="pre">$vax</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$transputer"><code class="docutils literal notranslate"><span class="pre">$transputer</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$randu"><code class="docutils literal notranslate"><span class="pre">$randu</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$minstd"><code class="docutils literal notranslate"><span class="pre">$minstd</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$uni"><code class="docutils literal notranslate"><span class="pre">$uni</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$uni32"><code class="docutils literal notranslate"><span class="pre">$uni32</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$slatec"><code class="docutils literal notranslate"><span class="pre">$slatec</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$zuf"><code class="docutils literal notranslate"><span class="pre">$zuf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$knuthran2"><code class="docutils literal notranslate"><span class="pre">$knuthran2</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$knuthran2002"><code class="docutils literal notranslate"><span class="pre">$knuthran2002</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$knuthran"><code class="docutils literal notranslate"><span class="pre">$knuthran</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$borosh13"><code class="docutils literal notranslate"><span class="pre">$borosh13</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$fishman18"><code class="docutils literal notranslate"><span class="pre">$fishman18</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$fishman20"><code class="docutils literal notranslate"><span class="pre">$fishman20</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$lecuyer21"><code class="docutils literal notranslate"><span class="pre">$lecuyer21</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$waterman14"><code class="docutils literal notranslate"><span class="pre">$waterman14</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$fishman2x"><code class="docutils literal notranslate"><span class="pre">$fishman2x</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:$coveyou"><code class="docutils literal notranslate"><span class="pre">$coveyou</span></code></a></li>
 </ul>
 </li>
 </ul>

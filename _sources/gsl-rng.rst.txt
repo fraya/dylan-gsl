@@ -4,33 +4,131 @@ The GSL-RNG module
 .. current-library:: dylan-gsl
 .. current-module:: gsl-rng
 
+This module introduce the class :class:`<gsl-rng>` that provides a
+uniform interface to a large collection of random number generators.
+
+To create a random number generator with the BSD :const:`$gsl-rng-rand`
+generator and a seed:
+
+.. code-block:: dylan
+
+   let rng = make(<gsl-rng>, type: $gsl-rng-rand, seed: 1234);
+   format-out("generator type: %s\n", rng.gsl-rng-name);
+   format-out("seed = %d\n", rng.gsl-rng-seed);
+   format-out("first value = %d\n", rng.gsl-rng-get);
+
+Random number environment variables
+-----------------------------------
+
+.. function:: gsl-rng-env-setup
+
+   This function reads the environment variables ``GSL_RNG_TYPE`` and
+   ``GSL_RNG_SEED`` and uses their values to set the corresponding
+   library variables gsl_rng_default and gsl_rng_default_seed.
+
+   If you don’t specify a generator for ``GSL_RNG_TYPE`` then
+   :const:`$gsl-rng-mt19937` is used as the default. The initial value
+   of :func:`gsl-rng-default-seed` is zero.
+
+   :signature: gsl-rng-env-setup () => ()
+
+   :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_env_setup
+
+   :example:
+
+      Here we create a default random number generator with default seed:
+
+      .. code-block:: dylan
+
+         gsl-rng-env-setup();
+
+         let rng = make(<gsl-rng>);
+
+         format-out("generator type: %s\n", rng.gsl-rng-name);
+         format-out("seed = %d\n", rng.gsl-rng-seed);
+         format-out("first value = %d\n", rng.gsl-rng-get);
+
+   :example:
+
+      Running the program without any environment variables,
+
+      .. code-block:: shell
+
+         generator type: mt19937
+         seed = 0
+         first value = 4293858116
+
+   :example:
+
+      We can pass the environment variables to choose type of
+      algorithm and seed:
+
+      .. code-block:: shell
+
+         $ GSL_RNG_TYPE="taus" GSL_RNG_SEED=123 test-rng.exe
+         GSL_RNG_TYPE=taus
+         GSL_RNG_SEED=123
+         generator type: taus
+         seed = 123
+         first value = 2720986350
+
 Random generator base class
 ---------------------------
 
 .. class:: <gsl-rng>
-   :abstract:
 
-   The abstract base class for random number generators.
+   The class for random number generators.
 
    :supers:
 
      :class:`<object>`
 
+   :keyword type:
+
+    Type of random number generator. An instance of :drm:`<integer>`.
+    If no type is provided, it defaults to the environment variable
+    ``GLS_RNG_TYPE``.
+
    :keyword seed:
 
-    An instance of :class:`<integer>` that will be used as the seed for the random number generator.
+    An instance of :drm:`<integer>` that will be used as the seed for
+    the random number generator. If no seed is provided it defaults to
+    the ``GLS_RNG_SEED`` environment variable or 0, if the variable is
+    absent.
 
     :example:
 
-    .. code-block::
+    .. code-block:: dylan
 
-       let rng = make(<gsl-rng-mt19937>, seed: 123456);
+       let r1 = make(<gsl-rng>, type: $gsl-rng-cmrg>, seed: 123456);
+       let r2 = make(<gsl-rng>, seed: 123456);
+       let r3 = make(<gsl-rng>);
+
+    :operations:
+
+       - :func:`gsl-rng-get`
+
+       - :func:`gsl-rng-uniform`
+
+       - :func:`gsl-rng-uniform-positive`
+
+       - :func:`gsl-rng-uniform-integer`
+
+       - :func:`gsl-rng-name`
+
+       - :func:`gsl-rng-min`
+
+       - :func:`gsl-rng-max`
 
 Sampling
 --------
+
 .. function:: gsl-rng-get
 
-    Returns a random number between the minimum and maximum value of the random number generator.
+    Returns a random number between the minimum and maximum value of
+    the random number generator.
 
     :signature:
 
@@ -42,11 +140,20 @@ Sampling
 
     :values number:
 
-      A random number between the minimum and maximum value of the random number generator as an instance of :class:`<integer>`.
+      A random number between the minimum and maximum value of the
+      random number generator as an instance of :drm:`<integer>`.
+
+    :example:
+
+       .. code-block:: dylan
+
+          let r = make(<gsl-rng>);
+          let s = r.gsl-rng-get;
 
 .. function:: gsl-rng-uniform
 
-    Returns a random floating point number uniformly distributed in the range [0,1).
+    Returns a random floating point number uniformly distributed in
+    the range [0,1).
 
     :signature:
 
@@ -58,14 +165,21 @@ Sampling
 
     :values number:
 
-      An instance of :class:`<float>`.
-      The range includes 0.0 but excludes 1.0.
+      An instance of :drm:`<float>`.  The range includes 0.0 but
+      excludes 1.0.
+
+    :example:
+
+       .. code-block:: dylan
+
+          let r = make(<gsl-rng>);
+          let s = r.gsl-rng-uniform;
 
 .. function:: gsl-rng-uniform-positive
 
-    Returns a positive random number uniformly distributed in the range (0,1),
-    excluding both 0.0 and 1.0.
-    The number is obtained by sampling the generator with the algorithm of
+    Returns a positive random number uniformly distributed in the
+    range (0,1), excluding both 0.0 and 1.0.  The number is obtained
+    by sampling the generator with the algorithm of
     :func:`gsl-rng-uniform` until a non-zero value is obtained.
 
     :signature:
@@ -78,15 +192,24 @@ Sampling
 
     :values number:
 
-      An instance of :class:`<float>`, between 0.0 and 1.0 excluding both endpoints.
+      An instance of :drm:`<float>`, between 0.0 and 1.0 excluding
+      both endpoints.
 
-.. function:: gsl-rng-uniform-int
+    :example:
 
-    Returns a random number between 0 and n-1 of the random number generator.
+       .. code-block:: dylan
+
+          let r = make(<gsl-rng>);
+          let s = r.gsl-rng-uniform-positive;
+
+.. function:: gsl-rng-uniform-integer
+
+    Returns a random number between 0 and n-1 of the random number
+    generator.
 
     :signature:
 
-      gsl-rng-uniform-int (rng, n) => (number)
+      gsl-rng-uniform-integer (rng, n) => (number)
 
     :param rng:
 
@@ -94,13 +217,22 @@ Sampling
 
     :param n:
 
-      An instance of :class:`<integer>`. The parameter must be less than or equal
-      to the range or the generator ``rng``. If ``n`` is larger than the range of
-      the generator an error will be signaled.
+      An instance of :drm:`<integer>`. The parameter must be less than
+      or equal to the range or the generator ``rng``. If ``n`` is
+      larger than the range of the generator an error will be
+      signaled.
 
     :values number:
 
-      A random number between 0 and n-1 of the random number generator as an instance of :class:`<integer>`.
+      A random number between 0 and n-1 of the random number generator
+      as an instance of :drm:`<integer>`.
+
+    :example:
+
+       .. code-block:: dylan
+
+          let r = make(<gsl-rng>);
+          let s = gsl-rng-uniform-integer(r, 10);
 
 Auxiliary functions
 -------------------
@@ -119,11 +251,21 @@ Auxiliary functions
 
     :values name:
 
-      The name of the random number generator as an instance of :class:`<string>`.
+      The name of the random number generator as an instance of
+      :class:`<string>`.
+
+    :example:
+
+       .. code-block:: dylan
+
+          let r = make(<gsl-rng>, type: $gsl-rng-rand);
+          format-out("%s", r.gsl-rng-name);
+          // rand
 
 .. function:: gsl-rng-min
 
-    Returns the smallest value returned by the random number generator.
+    Returns the smallest value returned by the random number
+    generator.
 
     :signature:
 
@@ -135,7 +277,8 @@ Auxiliary functions
 
     :values min:
 
-      The minimum value returned by the random number generator as an instance of :class:`<integer>`.
+      The minimum value returned by the random number generator as an
+      instance of :drm:`<integer>`.
 
 .. function:: gsl-rng-max
 
@@ -151,388 +294,305 @@ Auxiliary functions
 
     :values max:
 
-      The maximum value returned by the random number generator as an instance of :class:`<integer>`.
+      The maximum value returned by the random number generator as an
+      instance of :drm:`<integer>`.
 
 Random number generator algorithms
 ----------------------------------
 
-.. class:: <gsl-rng-borosh13>
+Below are all the algorithms of random number generators available,
+whose constants can be passed in the class :class:`<gsl-rng>`
+construction with the ``type:`` keyword.
 
-    :supers: :class:`<gsl-rng>`
+MT19937 generators
+^^^^^^^^^^^^^^^^^^
 
-.. class:: <gsl-rng-cmrg>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg
-
-.. class:: <gsl-rng-coveyou>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou
-
-.. class:: <gsl-rng-fishman18>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18
-
-.. class:: <gsl-rng-fishman20>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20
-
-.. class:: <gsl-rng-fishman2x>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x
-
-.. class:: <gsl-rng-gfsr4>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4
-
-.. class:: <gsl-rng-knuthran>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran
-
-.. class:: <gsl-rng-knuthran2>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2
-
-.. class:: <gsl-rng-knuthran2002>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002
-
-.. class:: <gsl-rng-lecuyer21>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21
-
-.. class:: <gsl-rng-minstd>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd
-
-.. class:: <gsl-rng-mrg>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg
-
-.. class:: <gsl-rng-mt19937>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $mt19937
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mt19937
 
-.. class:: <gsl-rng-mt19937-1999>
+.. constant:: $mt19937-1999
 
-    :supers: :class:`<gsl-rng>`
+.. constant:: $mt19937-1998
 
+RANLUX generators
+^^^^^^^^^^^^^^^^^
 
-.. class:: <gsl-rng-mt19937-1998>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-r250>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250
-
-.. class:: <gsl-rng-ran0>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-ran1>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-ran2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-ran3>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-rand>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-rand48>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random128-bsd>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random128-glibc2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random128-libc5>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random256-bsd>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random256-glibc2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random256-libc5>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random32-bsd>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random32-glibc2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random32-libc5>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random64-bsd>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random64-glibc2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random64-libc5>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random8-bsd>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random8-glibc2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random8-libc5>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random-bsd>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random-glibc2>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-random-libc5>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-randu>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-ranf>
-
-    :supers: :class:`<gsl-rng>`
-
-.. class:: <gsl-rng-ranlux>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux
-
-.. class:: <gsl-rng-ranlux389>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389
-
-.. class:: <gsl-rng-ranlxd1>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1
-
-.. class:: <gsl-rng-ranlxd2>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2
-
-.. class:: <gsl-rng-ranlxs0>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $ranlxs0
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs0
 
-.. class:: <gsl-rng-ranlxs1>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $ranlxs1
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs1
 
-.. class:: <gsl-rng-ranlxs2>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $ranlxs2
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxs2
 
-.. class:: <gsl-rng-ranmar>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $ranlxd1
 
     :seealso:
 
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd1
 
-.. class:: <gsl-rng-slatec>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $ranlxd2
 
     :seealso:
 
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlxd2
 
-.. class:: <gsl-rng-taus>
 
-    :supers: :class:`<gsl-rng>`
+.. constant:: $ranlux
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux
+
+.. constant:: $ranlux389
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranlux389
+
+L'Ecuyer generators
+^^^^^^^^^^^^^^^^^^^
+
+.. constant:: $cmrg
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_cmrg
+
+.. constant:: $mrg
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_mrg
+
+.. constant:: $taus
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus
 
-.. class:: <gsl-rng-taus2>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $taus2
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_taus2005
 
-.. class:: <gsl-rng-taus113>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $taus113
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800
 
-.. class:: <gsl-rng-transputer>
+GSFR4
+^^^^^
 
-    :supers: :class:`<gsl-rng>`
+.. constant:: $gfsr4
 
     :seealso:
 
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_gfsr4
 
-.. class:: <gsl-rng-tt800>
 
-    :supers: :class:`<gsl-rng>`
+Unix random number generators
+-----------------------------
+
+BSD generators
+^^^^^^^^^^^^^^
+
+.. constant:: $rand
+
+.. constant:: $random-bsd
+
+.. constant:: $random-glibc2
+
+.. constant:: $random-libc5
+
+.. constant:: $random8-bsd
+
+.. constant:: $random8-glibc2
+
+.. constant:: $random8-libc5
+
+.. constant:: $random32-bsd
+
+.. constant:: $random32-glibc2
+
+.. constant:: $random32-libc5
+
+.. constant:: $random64-bsd
+
+.. constant:: $random64-glibc2
+
+.. constant:: $random64-libc5
+
+.. constant:: $random128-bsd
+
+.. constant:: $random128-glibc2
+
+.. constant:: $random128-libc5
+
+.. constant:: $random256-bsd
+
+.. constant:: $random256-glibc2
+
+.. constant:: $random256-libc5
+
+.. constant:: $rand48
+
+.. constant:: $ran0
+
+.. constant:: $ran1
+
+.. constant:: $ran2
+
+.. constant:: $ran3
+
+Other random number generators
+------------------------------
+
+.. constant:: $ranf
+
+   :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ranf
+
+.. constant:: $ranmar
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_ransi
+
+.. constant:: $r250
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_r250
+
+.. constant:: $tt800
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_tt800
 
-.. class:: <gsl-rng-uni>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni
-
-.. class:: <gsl-rng-uni32>
-
-    :supers: :class:`<gsl-rng>`
-
-    :seealso:
-
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32
-
-.. class:: <gsl-rng-vax>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $vax
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vax
 
-.. class:: <gsl-rng-waterman14>
+.. constant:: $transputer
 
-    :supers: :class:`<gsl-rng>`
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_vdup
+
+.. constant:: $randu
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_randu
+
+.. constant:: $minstd
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_minstd
+
+.. constant:: $uni
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni
+
+.. constant:: $uni32
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_uni32
+
+.. constant:: $slatec
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_slatec
+
+.. constant:: $zuf
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf
+
+.. constant:: $knuthran2
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2
+
+.. constant:: $knuthran2002
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran2002
+
+.. constant:: $knuthran
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_knuthran
+
+
+.. constant:: $borosh13
+
+    :seealso:
+
+       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_borosh13
+
+.. constant:: $fishman18
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman18
+
+.. constant:: $fishman20
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman20
+
+.. constant:: $lecuyer21
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_lecuyer21
+
+.. constant:: $waterman14
 
     :seealso:
 
       https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_waterman14
 
-.. class:: <gsl-rng-zuf>
-
-    :supers: :class:`<gsl-rng>`
+.. constant:: $fishman2x
 
     :seealso:
 
-      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_zuf
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_fishman2x
+
+.. constant:: $coveyou
+
+    :seealso:
+
+      https://www.gnu.org/software/gsl/doc/html/rng.html#c.gsl_rng_coveyou
+
