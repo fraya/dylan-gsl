@@ -102,7 +102,7 @@ Random generator base class
 
     .. code-block:: dylan
 
-       let r1 = make(<gsl-rng>, type: $gsl-rng-cmrg>, seed: 123456);
+       let r1 = make(<gsl-rng>, type: $gsl-rng-cmrg, seed: 123456);
        let r2 = make(<gsl-rng>, seed: 123456);
        let r3 = make(<gsl-rng>);
 
@@ -115,6 +115,8 @@ Random generator base class
        - :func:`gsl-rng-uniform-positive`
 
        - :func:`gsl-rng-uniform-integer`
+
+       - :meth:`gsl-rng-seed(<gsl-rng>)`
 
        - :func:`gsl-rng-name`
 
@@ -261,6 +263,31 @@ Auxiliary functions
           let r = make(<gsl-rng>, type: $gsl-rng-rand);
           format-out("%s", r.gsl-rng-name);
           // rand
+
+.. method:: gsl-rng-seed
+   :specializer: <gsl-rng>
+
+   Returns the seed of the random number generator
+
+   :signature:
+
+      gsl-rng-seed (rng) => (seed)
+
+   :parameter rng:
+
+      An instance of :class:`<gsl-rng>`
+
+   :values seed:
+
+      An instance of :drm:`<integer>`
+
+   :example:
+
+      .. code-block:: dylan
+
+         let r = make(<gsl-rng>, seed: 1234);
+         format-out("Seed: %d\n", r.gsl-rng-seed);
+         // Seed: 1234
 
 .. function:: gsl-rng-min
 

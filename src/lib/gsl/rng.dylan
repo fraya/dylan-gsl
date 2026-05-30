@@ -75,74 +75,68 @@ define constant <gsl-rng-type>
 define constant $gsl-rng-types :: ffi/<gsl-rng-type**>
   = ffi/gsl-rng-types-setup();
 
-define function gsl-rng-env-setup
-    () => ()
-  ffi/gsl-rng-env-setup();
-end;
+define constant gsl-rng-env-setup
+  = ffi/gsl-rng-env-setup;
 
 define class <gsl-rng> (<object>)
   constant slot gsl-rng-seed :: <integer>,
     init-keyword: seed:,
     init-value: ffi/gsl-rng-default-seed();
-  slot %gsl-rng :: ffi/<gsl-rng*>;
+  slot gsl-rng-ffi :: ffi/<gsl-rng*>;
 end;
 
 define method initialize
-    (rng :: <gsl-rng>,
-     #key type :: false-or(<gsl-rng-type>) = #f)
+    (r :: <gsl-rng>, #key type :: false-or(<gsl-rng-type>) = #f)
  => ()
   drain-finalization-queue();
   next-method();
-
   let rng-type :: ffi/<gsl-rng-type*>
-    = if (~type)
-        ffi/gsl-rng-default-type()
-      else
+    = if (type)
         $gsl-rng-types[type]
+      else
+        ffi/gsl-rng-default-type()
       end;
-
-  rng.%gsl-rng := ffi/gsl-rng-alloc(rng-type);
-
-  finalize-when-unreachable(rng);
+  r.gsl-rng-ffi := ffi/gsl-rng-alloc(rng-type);
+  ffi/gsl-rng-set(r.gsl-rng-ffi, r.gsl-rng-seed);
+  finalize-when-unreachable(r);
 end;
 
 define method finalize
     (r :: <gsl-rng>) => ()
-  ffi/gsl-rng-free(r.%gsl-rng)
+  ffi/gsl-rng-free(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-name
     (r :: <gsl-rng>) => (_ :: <string>)
-  ffi/gsl-rng-name(r.%gsl-rng)
+  ffi/gsl-rng-name(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-min
     (r :: <gsl-rng>) => (_ :: <integer>)
-  ffi/gsl-rng-min(r.%gsl-rng)
+  ffi/gsl-rng-min(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-max
     (r :: <gsl-rng>) => (_ :: <integer>)
-  ffi/gsl-rng-max(r.%gsl-rng)
+  ffi/gsl-rng-max(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-get
     (r :: <gsl-rng>) => (_ :: <integer>)
-  ffi/gsl-rng-get(r.%gsl-rng)
+  ffi/gsl-rng-get(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-uniform
     (r :: <gsl-rng>) => (_ :: <float>)
-  ffi/gsl-rng-uniform(r.%gsl-rng)
+  ffi/gsl-rng-uniform(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-uniform-positive
     (r :: <gsl-rng>) => (_ :: <float>)
-  ffi/gsl-rng-uniform-pos(r.%gsl-rng)
+  ffi/gsl-rng-uniform-pos(r.gsl-rng-ffi)
 end;
 
 define function gsl-rng-uniform-int
     (r :: <gsl-rng>, n :: <integer>) => (_ :: <integer>)
-  ffi/gsl-rng-uniform-int(r.%gsl-rng, n)
+  ffi/gsl-rng-uniform-int(r.gsl-rng-ffi, n)
 end;
-

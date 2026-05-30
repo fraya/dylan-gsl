@@ -567,7 +567,9 @@ end module gsl-ffi-vector-impl;
 
 define module gsl-ffi-rng
   create
-    <gsl-rng-type*>,
+    <gsl-rng-type*>;
+
+  create
     <gsl-rng-type**>,
     gsl-rng-types-setup,
     gsl-rng-env-setup,
@@ -590,7 +592,6 @@ define module gsl-ffi-rng
     gsl-rng-uniform,
     gsl-rng-uniform-int,
     gsl-rng-uniform-pos;
-
 end module gsl-ffi-rng;
 
 define module gsl-ffi-rng-impl

@@ -5,22 +5,17 @@ Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See License.txt in this distribution for details.
 
 define module gsl-error
-
   use gsl-ffi-error,
     export: all;
-
-end module gsl-error;
+end module;
 
 define module gsl-error-impl
-
   use common-dylan;
   use gsl-ffi-error;
   use gsl-error;
-
-end module gsl-error-impl;
+end module;
 
 define module gsl-common
-
   create
     <double-float?>,
     <vector-double-float>,
@@ -30,22 +25,17 @@ define module gsl-common
 
   create
     with-c-double-array;
-
-end module gsl-common;
+end module;
 
 define module gsl-common-impl
-
   use common-dylan;
   use c-ffi;
   use gsl-common;
-
-end module gsl-common-impl;
+end module;
 
 define module gsl-math
-
   use gsl-ffi-math,
     export: all;
-
 
   // double float comparison
 
@@ -61,16 +51,14 @@ define module gsl-math
     infinity?,
     positive-infinity?,
     negative-infinity?;
-
-end module gsl-math;
+end module;
 
 define module gsl-math-impl
   use common-dylan;
   use c-ffi;
   use gsl-ffi-math;
-
   use gsl-math;
-end module gsl-math-impl;
+end module;
 
 define module gsl-complex
   create
@@ -159,23 +147,19 @@ define module gsl-complex
     gsl-complex-arcsech,
     gsl-complex-arccsch,
     gsl-complex-arccoth;
-
-end module gsl-complex;
+end module;
 
 define module gsl-complex-impl
-
   use common-dylan;
   use c-ffi;
   use finalization;
   use gsl-ffi-complex,
     prefix: "ffi/";
   use gsl-complex;
-
-end module gsl-complex-impl;
+end module;
 
 define module gsl-vector
-
-   create
+  create
     <gsl-vector>,
     gsl-vector,
     gsl-vector-copy,
@@ -203,28 +187,25 @@ define module gsl-vector
   create
     null?,
     non-negative?;
-
-end module gsl-vector;
+end module;
 
 define module gsl-vector-impl
   use common-dylan;
   use c-ffi;
   use finalization;
   use gsl-math,
-    import: { *epsilon*,
-              f= };
+    import: { *epsilon*, f= };
   use gsl-ffi-vector,
     prefix: "ffi/";
-
   use gsl-vector;
+
   export
     %gsl-vector,
     %gsl-vector-data,
     %gsl-vector-data-setter;
-end module gsl-vector-impl;
+end module;
 
 define module gsl-statistics
-
   create
     mean,
     variance,
@@ -261,44 +242,28 @@ define module gsl-statistics
     sn,
     qn0,
     qn;
-
-end module gsl-statistics;
+end module;
 
 define module gsl-statistics-impl
-
   use common-dylan;
   use c-ffi;
-
   use gsl-common,
-    import: { <double-float?>,
-              <vector-double-float>,
-              with-c-double-array };
-
+    import: { <double-float?>, <vector-double-float>, with-c-double-array };
   use gsl-vector,
-    import: { <gsl-vector>,
-              gsl-vector-stride },
+    import: { <gsl-vector>, gsl-vector-stride },
     rename: { min-index => vector-min-index,
-              max-index => vector-max-index, 
+              max-index => vector-max-index,
               minmax-index => vector-minmax-index };
   use gsl-vector-impl,
-    import: { %gsl-vector,
-              %gsl-vector-data,
-              %gsl-vector-data-setter };
-
+    import: { %gsl-vector, %gsl-vector-data, %gsl-vector-data-setter };
   use gsl-ffi-statistics;
   use gsl-statistics;
-
 end module;
 
 define module gsl-running-statistics
-
   create
-    <rstat>;
-
-  create
-    rstat-add!;
-
-  create
+    <rstat>,
+    rstat-add!,
     rstat-reset!;
 
   create
@@ -322,23 +287,18 @@ define module gsl-running-statistics
     quantile-rstat-add!,
     quantile-rstat-reset!,
     quantile-rstat-get;
-
-end module gsl-running-statistics;
+end module;
 
 define module gsl-running-statistics-impl
-
   use common-dylan;
   use c-ffi;
   use gsl-common;
-
   use gsl-ffi-running-statistics,
     prefix: "ffi/";
   use gsl-running-statistics;
-
-end module gsl-running-statistics-impl;
+end module;
 
 define module gsl-rng
-
   create
     gsl-rng-env-setup;
 
@@ -418,14 +378,17 @@ define module gsl-rng
     $gsl-rng-vax,
     $gsl-rng-waterman14,
     $gsl-rng-zuf;
-
 end module;
 
 define module gsl-rng-impl
   use common-dylan;
+  use format-out;
   use finalization;
+  use uncommon-utils;
   use gsl-ffi-rng,
     prefix: "ffi/";
-  use uncommon-utils;
   use gsl-rng;
-end module gsl-rng-impl;
+
+  export
+    gsl-rng-ffi;
+end module;
