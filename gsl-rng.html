@@ -349,7 +349,7 @@ absent.</p>
 <dt class="field-odd">example<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
-<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">type:</span><span class="w"> </span><span class="no">$gsl-rng-cmrg&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">123456</span><span class="p">);</span>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">type:</span><span class="w"> </span><span class="no">$gsl-rng-cmrg</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">123456</span><span class="p">);</span>
 <span class="k">let</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">123456</span><span class="p">);</span>
 <span class="k">let</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
 </pre></div>
@@ -361,6 +361,7 @@ absent.</p>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-positive"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform-positive</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-uniform-integer"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-uniform-integer</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-seed([gsl-rng])"><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-rng-seed(&lt;gsl-rng&gt;)</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-name"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-name</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-min"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-min</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-max"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-rng-max</span></code></a></p></li>
@@ -514,6 +515,32 @@ as an instance of <a class="reference external" href="https://opendylan.org/book
 <dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">type:</span><span class="w"> </span><span class="no">$gsl-rng-rand</span><span class="p">);</span>
 <span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">gsl-rng-name</span><span class="p">);</span>
 <span class="c1">// rand</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-rng:gsl-rng-seed([gsl-rng])">
+<span class="sig-name descname"><span class="pre">gsl-rng-seed(&lt;gsl-rng&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-rng:gsl-rng-seed([gsl-rng])" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the seed of the random number generator</p>
+<dl class="field-list">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-rng-seed (rng) =&gt; (seed)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values seed<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">seed:</span><span class="w"> </span><span class="mi">1234</span><span class="p">);</span>
+<span class="n">format-out</span><span class="p">(</span><span class="s">&quot;Seed: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">gsl-rng-seed</span><span class="p">);</span>
+<span class="c1">// Seed: 1234</span>
 </pre></div>
 </div>
 </dd>
@@ -1154,6 +1181,7 @@ construction with the <code class="docutils literal notranslate"><span class="pr
 </li>
 <li><a class="reference internal" href="#auxiliary-functions">Auxiliary functions</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-name"><code class="docutils literal notranslate"><span class="pre">gsl-rng-name</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-seed([gsl-rng])"><code class="docutils literal notranslate"><span class="pre">gsl-rng-seed(&lt;gsl-rng&gt;)</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-min"><code class="docutils literal notranslate"><span class="pre">gsl-rng-min</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-rng:gsl-rng-max"><code class="docutils literal notranslate"><span class="pre">gsl-rng-max</span></code></a></li>
 </ul>
