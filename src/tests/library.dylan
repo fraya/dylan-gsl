@@ -18,23 +18,23 @@ define module dylan-gsl-test-suite
   use testworks;
   use transcendentals;
 
-  use gsl-error;
   use gsl-common;
-  use gsl-math;
   use gsl-complex;
-  use gsl-vector;
+  use gsl-error;
+  use gsl-math;
   use gsl-rng;
+  use gsl-running-statistics;
   use gsl-statistics,
     rename: { min-index => stats/min-index,
               max-index => stats/max-index,
               minmax-index => stats/minmax-index };
-  use gsl-running-statistics;
+  use gsl-vector;
 
   export
     gsl-test-suite,
     gsl-complex-suite,
-    gsl-vector-suite,
-    gsl-statistics-suite,
+    gsl-rng-suite,
     gsl-running-statistics-suite,
-    gsl-rng-suite;
+    gsl-statistics-suite,
+    gsl-vector-suite;
 end module;
