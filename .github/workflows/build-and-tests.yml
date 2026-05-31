@@ -49,5 +49,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           path: |
-            TEST-dylan-gsl-test-suite.xml
+            _build/TEST-*.xml
             _test/**
