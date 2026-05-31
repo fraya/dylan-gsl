@@ -32,7 +32,7 @@ jobs:
         run: deft build dylan-gsl-test-suite
 
       - name: Run tests
-        run: _build/bin/dylan-gsl-test-suite --progress none --report surefire > _build/TEST-dylan-gsl-test-suite.xml
+        run: _build/bin/dylan-gsl-test-suite --progress none --report surefire | sed -n '/</,$p' > _build/TEST-dylan-gsl-test-suite.xml
 
       - name: Publish Test Report
         if: success() || failure()
