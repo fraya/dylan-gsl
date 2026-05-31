@@ -1,5 +1,5 @@
-The GSL-FFI-RUNNING-STATISTICS module
-*************************************
+GSL-FFI-RUNNING-STATISTICS
+**************************
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-running-statistics

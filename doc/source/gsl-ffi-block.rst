@@ -1,5 +1,6 @@
-The GSL-FFI-BLOCK module
-*****************************
+GSL-FFI-BLOCK
+*************
+
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-block
 
