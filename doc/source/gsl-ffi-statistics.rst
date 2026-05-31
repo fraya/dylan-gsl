@@ -1,5 +1,6 @@
-The GSL-FFI-STATISTICS module
-*****************************
+GSL-FFI-STATISTICS
+******************
+
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-statistics
 

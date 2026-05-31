@@ -1,5 +1,5 @@
-The GSL-STATISTICS module
-*************************
+GSL-STATISTICS
+**************
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-statistics

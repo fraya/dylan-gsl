@@ -1,5 +1,6 @@
-The GSL-FFI-COMPLEX module
-**************************
+GSL-FFI-COMPLEX
+***************
+
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-complex
 

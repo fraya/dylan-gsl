@@ -1,8 +1,7 @@
+GSL-COMMON
+**********
+
 .. current-library:: dylan-gsl
-
-The GSL-COMMON module
-*********************
-
 .. current-module:: gsl-common
 
 

@@ -1,5 +1,5 @@
-The GSL-FFI-VECTOR module
-*************************
+GSL-FFI-VECTOR
+**************
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-vector
