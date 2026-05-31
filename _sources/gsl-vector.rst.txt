@@ -1,5 +1,5 @@
-The GSL-VECTOR module
-*************************
+GSL-VECTOR
+**********
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-vector

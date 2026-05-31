@@ -1,5 +1,5 @@
-The GSL-RNG module
-**********************
+GSL-RNG
+*******
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-rng
@@ -56,6 +56,7 @@ Random number environment variables
 
       .. code-block:: shell
 
+         $ test-rng.exe                     
          generator type: mt19937
          seed = 0
          first value = 4293858116

@@ -1,5 +1,5 @@
-The GSL-FFI-ERROR module
-************************
+GSL-FFI-ERROR
+*************
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-error

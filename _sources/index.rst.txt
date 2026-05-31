@@ -1,9 +1,6 @@
 The DYLAN-GSL library 
 =======================
 
-GSL modules
-***********
-
 .. toctree::
    :maxdepth: 2
    :caption: GSL modules:
@@ -16,9 +13,6 @@ GSL modules
    gsl-statistics
    gsl-running-statistics
    gsl-rng
-
-FFI modules
-***********
 
 .. toctree::
    :maxdepth: 2

@@ -1,5 +1,5 @@
-The GSL-FFI-RNG module
-**********************
+GSL-FFI-RNG
+***********
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-rng

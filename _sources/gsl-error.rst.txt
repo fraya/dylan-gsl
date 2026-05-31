@@ -1,5 +1,5 @@
-The GSL-ERROR module
-********************
+GSL-ERROR
+*********
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-error

@@ -1,5 +1,5 @@
-The GSL-FFI-MATH module
-***********************
+GSL-FFI-MATH
+************
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-math

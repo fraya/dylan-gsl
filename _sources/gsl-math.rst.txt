@@ -1,5 +1,5 @@
-The GSL-MATH module
-*******************
+GSL-MATH
+********
 
 .. current-library:: dylan-gsl
 .. current-module:: gsl-math
