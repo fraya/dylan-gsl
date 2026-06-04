@@ -207,6 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">GSL-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">GSL-RUNNING-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-rng.html">GSL-RNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-randist.html">GSL-RANDIST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FFI modules:</span></p>
 <ul>
@@ -218,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">GSL-FFI-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-running-statistics.html">GSL-FFI-RUNNING-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-rng.html">GSL-FFI-RNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-randist.html">GSL-FFI-RANDIST</a></li>
 </ul>
 
 </div>
@@ -614,6 +616,24 @@
   <tr>
     <td></td>
     <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-box-muller"><code class="xref">$gaussian-box-muller</code></a> <em>(constant)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-ratio-method"><code class="xref">$gaussian-ratio-method</code></a> <em>(constant)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-ziggurat"><code class="xref">$gaussian-ziggurat</code></a> <em>(constant)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
         <a href="gsl-rng.html#dylan-gsl:gsl-rng:$gfsr4"><code class="xref">$gfsr4</code></a> <em>(constant)</em></td><td>
     <em></em></td>
   </tr>
@@ -926,6 +946,24 @@
   <tr>
     <td></td>
     <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]"><code class="xref">&lt;gsl-distribution-gaussian&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-distribution-ugassian]"><code class="xref">&lt;gsl-distribution-ugassian&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref">&lt;gsl-distribution&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
         <a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-divergence]"><code class="xref">&lt;gsl-divergence&gt;</code></a> <em>(class)</em></td><td>
     <em></em></td>
   </tr>
@@ -969,6 +1007,12 @@
     <td></td>
     <td>
         <a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-fault]"><code class="xref">&lt;gsl-fault&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-gaussian-algorithm]"><code class="xref">&lt;gsl-gaussian-algorithm&gt;</code></a> <em>(class)</em></td><td>
     <em></em></td>
   </tr>
   <tr>
@@ -1118,6 +1162,12 @@
   <tr>
     <td></td>
     <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-ugaussian-algorithm]"><code class="xref">&lt;gsl-ugaussian-algorithm&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
         <a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-underflow]"><code class="xref">&lt;gsl-underflow&gt;</code></a> <em>(class)</em></td><td>
     <em></em></td>
   </tr>
@@ -1191,6 +1241,78 @@
     <td></td>
     <td>
         <a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:gsl-block-free"><code class="xref">gsl-block-free</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-p"><code class="xref">gsl-cdf-gaussian-p</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-pinv"><code class="xref">gsl-cdf-gaussian-pinv</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-q"><code class="xref">gsl-cdf-gaussian-q</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-qinv"><code class="xref">gsl-cdf-gaussian-qinv</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-p"><code class="xref">gsl-cdf-p</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-pinv"><code class="xref">gsl-cdf-pinv</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-q"><code class="xref">gsl-cdf-q</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-qinv"><code class="xref">gsl-cdf-qinv</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-p"><code class="xref">gsl-cdf-ugaussian-p</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-pinv"><code class="xref">gsl-cdf-ugaussian-pinv</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-q"><code class="xref">gsl-cdf-ugaussian-q</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-qinv"><code class="xref">gsl-cdf-ugaussian-qinv</code></a> <em>(function)</em></td><td>
     <em></em></td>
   </tr>
   <tr>
@@ -2238,6 +2360,12 @@
   <tr>
     <td></td>
     <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-distribution-gaussian-sigma([gsl-distribution-gaussian])"><code class="xref">gsl-distribution-gaussian-sigma(&lt;gsl-distribution-gaussian&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
         <a href="gsl-error.html#dylan-gsl:gsl-error:gsl-error-code"><code class="xref">gsl-error-code</code></a> <em>(generic function)</em></td><td>
     <em></em></td>
   </tr>
@@ -2299,6 +2427,60 @@
     <td></td>
     <td>
         <a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-min"><code class="xref">gsl-min</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian"><code class="xref">gsl-ran-gaussian</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian-pdf"><code class="xref">gsl-ran-gaussian-pdf</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian-ratio-method"><code class="xref">gsl-ran-gaussian-ratio-method</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian-ziggurat"><code class="xref">gsl-ran-gaussian-ziggurat</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-ran-pdf"><code class="xref">gsl-ran-pdf</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian"><code class="xref">gsl-ran-ugaussian</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-pdf"><code class="xref">gsl-ran-ugaussian-pdf</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-ratio-method"><code class="xref">gsl-ran-ugaussian-ratio-method</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-ran-variate"><code class="xref">gsl-ran-variate</code></a> <em>(generic function)</em></td><td>
     <em></em></td>
   </tr>
   <tr>
@@ -3857,6 +4039,18 @@
   </tr>
   <tr class="cap" id="cap-U">
     <td></td><td><strong>U</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:$ugaussian-default"><code class="xref">$ugaussian-default</code></a> <em>(constant)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="gsl-randist.html#dylan-gsl:gsl-randist:$ugaussian-ratio-method"><code class="xref">$ugaussian-ratio-method</code></a> <em>(constant)</em></td><td>
+    <em></em></td>
   </tr>
   <tr>
     <td></td>

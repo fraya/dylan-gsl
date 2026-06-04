@@ -207,6 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-statistics.html">GSL-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-running-statistics.html">GSL-RUNNING-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-rng.html">GSL-RNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-randist.html">GSL-RANDIST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FFI modules:</span></p>
 <ul>
@@ -218,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-statistics.html">GSL-FFI-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-running-statistics.html">GSL-FFI-RUNNING-STATISTICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gsl-ffi-rng.html">GSL-FFI-RNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gsl-ffi-randist.html">GSL-FFI-RANDIST</a></li>
 </ul>
 
 </div>
@@ -274,6 +276,12 @@
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$fishman20">$fishman20</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$fishman2x">$fishman2x</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-box-muller">$gaussian-box-muller</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-ratio-method">$gaussian-ratio-method</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-ziggurat">$gaussian-ziggurat</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$gfsr4">$gfsr4</a>
 </li>
@@ -439,12 +447,12 @@
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$ranlux">$ranlux</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$ranlux389">$ranlux389</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$ranlxd1">$ranlxd1</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$ranlxd2">$ranlxd2</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$ranlxs0">$ranlxs0</a>
@@ -466,6 +474,10 @@
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$transputer">$transputer</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$tt800">$tt800</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$ugaussian-default">$ugaussian-default</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$ugaussian-ratio-method">$ugaussian-ratio-method</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$uni">$uni</a>
 </li>
@@ -545,6 +557,12 @@
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-continue]">&lt;gsl-continue&gt;</a>
 </li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]">&lt;gsl-distribution-gaussian&gt;</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-distribution-ugassian]">&lt;gsl-distribution-ugassian&gt;</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-distribution]">&lt;gsl-distribution&gt;</a>
+</li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-divergence]">&lt;gsl-divergence&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-domain-error]">&lt;gsl-domain-error&gt;</a>
@@ -560,6 +578,8 @@
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-failure]">&lt;gsl-failure&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-fault]">&lt;gsl-fault&gt;</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-gaussian-algorithm]">&lt;gsl-gaussian-algorithm&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-invalid-argument]">&lt;gsl-invalid-argument&gt;</a>
 </li>
@@ -608,6 +628,8 @@
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-tolerance-x]">&lt;gsl-tolerance-x&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-tolerance]">&lt;gsl-tolerance&gt;</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-ugaussian-algorithm]">&lt;gsl-ugaussian-algorithm&gt;</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-underflow]">&lt;gsl-underflow&gt;</a>
 </li>
@@ -746,6 +768,30 @@
 </li>
         <li><a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:gsl-block-free">gsl-block-free</a>
 </li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-p">gsl-cdf-gaussian-p</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-pinv">gsl-cdf-gaussian-pinv</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-q">gsl-cdf-gaussian-q</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-qinv">gsl-cdf-gaussian-qinv</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-p">gsl-cdf-p</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-pinv">gsl-cdf-pinv</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-q">gsl-cdf-q</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-cdf-qinv">gsl-cdf-qinv</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-p">gsl-cdf-ugaussian-p</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-pinv">gsl-cdf-ugaussian-pinv</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-q">gsl-cdf-ugaussian-q</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-qinv">gsl-cdf-ugaussian-qinv</a>
+</li>
         <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex">gsl-complex</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex">[1]</a>
 </li>
         <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-abs">gsl-complex-abs</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-abs">[1]</a>
@@ -868,6 +914,13 @@
 </li>
         <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-tanh">gsl-complex-tanh</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-tanh">[1]</a>
 </li>
+        <li>
+    gsl-distribution-gaussian-sigma
+
+        <ul>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-distribution-gaussian-sigma([gsl-distribution-gaussian])">gsl-distribution-gaussian-sigma(&lt;gsl-distribution-gaussian&gt;)</a>
+</li>
+        </ul></li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:gsl-error-code">gsl-error-code</a>
 </li>
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:gsl-error-message">gsl-error-message</a>
@@ -889,6 +942,24 @@
         <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-max">gsl-max</a>
 </li>
         <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:gsl-min">gsl-min</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian">gsl-ran-gaussian</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian-pdf">gsl-ran-gaussian-pdf</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian-ratio-method">gsl-ran-gaussian-ratio-method</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-gaussian-ziggurat">gsl-ran-gaussian-ziggurat</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-ran-pdf">gsl-ran-pdf</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian">gsl-ran-ugaussian</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-pdf">gsl-ran-ugaussian-pdf</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-ratio-method">gsl-ran-ugaussian-ratio-method</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-ran-variate">gsl-ran-variate</a>
 </li>
         <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-alloc">gsl-rng-alloc</a>
 </li>
@@ -913,6 +984,8 @@
           <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:gsl-rng-seed([gsl-rng])">gsl-rng-seed(&lt;gsl-rng&gt;)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-set">gsl-rng-set</a>
 </li>
         <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-type-element">gsl-rng-type-element</a>
@@ -935,8 +1008,6 @@
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-free">gsl-rstat-free</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-kurtosis">gsl-rstat-kurtosis</a>
 </li>
         <li><a href="gsl-ffi-running-statistics.html#dylan-gsl:gsl-ffi-running-statistics:gsl-rstat-max">gsl-rstat-max</a>

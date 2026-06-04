@@ -1,0 +1,237 @@
+GSL-FFI-RANDIST
+***************
+
+.. current-library:: dylan-gsl
+.. current-module:: gsl-ffi-randist
+
+Gaussian Distribution
+=====================
+
+.. function:: gsl-ran-gaussian
+
+   :signature: (rng, sigma) => (variate)
+
+   :parameter rng: 
+   
+     Random number generator. An instance of <gsl-rng*>.
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``.
+     
+   :result variate: 
+   
+     Sample from a Gaussian distribution with mean = 0 and standard
+     deviation = sigma.  A ``<c-double>``.
+
+.. function:: gsl-ran-gaussian-pdf
+
+   :signature: (x, sigma) => (pdf)
+
+   :parameter x: 
+   
+     Value. A ``<c-double>``.
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``.
+   
+   :result pdf: 
+   
+     Probability density function. A ``<c-double>``.
+
+.. function:: gsl-ran-gaussian-ziggurat
+
+   :signature: (rng, sigma) => (sample)
+
+   :parameter rng: 
+   
+     Random number generator. An instance of <gsl-rng*>.
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``.
+     
+   :result sample: 
+   
+     Sample from a Gaussian distribution with mean = 0 and standard
+     deviation = sigma.  A ``<c-double>``.
+
+.. function:: gsl-ran-gaussian-ratio-method
+
+   :signature: (rng, sigma) => (sample)
+
+   :parameter rng: 
+   
+     Random number generator. An instance of <gsl-rng*>
+     
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``
+     
+   :result sample: 
+   
+     Sample from a Gaussian distribution with mean = 0 and standard
+     deviation = sigma.  A ``<c-double>``
+
+.. function:: gsl-cdf-gaussian-p
+
+   :signature: (x, sigma) => (cd)
+
+   :parameter x: 
+   
+     Value. A ``<c-double>``
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``
+   
+   :result cd: 
+   
+     Cumulative distribution function. A ``<c-double>``
+
+
+.. function:: gsl-cdf-gaussian-q
+
+   :signature: (x, sigma) => (cd)
+
+   :parameter x: 
+   
+     Value. A ``<c-double>``
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``
+   
+   :result cd: 
+   
+     Cumulative distribution function. A ``<c-double>``
+
+
+.. function:: gsl-cdf-gaussian-pinv
+
+   :signature: (p, sigma) => (x)
+
+   :parameter p: 
+   
+     Probability. A ``<c-double>``
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``
+   
+   :result x: 
+   
+     Value. A ``<c-double>``
+
+
+.. function:: gsl-cdf-gaussian-qinv
+
+   :signature: (p, sigma) => (x)
+
+   :parameter p: 
+   
+     Probability. A ``<c-double>``
+   
+   :parameter sigma: 
+   
+     Standard deviation. A ``<c-double>``
+   
+   :result x: 
+   
+     Value. A ``<c-double>``
+
+
+Unit Gaussian Distribution
+==========================
+
+.. function:: gsl-ran-ugaussian
+
+   :signature: (rng) => (sample)
+
+   :parameter rng: 
+   
+     Random number generator. An instance of <gsl-rng*>
+     
+   :result sample: 
+   
+     Sample from a standard Gaussian distribution with mean = 0 and
+     standard deviation = 1.  A ``<c-double>``
+
+
+.. function:: gsl-ran-ugaussian-pdf
+
+   :signature: (x) => (pdf)
+
+   :parameter x: 
+   
+     Value. A ``<c-double>``
+     
+   :result pdf: 
+   
+     Probability density function. A ``<c-double>``
+
+
+.. function:: gsl-ran-ugaussian-ratio-method
+
+   :signature: (rng) => (sample)
+
+   :parameter rng: 
+   
+     Random number generator. An instance of <gsl-rng*>
+     
+   :result sample: 
+   
+     Sample from a standard Gaussian distribution with mean = 0 and standard deviation = 1.
+     A ``<c-double>``
+
+.. function:: gsl-cdf-ugaussian-p
+
+   :signature: (x) => (cd)
+
+   :parameter x: 
+   
+     Value. A ``<c-double>``
+   
+   :result cd: 
+   
+     Cumulative distribution function. A ``<c-double>``
+
+
+.. function:: gsl-cdf-ugaussian-q
+
+   :signature: (x) => (cd)
+
+   :parameter x: 
+   
+     Value. A ``<c-double>``
+   
+   :result cd: 
+   
+     Cumulative distribution function. A ``<c-double>``
+
+
+.. function:: gsl-cdf-ugaussian-pinv
+
+   :signature: (p) => (x)
+
+   :parameter p: 
+   
+     Probability. A ``<c-double>``
+   
+   :result x: 
+   
+     Value. A ``<c-double>``
+
+
+.. function:: gsl-cdf-ugaussian-qinv
+
+   :signature: (p) => (x)
+
+   :parameter p: 
+   
+     Probability. A ``<c-double>``
+   
+   :result x: 
+   
+     Value. A ``<c-double>``

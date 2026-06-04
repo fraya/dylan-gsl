@@ -1,0 +1,293 @@
+GSL-RANDIST
+***********
+
+.. current-library:: dylan-gsl
+.. current-module:: gsl-randist
+
+This module provides functionality to generate random variates from
+distributions.
+
+With polymorphism and multimethods I have reduced the number of
+functions available in the original GSL library, reducing the
+interface and the number of parameters passed to each function. This
+approach can be seen at :class:`<gsl-distribution>`.
+
+The distributions available in this module are:
+
+- :class:`<gsl-distribution-gaussian>`
+- :class:`<gsl-distribution-ugaussian>`
+
+
+The ``<gsl-distribution>`` interface
+====================================
+
+.. class:: <gsl-distribution>
+   :abstract:
+
+   Base class for all distributions.
+
+   :keyword rng:
+
+     Random number generator. An instance of :class:`<gsl-rng>`.  Used
+     to generate random variates from the distribution.
+
+   :operations:
+
+     - :func:`gsl-ran-variate`
+     - :func:`gsl-ran-pdf`
+     - :func:`gsl-cdf-p`
+     - :func:`gsl-cdf-q`
+     - :func:`gsl-cdf-pinv`
+     - :func:`gsl-cdf-qinv`
+
+Operations
+----------
+
+.. generic-function:: gsl-ran-variate
+
+   :signature: gsl-ran-variate (distribution) => (variate)
+
+   Generates a random variate from the distribution.
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution>`.
+
+   :result variate:
+
+     A random variate from the distribution.  An instance of
+     :drm:`<float>`.
+
+.. generic-function:: gsl-ran-pdf
+
+   Evaluates the probability density function (PDF) for the
+   distribution.
+
+   :signature: gsl-ran-pdf (distribution, x) => (pd)
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution>`.
+
+   :parameter x:
+
+     The value at which to evaluate the probability density function.
+     An instance of :drm:`<float>`.
+
+   :result pd:
+
+     The probability density at x. An instance of :drm:`<float>`.
+
+.. generic-function:: gsl-cdf-p
+
+   Evaluates the cumulative distribution function (CDF) for the
+   distribution.
+
+   :signature: gsl-cdf-p (distribution, x) => (cd)
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution>`.
+
+   :parameter x:
+
+     The value at which to evaluate the cumulative distribution
+     function.  An instance of :drm:`<float>`.
+
+   :result cd:
+
+     The cumulative probability at x. An instance of :drm:`<float>`.
+
+.. generic-function:: gsl-cdf-q
+
+   :signature: gsl-cdf-q (distribution, x) => (cd)
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution>`.
+
+   :parameter x:
+
+     The value at which to evaluate the survival function.  An
+     instance of :drm:`<float>`.
+
+   :result cd:
+
+     The survival function at x. An instance of :drm:`<float>`.
+
+.. generic-function:: gsl-cdf-pinv
+
+   Evaluates the inverse cumulative distribution function (CDF) for
+   the distribution.
+
+   :signature: gsl-cdf-pinv (distribution, x) => (cd)
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution>`.
+
+   :parameter x:
+
+     The value at which to evaluate the inverse cumulative
+     distribution function.  An instance of :drm:`<float>`.
+
+   :result cd:
+
+     The inverse cumulative distribution function at x. An instance of :drm:`<float>`. 
+
+.. generic-function:: gsl-cdf-qinv
+
+   Evaluates the inverse cumulative distribution function (CDF) for
+   the distribution.
+
+   :signature: gsl-cdf-qinv (distribution, x) => (cd)
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution>`.
+
+   :parameter x:
+
+     The value at which to evaluate the inverse survival function.  An
+     instance of :drm:`<float>`.
+
+   :result cd:
+
+     The inverse survival function at x. An instance of
+     :drm:`<float>`.
+
+Gaussian Distribution
+=====================
+
+.. class:: <gsl-distribution-gaussian>
+
+   A Gaussian distribution. This returns random values of Gaussian
+   probability density function.  See the original GSL documentation
+   for more information at `gsl-randist-gaussian
+   <https://www.gnu.org/software/gsl/doc/html_node/Gaussian-Distribution.html>`_.
+   This distribution stores the standard deviation $\sigma$ and the
+   type of algorithm used to generate random variates.
+
+   :supers: <gsl-distribution>
+
+   :keyword sigma:
+
+     The standard deviation of the distribution.  An instance of
+     :drm:`<float>`.
+
+   :keyword algorithm:
+
+     The algorithm to use for generating random variates.  An instance
+     of :class:`<gsl-gaussian-algorithm>`.  This keyword is optional
+     and the default value is :const:`$gaussian-box-muller`.  See
+     :class:`<gsl-gaussian-algorithm>` for more information.
+
+   :operations:
+
+      The following operations are defined for
+      :class:`<gsl-distribution-gaussian>`.  There is no documentation
+      available since is the same as the parent class.  See operations
+      in :class:`<gsl-distribution>` for more information.
+
+      - :func:`gsl-distribution-gaussian-sigma(<gsl-distribution-gaussian>)`
+      - :meth:`gsl-ran-variate(<gsl-distribution-gaussian>)`
+      - :meth:`gsl-ran-pdf(<gsl-distribution-gaussian>)`
+      - :meth:`gsl-cdf-p(<gsl-distribution-gaussian>)`
+      - :meth:`gsl-cdf-q(<gsl-distribution-gaussian>)`
+      - :meth:`gsl-cdf-pinv(<gsl-distribution-gaussian>)`
+      - :meth:`gsl-cdf-qinv(<gsl-distribution-gaussian>)`
+
+    :example:
+
+      .. code-block:: dylan
+
+        let dist1 = make(<gsl-distribution-gaussian>, 
+                         rng: make(<gsl-rng>), 
+                         sigma: 0.5);
+
+        let dist2 = make(<gsl-distribution-gaussian>,           
+                         rng: make(<gsl-rng>), 
+                         sigma: 1,
+                         algorithm: $gaussian-ratio-method);
+
+        let variate1 = dist1.gsl-ran-variate;
+        let variate2 = dist2.gsl-ran-variate;
+
+.. method:: gsl-distribution-gaussian-sigma
+   :specializer: <gsl-distribution-gaussian>
+
+   :signature: gsl-distribution-gaussian-sigma (distribution) => (sigma)
+
+   :parameter distribution:
+
+     An instance of :class:`<gsl-distribution-gaussian>`.
+
+   :result sigma:
+
+     The standard deviation of the distribution. An instance of :drm:`<float>`.
+
+Gaussian algorithms
+-------------------
+
+.. class:: <gsl-gaussian-algorithm>
+
+   Type of Gaussian distribution algorithms used to generate random
+   variates.
+
+.. constant:: $gaussian-box-muller
+
+   Box-Muller algorithm. This is the default value.
+
+.. constant:: $gaussian-ziggurat
+
+   Computes a Gaussian random variate using the alternative
+   Marsaglia-Tsang ziggurat method.  The Ziggurat algorithm is the
+   fastest available algorithm in most cases.
+
+.. constant:: $gaussian-ratio-method
+
+   Kinderman-Monahan-Leva ratio method.
+
+The Unit Gaussian Distribution
+==============================
+
+.. class:: <gsl-distribution-ugassian>
+
+   Equivalent to :class:`<gsl-distribution-gaussian>` with a standard
+   deviation of one, :math:`\sigma` = 1.
+
+   :key algorithm:
+
+     The algorithm to use for generating random variates.  An instance
+     of :class:`<gsl-ugaussian-algorithm>`.  Default value is
+     :const:`$ugaussian-default`.
+
+   :operations:
+
+      The following operations have no documentation available since
+      is the same as the parent class. See operations in
+      :class:`<gsl-distribution>` for more information.
+
+      - :meth:`gsl-ran-variate(<gsl-distribution-ugassian>)`
+      - :meth:`gsl-ran-pdf(<gsl-distribution-ugassian>)`
+      - :meth:`gsl-cdf-p(<gsl-distribution-ugassian>)`
+      - :meth:`gsl-cdf-q(<gsl-distribution-ugassian>)`
+      - :meth:`gsl-cdf-pinv(<gsl-distribution-ugassian>)`
+      - :meth:`gsl-cdf-qinv(<gsl-distribution-ugassian>)`
+
+Ugaussian algorithms
+--------------------
+
+.. class:: <gsl-ugaussian-algorithm>
+
+   Type of Ugaussian distribution algorithms used to generate random
+   variates.
+
+.. constant:: $ugaussian-default
+
+   The default algorithm for generating Ugaussian random variates.
+
+.. constant:: $ugaussian-ratio-method
+
+   Computes a Ugaussian random variate using the ratio method.  The
+   ratio method is the fastest available algorithm in most cases.
