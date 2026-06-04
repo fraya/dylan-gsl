@@ -13,6 +13,7 @@ The DYLAN-GSL library
    gsl-statistics
    gsl-running-statistics
    gsl-rng
+   gsl-randist
 
 .. toctree::
    :maxdepth: 2
@@ -26,3 +27,4 @@ The DYLAN-GSL library
    gsl-ffi-statistics
    gsl-ffi-running-statistics
    gsl-ffi-rng
+   gsl-ffi-randist

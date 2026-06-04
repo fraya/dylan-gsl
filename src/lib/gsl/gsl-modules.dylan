@@ -392,3 +392,59 @@ define module gsl-rng-impl
   export
     gsl-rng-ffi;
 end module;
+
+define module gsl-randist
+  create
+    <gsl-randist>,
+    gsl-ran-variate,
+    gsl-ran-pdf,
+    gsl-cdf-p,
+    gsl-cdf-q,
+    gsl-cdf-pinv,
+    gsl-cdf-qinv;
+
+  create
+    <gsl-randist-gaussian>,
+    gsl-randist-sigma,
+    <gsl-randist-tail>;
+
+  create
+    <gsl-gaussian-algorithm>,
+    $gsl-gaussian-algorithm-instances,
+    $gaussian-box-muller,
+    $gaussian-ziggurat,
+    $gaussian-ratio-method;
+
+  create
+    <gsl-gaussian>,
+    gsl-gaussian-algorithm,
+    gsl-gaussian-algorithm-setter;
+
+
+  create
+    <gsl-ugaussian-algorithm>,
+    $gsl-ugaussian-algorithm-instances,
+    $ugaussian-default,
+    $ugaussian-ratio-method;
+
+  create
+    <gsl-ugaussian>,
+    gsl-ugaussian-algorithm,
+    gsl-ugaussian-algorithm-setter;
+
+  create
+    <gsl-gaussian-tail>,
+    <gsl-ugaussian-tail>;
+
+end module;
+
+define module gsl-randist-impl
+  use common-dylan;
+  use uncommon-utils;
+  use gsl-rng;
+  use gsl-rng-impl,
+    import: { gsl-rng-ffi };
+  use gsl-ffi-randist,
+    prefix: "ffi/";
+  use gsl-randist;
+end module;

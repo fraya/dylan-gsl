@@ -18,6 +18,7 @@ define library dylan-gsl
     gsl-ffi-complex,
     gsl-ffi-vector,
     gsl-ffi-statistics,
+    gsl-ffi-randist,
     gsl-ffi-running-statistics,
     gsl-ffi-rng;
 
@@ -30,6 +31,7 @@ define library dylan-gsl
     gsl-complex,
     gsl-vector,
     gsl-statistics,
+    gsl-randist,
     gsl-running-statistics,
     gsl-rng;
 

@@ -4,6 +4,7 @@ define suite gsl-test-suite ()
   suite gsl-complex-suite;
   suite gsl-vector-suite;
   suite gsl-statistics-suite;
+  suite gsl-randist-suite;
   suite gsl-running-statistics-suite;
   suite gsl-rng-suite;
 end suite;

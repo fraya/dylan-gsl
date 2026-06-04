@@ -12,12 +12,14 @@ Files: library.dylan
        ffi/running-statistics.dylan
        ffi/block.dylan
        ffi/vector.dylan
+       ffi/randist.dylan
        gsl/gsl-modules.dylan
        gsl/common.dylan
        gsl/math.dylan
        gsl/complex.dylan
        gsl/vector.dylan
        gsl/rng.dylan
+       gsl/randist.dylan
        gsl/statistics.dylan
        gsl/running-statistics.dylan
 C-Source-Files: complex-shim.c

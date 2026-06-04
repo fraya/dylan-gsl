@@ -23,6 +23,7 @@ define module dylan-gsl-test-suite
   use gsl-error;
   use gsl-math;
   use gsl-rng;
+  use gsl-randist;
   use gsl-running-statistics;
   use gsl-statistics,
     rename: { min-index => stats/min-index,

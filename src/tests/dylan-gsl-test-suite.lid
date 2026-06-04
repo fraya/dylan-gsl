@@ -5,5 +5,6 @@ Files: library.dylan
        dylan-gsl-test-statistics-suite.dylan
        dylan-gsl-test-running-statistics.dylan
        dylan-gsl-test-random.dylan
+       dylan-gsl-test-randist.dylan
        dylan-gsl-tests.dylan
 Target-Type: executable

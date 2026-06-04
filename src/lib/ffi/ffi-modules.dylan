@@ -599,3 +599,39 @@ define module gsl-ffi-rng-impl
   use c-ffi;
   use gsl-ffi-rng;
 end module;
+
+define module gsl-ffi-randist
+  create
+    gsl-ran-gaussian,
+    gsl-ran-gaussian-pdf,
+    gsl-ran-gaussian-ziggurat,
+    gsl-ran-gaussian-ratio-method,
+    gsl-cdf-gaussian-p,
+    gsl-cdf-gaussian-q,
+    gsl-cdf-gaussian-pinv,
+    gsl-cdf-gaussian-qinv;
+
+  create
+    gsl-ran-ugaussian,
+    gsl-ran-ugaussian-pdf,
+    gsl-ran-ugaussian-ratio-method,
+    gsl-cdf-ugaussian-p,
+    gsl-cdf-ugaussian-q,
+    gsl-cdf-ugaussian-pinv,
+    gsl-cdf-ugaussian-qinv;
+
+  create
+    gsl-ran-gaussian-tail,
+    gsl-ran-gaussian-tail-pdf;
+
+  create
+    gsl-ran-ugaussian-tail,
+    gsl-ran-ugaussian-tail-pdf;
+end module;
+
+define module gsl-ffi-randist-impl
+  use common-dylan;
+  use c-ffi;
+  use gsl-ffi-rng;
+  use gsl-ffi-randist;
+end module;
