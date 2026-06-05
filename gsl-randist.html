@@ -269,17 +269,19 @@ distributions.</p>
 <p>With polymorphism and multimethods I have reduced the number of
 functions available in the original GSL library, reducing the
 interface and the number of parameters passed to each function. This
-approach can be seen at <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p>
+approach can be seen at <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p>
 <p>The distributions available in this module are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution-gaussian&gt;</span></code></a></p></li>
-<li><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution-ugaussian&gt;</span></code></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-tail&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian-tail&gt;</span></code></a></p></li>
 </ul>
-<section id="the-gsl-distribution-interface">
-<h2>The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code> interface<a class="headerlink" href="#the-gsl-distribution-interface" title="Link to this heading">¶</a></h2>
+<section id="the-gsl-randist-interface">
+<h2>The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code> interface<a class="headerlink" href="#the-gsl-randist-interface" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-distribution]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-distribution&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-distribution]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Uninstantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist]" title="Link to this definition">¶</a></dt>
 <dd><p>Base class for all distributions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Init-Keywords<span class="colon">:</span></dt>
@@ -316,7 +318,7 @@ to generate random variates from the distribution.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Result variate<span class="colon">:</span></dt>
@@ -337,7 +339,7 @@ distribution.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the probability density function.
 An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -359,7 +361,7 @@ distribution.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the cumulative distribution
 function.  An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -379,7 +381,7 @@ function.  An instance of <a class="reference external" href="https://opendylan.
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the survival function.  An
 instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -401,7 +403,7 @@ the distribution.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the inverse cumulative
 distribution function.  An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -423,7 +425,7 @@ the distribution.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the inverse survival function.  An
 instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -440,79 +442,89 @@ instance of <a class="reference external" href="https://opendylan.org/books/drm/
 <section id="gaussian-distribution">
 <h2>Gaussian Distribution<a class="headerlink" href="#gaussian-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-distribution-gaussian]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-distribution-gaussian&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]" title="Link to this definition">¶</a></dt>
-<dd><p>A Gaussian distribution. This returns random values of Gaussian
-probability density function.  See the original GSL documentation
-for more information at <a class="reference external" href="https://www.gnu.org/software/gsl/doc/html_node/Gaussian-Distribution.html">gsl-randist-gaussian</a>.
-This distribution stores the standard deviation $sigma$ and the
-type of algorithm used to generate random variates.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-gaussian]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Uninstantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p>&lt;gsl-distribution&gt;</p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>sigma</strong> – The standard deviation of the distribution.  An instance of
+<li><p><strong>sigma</strong> – Standard deviation. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Slots<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gsl-randist-sigma</strong> – The standard deviation of the distribution. An instance of
 <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Summary<span class="colon">:</span></dt>
+<dd class="field-even"><p>Base class of Gaussian distributions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-gaussian]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-gaussian&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-gaussian]" title="Link to this definition">¶</a></dt>
+<dd><p>A Gaussian distribution. This returns random values of Gaussian
+probability density function.  See the original GSL documentation
+for more information at <a class="reference external" href="https://www.gnu.org/software/gsl/doc/html_node/Gaussian-Distribution.html">Gaussian Distribution</a>.
+This distribution stores the type of algorithm used to generate
+random variates.</p>
+<dl class="field-list">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>algorithm</strong> – The algorithm to use for generating random variates.  An instance
 of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-algorithm]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-algorithm&gt;</span></code></a>.  This keyword is optional
 and the default value is <a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-box-muller"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$gaussian-box-muller</span></code></a>.  See
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-algorithm]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-algorithm&gt;</span></code></a> for more information.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Operations<span class="colon">:</span></dt>
-<dd class="field-odd"><p><blockquote>
-<div><p>The following operations are defined for
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution-gaussian&gt;</span></code></a>.  There is no documentation
-available since is the same as the parent class.  See operations
-in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a> for more information.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-distribution-gaussian-sigma([gsl-distribution-gaussian])"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-distribution-gaussian-sigma(&lt;gsl-distribution-gaussian&gt;)</span></code></a></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-variate(&lt;gsl-distribution-gaussian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-pdf(&lt;gsl-distribution-gaussian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-p(&lt;gsl-distribution-gaussian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-q(&lt;gsl-distribution-gaussian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-pinv(&lt;gsl-distribution-gaussian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-qinv(&lt;gsl-distribution-gaussian&gt;)</span></code></p></li>
+<dt class="field-odd">Slots<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gsl-gaussian-algorithm</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-algorithm]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-algorithm&gt;</span></code></a>.</p></li>
 </ul>
-</div></blockquote>
-<dl class="field-list">
-<dt class="field-odd">example<span class="colon">:</span></dt>
-<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">dist1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-distribution-gaussian&gt;</span><span class="p">,</span>
-<span class="w">                 </span><span class="k">rng:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">),</span>
-<span class="w">                 </span><span class="k">sigma:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+</dd>
+<dt class="field-even">Operations<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>The following operations are defined for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian&gt;</span></code></a>.  There is no documentation
+available since is the same as the parent class.  See operations
+in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<ul class="simple">
+<li><p><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-sigma(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-variate(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-pdf(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-p(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-q(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-pinv(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-qinv(&lt;gsl-randist-gaussian&gt;)</span></code></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-gaussian&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">sigma:</span><span class="w"> </span><span class="mf">0.5</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="k">rng:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">));</span>
+<span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-ran-variate</span><span class="p">;</span>
 
-<span class="k">let</span><span class="w"> </span><span class="n">dist2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-distribution-gaussian&gt;</span><span class="p">,</span>
-<span class="w">                 </span><span class="k">rng:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">),</span>
-<span class="w">                 </span><span class="k">sigma:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">                 </span><span class="k">algorithm:</span><span class="w"> </span><span class="no">$gaussian-ratio-method</span><span class="p">);</span>
-
-<span class="k">let</span><span class="w"> </span><span class="n">variate1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dist1</span><span class="p">.</span><span class="n">gsl-ran-variate</span><span class="p">;</span>
-<span class="k">let</span><span class="w"> </span><span class="n">variate2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dist2</span><span class="p">.</span><span class="n">gsl-ran-variate</span><span class="p">;</span>
+<span class="c1">// Change default algorithm</span>
+<span class="n">d</span><span class="p">.</span><span class="n">gsl-gaussian-algorithm</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="no">$gaussian-ratio-method</span><span class="p">;</span>
+<span class="k">let</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-ran-variate</span><span class="p">;</span>
 </pre></div>
 </div>
 </dd>
-</dl>
-</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-gaussian&gt;</span><span class="p">,</span>
+<span class="w">             </span><span class="k">rng:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">),</span>
+<span class="w">             </span><span class="k">sigma:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">             </span><span class="k">algorithm:</span><span class="w"> </span><span class="no">$gaussian-ratio-method</span><span class="p">);</span>
 
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-distribution-gaussian-sigma([gsl-distribution-gaussian])">
-<span class="sig-name descname"><span class="pre">gsl-distribution-gaussian-sigma(&lt;gsl-distribution-gaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-distribution-gaussian-sigma([gsl-distribution-gaussian])" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-distribution-gaussian-sigma (distribution) =&gt; (sigma)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution-gaussian&gt;</span></code></a>.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Result sigma<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The standard deviation of the distribution. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p>
+<span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-ran-variate</span><span class="p">;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -551,29 +563,35 @@ fastest available algorithm in most cases.</p>
 <section id="the-unit-gaussian-distribution">
 <h2>The Unit Gaussian Distribution<a class="headerlink" href="#the-unit-gaussian-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-distribution-ugassian]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-distribution-ugassian&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-distribution-ugassian]" title="Link to this definition">¶</a></dt>
-<dd><p>Equivalent to <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution-gaussian&gt;</span></code></a> with a standard
-deviation of one, <span class="math notranslate nohighlight">\(\sigma\)</span> = 1.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Key algorithm<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The algorithm to use for generating random variates.  An instance
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-ugaussian]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-ugaussian&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-ugaussian]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Key algorithm<span class="colon">:</span></dt>
+<dd class="field-even"><p>The algorithm to use for generating random variates.  An instance
 of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian-algorithm]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian-algorithm&gt;</span></code></a>.  Default value is
 <a class="reference internal" href="#dylan-gsl:gsl-randist:$ugaussian-default"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$ugaussian-default</span></code></a>.</p>
 </dd>
-<dt class="field-even">Operations<span class="colon">:</span></dt>
-<dd class="field-even"><p><p>The following operations have no documentation available since
+<dt class="field-odd">Operations<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>The following operations have no documentation available since
 is the same as the parent class. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
 <ul class="simple">
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-variate(&lt;gsl-distribution-ugassian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-pdf(&lt;gsl-distribution-ugassian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-p(&lt;gsl-distribution-ugassian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-q(&lt;gsl-distribution-ugassian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-pinv(&lt;gsl-distribution-ugassian&gt;)</span></code></p></li>
-<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-qinv(&lt;gsl-distribution-ugassian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-variate(&lt;gsl-randist-ugassian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-pdf(&lt;gsl-randist-ugassian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-p(&lt;gsl-randist-ugassian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-q(&lt;gsl-randist-ugassian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-pinv(&lt;gsl-randist-ugassian&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-cdf-qinv(&lt;gsl-randist-ugassian&gt;)</span></code></p></li>
 </ul>
 </p>
+</dd>
+<dt class="field-even">Summary<span class="colon">:</span></dt>
+<dd class="field-even"><p>These functions compute results for the tail of a unit Gaussian
+distribution. They are equivalent to the functions above with a
+standard deviation of one, sigma = 1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -601,6 +619,74 @@ ratio method is the fastest available algorithm in most cases.</p>
 </dd></dl>
 
 </section>
+</section>
+<section id="the-tail-distributions">
+<h2>The tail distributions<a class="headerlink" href="#the-tail-distributions" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-tail]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-tail&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-tail]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Slots<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>gsl-randist-a</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Summary<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The base class of all tail distributions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-gaussian-tail]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-gaussian-tail&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-gaussian-tail]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-tail&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Operations<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-variate(&lt;gsl-gaussian-tail&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-pdf(&lt;gsl-gaussian-tail&gt;)</span></code></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Summary<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Provides random variates from the upper tail of a Gaussian
+distribution with standard deviation <code class="docutils literal notranslate"><span class="pre">sigma</span></code>. The values returned
+are larger than the lower limit <code class="docutils literal notranslate"><span class="pre">a</span></code>, which must be positive.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-ugaussian-tail]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-ugaussian-tail&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-ugaussian-tail]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian&gt;</span></code></a>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-tail&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Operations<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-variate(&lt;gsl-ugaussian-tail&gt;)</span></code></p></li>
+<li><p><code class="xref dylan dylan-meth docutils literal notranslate"><span class="pre">gsl-ran-pdf(&lt;gsl-ugaussian-tail&gt;)</span></code></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Summary<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Compute results for the tail of a unit Gaussian
+distribution. They are equivalent to the
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-tail&gt;</span></code></a> with a standard deviation of one,
+sigma = 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
@@ -660,8 +746,8 @@ ratio method is the fastest available algorithm in most cases.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">GSL-RANDIST</a><ul>
-<li><a class="reference internal" href="#the-gsl-distribution-interface">The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code> interface</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-distribution&gt;</span></code></a></li>
+<li><a class="reference internal" href="#the-gsl-randist-interface">The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code> interface</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></li>
 <li><a class="reference internal" href="#operations">Operations</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-ran-variate"><code class="docutils literal notranslate"><span class="pre">gsl-ran-variate</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-ran-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-pdf</span></code></a></li>
@@ -674,8 +760,8 @@ ratio method is the fastest available algorithm in most cases.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#gaussian-distribution">Gaussian Distribution</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution-gaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-distribution-gaussian&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-distribution-gaussian-sigma([gsl-distribution-gaussian])"><code class="docutils literal notranslate"><span class="pre">gsl-distribution-gaussian-sigma(&lt;gsl-distribution-gaussian&gt;)</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-gaussian&gt;</span></code></a></li>
 <li><a class="reference internal" href="#gaussian-algorithms">Gaussian algorithms</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-algorithm]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-algorithm&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-box-muller"><code class="docutils literal notranslate"><span class="pre">$gaussian-box-muller</span></code></a></li>
@@ -686,13 +772,19 @@ ratio method is the fastest available algorithm in most cases.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#the-unit-gaussian-distribution">The Unit Gaussian Distribution</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-distribution-ugassian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-distribution-ugassian&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian&gt;</span></code></a></li>
 <li><a class="reference internal" href="#ugaussian-algorithms">Ugaussian algorithms</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian-algorithm]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian-algorithm&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:$ugaussian-default"><code class="docutils literal notranslate"><span class="pre">$ugaussian-default</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:$ugaussian-ratio-method"><code class="docutils literal notranslate"><span class="pre">$ugaussian-ratio-method</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-tail-distributions">The tail distributions</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-tail]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-tail&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gaussian-tail]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-gaussian-tail&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-ugaussian-tail]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-ugaussian-tail&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -712,6 +804,5 @@ ratio method is the fastest available algorithm in most cases.</p>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

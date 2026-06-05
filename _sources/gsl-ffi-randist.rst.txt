@@ -11,16 +11,16 @@ Gaussian Distribution
 
    :signature: (rng, sigma) => (variate)
 
-   :parameter rng: 
-   
+   :parameter rng:
+
      Random number generator. An instance of <gsl-rng*>.
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``.
-     
-   :result variate: 
-   
+
+   :result variate:
+
      Sample from a Gaussian distribution with mean = 0 and standard
      deviation = sigma.  A ``<c-double>``.
 
@@ -28,32 +28,32 @@ Gaussian Distribution
 
    :signature: (x, sigma) => (pdf)
 
-   :parameter x: 
-   
+   :parameter x:
+
      Value. A ``<c-double>``.
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``.
-   
-   :result pdf: 
-   
+
+   :result pdf:
+
      Probability density function. A ``<c-double>``.
 
 .. function:: gsl-ran-gaussian-ziggurat
 
    :signature: (rng, sigma) => (sample)
 
-   :parameter rng: 
-   
+   :parameter rng:
+
      Random number generator. An instance of <gsl-rng*>.
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``.
-     
-   :result sample: 
-   
+
+   :result sample:
+
      Sample from a Gaussian distribution with mean = 0 and standard
      deviation = sigma.  A ``<c-double>``.
 
@@ -61,16 +61,16 @@ Gaussian Distribution
 
    :signature: (rng, sigma) => (sample)
 
-   :parameter rng: 
-   
+   :parameter rng:
+
      Random number generator. An instance of <gsl-rng*>
-     
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``
-     
-   :result sample: 
-   
+
+   :result sample:
+
      Sample from a Gaussian distribution with mean = 0 and standard
      deviation = sigma.  A ``<c-double>``
 
@@ -78,16 +78,16 @@ Gaussian Distribution
 
    :signature: (x, sigma) => (cd)
 
-   :parameter x: 
-   
+   :parameter x:
+
      Value. A ``<c-double>``
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``
-   
-   :result cd: 
-   
+
+   :result cd:
+
      Cumulative distribution function. A ``<c-double>``
 
 
@@ -95,16 +95,16 @@ Gaussian Distribution
 
    :signature: (x, sigma) => (cd)
 
-   :parameter x: 
-   
+   :parameter x:
+
      Value. A ``<c-double>``
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``
-   
-   :result cd: 
-   
+
+   :result cd:
+
      Cumulative distribution function. A ``<c-double>``
 
 
@@ -112,16 +112,16 @@ Gaussian Distribution
 
    :signature: (p, sigma) => (x)
 
-   :parameter p: 
-   
+   :parameter p:
+
      Probability. A ``<c-double>``
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``
-   
-   :result x: 
-   
+
+   :result x:
+
      Value. A ``<c-double>``
 
 
@@ -129,16 +129,16 @@ Gaussian Distribution
 
    :signature: (p, sigma) => (x)
 
-   :parameter p: 
-   
+   :parameter p:
+
      Probability. A ``<c-double>``
-   
-   :parameter sigma: 
-   
+
+   :parameter sigma:
+
      Standard deviation. A ``<c-double>``
-   
-   :result x: 
-   
+
+   :result x:
+
      Value. A ``<c-double>``
 
 
@@ -149,12 +149,12 @@ Unit Gaussian Distribution
 
    :signature: (rng) => (sample)
 
-   :parameter rng: 
-   
+   :parameter rng:
+
      Random number generator. An instance of <gsl-rng*>
-     
-   :result sample: 
-   
+
+   :result sample:
+
      Sample from a standard Gaussian distribution with mean = 0 and
      standard deviation = 1.  A ``<c-double>``
 
@@ -163,12 +163,12 @@ Unit Gaussian Distribution
 
    :signature: (x) => (pdf)
 
-   :parameter x: 
-   
+   :parameter x:
+
      Value. A ``<c-double>``
-     
-   :result pdf: 
-   
+
+   :result pdf:
+
      Probability density function. A ``<c-double>``
 
 
@@ -176,12 +176,12 @@ Unit Gaussian Distribution
 
    :signature: (rng) => (sample)
 
-   :parameter rng: 
-   
+   :parameter rng:
+
      Random number generator. An instance of <gsl-rng*>
-     
-   :result sample: 
-   
+
+   :result sample:
+
      Sample from a standard Gaussian distribution with mean = 0 and standard deviation = 1.
      A ``<c-double>``
 
@@ -189,12 +189,12 @@ Unit Gaussian Distribution
 
    :signature: (x) => (cd)
 
-   :parameter x: 
-   
+   :parameter x:
+
      Value. A ``<c-double>``
-   
-   :result cd: 
-   
+
+   :result cd:
+
      Cumulative distribution function. A ``<c-double>``
 
 
@@ -202,12 +202,12 @@ Unit Gaussian Distribution
 
    :signature: (x) => (cd)
 
-   :parameter x: 
-   
+   :parameter x:
+
      Value. A ``<c-double>``
-   
-   :result cd: 
-   
+
+   :result cd:
+
      Cumulative distribution function. A ``<c-double>``
 
 
@@ -215,12 +215,12 @@ Unit Gaussian Distribution
 
    :signature: (p) => (x)
 
-   :parameter p: 
-   
+   :parameter p:
+
      Probability. A ``<c-double>``
-   
-   :result x: 
-   
+
+   :result x:
+
      Value. A ``<c-double>``
 
 
@@ -228,10 +228,99 @@ Unit Gaussian Distribution
 
    :signature: (p) => (x)
 
-   :parameter p: 
-   
+   :parameter p:
+
      Probability. A ``<c-double>``
-   
-   :result x: 
-   
+
+   :result x:
+
      Value. A ``<c-double>``
+
+Tail distributions
+==================
+
+Gaussian tail
+-------------
+
+.. function:: gsl-ran-gaussian-tail
+
+   :signature: (rng, a, sigma) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+      An ``<c-double>``.
+
+   :parameter sigma:
+
+     Standard deviation. A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-gaussian-tail-pdf
+
+   :signature: (x, a, sigma) => (pd)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter x:
+
+      An ``<c-double>``.
+
+   :parameter a:
+
+      An ``<c-double>``.
+
+   :parameter sigma:
+
+     Standard deviation. A ``<c-double>``.
+
+   :result pd:
+
+     A ``<c-double>``.
+
+Unit Gaussian tail
+-------------------
+
+.. function:: gsl-ran-ugaussian-tail
+
+   :signature: (rng, a) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+      An ``<c-double>``.
+
+   :result pd:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-ugaussian-tail-pdf
+
+   :signature: (x, a) => (pd)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter x:
+
+      An ``<c-double>``.
+
+   :parameter a:
+
+      An ``<c-double>``.
+
+   :result pd:
+
+     A ``<c-double>``.
