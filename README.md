@@ -25,3 +25,16 @@ In your `dylan-package.json` add:
 
 And run `deft update`
 
+# Modules
+
+The current supported modules are:
+
+- [X] Complex numbers
+- [X] Math constants
+- [X] Random distributions
+- [X] Random number generation
+- [X] Running statistics
+- [X] Statistics
+- [X] Vectors
+
+See the [src/lib/README.md](src/lib/README.md) file for more details.
