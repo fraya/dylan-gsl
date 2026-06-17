@@ -106,9 +106,9 @@ end;
 define method print-object
     (d :: <gsl-randist-gaussian>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" sigma: ", stream, escape?: #f);
-    print(d.gsl-randist-gaussian-sigma, stream);
+    format(stream, "%= sigma: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-gaussian-sigma);
   end
 end;
 
@@ -225,11 +225,10 @@ end;
 define method print-object
     (d :: <gsl-randist-gaussian-tail>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" sigma: ", stream, escape?: #f);
-    print(d.gsl-randist-gaussian-sigma, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-gaussian-a, stream);
+    format(stream, "%= sigma: %= a: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-gaussian-sigma,
+           d.gsl-randist-gaussian-a);
   end
 end;
 
@@ -271,9 +270,9 @@ end;
 define method print-object
     (d :: <gsl-randist-ugaussian-tail>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-ugaussian-a, stream);
+    format(stream, "%= a: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-ugaussian-a, stream);
   end
 end;
 
@@ -304,9 +303,9 @@ end;
 define method print-object
     (d :: <gsl-randist-exponential>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" mu: ", stream, escape?: #f);
-    print(d.gsl-randist-exponential-mu, stream);
+    format(stream, "%= mu: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-exponential-mu);
   end
 end;
 
@@ -361,9 +360,9 @@ end;
 define method print-object
     (d :: <gsl-randist-laplace>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-laplace-a, stream);
+    format(stream, "%= a: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-laplace-a);
   end
 end;
 
@@ -420,11 +419,10 @@ end;
 define method print-object
     (d :: <gsl-randist-exppow>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-exppow-a, stream);
-    print(" b: ", stream, escape?: #f);
-    print(d.gsl-randist-exppow-b, stream);
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-exppow-a,
+           d.gsl-randist-exppow-b);
   end
 end;
 
@@ -457,9 +455,9 @@ end;
 define method print-object
     (d :: <gsl-randist-cauchy>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-cauchy-a, stream);
+    format(stream, "%= a: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-cauchy-a);
   end
 end;
 
@@ -490,9 +488,9 @@ end;
 define method print-object
     (d :: <gsl-randist-rayleigh>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" sigma: ", stream, escape?: #f);
-    print(d.gsl-randist-rayleigh-sigma, stream);
+    format(stream, "%= sigma: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-rayleigh-sigma);
   end
 end;
 
@@ -547,11 +545,10 @@ end;
 define method print-object
     (d :: <gsl-randist-rayleigh-tail>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" sigma: ", stream, escape?: #f);
-    print(d.gsl-randist-rayleigh-sigma, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-rayleigh-a, stream);
+    format(stream, "%= sigma: %= a: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-rayleigh-sigma,
+           d.gsl-randist-rayleigh-a);
   end
 end;
 
@@ -599,11 +596,10 @@ end;
 define method print-object
     (d :: <gsl-randist-gamma>, stream :: <stream>) => ()
   printing-object(d, stream)
-    print(d.%gsl-randist-rng, stream);
-    print(" a: ", stream, escape?: #f);
-    print(d.gsl-randist-gamma-a, stream);
-    print(" b: ", stream, escape?: #f);
-    print(d.gsl-randist-gamma-b, stream);
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-gamma-a,
+           d.gsl-randist-gamma-b);
   end
 end;
 

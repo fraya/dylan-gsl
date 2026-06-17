@@ -497,6 +497,7 @@ define module gsl-randist-impl
   use common-dylan;
   use uncommon-utils;
   use print;
+  use format;
   use gsl-error;
   use gsl-rng;
   use gsl-rng-impl,
