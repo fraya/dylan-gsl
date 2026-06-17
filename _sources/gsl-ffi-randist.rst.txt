@@ -324,3 +324,429 @@ Unit Gaussian tail
    :result pd:
 
      A ``<c-double>``.
+
+Exponential
+===========
+
+.. function:: gsl-ran-exponential
+
+   :signature: (rng, mu) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter mu:
+
+     Mean. A ``<c-double>``.
+
+   :result variate:
+
+     Sample from an exponential distribution with mean = mu.  A ``<c-double>``.
+
+.. function:: gsl-ran-exponential-pdf
+
+   :signature: (x, mu) => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter mu:
+
+     Mean. A ``<c-double>``.
+
+   :result pdf:
+
+     Probability density function. A ``<c-double>``.
+
+.. function:: gsl-cdf-exponential-p
+
+   :signature: (x, mu) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter mu:
+
+     Mean. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
+.. function:: gsl-cdf-exponential-q
+
+   :signature: (x, mu) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter mu:
+
+     Mean. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
+.. function:: gsl-cdf-exponential-pinv
+
+   :signature: (p, mu) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter mu:
+
+     Mean. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``
+
+.. function:: gsl-cdf-exponential-qinv
+
+    :signature: (p, mu) => (x)
+
+    :parameter p:
+
+      Probability. A ``<c-double>``.
+
+    :parameter mu:
+
+      Mean. A ``<c-double>``.
+
+    :result x:
+
+      Value. A ``<c-double>``
+
+Laplace
+=======
+
+.. function:: gsl-ran-laplace
+
+   :signature: (rng, a) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result variate:
+
+     Sample from a Laplace distribution. A ``<c-double>``.
+
+.. function:: gsl-ran-laplace-pdf
+
+   :signature: (x, a) => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Mean. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result pdf:
+
+     Probability density function. A ``<c-double>``.
+
+  Exponentiated power
+  ===================
+
+  .. function:: gsl-ran-exppow
+
+     :signature: (rng, a, b) => (variate)
+
+     :parameter rng:
+
+       Random number generator. An instance of <gsl-rng*>.
+
+     :parameter a:
+
+       Scale parameter. A ``<c-double>``.
+
+     :parameter b:
+
+       Shape parameter. A ``<c-double>``.
+
+     :result variate:
+
+       Sample from an exponentiated power distribution with scale = a and shape = b.  A ``<c-double>``.
+
+.. function:: gsl-ran-exppow-pdf
+
+   :signature: (x, a, b) => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Shape parameter. A ``<c-double>``.
+
+   :result pdf:
+
+     Probability density function. A ``<c-double>``
+
+Cauchy
+======
+
+.. function:: gsl-ran-cauchy
+
+   :signature: (rng, a) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+     Location parameter. A ``<c-double>``.
+
+   :result variate:
+
+     Sample from a Cauchy distribution with location = x0 and scale = gamma.  A ``<c-double>``.
+
+.. function:: gsl-ran-cauchy-pdf
+
+    :signature: (x, a) => (pdf)
+
+    :parameter x:
+
+      Value. A ``<c-double>``.
+
+    :parameter a:
+
+      Location parameter. A ``<c-double>``.
+
+    :result pdf:
+
+      Probability density function. A ``<c-double>``
+
+  Rayleigh
+  ========
+
+  .. function:: gsl-ran-rayleigh
+
+     :signature: (rng, sigma) => (variate)
+
+     :parameter rng:
+
+       Random number generator. An instance of <gsl-rng*>.
+
+     :parameter sigma:
+
+       Scale parameter. A ``<c-double>``.
+
+     :result variate:
+
+       Sample from a Rayleigh distribution with scale = sigma.  A ``<c-double>``.
+
+.. function:: gsl-ran-rayleigh-pdf
+
+   :signature: (x, sigma) => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result pdf:
+
+     Probability density function. A ``<c-double>``
+
+.. function:: gsl-cdf-rayleigh-p
+
+   :signature: (x, sigma) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
+.. function:: gsl-cdf-rayleigh-q
+
+   :signature: (x, sigma) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
+.. function:: gsl-cdf-rayleigh-pinv
+
+   :signature: (p, sigma) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``
+
+.. function:: gsl-cdf-rayleigh-qinv
+
+   :signature: (p, sigma) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``
+
+Rayleigh tail
+=============
+
+.. function:: gsl-ran-rayleigh-tail
+
+   :signature: (rng, a, sigma) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+      An ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-rayleigh-tail-pdf
+
+   :signature: (x, a, sigma) => (pd)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter x:
+
+      An ``<c-double>``.
+
+   :parameter a:
+
+      An ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result pd:
+
+     A ``<c-double>``
+
+Gamma
+=====
+
+.. function:: gsl-ran-gamma
+
+   :signature: (rng, a, b) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+     Shape parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result variate:
+
+     Sample from a gamma distribution with shape = a and scale = b.  A ``<c-double>``.
+
+.. function:: gsl-ran-gamma-knuth
+
+   :signature: (rng, a, b) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+     Shape parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result variate:
+
+     Sample from a gamma distribution with shape = a and scale = b.  A ``<c-double>``.
+
+.. function:: gsl-ran-gamma-pdf
+
+   :signature: (x, a, b) => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Shape parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result pdf:
+
+     Probability density function. A ``<c-double>``
+

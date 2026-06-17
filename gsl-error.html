@@ -268,7 +268,7 @@
 <h2>Base error class<a class="headerlink" href="#base-error-class" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-error&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error]" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">&lt;gsl-error&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Condition_Classes#error"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;error&gt;</span></code></a></p>
@@ -276,26 +276,17 @@
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>code</strong> (<em>required</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>filename</strong> – An instance of false-or(<a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>).</p></li>
+<li><p><strong>line</strong> – An instance of false-or(<a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>).</p></li>
+<li><p><strong>reason</strong> – An instance of false-or(<a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>).</p></li>
 </ul>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan generic-function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-code">
-<span class="sig-name descname"><span class="pre">gsl-error-code</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-code" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-error-code (object) =&gt; (value)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>object</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a>.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dt class="field-odd">Slots<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>gsl-error-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>.</p></li>
+<li><p><strong>gsl-error-filename</strong> – An instance of false-or(<a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>).</p></li>
+<li><p><strong>gsl-error-line</strong> – An instance of false-or(<a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>).</p></li>
+<li><p><strong>gsl-error-reason</strong> – An instance of false-or(<a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>).</p></li>
 </ul>
 </dd>
 </dl>
@@ -321,345 +312,405 @@
 </dl>
 </dd></dl>
 
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-message([gsl-error])">
+<span class="sig-name descname"><span class="pre">gsl-error-message(&lt;gsl-error&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-message([gsl-error])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-details">
+<span class="sig-name descname"><span class="pre">gsl-error-details</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-details" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-error-details (err) =&gt; (details)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>err</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>details</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:gsl-error-details([gsl-error])">
+<span class="sig-name descname"><span class="pre">gsl-error-details(&lt;gsl-error&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:gsl-error-details([gsl-error])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </section>
 <section id="error-types">
 <h2>Error types<a class="headerlink" href="#error-types" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-bad-function]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-bad-function&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-bad-function]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-failure]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-failure&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-failure]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-bad-length]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-bad-length&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-bad-length]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-failure&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-bad-tolerance]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-bad-tolerance&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-bad-tolerance]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-continue]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-continue&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-continue]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-cache-limit-exceeded]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-cache-limit-exceeded&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-cache-limit-exceeded]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-domain]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-domain&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-domain]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-continue]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-continue&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-continue]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-domain&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-divergence]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-divergence&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-divergence]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-range]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-range&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-range]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-domain-error]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-domain-error&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-domain-error]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-fault]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-fault&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-fault]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-end-of-file]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-end-of-file&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-end-of-file]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-invalid-argument]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-invalid-argument&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-invalid-argument]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-factorization-failed]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-factorization-failed&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-factorization-failed]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-invalid-argument&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-failed]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-failed&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-failed]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-failed]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-failed&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-failed]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-failure]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-failure&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-failure]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-factorization-failed]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-factorization-failed&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-factorization-failed]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-fault]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-fault&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-fault]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-sanity-check-failed]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-sanity-check-failed&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-sanity-check-failed]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-invalid-argument]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-invalid-argument&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-invalid-argument]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-no-memory]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-no-memory&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-no-memory]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-loss-of-accuracy]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-loss-of-accuracy&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-loss-of-accuracy]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-bad-function]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-bad-function&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-bad-function]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-max-iterations]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-max-iterations&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-max-iterations]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-runaway]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-runaway&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-runaway]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-no-memory]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-no-memory&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-no-memory]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-max-iterations]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-max-iterations&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-max-iterations]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-no-progress-jacobian]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-no-progress-jacobian&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-no-progress-jacobian]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-zero-division]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-zero-division&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-zero-division]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-no-progress]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-no-progress&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-no-progress]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-bad-tolerance]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-bad-tolerance&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-bad-tolerance]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-not-square]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-not-square&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-not-square]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-tolerance]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-tolerance&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-tolerance]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-overflow]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-overflow&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-overflow]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-underflow]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-underflow&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-underflow]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-range-error]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-range-error&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-range-error]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-overflow]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-overflow&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-overflow]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-roundoff-error]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-roundoff-error&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-roundoff-error]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-loss-of-accuracy]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-loss-of-accuracy&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-loss-of-accuracy]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-runaway]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-runaway&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-runaway]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-roundoff]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-roundoff&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-roundoff]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-sanity-check-failed]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-sanity-check-failed&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-sanity-check-failed]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-bad-length]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-bad-length&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-bad-length]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-singularity]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-singularity&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-singularity]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-not-square]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-not-square&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-not-square]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-table-limit-exceeded]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-table-limit-exceeded&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-table-limit-exceeded]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-singularity]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-singularity&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-singularity]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-tolerance-f]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-tolerance-f&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-tolerance-f]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-divergence]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-divergence&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-divergence]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-tolerance-gradient]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-tolerance-gradient&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-tolerance-gradient]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-unsupported]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-unsupported&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-unsupported]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-tolerance-x]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-tolerance-x&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-tolerance-x]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-unimplemented]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-unimplemented&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-unimplemented]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-tolerance]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-tolerance&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-tolerance]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-cache-limit-exceeded]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-cache-limit-exceeded&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-cache-limit-exceeded]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-underflow]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-underflow&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-underflow]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-table-limit-exceeded]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-table-limit-exceeded&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-table-limit-exceeded]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-unimplemented]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-unimplemented&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-unimplemented]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-no-progress]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-no-progress&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-no-progress]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-unsupported]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-unsupported&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-unsupported]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-no-progress-jacobian]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-no-progress-jacobian&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-no-progress-jacobian]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="dylan class">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-zero-division]">
-<span class="sig-name descname"><span class="pre">&lt;gsl-zero-division&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-zero-division]" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-tolerance-f]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-tolerance-f&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-tolerance-f]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></p>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-tolerance-x]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-tolerance-x&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-tolerance-x]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-tolerance-gradient]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-tolerance-gradient&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-tolerance-gradient]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-error:[gsl-error-end-of-file]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-error-end-of-file&gt;</span></span> <em class="property"><span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-error:[gsl-error-end-of-file]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p>&lt;gsl-error&gt;</p>
 </dd>
 </dl>
 </dd></dl>
@@ -725,45 +776,46 @@
 <li><a class="reference internal" href="#">GSL-ERROR</a><ul>
 <li><a class="reference internal" href="#base-error-class">Base error class</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-code"><code class="docutils literal notranslate"><span class="pre">gsl-error-code</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-message"><code class="docutils literal notranslate"><span class="pre">gsl-error-message</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-details"><code class="docutils literal notranslate"><span class="pre">gsl-error-details</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:gsl-error-details([gsl-error])"><code class="docutils literal notranslate"><span class="pre">gsl-error-details(&lt;gsl-error&gt;)</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#error-types">Error types</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-bad-function]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-bad-function&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-bad-length]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-bad-length&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-bad-tolerance]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-bad-tolerance&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-cache-limit-exceeded]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-cache-limit-exceeded&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-continue]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-continue&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-divergence]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-divergence&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-domain-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-domain-error&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-end-of-file]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-end-of-file&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-factorization-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-factorization-failed&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-failed&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-failure]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-failure&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-fault]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-fault&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-invalid-argument]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-invalid-argument&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-loss-of-accuracy]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-loss-of-accuracy&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-max-iterations]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-max-iterations&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-no-memory]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-no-memory&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-no-progress-jacobian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-no-progress-jacobian&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-no-progress]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-no-progress&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-not-square]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-not-square&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-overflow]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-overflow&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-range-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-range-error&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-roundoff-error]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-roundoff-error&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-runaway]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-runaway&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-sanity-check-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-sanity-check-failed&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-singularity]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-singularity&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-table-limit-exceeded]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-table-limit-exceeded&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-tolerance-f]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-tolerance-f&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-tolerance-gradient]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-tolerance-gradient&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-tolerance-x]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-tolerance-x&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-tolerance]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-tolerance&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-underflow]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-underflow&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-unimplemented]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-unimplemented&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-unsupported]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-unsupported&gt;</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-zero-division]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-zero-division&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-failure]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-failure&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-continue]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-continue&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-domain]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-domain&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-range]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-range&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-fault]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-fault&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-invalid-argument]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-invalid-argument&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-failed&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-factorization-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-factorization-failed&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-sanity-check-failed]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-sanity-check-failed&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-no-memory]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-no-memory&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-bad-function]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-bad-function&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-runaway]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-runaway&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-max-iterations]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-max-iterations&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-zero-division]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-zero-division&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-bad-tolerance]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-bad-tolerance&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-tolerance]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-tolerance&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-underflow]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-underflow&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-overflow]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-overflow&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-loss-of-accuracy]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-loss-of-accuracy&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-roundoff]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-roundoff&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-bad-length]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-bad-length&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-not-square]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-not-square&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-singularity]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-singularity&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-divergence]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-divergence&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-unsupported]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-unsupported&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-unimplemented]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-unimplemented&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-cache-limit-exceeded]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-cache-limit-exceeded&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-table-limit-exceeded]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-table-limit-exceeded&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-no-progress]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-no-progress&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-no-progress-jacobian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-no-progress-jacobian&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-tolerance-f]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-tolerance-f&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-tolerance-x]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-tolerance-x&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-tolerance-gradient]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-tolerance-gradient&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-error:[gsl-error-end-of-file]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-error-end-of-file&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

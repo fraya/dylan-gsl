@@ -8,17 +8,26 @@ Base error class
 ================
 
 .. class:: <gsl-error>
+   :abstract:
+   :instantiable:
 
    :superclasses: :drm:`<error>`
 
    :keyword required code: An instance of :drm:`<integer>`.
 
-.. generic-function:: gsl-error-code
+   :keyword filename: An instance of false-or(:drm:`<string>`).
 
-   :signature: gsl-error-code (object) => (value)
+   :keyword line: An instance of false-or(:drm:`<integer>`).
 
-   :parameter object: An instance of :class:`<gsl-error>`.
-   :value value: An instance of :drm:`<integer>`.
+   :keyword reason: An instance of false-or(:drm:`<string>`).
+
+   :slot gsl-error-code: An instance of :drm:`<integer>`.
+
+   :slot gsl-error-filename: An instance of false-or(:drm:`<string>`).
+
+   :slot gsl-error-line: An instance of false-or(:drm:`<integer>`).
+
+   :slot gsl-error-reason: An instance of false-or(:drm:`<string>`).
 
 .. generic-function:: gsl-error-message
 
@@ -27,175 +36,204 @@ Base error class
    :parameter err: An instance of :class:`<gsl-error>`.
    :value message: An instance of :drm:`<string>`.
 
+.. method:: gsl-error-message
+   :specializer: <gsl-error>
+   :no-contents-entry:
+
+.. generic-function:: gsl-error-details
+
+   :signature: gsl-error-details (err) => (details)
+
+   :parameter err: An instance of :class:`<gsl-error>`.
+   :value details: An instance of :drm:`<string>`.
+
+.. method:: gsl-error-details
+   :specializer: <gsl-error>
+
 Error types
 ===========
 
-.. class:: <gsl-bad-function>
+.. class:: <gsl-error-failure>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-failure>
+   :instantiable:
 
-.. class:: <gsl-bad-length>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-continue>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-bad-tolerance>
+.. class:: <gsl-error-domain>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-domain>
+   :instantiable:
 
-.. class:: <gsl-cache-limit-exceeded>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-range>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-continue>
+.. class:: <gsl-error-fault>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-invalid-argument>
+   :instantiable:
 
-.. class:: <gsl-divergence>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-invalid-argument>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-domain-error>
+.. class:: <gsl-error-failed>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-factorization-failed>
+   :instantiable:
 
-.. class:: <gsl-end-of-file>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-sanity-check-failed>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-factorization-failed>
+.. class:: <gsl-error-no-memory>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-bad-function>
+   :instantiable:
 
-.. class:: <gsl-failed>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-runaway>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-failure>
+.. class:: <gsl-error-max-iterations>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-zero-division>
+   :instantiable:
 
-.. class:: <gsl-fault>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-bad-tolerance>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-invalid-argument>
+.. class:: <gsl-error-tolerance>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-underflow>
+   :instantiable:
 
-.. class:: <gsl-loss-of-accuracy>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-overflow>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-max-iterations>
+.. class:: <gsl-error-loss-of-accuracy>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-roundoff>
+   :instantiable:
 
-.. class:: <gsl-no-memory>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-bad-length>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-no-progress-jacobian>
+.. class:: <gsl-error-not-square>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-singularity>
+   :instantiable:
 
-.. class:: <gsl-no-progress>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-divergence>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-not-square>
+.. class:: <gsl-error-unsupported>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-unimplemented>
+   :instantiable:
 
-.. class:: <gsl-overflow>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-cache-limit-exceeded>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-range-error>
+.. class:: <gsl-error-table-limit-exceeded>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-no-progress>
+   :instantiable:
 
-.. class:: <gsl-roundoff-error>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-no-progress-jacobian>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-runaway>
+.. class:: <gsl-error-tolerance-f>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
+   :superclasses: <gsl-error>
 
+.. class:: <gsl-error-tolerance-x>
+   :instantiable:
 
-.. class:: <gsl-sanity-check-failed>
+   :superclasses: <gsl-error>
 
-   :superclasses: :class:`<gsl-error>`
+.. class:: <gsl-error-tolerance-gradient>
+   :instantiable:
 
+   :superclasses: <gsl-error>
 
-.. class:: <gsl-singularity>
+.. class:: <gsl-error-end-of-file>
+   :instantiable:
 
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-table-limit-exceeded>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-tolerance-f>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-tolerance-gradient>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-tolerance-x>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-tolerance>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-underflow>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-unimplemented>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-unsupported>
-
-   :superclasses: :class:`<gsl-error>`
-
-
-.. class:: <gsl-zero-division>
-
-   :superclasses: :class:`<gsl-error>`
-
+   :superclasses: <gsl-error>

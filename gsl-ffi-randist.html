@@ -657,6 +657,479 @@ A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;<
 
 </section>
 </section>
+<section id="exponential">
+<h2>Exponential<a class="headerlink" href="#exponential" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-exponential">
+<span class="sig-name descname"><span class="pre">gsl-ran-exponential</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exponential" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, mu) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>mu</strong> – Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from an exponential distribution with mean = mu.  A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-exponential-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-exponential-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exponential-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, mu) =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Probability density function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-p">
+<span class="sig-name descname"><span class="pre">gsl-cdf-exponential-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, mu) =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cumulative distribution function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-q">
+<span class="sig-name descname"><span class="pre">gsl-cdf-exponential-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-q" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, mu) =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cumulative distribution function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-pinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-exponential-pinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-pinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(p, mu) =&gt; (x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-qinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-exponential-qinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-qinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(p, mu) =&gt; (x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="laplace">
+<h2>Laplace<a class="headerlink" href="#laplace" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-laplace">
+<span class="sig-name descname"><span class="pre">gsl-ran-laplace</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-laplace" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, a) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>a</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from a Laplace distribution. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-laplace-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-laplace-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-laplace-pdf" title="Link to this definition">¶</a></dt>
+<dd><blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, a) =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">parameter x<span class="colon">:</span></dt>
+<dd class="field-even"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+<dt class="field-odd">parameter a<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mean. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+<dt class="field-even">parameter b<span class="colon">:</span></dt>
+<dd class="field-even"><p>Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+<dt class="field-odd">result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Probability density function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</div></blockquote>
+<section id="exponentiated-power">
+<h3>Exponentiated power<a class="headerlink" href="#exponentiated-power" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-exppow">
+<span class="sig-name descname"><span class="pre">gsl-ran-exppow</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exppow" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, a, b) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>a</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>b</strong> – Shape parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from an exponentiated power distribution with scale = a and shape = b.  A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-exppow-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-exppow-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exppow-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, a, b) =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>b</strong> – Shape parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Probability density function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="cauchy">
+<h2>Cauchy<a class="headerlink" href="#cauchy" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-cauchy">
+<span class="sig-name descname"><span class="pre">gsl-ran-cauchy</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cauchy" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, a) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>a</strong> – Location parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from a Cauchy distribution with location = x0 and scale = gamma.  A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-cauchy-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-cauchy-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cauchy-pdf" title="Link to this definition">¶</a></dt>
+<dd><blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, a) =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">parameter x<span class="colon">:</span></dt>
+<dd class="field-even"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+<dt class="field-odd">parameter a<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Location parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+<dt class="field-even">result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>Probability density function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</div></blockquote>
+<section id="rayleigh">
+<h3>Rayleigh<a class="headerlink" href="#rayleigh" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh">
+<span class="sig-name descname"><span class="pre">gsl-ran-rayleigh</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, sigma) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from a Rayleigh distribution with scale = sigma.  A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-rayleigh-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, sigma) =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Probability density function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-p">
+<span class="sig-name descname"><span class="pre">gsl-cdf-rayleigh-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, sigma) =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cumulative distribution function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-q">
+<span class="sig-name descname"><span class="pre">gsl-cdf-rayleigh-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-q" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, sigma) =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cumulative distribution function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-pinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-rayleigh-pinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-pinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(p, sigma) =&gt; (x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-qinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-rayleigh-qinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-qinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(p, sigma) =&gt; (x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="rayleigh-tail">
+<h2>Rayleigh tail<a class="headerlink" href="#rayleigh-tail" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-tail">
+<span class="sig-name descname"><span class="pre">gsl-ran-rayleigh-tail</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-tail" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, a, sigma) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>a</strong> – An <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-tail-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-rayleigh-tail-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-tail-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, a, sigma) =&gt; (pd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>x</strong> – An <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – An <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gamma">
+<h2>Gamma<a class="headerlink" href="#gamma" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-gamma">
+<span class="sig-name descname"><span class="pre">gsl-ran-gamma</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-gamma" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, a, b) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>a</strong> – Shape parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>b</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from a gamma distribution with shape = a and scale = b.  A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-gamma-knuth">
+<span class="sig-name descname"><span class="pre">gsl-ran-gamma-knuth</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-gamma-knuth" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(rng, a, b) =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>a</strong> – Shape parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>b</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample from a gamma distribution with shape = a and scale = b.  A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-gamma-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-gamma-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-gamma-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(x, a, b) =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>a</strong> – Shape parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>b</strong> – Scale parameter. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Probability density function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -739,6 +1212,48 @@ A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;<
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-tail-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-ugaussian-tail-pdf</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exponential">Exponential</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exponential"><code class="docutils literal notranslate"><span class="pre">gsl-ran-exponential</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exponential-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-exponential-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-exponential-p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-exponential-q</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-exponential-pinv</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-exponential-qinv</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#laplace">Laplace</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-laplace"><code class="docutils literal notranslate"><span class="pre">gsl-ran-laplace</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-laplace-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-laplace-pdf</span></code></a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exppow"><code class="docutils literal notranslate"><span class="pre">gsl-ran-exppow</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-exppow-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-exppow-pdf</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cauchy">Cauchy</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cauchy"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cauchy</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cauchy-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cauchy-pdf</span></code></a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh"><code class="docutils literal notranslate"><span class="pre">gsl-ran-rayleigh</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-rayleigh-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-rayleigh-p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-rayleigh-q</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-rayleigh-pinv</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-rayleigh-qinv</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rayleigh-tail">Rayleigh tail</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-tail"><code class="docutils literal notranslate"><span class="pre">gsl-ran-rayleigh-tail</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-rayleigh-tail-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-rayleigh-tail-pdf</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gamma">Gamma</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-gamma"><code class="docutils literal notranslate"><span class="pre">gsl-ran-gamma</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-gamma-knuth"><code class="docutils literal notranslate"><span class="pre">gsl-ran-gamma-knuth</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-gamma-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-gamma-pdf</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -4,76 +4,6 @@ GSL-FFI-ERROR
 .. current-library:: dylan-gsl
 .. current-module:: gsl-ffi-error
 
-Error constants
-===============
-
-.. constant:: $gsl-continue
-
-.. constant:: $gsl-ebadfunc
-
-.. constant:: $gsl-ebadlen
-
-.. constant:: $gsl-ebadtol
-
-.. constant:: $gsl-ecache
-
-.. constant:: $gsl-ediv
-
-.. constant:: $gsl-edom
-
-.. constant:: $gsl-efactor
-
-.. constant:: $gsl-efailed
-
-.. constant:: $gsl-efault
-
-.. constant:: $gsl-einval
-
-.. constant:: $gsl-eloss
-
-.. constant:: $gsl-emaxiter
-
-.. constant:: $gsl-enomem
-
-.. constant:: $gsl-enoprog
-
-.. constant:: $gsl-enoprogjac
-
-.. constant:: $gsl-enotsq
-
-.. constant:: $gsl-eof
-
-.. constant:: $gsl-erange
-
-.. constant:: $gsl-eround
-
-.. constant:: $gsl-erunaway
-
-.. constant:: $gsl-esanity
-
-.. constant:: $gsl-esing
-
-.. constant:: $gsl-etable
-
-.. constant:: $gsl-etol
-
-.. constant:: $gsl-etolf
-
-.. constant:: $gsl-etolg
-
-.. constant:: $gsl-etolx
-
-.. constant:: $gsl-eunderflow
-
-.. constant:: $gsl-eunimpl
-
-.. constant:: $gsl-eunsupp
-
-.. constant:: $gsl-ezero
-
-.. constant:: $gsl-failure
-
-.. constant:: $gsl-ovrflw
 
 Error functions
 ===============
@@ -82,5 +12,21 @@ Error functions
 
    :signature: gsl-strerror (status) => (message)
 
-   :parameter status: An instance of :class:`<c-int>`.
+   :param status: An instance of :class:`<c-int>`.
    :value message: An instance of :class:`<c-string>`.
+
+.. function:: gsl-set-error-handler
+
+   :signature: gsl-set-error-handler (handler) => (previous-handler)
+
+   :param handler: Type ``<c-void*>``.
+   :value previous-handler: Type ``<c-void*>``.
+
+.. function:: gsl-set-error-handler-off
+
+   :signature: gsl-set-error-handler-off () => (previous-handler)
+
+   :value previous-handler: Type ``<c-void*>``.
+
+.. variable:: *gsl-error-handler*
+
