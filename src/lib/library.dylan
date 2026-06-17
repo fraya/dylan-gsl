@@ -6,7 +6,8 @@ define library dylan-gsl
   use c-ffi;
   use io,
     import: { format,
-              format-out };
+              format-out,
+              print };
   use uncommon-dylan,
     import: { uncommon-utils };
 

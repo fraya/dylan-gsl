@@ -8,14 +8,14 @@ define function test-gsl-rng
   let sample = r.gsl-rng-get;
   assert-true(sample >= r.gsl-rng-min & sample <= r.gsl-rng-max,
               "Random number is between minimum and maximun of RNG");
-  format-out("gsl-rng-get: %=\n", sample);
+  // format-out("gsl-rng-get: %=\n", sample);
 
   // gsl-rng-uniform
 
   let sample = r.gsl-rng-uniform;
   assert-true(sample > 0.0 & sample <= 1.0,
               "Random number is in range [0,1)");
-  format-out("gsl-rng-uniform: %=\n", sample);
+  // format-out("gsl-rng-uniform: %=\n", sample);
 
   // gsl-rng-uniform-int
 
@@ -25,7 +25,7 @@ define function test-gsl-rng
 
   let n      = r.gsl-rng-max - 2;
   let sample = gsl-rng-uniform-int(r, n);
-  format-out("gsl-rng-uniform-int: %=\n", sample);
+  // format-out("gsl-rng-uniform-int: %=\n", sample);
 
   assert-true(sample > 0 & sample < n,
               "gsl-rng-uniform-int: Random number between 0 and n");
@@ -41,8 +41,8 @@ define function test-gsl-rng
   let sample = r.gsl-rng-uniform-positive;
   assert-true(sample > 0.0 & sample < 1.0,
               "Random number is in range (0,1), excluding both endpoints");
-  format-out("gsl-rng-uniform-positive: %=\n", sample);
-  format-out("---\n");
+  // format-out("gsl-rng-uniform-positive: %=\n", sample);
+  // format-out("---\n");
 end;
 
 define test test-rng-mt19937 ()
@@ -79,8 +79,8 @@ end;
 define test test-rng-env ()
   gsl-rng-env-setup();
   let r = make(<gsl-rng>);
-  format-out("RNG: %s\n", r.gsl-rng-name);
-  format-out("seed: %d\n", r.gsl-rng-seed);
+  // format-out("RNG: %s\n", r.gsl-rng-name);
+  // format-out("seed: %d\n", r.gsl-rng-seed);
   benchmark-repeat (iterations: rng-iterations())
     test-gsl-rng(r);
   end;

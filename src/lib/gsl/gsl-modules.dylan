@@ -5,12 +5,62 @@ Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See License.txt in this distribution for details.
 
 define module gsl-error
-  use gsl-ffi-error,
-    export: all;
+
+  create
+    <gsl-error>,
+    gsl-error-code,
+    gsl-error-filename,
+    gsl-error-line,
+    gsl-error-reason,
+    gsl-error-details,
+    gsl-error-message;
+
+  create
+    <gsl-error-failure>,
+    <gsl-error-continue>,
+    <gsl-error-domain>,
+    <gsl-error-range>,
+    <gsl-error-fault>,
+    <gsl-error-invalid-argument>,
+    <gsl-error-failed>,
+    <gsl-error-factorization-failed>,
+    <gsl-error-sanity-check-failed>,
+    <gsl-error-no-memory>,
+    <gsl-error-bad-function>,
+    <gsl-error-runaway>,
+    <gsl-error-max-iterations>,
+    <gsl-error-zero-division>,
+    <gsl-error-bad-tolerance>,
+    <gsl-error-tolerance>,
+    <gsl-error-underflow>,
+    <gsl-error-overflow>,
+    <gsl-error-loss-of-accuracy>,
+    <gsl-error-roundoff>,
+    <gsl-error-bad-length>,
+    <gsl-error-not-square>,
+    <gsl-error-singularity>,
+    <gsl-error-divergence>,
+    <gsl-error-unsupported>,
+    <gsl-error-unimplemented>,
+    <gsl-error-cache-limit-exceeded>,
+    <gsl-error-table-limit-exceeded>,
+    <gsl-error-no-progress>,
+    <gsl-error-no-progress-jacobian>,
+    <gsl-error-tolerance-f>,
+    <gsl-error-tolerance-x>,
+    <gsl-error-tolerance-gradient>,
+    <gsl-error-end-of-file>;
+
+  create
+    with-gsl-error-handler;
+
 end module;
 
 define module gsl-error-impl
   use common-dylan;
+  use c-ffi;
+  use format;
+  use uncommon-utils;
   use gsl-ffi-error;
   use gsl-error;
 end module;
@@ -384,6 +434,7 @@ define module gsl-rng-impl
   use common-dylan;
   use format-out;
   use finalization;
+  use print;
   use uncommon-utils;
   use gsl-ffi-rng,
     prefix: "ffi/";
@@ -396,51 +447,57 @@ end module;
 define module gsl-randist
   create
     <gsl-randist>,
-    gsl-ran-variate,
-    gsl-ran-pdf,
-    gsl-cdf-p,
-    gsl-cdf-q,
-    gsl-cdf-pinv,
-    gsl-cdf-qinv;
-
-  create
-    <gsl-randist-gaussian>,
-    gsl-randist-sigma,
-    <gsl-randist-tail>;
-
-  create
-    <gsl-gaussian-algorithm>,
-    $gsl-gaussian-algorithm-instances,
-    $gaussian-box-muller,
-    $gaussian-ziggurat,
-    $gaussian-ratio-method;
-
-  create
-    <gsl-gaussian>,
-    gsl-gaussian-algorithm,
-    gsl-gaussian-algorithm-setter;
+    gsl-randist-variate,
+    gsl-randist-pdf,
+    gsl-randist-cdf-p,
+    gsl-randist-cdf-q,
+    gsl-randist-cdf-pinv,
+    gsl-randist-cdf-qinv;
 
 
   create
-    <gsl-ugaussian-algorithm>,
-    $gsl-ugaussian-algorithm-instances,
-    $ugaussian-default,
+    $gaussian-box-muller-method,
+    $gaussian-ziggurat-method,
+    $gaussian-ratio-method,
+    <gsl-randist-gaussian>;
+
+  create
+    <gsl-randist-ugaussian>,
+    $ugaussian-method,
     $ugaussian-ratio-method;
 
   create
-    <gsl-ugaussian>,
-    gsl-ugaussian-algorithm,
-    gsl-ugaussian-algorithm-setter;
+    <gsl-randist-gaussian-tail>,
+    <gsl-randist-ugaussian-tail>;
 
   create
-    <gsl-gaussian-tail>,
-    <gsl-ugaussian-tail>;
+    <gsl-randist-exponential>;
+
+  create
+    <gsl-randist-laplace>;
+
+  create
+    <gsl-randist-exppow>;
+
+  create
+    <gsl-randist-cauchy>;
+
+ create
+    <gsl-randist-rayleigh>,
+    <gsl-randist-rayleigh-tail>;
+
+  create
+    <gsl-randist-gamma>,
+    $gsl-randist-gamma-default,
+    $gsl-randist-gamma-knuth;
 
 end module;
 
 define module gsl-randist-impl
   use common-dylan;
   use uncommon-utils;
+  use print;
+  use gsl-error;
   use gsl-rng;
   use gsl-rng-impl,
     import: { gsl-rng-ffi };

@@ -106,6 +106,13 @@ define method finalize
   ffi/gsl-rng-free(r.gsl-rng-ffi)
 end;
 
+define method print-object
+    (rng :: <gsl-rng>, stream :: <stream>) => ()
+  printing-object(rng, stream)
+    print(gsl-rng-name(rng), stream, escape?: #t)
+  end;
+end;
+
 define function gsl-rng-name
     (r :: <gsl-rng>) => (_ :: <string>)
   ffi/gsl-rng-name(r.gsl-rng-ffi)

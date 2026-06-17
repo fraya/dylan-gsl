@@ -4,93 +4,59 @@ Author: Fernando Raya
 Copyright: Copyright (C) 2026, Dylan Hackers. All rights reserved.
 License: See LICENSE in this distribution for details.
 
-define class <gsl-error> (<error>)
+// GSL constant error codes
+
+define enum gsl-error-codes ()
+  $gsl-continue = -2;   /* iteration has not converged */
+  $gsl-failure;
+  $gsl-success;
+  $gsl-edom;       /* input domain error, e.g sqrt(-1) */
+  $gsl-erange;     /* output range error, e.g. exp(1e100) */
+  $gsl-efault;     /* invalid pointer */
+  $gsl-einval;     /* invalid argument supplied by user */
+  $gsl-efailed;    /* generic failure */
+  $gsl-efactor;    /* factorization failed */
+  $gsl-esanity;    /* sanity check failed - shouldn't happen */
+  $gsl-enomem;     /* malloc failed */
+  $gsl-ebadfunc;   /* problem with user-supplied function */
+  $gsl-erunaway;   /* iterative process is out of control */
+  $gsl-emaxiter;   /* exceeded max number of iterations */
+  $gsl-ezero;      /* tried to divide by zero */
+  $gsl-ebadtol;    /* user specified an invalid tolerance */
+  $gsl-etol;       /* failed to reach the specified tolerance */
+  $gsl-eunderflow; /* underflow */
+  $gsl-ovrflw;     /* overflow  */
+  $gsl-eloss;      /* loss of accuracy */
+  $gsl-eround;     /* failed because of roundoff error */
+  $gsl-ebadlen;    /* matrix, vector lengths are not conformant */
+  $gsl-enotsq;     /* matrix not square */
+  $gsl-esing;      /* apparent singularity detected */
+  $gsl-ediv;       /* integral or series is divergent */
+  $gsl-eunsupp;    /* requested feature is not supported by the hardware */
+  $gsl-eunimpl;    /* requested feature not (yet) implemented */
+  $gsl-ecache;     /* cache limit exceeded */
+  $gsl-etable;     /* table limit exceeded */
+  $gsl-enoprog;    /* iteration is not making progress towards solution */
+  $gsl-enoprogjac; /* jacobian evaluations are not improving the solution */
+  $gsl-etolf;      /* cannot reach the specified tolerance in F */
+  $gsl-etolx;      /* cannot reach the specified tolerance in X */
+  $gsl-etolg;      /* cannot reach the specified tolerance in gradient */
+  $gsl-eof;        /* end of file */
+end enum;
+
+define abstract class <gsl-error> (<error>)
   constant slot gsl-error-code :: <integer>,
     required-init-keyword: code:;
-  constant slot gsl-error-filename :: <string>,
+  constant slot gsl-error-filename :: false-or(<string>) = #f,
     required-init-keyword: filename:;
-  constant slot gsl-error-line :: <integer>,
+  constant slot gsl-error-line :: false-or(<integer>) = #f,
     required-init-keyword: line:;
-  constant slot gsl-error-reason :: <string>,
+  constant slot gsl-error-reason :: false-or(<string>) = #f,
     required-init-keyword: reason:,
 end;
 
-define class <gsl-failure> (<gsl-error>) end;
-define class <gsl-continue> (<gsl-error>) end;
-define class <gsl-domain-error> (<gsl-error>) end;
-define class <gsl-range-error> (<gsl-error>) end;
-define class <gsl-fault> (<gsl-error>) end;
-define class <gsl-invalid-argument> (<gsl-error>) end;
-define class <gsl-failed> (<gsl-error>) end;
-define class <gsl-factorization-failed> (<gsl-error>) end;
-define class <gsl-sanity-check-failed> (<gsl-error>) end;
-define class <gsl-no-memory> (<gsl-error>) end;
-define class <gsl-bad-function> (<gsl-error>) end;
-define class <gsl-runaway> (<gsl-error>) end;
-define class <gsl-max-iterations> (<gsl-error>) end;
-define class <gsl-zero-division> (<gsl-error>) end;
-define class <gsl-bad-tolerance> (<gsl-error>) end;
-define class <gsl-tolerance> (<gsl-error>) end;
-define class <gsl-underflow> (<gsl-error>) end;
-define class <gsl-overflow> (<gsl-error>) end;
-define class <gsl-loss-of-accuracy> (<gsl-error>) end;
-define class <gsl-roundoff-error> (<gsl-error>) end;
-define class <gsl-bad-length> (<gsl-error>) end;
-define class <gsl-not-square> (<gsl-error>) end;
-define class <gsl-singularity> (<gsl-error>) end;
-define class <gsl-divergence> (<gsl-error>) end;
-define class <gsl-unsupported> (<gsl-error>) end;
-define class <gsl-unimplemented> (<gsl-error>) end;
-define class <gsl-cache-limit-exceeded> (<gsl-error>) end;
-define class <gsl-table-limit-exceeded> (<gsl-error>) end;
-define class <gsl-no-progress> (<gsl-error>) end;
-define class <gsl-no-progress-jacobian> (<gsl-error>) end;
-define class <gsl-tolerance-f> (<gsl-error>) end;
-define class <gsl-tolerance-x> (<gsl-error>) end;
-define class <gsl-tolerance-gradient> (<gsl-error>) end;
-define class <gsl-end-of-file> (<gsl-error>) end;
-
-define method make
-    (class == <gsl-error>, #rest all-keys, #key code :: <integer>) 
- => (error :: <gsl-error>)
-  let type = select (code)
-    $gsl-failure      => <gsl-failure>;
-    $gsl-continue     => <gsl-continue>;
-    $gsl-edom         => <gsl-domain-error>;
-    $gsl-erange       => <gsl-range-error>;
-    $gsl-efault       => <gsl-fault>;
-    $gsl-einval       => <gsl-invalid-argument>;
-    $gsl-efailed      => <gsl-failed>;
-    $gsl-efactor      => <gsl-factorization-failed>;
-    $gsl-esanity      => <gsl-sanity-check-failed>;
-    $gsl-enomem       => <gsl-no-memory>;
-    $gsl-ebadfunc     => <gsl-bad-function>;
-    $gsl-erunaway     => <gsl-runaway>;
-    $gsl-emaxiter     => <gsl-max-iterations>;
-    $gsl-ezero        => <gsl-zero-division>;
-    $gsl-ebadtol      => <gsl-bad-tolerance>;
-    $gsl-etol         => <gsl-tolerance>;
-    $gsl-eunderflow   => <gsl-underflow>;
-    $gsl-ovrflw       => <gsl-overflow>;
-    $gsl-eloss        => <gsl-loss-of-accuracy>;
-    $gsl-eround       => <gsl-roundoff-error>;
-    $gsl-ebadlen      => <gsl-bad-length>;
-    $gsl-enotsq       => <gsl-not-square>;
-    $gsl-esing        => <gsl-singularity>;
-    $gsl-ediv         => <gsl-divergence>;
-    $gsl-eunsupp      => <gsl-unsupported>;
-    $gsl-eunimpl      => <gsl-unimplemented>;
-    $gsl-ecache       => <gsl-cache-limit-exceeded>;
-    $gsl-etable       => <gsl-table-limit-exceeded>;
-    $gsl-enoprog      => <gsl-no-progress>;
-    $gsl-enoprogjac   => <gsl-no-progress-jacobian>;
-    $gsl-etolf        => <gsl-tolerance-f>;
-    $gsl-etolx        => <gsl-tolerance-x>;
-    $gsl-etolg        => <gsl-tolerance-gradient>;
-    $gsl-eof          => <gsl-end-of-file>;
-  end select;
-  apply(make, type, all-keys)
-end;
+define generic gsl-error-message
+  (err :: <gsl-error>) => (message :: <string>);
 
 define method gsl-error-message
   (err :: <gsl-error>) => (message :: <string>)
@@ -105,21 +71,197 @@ define method gsl-error-details
                    err.gsl-error-reason)
 end;
 
-define function gsl-error-handler-callback
-    (reason :: <string>, filename :: <string>, line :: <integer>, errno :: <integer>)
- => ()
-  *gsl-error-handler*(reason, filename, line, errno)
+
+define class <gsl-error-failure> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-failure;
 end;
 
-define c-callable-wrapper $gsl-error-handler of gsl-error-handler-callback
-  input parameter reason   :: <c-string>;
-  input parameter filename :: <c-string>;
-  input parameter line     :: <c-int>;
-  input parameter errno    :: <c-int>;
-end c-callable-wrapper;
+define class <gsl-error-continue> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-continue;
+end;
+
+define class <gsl-error-domain> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-edom;
+end;
+
+define class <gsl-error-range> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-erange;
+end;
+
+define class <gsl-error-fault> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-efault;
+end;
+
+define class <gsl-error-invalid-argument> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-einval;
+end;
+
+define class <gsl-error-failed> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-efailed;
+end;
+
+define class <gsl-error-factorization-failed> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-efactor;
+end;
+
+define class <gsl-error-sanity-check-failed> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-esanity;
+end;
+
+define class <gsl-error-no-memory> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-enomem;
+end;
+
+define class <gsl-error-bad-function> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ebadfunc;
+end;
+
+define class <gsl-error-runaway> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-erunaway;
+end;
+
+define class <gsl-error-max-iterations> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-emaxiter;
+end;
+
+define class <gsl-error-zero-division> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ezero;
+end;
+
+define class <gsl-error-bad-tolerance> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ebadtol;
+end;
+
+define class <gsl-error-tolerance> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-etol;
+end;
+
+define class <gsl-error-underflow> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-eunderflow;
+end;
+
+define class <gsl-error-overflow> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ovrflw;
+end;
+
+define class <gsl-error-loss-of-accuracy> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-eloss;
+end;
+
+define class <gsl-error-roundoff> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-eround;
+end;
+
+define class <gsl-error-bad-length> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ebadlen;
+end;
+
+define class <gsl-error-not-square> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-enotsq;
+end;
+
+define class <gsl-error-singularity> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-esing;
+end;
+
+define class <gsl-error-divergence> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ediv;
+end;
+
+define class <gsl-error-unsupported> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-eunsupp;
+end;
+
+define class <gsl-error-unimplemented> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-eunimpl;
+end;
+
+define class <gsl-error-cache-limit-exceeded> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-ecache;
+end;
+
+define class <gsl-error-table-limit-exceeded> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-etable;
+end;
+
+define class <gsl-error-no-progress> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-enoprog;
+end;
+
+define class <gsl-error-no-progress-jacobian> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-enoprogjac;
+end;
+
+define class <gsl-error-tolerance-f> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-etolf;
+end;
+
+define class <gsl-error-tolerance-x> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-etolx;
+end;
+
+define class <gsl-error-tolerance-gradient> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-etolg;
+end;
+
+define class <gsl-error-end-of-file> (<gsl-error>)
+  inherited slot gsl-error-code = $gsl-eof;
+end;
+
+//
+// This abstract class is instantiable so when the FFI GSL library
+// raises an error we can trapped it with a handler and create the
+// <gsl-error> subclass with the code error.
+//
+
+define method make
+    (class == <gsl-error>, #rest all-keys, #key code :: <integer>) 
+ => (error :: <gsl-error>)
+  let type = select (code)
+    $gsl-failure      => <gsl-error-failure>;
+    $gsl-continue     => <gsl-error-continue>;
+    $gsl-edom         => <gsl-error-domain>;
+    $gsl-erange       => <gsl-error-range>;
+    $gsl-efault       => <gsl-error-fault>;
+    $gsl-einval       => <gsl-error-invalid-argument>;
+    $gsl-efailed      => <gsl-error-failed>;
+    $gsl-efactor      => <gsl-error-factorization-failed>;
+    $gsl-esanity      => <gsl-error-sanity-check-failed>;
+    $gsl-enomem       => <gsl-error-no-memory>;
+    $gsl-ebadfunc     => <gsl-error-bad-function>;
+    $gsl-erunaway     => <gsl-error-runaway>;
+    $gsl-emaxiter     => <gsl-error-max-iterations>;
+    $gsl-ezero        => <gsl-error-zero-division>;
+    $gsl-ebadtol      => <gsl-error-bad-tolerance>;
+    $gsl-etol         => <gsl-error-tolerance>;
+    $gsl-eunderflow   => <gsl-error-underflow>;
+    $gsl-ovrflw       => <gsl-error-overflow>;
+    $gsl-eloss        => <gsl-error-loss-of-accuracy>;
+    $gsl-eround       => <gsl-error-roundoff>;
+    $gsl-ebadlen      => <gsl-error-bad-length>;
+    $gsl-enotsq       => <gsl-error-not-square>;
+    $gsl-esing        => <gsl-error-singularity>;
+    $gsl-ediv         => <gsl-error-divergence>;
+    $gsl-eunsupp      => <gsl-error-unsupported>;
+    $gsl-eunimpl      => <gsl-error-unimplemented>;
+    $gsl-ecache       => <gsl-error-cache-limit-exceeded>;
+    $gsl-etable       => <gsl-error-table-limit-exceeded>;
+    $gsl-enoprog      => <gsl-error-no-progress>;
+    $gsl-enoprogjac   => <gsl-error-no-progress-jacobian>;
+    $gsl-etolf        => <gsl-error-tolerance-f>;
+    $gsl-etolx        => <gsl-error-tolerance-x>;
+    $gsl-etolg        => <gsl-error-tolerance-gradient>;
+    $gsl-eof          => <gsl-error-end-of-file>;
+    otherwise         => error("Unknown GSL error code: %d", code);
+  end select;
+  apply(make, type, all-keys)
+end;
 
 define function default-gsl-error-handler
-    (reason :: <string>, filename :: <string>, line :: <integer>, errno :: <integer>)
+    (reason   :: <string>,
+     filename :: <string>,
+     line     :: <integer>,
+     errno    :: <integer>)
  => ()
   error(make(<gsl-error>,
              code: errno,
@@ -127,9 +269,6 @@ define function default-gsl-error-handler
              line: line,
              reason: reason))
 end;
-
-define variable *gsl-error-handler* :: <function>
-  = default-gsl-error-handler;
 
 define macro with-gsl-error-handler
   { with-gsl-error-handler (?error-handler:expression) ?body:body end }
@@ -142,6 +281,7 @@ define macro with-gsl-error-handler
              gsl-set-error-handler(previous-handler);
            end;
          end; }
-end macro;                 
+end macro;
 
-gsl-set-error-handler($gsl-error-handler);
+*gsl-error-handler* := default-gsl-error-handler;
+

@@ -14,61 +14,12 @@ License: See License.txt in this distribution for details.
 define module gsl-ffi-error
 
   create
-    $gsl-failure,
-    $gsl-continue,
-    $gsl-success,
-    $gsl-edom,
-    $gsl-erange,
-    $gsl-efault,
-    $gsl-einval,
-    $gsl-efailed,
-    $gsl-efactor,
-    $gsl-esanity,
-    $gsl-enomem,
-    $gsl-ebadfunc,
-    $gsl-erunaway,
-    $gsl-emaxiter,
-    $gsl-ezero,
-    $gsl-ebadtol,
-    $gsl-etol,
-    $gsl-eunderflow,
-    $gsl-ovrflw,
-    $gsl-eloss,
-    $gsl-eround,
-    $gsl-ebadlen,
-    $gsl-enotsq,
-    $gsl-esing,
-    $gsl-ediv,
-    $gsl-eunsupp,
-    $gsl-eunimpl,
-    $gsl-ecache,
-    $gsl-etable,
-    $gsl-enoprog,
-    $gsl-enoprogjac,
-    $gsl-etolf,
-    $gsl-etolx,
-    $gsl-etolg,
-    $gsl-eof;
-
-  create
     gsl-strerror,
-    gsl-error-message;
-
-  create
     gsl-set-error-handler,
     gsl-set-error-handler-off;
 
   create
-    <gsl-error>,
-    gsl-error-code,
-    gsl-error-filename,
-    gsl-error-line,
-    gsl-error-reason,
-    gsl-error-details;
-
-  create
-    *gsl-error-handler*,
-    with-gsl-error-handler;
+    *gsl-error-handler*;
 
 end module gsl-ffi-error;
 
@@ -565,6 +516,13 @@ define module gsl-ffi-vector-impl
 
 end module gsl-ffi-vector-impl;
 
+///////////////////////////////////////////////////////////////////////////////
+//
+// Module Random Number Generators
+// https://www.gnu.org/software/gsl/doc/html/rng.html
+//
+///////////////////////////////////////////////////////////////////////////////
+
 define module gsl-ffi-rng
   create
     <gsl-rng-type*>;
@@ -600,6 +558,12 @@ define module gsl-ffi-rng-impl
   use gsl-ffi-rng;
 end module;
 
+///////////////////////////////////////////////////////////////////////////////
+//
+// Random Distributions
+//
+///////////////////////////////////////////////////////////////////////////////
+
 define module gsl-ffi-randist
   create
     gsl-ran-gaussian,
@@ -627,6 +591,127 @@ define module gsl-ffi-randist
   create
     gsl-ran-ugaussian-tail,
     gsl-ran-ugaussian-tail-pdf;
+
+  create
+    gsl-ran-exponential,
+    gsl-ran-exponential-pdf,
+    gsl-cdf-exponential-p,
+    gsl-cdf-exponential-q,
+    gsl-cdf-exponential-pinv,
+    gsl-cdf-exponential-qinv;
+
+  create
+    gsl-ran-laplace,
+    gsl-ran-laplace-pdf;
+
+  create
+    gsl-ran-exppow,
+    gsl-ran-exppow-pdf;
+
+  create
+    gsl-ran-cauchy,
+    gsl-ran-cauchy-pdf;
+
+  create
+    gsl-ran-rayleigh,
+    gsl-ran-rayleigh-pdf,
+    gsl-ran-rayleigh-tail,
+    gsl-ran-rayleigh-tail-pdf,
+    gsl-cdf-rayleigh-p,
+    gsl-cdf-rayleigh-q,
+    gsl-cdf-rayleigh-pinv,
+    gsl-cdf-rayleigh-qinv;
+
+  create
+    gsl-ran-gamma,
+    gsl-ran-gamma-knuth,
+    gsl-ran-gamma-pdf;
+
+//  create
+//    gsl-ran-flat,
+//    gsl-ran-flat-pdf;
+
+//  create
+//    gsl-ran-lognormal,
+//    gsl-ran-lognormal-pdf;
+
+//  create
+//    gsl-ran-chisq,
+//    gsl-ran-chisq-pdf;
+
+//  create
+//    gsl-ran-fdist,
+//    gsl-ran-fdist-pdf;
+
+//  create
+//    gsl-ran-tdist,
+//    gsl-ran-tdist-pdf;
+
+//  create
+//    gsl-ran-beta,
+//    gsl-ran-beta-pdf;
+
+//  create
+//    gsl-ran-landau,
+//    gsl-ran-landau-pdf;
+
+//  create
+//    gsl-ran-levy,
+//    gsl-ran-levy-skew;
+
+//  create
+//    gsl-ran-logistic,
+//    gsl-ran-logistic-pdf;
+
+//  create
+//    gsl-ran-pareto,
+//    gsl-ran-pareto-pdf;
+
+//  create
+//    gsl-ran-weibull,
+//    gsl-ran-weibull-pdf;
+
+//  create
+//    gsl-ran-gumbel1,
+//    gsl-ran-gumbel1-pdf,
+//    gsl-ran-gumbel2,
+//    gsl-ran-gumbel2-pdf;
+
+//   create
+//     gsl-ran-dir-2d,
+//     gsl-ran-dir-2d-trig-method,
+//     gsl-ran-dir-3d,
+//     gsl-ran-dir-nd;
+    
+//  create
+//    gsl-ran-poisson,
+//    gsl-ran-poisson-pdf;
+    
+//  create
+//    gsl-ran-bernoulli,
+//    gsl-ran-bernoulli-pdf;
+    
+//  create
+//    gsl-ran-binomial,
+//    gsl-ran-binomial-pdf;
+
+//  create
+//    gsl-ran-multinomial,
+//    gsl-ran-multinomial-pdf,
+//    gsl-ran-multinomial-lnpdf;
+
+//  create
+//    gsl-ran-negative-binomial,
+//    gsl-ran-pascal,
+//    gsl-ran-geometric,
+//    gsl-ran-hypergeometric,
+//    gsl-ran-logarithmic;
+
+//   create
+//     gsl-ran-dirichlet,
+//     gsl-ran-dirichlet-pdf,
+//     gsl-ran-dirichlet-lnpdf;
+
 end module;
 
 define module gsl-ffi-randist-impl

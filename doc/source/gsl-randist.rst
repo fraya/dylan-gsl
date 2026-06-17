@@ -7,17 +7,24 @@ GSL-RANDIST
 This module provides functionality to generate random variates from
 distributions.
 
-With polymorphism and multimethods I have reduced the number of
-functions available in the original GSL library, reducing the
-interface and the number of parameters passed to each function. This
-approach can be seen at :class:`<gsl-randist>`.
+Polymorphism and multimethods were used to simplify the original GSL
+library interface, reducing both the function count and the number of
+parameters per function. See :class:`<gsl-randist>` for examples of
+this design.
 
 The distributions available in this module are:
 
-- :class:`<gsl-gaussian>`
-- :class:`<gsl-ugaussian>`
-- :class:`<gsl-gaussian-tail>`
-- :class:`<gsl-ugaussian-tail>`
+- :class:`<gsl-randist-gaussian>`
+- :class:`<gsl-randist-ugaussian>`
+- :class:`<gsl-randist-gaussian-tail>`
+- :class:`<gsl-randist-ugaussian-tail>`
+- :class:`<gsl-randist-exponential>`
+- :class:`<gsl-randist-laplace>`
+- :class:`<gsl-randist-exppow>`
+- :class:`<gsl-randist-cauchy>`
+- :class:`<gsl-randist-rayleigh>`
+- :class:`<gsl-randist-rayleigh-tail>`
+- :class:`<gsl-randist-gamma>`
 
 
 The ``<gsl-randist>`` interface
@@ -29,26 +36,32 @@ The ``<gsl-randist>`` interface
 
    Base class for all distributions.
 
-   :keyword rng:
+   :keyword required rng:
 
      Random number generator. An instance of :class:`<gsl-rng>`.  Used
      to generate random variates from the distribution.
 
    :operations:
 
-     - :func:`gsl-ran-variate`
-     - :func:`gsl-ran-pdf`
-     - :func:`gsl-cdf-p`
-     - :func:`gsl-cdf-q`
-     - :func:`gsl-cdf-pinv`
-     - :func:`gsl-cdf-qinv`
+     - :func:`gsl-randist-variate`
+     - :func:`gsl-randist-pdf`
+     - :func:`gsl-randist-cdf-p`
+     - :func:`gsl-randist-cdf-q`
+     - :func:`gsl-randist-cdf-pinv`
+     - :func:`gsl-randist-cdf-qinv`
+
+   :operations:
+
+     - :func:`gsl-randist-standard-deviation`
 
 Operations
 ----------
 
-.. generic-function:: gsl-ran-variate
+.. generic-function:: gsl-randist-variate
 
-   :signature: gsl-ran-variate (distribution) => (variate)
+   :signature:
+
+     gsl-randist-variate (distribution) => (variate)
 
    Generates a random variate from the distribution.
 
@@ -61,12 +74,14 @@ Operations
      A random variate from the distribution.  An instance of
      :drm:`<float>`.
 
-.. generic-function:: gsl-ran-pdf
+.. generic-function:: gsl-randist-pdf
 
    Evaluates the probability density function (PDF) for the
    distribution.
 
-   :signature: gsl-ran-pdf (distribution, x) => (pd)
+   :signature:
+
+     gsl-randist-pdf (distribution, x) => (pd)
 
    :parameter distribution:
 
@@ -81,12 +96,14 @@ Operations
 
      The probability density at x. An instance of :drm:`<float>`.
 
-.. generic-function:: gsl-cdf-p
+.. generic-function:: gsl-randist-cdf-p
 
    Evaluates the cumulative distribution function (CDF) for the
    distribution.
 
-   :signature: gsl-cdf-p (distribution, x) => (cd)
+   :signature:
+
+     gsl-randist-cdf-p (distribution, x) => (cd)
 
    :parameter distribution:
 
@@ -101,9 +118,11 @@ Operations
 
      The cumulative probability at x. An instance of :drm:`<float>`.
 
-.. generic-function:: gsl-cdf-q
+.. generic-function:: gsl-randist-cdf-q
 
-   :signature: gsl-cdf-q (distribution, x) => (cd)
+   :signature:
+
+     gsl-randist-cdf-q (distribution, x) => (cd)
 
    :parameter distribution:
 
@@ -118,12 +137,14 @@ Operations
 
      The survival function at x. An instance of :drm:`<float>`.
 
-.. generic-function:: gsl-cdf-pinv
+.. generic-function:: gsl-randist-cdf-pinv
 
    Evaluates the inverse cumulative distribution function (CDF) for
    the distribution.
 
-   :signature: gsl-cdf-pinv (distribution, x) => (cd)
+   :signature:
+
+     gsl-randist-cdf-pinv (distribution, x) => (cd)
 
    :parameter distribution:
 
@@ -138,12 +159,14 @@ Operations
 
      The inverse cumulative distribution function at x. An instance of :drm:`<float>`.
 
-.. generic-function:: gsl-cdf-qinv
+.. generic-function:: gsl-randist-cdf-qinv
 
    Evaluates the inverse cumulative distribution function (CDF) for
    the distribution.
 
-   :signature: gsl-cdf-qinv (distribution, x) => (cd)
+   :signature:
+
+     gsl-randist-cdf-qinv (distribution, x) => (cd)
 
    :parameter distribution:
 
@@ -159,30 +182,13 @@ Operations
      The inverse survival function at x. An instance of
      :drm:`<float>`.
 
-Gaussian Distribution
+
+Gaussian distribution
 =====================
 
 .. class:: <gsl-randist-gaussian>
-   :abstract:
-   :uninstantiable:
-
-   :supers: :class:`<gsl-randist>`
-
-   :keyword sigma:
-
-      Standard deviation. An instance of :drm:`<float>`.
-
-   :slot gsl-randist-sigma:
-
-      The standard deviation of the distribution. An instance of
-      :drm:`<float>`.
-
-   :summary:
-
-      Base class of Gaussian distributions.
-
-.. class:: <gsl-gaussian>
    :instantiable:
+   :concrete:
 
    A Gaussian distribution. This returns random values of Gaussian
    probability density function.  See the original GSL documentation
@@ -191,70 +197,85 @@ Gaussian Distribution
    This distribution stores the type of algorithm used to generate
    random variates.
 
-   :supers: :class:`<gsl-randist-gaussian>`
+   :supers: :class:`<gsl-randist>`
+
+   :keyword required sigma:
+
+      Standard deviation. An instance of :drm:`<float>`.
 
    :keyword algorithm:
 
-     The algorithm to use for generating random variates.  An instance
-     of :class:`<gsl-gaussian-algorithm>`.  This keyword is optional
-     and the default value is :const:`$gaussian-box-muller`.  See
-     :class:`<gsl-gaussian-algorithm>` for more information.
-
-   :slot gsl-gaussian-algorithm:
-
-      An instance of :class:`<gsl-gaussian-algorithm>`.
-
-   :operations:
-
-      The following operations are defined for
-      :class:`<gsl-gaussian>`.  There is no documentation
-      available since is the same as the parent class.  See operations
-      in :class:`<gsl-randist>` for more information.
-
-      - :func:`gsl-randist-sigma(<gsl-randist-gaussian>)`
-      - :meth:`gsl-ran-variate(<gsl-randist-gaussian>)`
-      - :meth:`gsl-ran-pdf(<gsl-randist-gaussian>)`
-      - :meth:`gsl-cdf-p(<gsl-randist-gaussian>)`
-      - :meth:`gsl-cdf-q(<gsl-randist-gaussian>)`
-      - :meth:`gsl-cdf-pinv(<gsl-randist-gaussian>)`
-      - :meth:`gsl-cdf-qinv(<gsl-randist-gaussian>)`
+     The algorithm to use for generating random variates.  The default
+     value is :const:`$gaussian-box-muller-method`.  See
+     :ref:`gaussian-algorithms` for more information.
 
    :example:
 
      .. code-block:: dylan
 
-        let d = make(<gsl-gaussian>, sigma: 0.5d0, rng: make(<gsl-rng>));
-        let k = d.gsl-ran-variate;
-
-        // Change default algorithm
-        d.gsl-gaussian-algorithm := $gaussian-ratio-method;
-        let u = d.gsl-ran-variate;
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-gaussian>, sigma: 0.5d0, rng: r);
+        let k = d.gsl-randist-variate;
 
    :example:
 
-      .. code-block:: dylan
+     .. code-block:: dylan
 
         let d = make(<gsl-gaussian>,
                      rng: make(<gsl-rng>),
                      sigma: 1,
                      algorithm: $gaussian-ratio-method);
 
-        let k = d.gsl-ran-variate;
+        let k = d.gsl-randist-variate;
 
+    :seealso:
+
+       https://www.gnu.org/software/gsl/doc/html/randist.html#the-gaussian-distribution
+
+The following operations are defined for
+:class:`<gsl-randist-gaussian>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-standard-deviation
+   :specializer: <gsl-randist-gaussian>
+   :no-contents-entry:
+
+.. _gaussian-algorithms:
 
 Gaussian algorithms
 -------------------
 
-.. class:: <gsl-gaussian-algorithm>
+This are the algorithms to generate a Gaussian variate value.
 
-   Type of Gaussian distribution algorithms used to generate random
-   variates.
-
-.. constant:: $gaussian-box-muller
+.. constant:: $gaussian-box-muller-method
 
    Box-Muller algorithm. This is the default value.
 
-.. constant:: $gaussian-ziggurat
+.. constant:: $gaussian-ziggurat-method
 
    Computes a Gaussian random variate using the alternative
    Marsaglia-Tsang ziggurat method.  The Ziggurat algorithm is the
@@ -264,32 +285,24 @@ Gaussian algorithms
 
    Kinderman-Monahan-Leva ratio method.
 
-The Unit Gaussian Distribution
+The Unit Gaussian distribution
 ==============================
 
-.. class:: <gsl-ugaussian>
+.. class:: <gsl-randist-ugaussian>
    :instantiable:
+   :concrete:
 
-   :supers: :class:`<gsl-randist>`
+   Unit Gaussian is a Gaussian distribution with sigma = 1.
+
+   :supers:
+
+      :class:`<gsl-randist>`
 
    :key algorithm:
 
-     The algorithm to use for generating random variates.  An instance
-     of :class:`<gsl-ugaussian-algorithm>`.  Default value is
-     :const:`$ugaussian-default`.
-
-   :operations:
-
-      The following operations have no documentation available since
-      is the same as the parent class. See operations in
-      :class:`<gsl-randist>` for more information.
-
-      - :meth:`gsl-ran-variate(<gsl-randist-ugassian>)`
-      - :meth:`gsl-ran-pdf(<gsl-randist-ugassian>)`
-      - :meth:`gsl-cdf-p(<gsl-randist-ugassian>)`
-      - :meth:`gsl-cdf-q(<gsl-randist-ugassian>)`
-      - :meth:`gsl-cdf-pinv(<gsl-randist-ugassian>)`
-      - :meth:`gsl-cdf-qinv(<gsl-randist-ugassian>)`
+     The algorithm to use for generating random variates.  Default
+     value is :const:`$ugaussian-method`. See
+     :ref:`ugaussian-algorithms` for more information.
 
    :summary:
 
@@ -297,15 +310,42 @@ The Unit Gaussian Distribution
       distribution. They are equivalent to the functions above with a
       standard deviation of one, sigma = 1.
 
+The following operations are defined for
+:class:`<gsl-randist-ugaussian>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-ugaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-ugaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-ugaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-ugaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-ugaussian>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-ugaussian>
+   :no-contents-entry:
+
+.. _ugaussian-algorithms:
+
 Ugaussian algorithms
 --------------------
 
-.. class:: <gsl-ugaussian-algorithm>
+This are the algorithms used to generate a Unit Gaussian variate value.
 
-   Type of Ugaussian distribution algorithms used to generate random
-   variates.
-
-.. constant:: $ugaussian-default
+.. constant:: $ugaussian-method
 
    The default algorithm for generating Ugaussian random variates.
 
@@ -314,34 +354,26 @@ Ugaussian algorithms
    Computes a Ugaussian random variate using the ratio method.  The
    ratio method is the fastest available algorithm in most cases.
 
-The tail distributions
-======================
+Gaussian tail distribution
+==========================
 
-.. class:: <gsl-randist-tail>
-   :abstract:
-
-   :supers: :drm:`<object>`
-
-   :slot gsl-randist-a:
-
-      An instance of :drm:`<float>`.
-
-   :summary:
-
-      The base class of all tail distributions.
-
-.. class:: <gsl-gaussian-tail>
+.. class:: <gsl-randist-gaussian-tail>
    :instantiable:
+   :concrete:
 
    :supers:
 
       :class:`<gsl-randist-gaussian>`
-      :class:`<gsl-randist-tail>`
 
-   :operations:
+   :keyword required a:
 
-         - :meth:`gsl-ran-variate(<gsl-gaussian-tail>)`
-         - :meth:`gsl-ran-pdf(<gsl-gaussian-tail>)`
+      An instance of :drm:`<float>`. The values returned are larger
+      than this limit, which must be positive.
+
+   :conditions:
+
+      A :class:`<gsl-invalid-argument>` is signaled if ``a`` keyword
+      is not positive.
 
    :summary:
 
@@ -349,23 +381,147 @@ The tail distributions
       distribution with standard deviation ``sigma``. The values returned
       are larger than the lower limit ``a``, which must be positive.
 
-.. class:: <gsl-ugaussian-tail>
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-gaussian-tail-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-gaussian-tail>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-gaussian-tail>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-gaussian-tail>
+   :no-contents-entry:
+
+Ugaussian tail distribution
+===========================
+
+.. class:: <gsl-randist-ugaussian-tail>
    :instantiable:
+   :concrete:
 
    :supers:
 
-      :class:`<gsl-ugaussian>`
-      :class:`<gsl-randist-tail>`
+      :class:`<gsl-randist>`
 
-   :operations:
+   :keyword required a:
 
-         - :meth:`gsl-ran-variate(<gsl-ugaussian-tail>)`
-         - :meth:`gsl-ran-pdf(<gsl-ugaussian-tail>)`
+      An instance of :drm:`<float>`. The values returned are larger
+      than this limit, which must be positive.
 
    :summary:
 
       Compute results for the tail of a unit Gaussian
       distribution. They are equivalent to the
-      :class:`<gsl-gaussian-tail>` with a standard deviation of one,
-      sigma = 1.
+      :class:`<gsl-randist-gaussian-tail>` with a standard deviation
+      of one, ``sigma`` = 1.
 
+The following operations are specialized for
+:class:`<gsl-randist-ugaussian-tail>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-ugaussian-tail>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-ugaussian-tail>
+   :no-contents-entry:
+
+Exponential
+===========
+
+.. class:: <gsl-randist-exponential>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      <gsl-randist>
+
+   :keyword required mu:
+
+      Mean mu.
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-exponential-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-exponential>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-exponential>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-exponential>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-exponential>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-exponential>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-exponential>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-exponential>
+   :no-contents-entry:
+
+Laplace
+=======
+
+.. class:: <gsl-randist-laplace>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required a:
+
+      Width
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-laplace-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-laplace>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-laplace>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-laplace>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-laplace>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-laplace>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-laplace>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-laplace>
+   :no-contents-entry:

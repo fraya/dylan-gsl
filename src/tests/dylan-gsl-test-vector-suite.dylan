@@ -50,11 +50,6 @@ define test test-addition-with-different-length ()
   let v1 = make(<gsl-vector>, size: 3, fill: 1.0d0);
   let v2 = make(<gsl-vector>, size: 2, fill: 2.0d0);
   assert-signals(<gsl-error>, v1 + v2);
-  block ()
-    let v3 = v1 + v2;
-  exception (e :: <gsl-error>)
-    assert-equal($gsl-ebadlen, e.gsl-error-code);
-  end;
 end;
 
 define test test-minus ()

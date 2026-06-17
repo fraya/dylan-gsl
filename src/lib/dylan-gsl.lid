@@ -14,6 +14,7 @@ Files: library.dylan
        ffi/vector.dylan
        ffi/randist.dylan
        gsl/gsl-modules.dylan
+       gsl/error.dylan
        gsl/common.dylan
        gsl/math.dylan
        gsl/complex.dylan
