@@ -28,7 +28,7 @@ The distributions available in this module are:
 
 
 The ``<gsl-randist>`` interface
-====================================
+===============================
 
 .. class:: <gsl-randist>
    :abstract:
@@ -183,8 +183,8 @@ Operations
      :drm:`<float>`.
 
 
-Gaussian distribution
-=====================
+The Gaussian Distribution
+=========================
 
 .. class:: <gsl-randist-gaussian>
    :instantiable:
@@ -354,8 +354,8 @@ This are the algorithms used to generate a Unit Gaussian variate value.
    Computes a Ugaussian random variate using the ratio method.  The
    ratio method is the fastest available algorithm in most cases.
 
-Gaussian tail distribution
-==========================
+The Gaussian tail distribution
+==============================
 
 .. class:: <gsl-randist-gaussian-tail>
    :instantiable:
@@ -397,8 +397,8 @@ The following operations are specialized for
    :specializer: <gsl-randist-gaussian-tail>
    :no-contents-entry:
 
-Ugaussian tail distribution
-===========================
+The Ugaussian tail distribution
+===============================
 
 .. class:: <gsl-randist-ugaussian-tail>
    :instantiable:
@@ -432,8 +432,8 @@ The following operations are specialized for
    :specializer: <gsl-randist-ugaussian-tail>
    :no-contents-entry:
 
-Exponential
-===========
+The Exponential Distribution
+============================
 
 .. class:: <gsl-randist-exponential>
    :instantiable:
@@ -479,8 +479,8 @@ The following operations are specialized for
    :specializer: <gsl-randist-exponential>
    :no-contents-entry:
 
-Laplace
-=======
+The Laplace Distribution
+========================
 
 .. class:: <gsl-randist-laplace>
    :instantiable:
@@ -524,4 +524,55 @@ The following operations are specialized for
 
 .. method:: gsl-randist-cdf-qinv
    :specializer: <gsl-randist-laplace>
+   :no-contents-entry:
+
+The Gamma Distribution
+======================
+
+.. class:: <gsl-randist-gamma>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required a:
+
+      a > 0
+
+   :keyword required b:
+
+      b > 0
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-gamma-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-gamma>`. See operations in :class:`<gsl-randist>`
+for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-gamma>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-gamma>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-gamma>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-gamma>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-gamma>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-gamma>
    :no-contents-entry:

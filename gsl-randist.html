@@ -282,7 +282,7 @@ this design.</p>
 <li><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-cauchy&gt;</span></code></p></li>
 <li><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh&gt;</span></code></p></li>
 <li><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh-tail&gt;</span></code></p></li>
-<li><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a></p></li>
 </ul>
 <section id="the-gsl-randist-interface">
 <h2>The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code> interface<a class="headerlink" href="#the-gsl-randist-interface" title="Link to this heading">¶</a></h2>
@@ -452,8 +452,8 @@ instance of <a class="reference external" href="https://opendylan.org/books/drm/
 
 </section>
 </section>
-<section id="gaussian-distribution">
-<h2>Gaussian distribution<a class="headerlink" href="#gaussian-distribution" title="Link to this heading">¶</a></h2>
+<section id="the-gaussian-distribution">
+<h2>The Gaussian Distribution<a class="headerlink" href="#the-gaussian-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-gaussian]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]" title="Link to this definition">¶</a></dt>
@@ -540,7 +540,7 @@ value is <a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-bo
 <dd></dd></dl>
 
 <section id="gaussian-algorithms">
-<span id="id2"></span><h3>Gaussian algorithms<a class="headerlink" href="#gaussian-algorithms" title="Link to this heading">¶</a></h3>
+<span id="id1"></span><h3>Gaussian algorithms<a class="headerlink" href="#gaussian-algorithms" title="Link to this heading">¶</a></h3>
 <p>This are the algorithms to generate a Gaussian variate value.</p>
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$gaussian-box-muller-method">
@@ -621,7 +621,7 @@ standard deviation of one, sigma = 1.</p>
 <dd></dd></dl>
 
 <section id="ugaussian-algorithms">
-<span id="id3"></span><h3>Ugaussian algorithms<a class="headerlink" href="#ugaussian-algorithms" title="Link to this heading">¶</a></h3>
+<span id="id2"></span><h3>Ugaussian algorithms<a class="headerlink" href="#ugaussian-algorithms" title="Link to this heading">¶</a></h3>
 <p>This are the algorithms used to generate a Unit Gaussian variate value.</p>
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$ugaussian-method">
@@ -638,8 +638,8 @@ ratio method is the fastest available algorithm in most cases.</p>
 
 </section>
 </section>
-<section id="gaussian-tail-distribution">
-<h2>Gaussian tail distribution<a class="headerlink" href="#gaussian-tail-distribution" title="Link to this heading">¶</a></h2>
+<section id="the-gaussian-tail-distribution">
+<h2>The Gaussian tail distribution<a class="headerlink" href="#the-gaussian-tail-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-gaussian-tail]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-gaussian-tail&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian-tail]" title="Link to this definition">¶</a></dt>
@@ -685,8 +685,8 @@ are larger than the lower limit <code class="docutils literal notranslate"><span
 <dd></dd></dl>
 
 </section>
-<section id="ugaussian-tail-distribution">
-<h2>Ugaussian tail distribution<a class="headerlink" href="#ugaussian-tail-distribution" title="Link to this heading">¶</a></h2>
+<section id="the-ugaussian-tail-distribution">
+<h2>The Ugaussian tail distribution<a class="headerlink" href="#the-ugaussian-tail-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-ugaussian-tail]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-ugaussian-tail&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian-tail]" title="Link to this definition">¶</a></dt>
@@ -723,8 +723,8 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <dd></dd></dl>
 
 </section>
-<section id="exponential">
-<h2>Exponential<a class="headerlink" href="#exponential" title="Link to this heading">¶</a></h2>
+<section id="the-exponential-distribution">
+<h2>The Exponential Distribution<a class="headerlink" href="#the-exponential-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-exponential]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-exponential&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-exponential]" title="Link to this definition">¶</a></dt>
@@ -780,8 +780,8 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <dd></dd></dl>
 
 </section>
-<section id="laplace">
-<h2>Laplace<a class="headerlink" href="#laplace" title="Link to this heading">¶</a></h2>
+<section id="the-laplace-distribution">
+<h2>The Laplace Distribution<a class="headerlink" href="#the-laplace-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-laplace]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-laplace&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-laplace]" title="Link to this definition">¶</a></dt>
@@ -834,6 +834,64 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-laplace])">
 <span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-laplace&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-laplace])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="the-gamma-distribution">
+<h2>The Gamma Distribution<a class="headerlink" href="#the-gamma-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-gamma]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-gamma&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> (<em>required</em>) – a &gt; 0</p></li>
+<li><p><strong>b</strong> (<em>required</em>) – b &gt; 0</p></li>
+</ul>
+</dd>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/randist.html#the-gamma-distribution">https://www.gnu.org/software/gsl/doc/html/randist.html#the-gamma-distribution</a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>
+for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gamma])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-gamma&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gamma])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-gamma])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-gamma&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-gamma])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-gamma])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-gamma&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-gamma])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-gamma])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-gamma&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-gamma])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-gamma])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-pinv(&lt;gsl-randist-gamma&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-gamma])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gamma])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-gamma&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gamma])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -908,7 +966,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gaussian-distribution">Gaussian distribution</a><ul>
+<li><a class="reference internal" href="#the-gaussian-distribution">The Gaussian Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></li>
 <li><a class="reference internal" href="#gaussian-algorithms">Gaussian algorithms</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-box-muller-method"><code class="docutils literal notranslate"><span class="pre">$gaussian-box-muller-method</span></code></a></li>
@@ -927,20 +985,24 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gaussian-tail-distribution">Gaussian tail distribution</a><ul>
+<li><a class="reference internal" href="#the-gaussian-tail-distribution">The Gaussian tail distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian-tail]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian-tail&gt;</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ugaussian-tail-distribution">Ugaussian tail distribution</a><ul>
+<li><a class="reference internal" href="#the-ugaussian-tail-distribution">The Ugaussian tail distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian-tail]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-ugaussian-tail&gt;</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#exponential">Exponential</a><ul>
+<li><a class="reference internal" href="#the-exponential-distribution">The Exponential Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-exponential]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-exponential&gt;</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#laplace">Laplace</a><ul>
+<li><a class="reference internal" href="#the-laplace-distribution">The Laplace Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-laplace]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-laplace&gt;</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-gamma-distribution">The Gamma Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

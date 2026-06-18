@@ -419,8 +419,6 @@
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$zuf">$zuf</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     *
 
@@ -436,6 +434,8 @@
           <li><a href="gsl-vector.html#dylan-gsl:gsl-vector:*([gsl-vector],[gsl-vector])">*(&lt;gsl-vector&gt;, &lt;gsl-vector&gt;)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-math.html#dylan-gsl:gsl-math:*epsilon*">*epsilon*</a>
 </li>
         <li><a href="gsl-ffi-error.html#dylan-gsl:gsl-ffi-error:*gsl-error-handler*">*gsl-error-handler*</a>
@@ -552,6 +552,8 @@
         <li><a href="gsl-error.html#dylan-gsl:gsl-error:[gsl-error]">&lt;gsl-error&gt;</a>
 </li>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-randist-exponential]">&lt;gsl-randist-exponential&gt;</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-randist-gamma]">&lt;gsl-randist-gamma&gt;</a>
 </li>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gsl-randist-gaussian-tail]">&lt;gsl-randist-gaussian-tail&gt;</a>
 </li>
@@ -714,6 +716,14 @@
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-exponential-qinv">gsl-cdf-exponential-qinv</a>
 </li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gamma-p">gsl-cdf-gamma-p</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gamma-pinv">gsl-cdf-gamma-pinv</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gamma-q">gsl-cdf-gamma-q</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gamma-qinv">gsl-cdf-gamma-qinv</a>
+</li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-p">gsl-cdf-gaussian-p</a>
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-pinv">gsl-cdf-gaussian-pinv</a>
@@ -721,6 +731,14 @@
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-q">gsl-cdf-gaussian-q</a>
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-gaussian-qinv">gsl-cdf-gaussian-qinv</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-laplace-p">gsl-cdf-laplace-p</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-laplace-pinv">gsl-cdf-laplace-pinv</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-laplace-q">gsl-cdf-laplace-q</a>
+</li>
+        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-laplace-qinv">gsl-cdf-laplace-qinv</a>
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-p">gsl-cdf-rayleigh-p</a>
 </li>
@@ -947,6 +965,8 @@
         <ul>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-exponential])">gsl-randist-cdf-p(&lt;gsl-randist-exponential&gt;)</a>
 </li>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-gamma])">gsl-randist-cdf-p(&lt;gsl-randist-gamma&gt;)</a>
+</li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-gaussian])">gsl-randist-cdf-p(&lt;gsl-randist-gaussian&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-laplace])">gsl-randist-cdf-p(&lt;gsl-randist-laplace&gt;)</a>
@@ -958,6 +978,8 @@
 
         <ul>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-exponential])">gsl-randist-cdf-pinv(&lt;gsl-randist-exponential&gt;)</a>
+</li>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-gamma])">gsl-randist-cdf-pinv(&lt;gsl-randist-gamma&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-gaussian])">gsl-randist-cdf-pinv(&lt;gsl-randist-gaussian&gt;)</a>
 </li>
@@ -971,6 +993,8 @@
         <ul>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-exponential])">gsl-randist-cdf-q(&lt;gsl-randist-exponential&gt;)</a>
 </li>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-gamma])">gsl-randist-cdf-q(&lt;gsl-randist-gamma&gt;)</a>
+</li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-gaussian])">gsl-randist-cdf-q(&lt;gsl-randist-gaussian&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-laplace])">gsl-randist-cdf-q(&lt;gsl-randist-laplace&gt;)</a>
@@ -978,10 +1002,14 @@
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-ugaussian])">gsl-randist-cdf-q(&lt;gsl-randist-ugaussian&gt;)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv">gsl-randist-cdf-qinv</a>
 
         <ul>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-exponential])">gsl-randist-cdf-qinv(&lt;gsl-randist-exponential&gt;)</a>
+</li>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gamma])">gsl-randist-cdf-qinv(&lt;gsl-randist-gamma&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gaussian])">gsl-randist-cdf-qinv(&lt;gsl-randist-gaussian&gt;)</a>
 </li>
@@ -990,12 +1018,12 @@
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-ugaussian])">gsl-randist-cdf-qinv(&lt;gsl-randist-ugaussian&gt;)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf">gsl-randist-pdf</a>
 
         <ul>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-exponential])">gsl-randist-pdf(&lt;gsl-randist-exponential&gt;)</a>
+</li>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-gamma])">gsl-randist-pdf(&lt;gsl-randist-gamma&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-gaussian-tail])">gsl-randist-pdf(&lt;gsl-randist-gaussian-tail&gt;)</a>
 </li>
@@ -1019,6 +1047,8 @@
 
         <ul>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-exponential])">gsl-randist-variate(&lt;gsl-randist-exponential&gt;)</a>
+</li>
+          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gamma])">gsl-randist-variate(&lt;gsl-randist-gamma&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gaussian-tail])">gsl-randist-variate(&lt;gsl-randist-gaussian-tail&gt;)</a>
 </li>
