@@ -225,6 +225,34 @@ define c-function gsl-ran-laplace-pdf
   c-name: "gsl_ran_laplace_pdf";
 end;
 
+define c-function gsl-cdf-laplace-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_laplace_P";
+end;
+
+define c-function gsl-cdf-laplace-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_laplace_Q";
+end;
+
+define c-function gsl-cdf-laplace-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_laplace_Pinv";
+end;
+
+define c-function gsl-cdf-laplace-qinv
+  parameter q :: <c-double>;
+  parameter sigma :: <c-double>;
+  result x :: <c-double>;
+  c-name: "gsl_cdf_laplace_Qinv";
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Exponentiated Power
@@ -367,9 +395,41 @@ define c-function gsl-ran-gamma-pdf
   c-name: "gsl_ran_gamma_pdf";
 end;
 
+define c-function gsl-cdf-gamma-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result p :: <c-double>;
+  c-name: "gsl_cdf_gamma_P";
+end;
+
+define c-function gsl-cdf-gamma-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result q :: <c-double>;
+  c-name: "gsl_cdf_gamma_Q";
+end;
+
+define c-function gsl-cdf-gamma-pinv
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pinv :: <c-double>;
+  c-name: "gsl_cdf_gamma_Pinv";
+end;
+
+define c-function gsl-cdf-gamma-qinv
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result qinv :: <c-double>;
+  c-name: "gsl_cdf_gamma_Qinv";
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Flat (Uniforme)
+// Flat (Uniform)
 //
 ///////////////////////////////////////////////////////////////////////////////
 

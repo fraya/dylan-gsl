@@ -602,7 +602,11 @@ define module gsl-ffi-randist
 
   create
     gsl-ran-laplace,
-    gsl-ran-laplace-pdf;
+    gsl-ran-laplace-pdf,
+    gsl-cdf-laplace-p,
+    gsl-cdf-laplace-q,
+    gsl-cdf-laplace-pinv,
+    gsl-cdf-laplace-qinv;
 
   create
     gsl-ran-exppow,
@@ -625,7 +629,11 @@ define module gsl-ffi-randist
   create
     gsl-ran-gamma,
     gsl-ran-gamma-knuth,
-    gsl-ran-gamma-pdf;
+    gsl-ran-gamma-pdf,
+    gsl-cdf-gamma-p,
+    gsl-cdf-gamma-q,
+    gsl-cdf-gamma-pinv,
+    gsl-cdf-gamma-qinv;
 
 //  create
 //    gsl-ran-flat,

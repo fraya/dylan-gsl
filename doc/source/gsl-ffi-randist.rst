@@ -453,32 +453,96 @@ Laplace
 
    :parameter a:
 
-     Mean. A ``<c-double>``.
-
-   :parameter b:
-
      Scale parameter. A ``<c-double>``.
 
    :result pdf:
 
      Probability density function. A ``<c-double>``.
 
-  Exponentiated power
-  ===================
 
-  .. function:: gsl-ran-exppow
+.. function:: gsl-cdf-laplace-p
 
-     :signature: (rng, a, b) => (variate)
+   :signature: gsl-cdf-laplace-p(x, a) => (cd)
 
-     :parameter rng:
+   :parameter x:
 
-       Random number generator. An instance of <gsl-rng*>.
+     Value. A ``<c-double>``.
 
-     :parameter a:
+   :parameter a:
 
-       Scale parameter. A ``<c-double>``.
+     Scale parameter. A ``<c-double>``.
 
-     :parameter b:
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``.
+
+
+.. function:: gsl-cdf-laplace-q
+
+   :signature: gsl-cdf-laplace-q(x, a) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``.
+
+
+.. function:: gsl-cdf-laplace-pinv
+
+   :signature: gsl-cdf-laplace-pinv(p, a) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``.
+
+
+.. function:: gsl-cdf-laplace-qinv
+
+   :signature: gsl-cdf-laplace-qinv(p, a) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``.
+
+Exponentiated power
+===================
+
+.. function:: gsl-ran-exppow
+
+   :signature: gsl-ran-exppow(rng, a, b) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
 
        Shape parameter. A ``<c-double>``.
 
@@ -541,8 +605,8 @@ Cauchy
 
       Probability density function. A ``<c-double>``
 
-  Rayleigh
-  ========
+Rayleigh
+========
 
   .. function:: gsl-ran-rayleigh
 
@@ -750,3 +814,10 @@ Gamma
 
      Probability density function. A ``<c-double>``
 
+.. function:: gsl-cdf-gamma-p
+
+.. function:: gsl-cdf-gamma-q
+
+.. function:: gsl-cdf-gamma-pinv
+
+.. function:: gsl-cdf-gamma-qinv              

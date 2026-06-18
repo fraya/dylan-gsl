@@ -382,25 +382,25 @@ end;
 define method gsl-randist-cdf-p
     (d :: <gsl-randist-laplace>, x :: <float>) => (cd :: <float>)
   let a = d.gsl-randist-laplace-a;
-  ffi/gsl-cdf-exponential-p(x, a)
+  ffi/gsl-cdf-laplace-p(x, a)
 end;
 
 define method gsl-randist-cdf-q
     (d :: <gsl-randist-laplace>, x :: <float>) => (cd :: <float>)
   let a = d.gsl-randist-laplace-a;
-  ffi/gsl-cdf-exponential-q(x, a)
+  ffi/gsl-cdf-laplace-q(x, a)
 end;
 
 define method gsl-randist-cdf-pinv
     (d :: <gsl-randist-laplace>, x :: <float>) => (cd :: <float>)
   let a = d.gsl-randist-laplace-a;
-  ffi/gsl-cdf-exponential-pinv(x, a)
+  ffi/gsl-cdf-laplace-pinv(x, a)
 end;
 
 define method gsl-randist-cdf-qinv
     (d :: <gsl-randist-laplace>, x :: <float>) => (cd :: <float>)
   let a = d.gsl-randist-laplace-a;
-  ffi/gsl-cdf-exponential-qinv(x, a)
+  ffi/gsl-cdf-laplace-qinv(x, a)
 end;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -617,4 +617,32 @@ define method gsl-randist-pdf
   let a = d.gsl-randist-gamma-a;
   let b = d.gsl-randist-gamma-b;
   ffi/gsl-ran-gamma-pdf(x, a, b);
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-gamma>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gamma-a;
+  let b = d.gsl-randist-gamma-b;
+  ffi/gsl-cdf-gamma-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-gamma>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gamma-a;
+  let b = d.gsl-randist-gamma-b;
+  ffi/gsl-cdf-gamma-q(x, a, b)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-gamma>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gamma-a;
+  let b = d.gsl-randist-gamma-b;
+  ffi/gsl-cdf-gamma-pinv(x, a, b)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-gamma>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gamma-a;
+  let b = d.gsl-randist-gamma-b;
+  ffi/gsl-cdf-gamma-qinv(x, a, b)
 end;
