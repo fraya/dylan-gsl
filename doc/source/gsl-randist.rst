@@ -526,6 +526,49 @@ The following operations are specialized for
    :specializer: <gsl-randist-laplace>
    :no-contents-entry:
 
+The Exponential Power Distribution
+==================================
+
+.. class:: <gsl-randist-exppow>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required a:
+
+     An instance of :drm:`<float>`
+
+   :keyword required b:
+
+     An instance of :drm:`<float>`
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-exponential-power-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-exppow>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-exppow>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-exppow>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-exppow>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-exppow>
+   :no-contents-entry:
+
 The Gamma Distribution
 ======================
 

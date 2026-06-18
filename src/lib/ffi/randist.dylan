@@ -275,6 +275,23 @@ define c-function gsl-ran-exppow-pdf
   c-name: "gsl_ran_exppow_pdf";
 end;
 
+define c-function gsl-cdf-exppow-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_exppow_P";
+end;
+
+define c-function gsl-cdf-exppow-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_exppow_Q";
+end;
+
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Cauchy

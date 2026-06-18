@@ -610,7 +610,9 @@ define module gsl-ffi-randist
 
   create
     gsl-ran-exppow,
-    gsl-ran-exppow-pdf;
+    gsl-ran-exppow-pdf,
+    gsl-cdf-exppow-p,
+    gsl-cdf-exppow-q;
 
   create
     gsl-ran-cauchy,

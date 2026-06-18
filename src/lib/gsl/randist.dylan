@@ -441,6 +441,20 @@ define method gsl-randist-pdf
   ffi/gsl-ran-exppow-pdf(x, a, b);
 end;
 
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-exppow>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-exppow-a;
+  let b = d.gsl-randist-exppow-b;
+  ffi/gsl-cdf-exppow-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-exppow>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-exppow-a;
+  let b = d.gsl-randist-exppow-b;
+  ffi/gsl-cdf-exppow-q(x, a, b)
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Cauchy

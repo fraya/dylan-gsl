@@ -552,7 +552,7 @@ Exponentiated power
 
 .. function:: gsl-ran-exppow-pdf
 
-   :signature: (x, a, b) => (pdf)
+   :signature: gsl-ran-exppow(x, a, b) => (pdf)
 
    :parameter x:
 
@@ -569,6 +569,46 @@ Exponentiated power
    :result pdf:
 
      Probability density function. A ``<c-double>``
+
+.. function:: gsl-cdf-exppow-p
+
+   :signature: gsl-cdf-exppow-p (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     A ``<c-double>``.
+
+   :parameter b:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-exppow-q
+
+   :signature: gsl-cdf-exppow-q (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     A ``<c-double>``.
+
+   :parameter b:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
 
 Cauchy
 ======

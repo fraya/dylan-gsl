@@ -468,18 +468,10 @@ define module gsl-randist
 
   create
     <gsl-randist-gaussian-tail>,
-    <gsl-randist-ugaussian-tail>;
-
-  create
-    <gsl-randist-exponential>;
-
-  create
-    <gsl-randist-laplace>;
-
-  create
-    <gsl-randist-exppow>;
-
-  create
+    <gsl-randist-ugaussian-tail>,
+    <gsl-randist-exponential>,
+    <gsl-randist-laplace>,
+    <gsl-randist-exppow>,
     <gsl-randist-cauchy>;
 
  create
