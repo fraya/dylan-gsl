@@ -569,6 +569,53 @@ The following operations are specialized for
    :specializer: <gsl-randist-exppow>
    :no-contents-entry:
 
+The Cauchy Distribution
+=======================
+
+.. class:: <gsl-randist-cauchy>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required a:
+
+     Scale parameter. An instance of :drm:`<float>`
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-cauchy-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-cauchy>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-cauchy>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-cauchy>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-cauchy>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-cauchy>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-cauchy>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-cauchy>
+   :no-contents-entry:
+
 The Gamma Distribution
 ======================
 

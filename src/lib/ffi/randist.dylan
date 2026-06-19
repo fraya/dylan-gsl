@@ -312,6 +312,34 @@ define c-function gsl-ran-cauchy-pdf
   c-name: "gsl_ran_cauchy_pdf";
 end;
 
+define c-function gsl-cdf-cauchy-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_cauchy_P";
+end;
+
+define c-function gsl-cdf-cauchy-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_cauchy_Q";
+end;
+
+define c-function gsl-cdf-cauchy-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_cauchy_Pinv";
+end;
+
+define c-function gsl-cdf-cauchy-qinv
+  parameter q :: <c-double>;
+  parameter sigma :: <c-double>;
+  result x :: <c-double>;
+  c-name: "gsl_cdf_cauchy_Qinv";
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Rayleigh

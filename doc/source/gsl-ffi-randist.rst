@@ -645,6 +645,73 @@ Cauchy
 
       Probability density function. A ``<c-double>``
 
+.. function:: gsl-cdf-cauchy-p
+
+   :signature: gsl-cdf-cauchy-p(x, a) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``.
+
+
+.. function:: gsl-cdf-cauchy-q
+
+   :signature: gsl-cdf-cauchy-q(x, a) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``.
+
+
+.. function:: gsl-cdf-cauchy-pinv
+
+   :signature: gsl-cdf-cauchy-pinv(p, a) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``.
+
+
+.. function:: gsl-cdf-cauchy-qinv
+
+   :signature: gsl-cdf-cauchy-qinv(p, a) => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result x:
+
+     Value. A ``<c-double>``.
+
 Rayleigh
 ========
 

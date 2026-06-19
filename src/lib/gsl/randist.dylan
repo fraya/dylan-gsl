@@ -488,6 +488,30 @@ define method gsl-randist-pdf
   ffi/gsl-ran-cauchy-pdf(x, a);
 end;
 
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-cauchy>, x :: <float>) => (cd :: <float>)
+  let a = d.gsl-randist-cauchy-a;
+  ffi/gsl-cdf-cauchy-p(x, a)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-cauchy>, x :: <float>) => (cd :: <float>)
+  let a = d.gsl-randist-cauchy-a;
+  ffi/gsl-cdf-cauchy-q(x, a)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-cauchy>, x :: <float>) => (cd :: <float>)
+  let a = d.gsl-randist-cauchy-a;
+  ffi/gsl-cdf-cauchy-pinv(x, a)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-cauchy>, x :: <float>) => (cd :: <float>)
+  let a = d.gsl-randist-cauchy-a;
+  ffi/gsl-cdf-cauchy-qinv(x, a)
+end;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Rayleigh

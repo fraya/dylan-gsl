@@ -616,7 +616,11 @@ define module gsl-ffi-randist
 
   create
     gsl-ran-cauchy,
-    gsl-ran-cauchy-pdf;
+    gsl-ran-cauchy-pdf,
+    gsl-cdf-cauchy-p,
+    gsl-cdf-cauchy-q,
+    gsl-cdf-cauchy-pinv,
+    gsl-cdf-cauchy-qinv;
 
   create
     gsl-ran-rayleigh,
