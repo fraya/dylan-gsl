@@ -30,15 +30,15 @@ Here is the list of the random distributions available in the GSL library (some 
 - [X] Tail Gaussian and Unit Gaussiandistributions
 - [ ] Bivariate Gaussian
 - [ ] Multivariate Gaussian
-- [ ] Exponential distribution
-- [ ] Laplace distribution
-- [ ] Exponential Power distribution
-- [ ] Cauchy distribution
+- [X] Exponential distribution
+- [X] Laplace distribution
+- [X] Exponential Power distribution
+- [X] Cauchy distribution
 - [ ] Rayleigh distribution
 - [ ] Landau distribution
 - [ ] Levy Alpha-Stable distribution
 - [ ] Levy Skewed Alpha-Stable distribution
-- [ ] Gamma distribution
+- [X] Gamma distribution
 - [ ] Flat distribution
 - [ ] Lognormal distribution
 - [ ] Chi-squared distribution

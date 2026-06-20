@@ -81,26 +81,31 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define constant $gaussian-box-muller-method
-  = ffi/gsl-ran-gaussian;
-
-define constant $gaussian-ziggurat-method
-  = ffi/gsl-ran-gaussian-ziggurat;
-
-define constant $gaussian-ratio-method
-  = ffi/gsl-ran-gaussian-ratio-method;
-
-define constant <gaussian-algorithm>
-  = one-of($gaussian-box-muller-method,
-           $gaussian-ziggurat-method,
-           $gaussian-ratio-method);
+define constant <gsl-gaussian-algorithm>
+  = one-of(#"default", #"ziggurat", #"ratio");
 
 define class <gsl-randist-gaussian> (<gsl-randist>)
   constant slot gsl-randist-gaussian-sigma :: <float>,
     required-init-keyword: sigma:;
-  constant slot %gsl-randist-gaussian-algorithm :: <gaussian-algorithm>,
-    init-keyword: algorithm:,
-    init-value: $gaussian-box-muller-method;
+  slot %gsl-randist-gaussian-algorithm :: <function>;
+end;
+
+define method initialize
+    (d :: <gsl-randist-gaussian>,
+     #key algorithm = #"default")
+ => ()
+  next-method();
+  d.%gsl-randist-gaussian-algorithm
+    := select (algorithm)
+         #"default"
+           => ffi/gsl-ran-gaussian;
+         #"ziggurat"
+           => ffi/gsl-ran-gaussian-ziggurat;
+         #"ratio"
+           => ffi/gsl-ran-gaussian-ratio-method;
+         otherwise
+           => signal(make(<gsl-error-invalid-argument>));
+       end;
 end;
 
 define method print-object
@@ -115,13 +120,13 @@ end;
 define method gsl-randist-variate
     (d :: <gsl-randist-gaussian>) => (variate :: <float>)
   let rng   = d.%gsl-randist-rng.gsl-rng-ffi;
-  let sigma = d.gsl-randist-gaussian-sigma; 
+  let sigma = d.gsl-randist-gaussian-sigma;
   d.%gsl-randist-gaussian-algorithm(rng, sigma)
 end;
 
 define method gsl-randist-pdf
     (d :: <gsl-randist-gaussian>, x :: <float>) => (pd :: <float>)
-  let sigma = d.gsl-randist-gaussian-sigma; 
+  let sigma = d.gsl-randist-gaussian-sigma;
   ffi/gsl-ran-gaussian-pdf(x, sigma)
 end;
 
@@ -155,51 +160,8 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define constant $ugaussian-method
-  = ffi/gsl-ran-ugaussian;
-
-define constant $ugaussian-ratio-method
-  = ffi/gsl-ran-ugaussian-ratio-method;
-
-define constant <gsl-randist-ugaussian-algorithm>
-  = one-of($ugaussian-method,
-           $ugaussian-ratio-method);
-
-define class <gsl-randist-ugaussian> (<gsl-randist>)
-  constant slot %gsl-randist-ugaussian-algorithm :: <gsl-randist-ugaussian-algorithm>,
-    init-keyword: algorithm:,
-    init-value: $ugaussian-method;
-end;
-
-define method gsl-randist-variate
-    (d :: <gsl-randist-ugaussian>) => (variate :: <float>)
-  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
-  d.%gsl-randist-ugaussian-algorithm(rng)
-end;
-
-define method gsl-randist-pdf
-    (d :: <gsl-randist-ugaussian>, x :: <float>) => (pd :: <float>)
-  ffi/gsl-ran-ugaussian-pdf(x)
-end;
-
-define method gsl-randist-cdf-p
-    (d :: <gsl-randist-ugaussian>, x :: <float>) => (cd :: <float>)
-  ffi/gsl-cdf-ugaussian-p(x)
-end;
-
-define method gsl-randist-cdf-q
-    (d :: <gsl-randist-ugaussian>, x :: <float>) => (cd :: <float>)
-  ffi/gsl-cdf-ugaussian-q(x)
-end;
-
-define method gsl-randist-cdf-pinv
-    (d :: <gsl-randist-ugaussian>, x :: <float>) => (cd :: <float>)
-  ffi/gsl-cdf-ugaussian-pinv(x)
-end;
-
-define method gsl-randist-cdf-qinv
-    (d :: <gsl-randist-ugaussian>, x :: <float>) => (cd :: <float>)
-  ffi/gsl-cdf-ugaussian-qinv(x)
+define class <gsl-randist-ugaussian> (<gsl-randist-gaussian>)
+  inherited slot gsl-randist-gaussian-sigma = 1.0d0;
 end;
 
 ///////////////////////////////////////////////////////////////////////////////

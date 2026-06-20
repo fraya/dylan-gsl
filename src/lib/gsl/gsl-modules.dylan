@@ -456,15 +456,10 @@ define module gsl-randist
 
 
   create
-    $gaussian-box-muller-method,
-    $gaussian-ziggurat-method,
-    $gaussian-ratio-method,
-    <gsl-randist-gaussian>;
-
-  create
-    <gsl-randist-ugaussian>,
-    $ugaussian-method,
-    $ugaussian-ratio-method;
+    <gsl-gaussian-algorithm>,
+    <gsl-randist-gaussian>,
+    gsl-randist-gaussian-sigma,
+    <gsl-randist-ugaussian>;
 
   create
     <gsl-randist-gaussian-tail>,

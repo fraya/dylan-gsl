@@ -577,12 +577,7 @@ define module gsl-ffi-randist
 
   create
     gsl-ran-ugaussian,
-    gsl-ran-ugaussian-pdf,
-    gsl-ran-ugaussian-ratio-method,
-    gsl-cdf-ugaussian-p,
-    gsl-cdf-ugaussian-q,
-    gsl-cdf-ugaussian-pinv,
-    gsl-cdf-ugaussian-qinv;
+    gsl-ran-ugaussian-pdf;
 
   create
     gsl-ran-gaussian-tail,

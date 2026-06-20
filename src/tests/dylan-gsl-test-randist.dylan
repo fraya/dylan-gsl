@@ -1,5 +1,19 @@
 Module: dylan-gsl-test-suite
 
+define test test-gsl-randist-ugaussian ()
+  let ugaussian = make(<gsl-randist-ugaussian>, rng: make(<gsl-rng>));
+  assert-equal(ugaussian.gsl-randist-gaussian-sigma, 1.0d0,
+               "Ugaussian sigma default value must be 1.0");
+end;
+
+define test test-gsl-randist-gaussian ()
+  assert-signals(<gsl-error-invalid-argument>,
+                 make(<gsl-randist-gaussian>,
+                      rng: make(<gsl-rng>),
+                      sigma: 0.5d0,
+                      algorithm: #"foo"));
+end;
+
 define test test-gsl-randist-gaussian-tail-invalid-a ()
   assert-signals(<gsl-error-invalid-argument>,
                  make(<gsl-randist-gaussian-tail>,
@@ -14,6 +28,7 @@ define test test-gsl-randist-ugaussian-tail-invalid-a ()
                       rng: make(<gsl-rng>),
                       a: -3.0d0))
 end;
+
 
 // define function test-distribution
 //     (distribution :: <gsl-randist>, n :: <integer>) => ()
@@ -39,6 +54,8 @@ define test test-distributions ()
 end;
 
 define suite gsl-randist-suite ()
+  test test-gsl-randist-ugaussian;
+  test test-gsl-randist-gaussian;
   test test-gsl-randist-gaussian-tail-invalid-a;
   test test-gsl-randist-ugaussian-tail-invalid-a;
   test test-distributions;
