@@ -205,9 +205,13 @@ The Gaussian Distribution
 
    :keyword algorithm:
 
-     The algorithm to use for generating random variates.  The default
-     value is :const:`$gaussian-box-muller-method`.  See
+     The algorithm to use for generating random variates. See
      :ref:`gaussian-algorithms` for more information.
+
+   :conditions:
+
+     A :class:`<gsl-error-invalid-argument>` condition is raised if
+     the algorithm is not one of ``<gaussian-algorithm>``.
 
    :example:
 
@@ -223,8 +227,8 @@ The Gaussian Distribution
 
         let d = make(<gsl-gaussian>,
                      rng: make(<gsl-rng>),
-                     sigma: 1,
-                     algorithm: $gaussian-ratio-method);
+                     sigma: 0.5d0,
+                     algorithm: #"ratio");
 
         let k = d.gsl-randist-variate;
 
@@ -264,26 +268,6 @@ The following operations are defined for
    :specializer: <gsl-randist-gaussian>
    :no-contents-entry:
 
-.. _gaussian-algorithms:
-
-Gaussian algorithms
--------------------
-
-This are the algorithms to generate a Gaussian variate value.
-
-.. constant:: $gaussian-box-muller-method
-
-   Box-Muller algorithm. This is the default value.
-
-.. constant:: $gaussian-ziggurat-method
-
-   Computes a Gaussian random variate using the alternative
-   Marsaglia-Tsang ziggurat method.  The Ziggurat algorithm is the
-   fastest available algorithm in most cases.
-
-.. constant:: $gaussian-ratio-method
-
-   Kinderman-Monahan-Leva ratio method.
 
 The Unit Gaussian distribution
 ==============================
@@ -292,67 +276,55 @@ The Unit Gaussian distribution
    :instantiable:
    :concrete:
 
-   Unit Gaussian is a Gaussian distribution with sigma = 1.
+   Unit Gaussian is a Gaussian distribution with sigma = 1.0d0.
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-gaussian>`
 
    :key algorithm:
 
-     The algorithm to use for generating random variates.  Default
-     value is :const:`$ugaussian-method`. See
-     :ref:`ugaussian-algorithms` for more information.
+     The algorithm to use for generating random variates.  See
+     :ref:`gaussian-algorithms` for more information.
 
-   :summary:
+   :discussion:
 
-      These functions compute results for the tail of a unit Gaussian
-      distribution. They are equivalent to the functions above with a
-      standard deviation of one, sigma = 1.
+     The keyword ``sigma:`` must not be used since it is initialized
+     by the class.
 
-The following operations are defined for
-:class:`<gsl-randist-ugaussian>`. See operations in
-:class:`<gsl-randist>` for more information.
+   :example:
 
-.. method:: gsl-randist-variate
-   :specializer: <gsl-randist-ugaussian>
-   :no-contents-entry:
+     .. code-block:: dylan
 
-.. method:: gsl-randist-pdf
-   :specializer: <gsl-randist-ugaussian>
-   :no-contents-entry:
+        let d = make(<gsl-randist-ugaussian>, rng: make(<gsl-rng>));
+        let v = d.gsl-randist-variate;
 
-.. method:: gsl-randist-cdf-p
-   :specializer: <gsl-randist-ugaussian>
-   :no-contents-entry:
+   :seealso:
 
-.. method:: gsl-randist-cdf-q
-   :specializer: <gsl-randist-ugaussian>
-   :no-contents-entry:
+     - :class:`<gsl-randist-gaussian>`
 
-.. method:: gsl-randist-cdf-pinv
-   :specializer: <gsl-randist-ugaussian>
-   :no-contents-entry:
+.. _gaussian-algorithms:
 
-.. method:: gsl-randist-cdf-qinv
-   :specializer: <gsl-randist-ugaussian>
-   :no-contents-entry:
+Gaussian algorithms
+-------------------
 
-.. _ugaussian-algorithms:
+.. class:: <gaussian-algorithm>
 
-Ugaussian algorithms
---------------------
+   This are the algorithms to generate a Gaussian variate value. This
+   algorithm is passed as an optional keyword ``algorithm:`` to
+   :class:`<gsl-randist-gaussian>` class. The valid values are:
 
-This are the algorithms used to generate a Unit Gaussian variate value.
+   ``#"box-muller``
+     Box-Muller algorithm. This is the default value.
 
-.. constant:: $ugaussian-method
+   ``#"ziggurat"``
+    Computes a Gaussian random variate using the alternative
+    Marsaglia-Tsang ziggurat method.  The Ziggurat algorithm is the
+    fastest available algorithm in most cases.
 
-   The default algorithm for generating Ugaussian random variates.
+   ``#"ratio-method"``
+     Kinderman-Monahan-Leva ratio method.
 
-.. constant:: $ugaussian-ratio-method
-
-   Computes a Ugaussian random variate using the ratio method.  The
-   ratio method is the fastest available algorithm in most cases.
 
 The Gaussian tail distribution
 ==============================

@@ -277,12 +277,6 @@
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$fishman2x">$fishman2x</a>
 </li>
-        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-box-muller-method">$gaussian-box-muller-method</a>
-</li>
-        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-ratio-method">$gaussian-ratio-method</a>
-</li>
-        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$gaussian-ziggurat-method">$gaussian-ziggurat-method</a>
-</li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$gfsr4">$gfsr4</a>
 </li>
         <li><a href="gsl-ffi-math.html#dylan-gsl:gsl-ffi-math:$gsl-e">$gsl-e</a>
@@ -405,10 +399,6 @@
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$tt800">$tt800</a>
 </li>
-        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$ugaussian-method">$ugaussian-method</a>
-</li>
-        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:$ugaussian-ratio-method">$ugaussian-ratio-method</a>
-</li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$uni">$uni</a>
 </li>
         <li><a href="gsl-rng.html#dylan-gsl:gsl-rng:$uni32">$uni32</a>
@@ -476,6 +466,8 @@
 </li>
         </ul></li>
         <li><a href="gsl-common.html#dylan-gsl:gsl-common:[double-float?]">&lt;double-float?&gt;</a>
+</li>
+        <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:[gaussian-algorithm]">&lt;gaussian-algorithm&gt;</a>
 </li>
         <li><a href="gsl-ffi-block.html#dylan-gsl:gsl-ffi-block:[gsl-block]">&lt;gsl-block&gt;</a>
 </li>
@@ -764,14 +756,6 @@
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-rayleigh-qinv">gsl-cdf-rayleigh-qinv</a>
 </li>
-        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-p">gsl-cdf-ugaussian-p</a>
-</li>
-        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-pinv">gsl-cdf-ugaussian-pinv</a>
-</li>
-        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-q">gsl-cdf-ugaussian-q</a>
-</li>
-        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-qinv">gsl-cdf-ugaussian-qinv</a>
-</li>
         <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex">gsl-complex</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex">[1]</a>
 </li>
         <li><a href="gsl-complex.html#dylan-gsl:gsl-complex:gsl-complex-abs">gsl-complex-abs</a>, <a href="gsl-ffi-complex.html#dylan-gsl:gsl-ffi-complex:gsl-complex-abs">[1]</a>
@@ -970,8 +954,6 @@
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-pdf">gsl-ran-ugaussian-pdf</a>
 </li>
-        <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-ratio-method">gsl-ran-ugaussian-ratio-method</a>
-</li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-tail">gsl-ran-ugaussian-tail</a>
 </li>
         <li><a href="gsl-ffi-randist.html#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-tail-pdf">gsl-ran-ugaussian-tail-pdf</a>
@@ -991,8 +973,6 @@
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-laplace])">gsl-randist-cdf-p(&lt;gsl-randist-laplace&gt;)</a>
 </li>
-          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-ugaussian])">gsl-randist-cdf-p(&lt;gsl-randist-ugaussian&gt;)</a>
-</li>
         </ul></li>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv">gsl-randist-cdf-pinv</a>
 
@@ -1006,8 +986,6 @@
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-gaussian])">gsl-randist-cdf-pinv(&lt;gsl-randist-gaussian&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-laplace])">gsl-randist-cdf-pinv(&lt;gsl-randist-laplace&gt;)</a>
-</li>
-          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-ugaussian])">gsl-randist-cdf-pinv(&lt;gsl-randist-ugaussian&gt;)</a>
 </li>
         </ul></li>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q">gsl-randist-cdf-q</a>
@@ -1025,8 +1003,6 @@
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-laplace])">gsl-randist-cdf-q(&lt;gsl-randist-laplace&gt;)</a>
 </li>
-          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-ugaussian])">gsl-randist-cdf-q(&lt;gsl-randist-ugaussian&gt;)</a>
-</li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
@@ -1042,8 +1018,6 @@
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gaussian])">gsl-randist-cdf-qinv(&lt;gsl-randist-gaussian&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-laplace])">gsl-randist-cdf-qinv(&lt;gsl-randist-laplace&gt;)</a>
-</li>
-          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-ugaussian])">gsl-randist-cdf-qinv(&lt;gsl-randist-ugaussian&gt;)</a>
 </li>
         </ul></li>
         <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf">gsl-randist-pdf</a>
@@ -1064,8 +1038,6 @@
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-laplace])">gsl-randist-pdf(&lt;gsl-randist-laplace&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-ugaussian-tail])">gsl-randist-pdf(&lt;gsl-randist-ugaussian-tail&gt;)</a>
-</li>
-          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-ugaussian])">gsl-randist-pdf(&lt;gsl-randist-ugaussian&gt;)</a>
 </li>
         </ul></li>
         <li>
@@ -1093,8 +1065,6 @@
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-laplace])">gsl-randist-variate(&lt;gsl-randist-laplace&gt;)</a>
 </li>
           <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-ugaussian-tail])">gsl-randist-variate(&lt;gsl-randist-ugaussian-tail&gt;)</a>
-</li>
-          <li><a href="gsl-randist.html#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-ugaussian])">gsl-randist-variate(&lt;gsl-randist-ugaussian&gt;)</a>
 </li>
         </ul></li>
         <li><a href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:gsl-rng-alloc">gsl-rng-alloc</a>

@@ -469,24 +469,27 @@ random variates.</p>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>sigma</strong> (<em>required</em>) – Standard deviation. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
-<li><p><strong>algorithm</strong> – The algorithm to use for generating random variates.  The default
-value is <a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-box-muller-method"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$gaussian-box-muller-method</span></code></a>.  See
+<li><p><strong>algorithm</strong> – The algorithm to use for generating random variates. See
 <a class="reference internal" href="#gaussian-algorithms"><span class="std std-ref">Gaussian algorithms</span></a> for more information.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<dt class="field-odd">Conditions<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="gsl-error.html#dylan-gsl:gsl-error:[gsl-error-invalid-argument]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-error-invalid-argument&gt;</span></code></a> condition is raised if
+the algorithm is not one of <code class="docutils literal notranslate"><span class="pre">&lt;gaussian-algorithm&gt;</span></code>.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
 <span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-randist-gaussian&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">sigma:</span><span class="w"> </span><span class="mf">0.5</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="k">rng:</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
 <span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-randist-variate</span><span class="p">;</span>
 </pre></div>
 </div>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
-<dd class="field-even"><blockquote>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><blockquote>
 <div><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-gaussian&gt;</span><span class="p">,</span>
 <span class="w">             </span><span class="k">rng:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">),</span>
-<span class="w">             </span><span class="k">sigma:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">             </span><span class="k">algorithm:</span><span class="w"> </span><span class="no">$gaussian-ratio-method</span><span class="p">);</span>
+<span class="w">             </span><span class="k">sigma:</span><span class="w"> </span><span class="mf">0.5</span><span class="n">d0</span><span class="p">,</span>
+<span class="w">             </span><span class="k">algorithm:</span><span class="w"> </span><span class="ss">#&quot;ratio&quot;</span><span class="p">);</span>
 
 <span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-randist-variate</span><span class="p">;</span>
 </pre></div>
@@ -539,101 +542,58 @@ value is <a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-bo
 <span class="sig-name descname"><span class="pre">gsl-randist-standard-deviation(&lt;gsl-randist-gaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-standard-deviation([gsl-randist-gaussian])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<section id="gaussian-algorithms">
-<span id="id1"></span><h3>Gaussian algorithms<a class="headerlink" href="#gaussian-algorithms" title="Link to this heading">¶</a></h3>
-<p>This are the algorithms to generate a Gaussian variate value.</p>
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$gaussian-box-muller-method">
-<span class="sig-name descname"><span class="pre">$gaussian-box-muller-method</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:$gaussian-box-muller-method" title="Link to this definition">¶</a></dt>
-<dd><p>Box-Muller algorithm. This is the default value.</p>
-</dd></dl>
-
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$gaussian-ziggurat-method">
-<span class="sig-name descname"><span class="pre">$gaussian-ziggurat-method</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:$gaussian-ziggurat-method" title="Link to this definition">¶</a></dt>
-<dd><p>Computes a Gaussian random variate using the alternative
-Marsaglia-Tsang ziggurat method.  The Ziggurat algorithm is the
-fastest available algorithm in most cases.</p>
-</dd></dl>
-
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$gaussian-ratio-method">
-<span class="sig-name descname"><span class="pre">$gaussian-ratio-method</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:$gaussian-ratio-method" title="Link to this definition">¶</a></dt>
-<dd><p>Kinderman-Monahan-Leva ratio method.</p>
-</dd></dl>
-
-</section>
 </section>
 <section id="the-unit-gaussian-distribution">
 <h2>The Unit Gaussian distribution<a class="headerlink" href="#the-unit-gaussian-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-ugaussian]">
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-ugaussian&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian]" title="Link to this definition">¶</a></dt>
-<dd><p>Unit Gaussian is a Gaussian distribution with sigma = 1.</p>
-<dl class="field-list simple">
+<dd><p>Unit Gaussian is a Gaussian distribution with sigma = 1.0d0.</p>
+<dl class="field-list">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Key algorithm<span class="colon">:</span></dt>
-<dd class="field-even"><p>The algorithm to use for generating random variates.  Default
-value is <a class="reference internal" href="#dylan-gsl:gsl-randist:$ugaussian-method"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$ugaussian-method</span></code></a>. See
-<a class="reference internal" href="#ugaussian-algorithms"><span class="std std-ref">Ugaussian algorithms</span></a> for more information.</p>
+<dd class="field-even"><p>The algorithm to use for generating random variates.  See
+<a class="reference internal" href="#gaussian-algorithms"><span class="std std-ref">Gaussian algorithms</span></a> for more information.</p>
 </dd>
-<dt class="field-odd">Summary<span class="colon">:</span></dt>
-<dd class="field-odd"><p>These functions compute results for the tail of a unit Gaussian
-distribution. They are equivalent to the functions above with a
-standard deviation of one, sigma = 1.</p>
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The keyword <code class="docutils literal notranslate"><span class="pre">sigma:</span></code> must not be used since it is initialized
+by the class.</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-randist-ugaussian&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">rng:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">));</span>
+<span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-randist-variate</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
 
-<p>The following operations are defined for
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-ugaussian&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-ugaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-ugaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-ugaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-ugaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-ugaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-ugaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-ugaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-ugaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-ugaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-ugaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-ugaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-ugaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-ugaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-cdf-pinv(&lt;gsl-randist-ugaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-ugaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-ugaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-ugaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-ugaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<section id="ugaussian-algorithms">
-<span id="id2"></span><h3>Ugaussian algorithms<a class="headerlink" href="#ugaussian-algorithms" title="Link to this heading">¶</a></h3>
-<p>This are the algorithms used to generate a Unit Gaussian variate value.</p>
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$ugaussian-method">
-<span class="sig-name descname"><span class="pre">$ugaussian-method</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:$ugaussian-method" title="Link to this definition">¶</a></dt>
-<dd><p>The default algorithm for generating Ugaussian random variates.</p>
-</dd></dl>
-
-<dl class="dylan constant">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:$ugaussian-ratio-method">
-<span class="sig-name descname"><span class="pre">$ugaussian-ratio-method</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:$ugaussian-ratio-method" title="Link to this definition">¶</a></dt>
-<dd><p>Computes a Ugaussian random variate using the ratio method.  The
-ratio method is the fastest available algorithm in most cases.</p>
+<section id="gaussian-algorithms">
+<span id="id1"></span><h3>Gaussian algorithms<a class="headerlink" href="#gaussian-algorithms" title="Link to this heading">¶</a></h3>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gaussian-algorithm]">
+<span class="sig-name descname"><span class="pre">&lt;gaussian-algorithm&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gaussian-algorithm]" title="Link to this definition">¶</a></dt>
+<dd><p>This are the algorithms to generate a Gaussian variate value. This
+algorithm is passed as an optional keyword <code class="docutils literal notranslate"><span class="pre">algorithm:</span></code> to
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a> class. The valid values are:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">#&quot;box-muller</span></code></dt><dd><p>Box-Muller algorithm. This is the default value.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#&quot;ziggurat&quot;</span></code></dt><dd><p>Computes a Gaussian random variate using the alternative
+Marsaglia-Tsang ziggurat method.  The Ziggurat algorithm is the
+fastest available algorithm in most cases.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#&quot;ratio-method&quot;</span></code></dt><dd><p>Kinderman-Monahan-Leva ratio method.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -1073,19 +1033,12 @@ for more information.</p>
 </li>
 <li><a class="reference internal" href="#the-gaussian-distribution">The Gaussian Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></li>
-<li><a class="reference internal" href="#gaussian-algorithms">Gaussian algorithms</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-box-muller-method"><code class="docutils literal notranslate"><span class="pre">$gaussian-box-muller-method</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-ziggurat-method"><code class="docutils literal notranslate"><span class="pre">$gaussian-ziggurat-method</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:$gaussian-ratio-method"><code class="docutils literal notranslate"><span class="pre">$gaussian-ratio-method</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#the-unit-gaussian-distribution">The Unit Gaussian distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-ugaussian&gt;</span></code></a></li>
-<li><a class="reference internal" href="#ugaussian-algorithms">Ugaussian algorithms</a><ul>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:$ugaussian-method"><code class="docutils literal notranslate"><span class="pre">$ugaussian-method</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-randist:$ugaussian-ratio-method"><code class="docutils literal notranslate"><span class="pre">$ugaussian-ratio-method</span></code></a></li>
+<li><a class="reference internal" href="#gaussian-algorithms">Gaussian algorithms</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gaussian-algorithm]"><code class="docutils literal notranslate"><span class="pre">&lt;gaussian-algorithm&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

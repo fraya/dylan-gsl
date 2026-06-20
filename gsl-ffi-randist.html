@@ -464,109 +464,6 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dl>
 </dd></dl>
 
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-ratio-method">
-<span class="sig-name descname"><span class="pre">gsl-ran-ugaussian-ratio-method</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-ratio-method" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(rng) =&gt; (sample)</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Result sample<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Sample from a standard Gaussian distribution with mean = 0 and standard deviation = 1.
-A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-p">
-<span class="sig-name descname"><span class="pre">gsl-cdf-ugaussian-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-p" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p><ol class="loweralpha simple" start="24">
-<li><p>=&gt; (cd)</p></li>
-</ol>
-</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-odd">Result cd<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Cumulative distribution function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-q">
-<span class="sig-name descname"><span class="pre">gsl-cdf-ugaussian-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-q" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p><ol class="loweralpha simple" start="24">
-<li><p>=&gt; (cd)</p></li>
-</ol>
-</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-odd">Result cd<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Cumulative distribution function. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-pinv">
-<span class="sig-name descname"><span class="pre">gsl-cdf-ugaussian-pinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-pinv" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p><ol class="loweralpha simple" start="16">
-<li><p>=&gt; (x)</p></li>
-</ol>
-</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-odd">Result x<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="dylan function">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-qinv">
-<span class="sig-name descname"><span class="pre">gsl-cdf-ugaussian-qinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-qinv" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p><ol class="loweralpha simple" start="16">
-<li><p>=&gt; (x)</p></li>
-</ol>
-</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-odd">Result x<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 <section id="tail-distributions">
 <h2>Tail distributions<a class="headerlink" href="#tail-distributions" title="Link to this heading">¶</a></h2>
@@ -1406,11 +1303,6 @@ A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;<
 <li><a class="reference internal" href="#unit-gaussian-distribution">Unit Gaussian Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian"><code class="docutils literal notranslate"><span class="pre">gsl-ran-ugaussian</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-ugaussian-pdf</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-ugaussian-ratio-method"><code class="docutils literal notranslate"><span class="pre">gsl-ran-ugaussian-ratio-method</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-ugaussian-p</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-ugaussian-q</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-ugaussian-pinv</span></code></a></li>
-<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-ugaussian-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-ugaussian-qinv</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tail-distributions">Tail distributions</a><ul>
