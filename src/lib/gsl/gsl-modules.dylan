@@ -474,9 +474,8 @@ define module gsl-randist
     <gsl-randist-rayleigh-tail>;
 
   create
-    <gsl-randist-gamma>,
-    $gsl-randist-gamma-default,
-    $gsl-randist-gamma-knuth;
+    <gsl-gamma-algorithm>,
+    <gsl-randist-gamma>;
 
 end module;
 

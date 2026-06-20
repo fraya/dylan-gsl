@@ -581,6 +581,74 @@ The following operations are specialized for
    :specializer: <gsl-randist-cauchy>
    :no-contents-entry:
 
+The Rayleigh Distribution
+=========================
+
+.. class:: <gsl-randist-rayleigh>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required sigma:
+
+     An instance of :drm:`<float>`
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-rayleigh-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-rayleigh>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-rayleigh>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-rayleigh>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-rayleigh>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-rayleigh>
+   :no-contents-entry:
+
+The Rayleigh Tail distribution
+==============================
+
+.. class:: <gsl-randist-rayleigh-tail>
+
+   :supers: :class:`<gsl-randist-rayleigh>`
+
+   :keyword required rng:
+
+   :keyword required sigma:
+
+     Scale parameter. An instance of :drm:`<float>`.
+
+   :keyword required a:
+
+     An instance of :drm:`<float>`. Lower limit.
+
+The following operations are specialized for
+:class:`<gsl-randist-rayleigh-tail>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-rayleigh-tail>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-rayleigh-tail>
+   :no-contents-entry:
+
 The Gamma Distribution
 ======================
 
@@ -591,6 +659,12 @@ The Gamma Distribution
    :supers:
 
       :class:`<gsl-randist>`
+
+   :keyword algorithm:
+
+     The algorithm to use for generating random variates.  See
+     :ref:`gamma-algorithms` for more information.
+
 
    :keyword required a:
 
@@ -631,3 +705,19 @@ for more information.
 .. method:: gsl-randist-cdf-qinv
    :specializer: <gsl-randist-gamma>
    :no-contents-entry:
+
+Gamma algorithms
+----------------
+
+.. class:: <gsl-gamma-algorithm>
+
+   This are the algorithms to generate a Gamma variate value. This
+   algorithm is passed as an optional keyword ``algorithm:`` to
+   :class:`<gsl-randist-gaussian>` class. The valid values are:
+
+   ``#"default"``
+     This is the default value.
+
+   ``#"knuth"``
+     This function returns a gamma variate using the
+     algorithms from Knuth (vol 2).

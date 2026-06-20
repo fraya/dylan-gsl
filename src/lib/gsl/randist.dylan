@@ -74,7 +74,6 @@ define method gsl-randist-cdf-qinv
   error(make(<gsl-error-unsupported>))
 end;
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // The Gaussian distribution
@@ -542,11 +541,8 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define constant $gsl-randist-gamma-default 
-  = ffi/gsl-ran-gamma;
-
-define constant $gsl-randist-gamma-knuth
-  = ffi/gsl-ran-gamma-knuth;
+define constant <gsl-gamma-algorithm>
+  = one-of(#"default", #"knuth");
 
 define constant <gsl-randist-gamma-algorithm>
   = one-of($gsl-randist-gamma-default,
@@ -557,9 +553,23 @@ define class <gsl-randist-gamma> (<gsl-randist>)
     required-init-keyword: a:;
   constant slot gsl-randist-gamma-b :: <float>,
     required-init-keyword: b:;
-  constant slot gsl-randist-gamma-algorithm :: <gsl-randist-gamma-algorithm>,
-    init-keyword: algorithm:,
-    init-value: $gsl-randist-gamma-default;
+  slot %gsl-randist-gamma-algorithm :: <function>;
+end;
+
+define method initialize
+    (d :: <gsl-randist-gamma>,
+     #key algorithm = #"default")
+ => ()
+  next-method();
+  d.%gsl-randist-gamma-algorithm
+    := select (algorithm)
+         #"default"
+           => ffi/gsl-ran-gamma;
+         #"knuth"
+           => ffi/gsl-ran-gamma-knuth;
+         otherwise
+           => signal(make(<gsl-error-invalid-argumen>));
+       end;  
 end;
 
 define method print-object
