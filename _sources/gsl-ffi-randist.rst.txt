@@ -221,45 +221,6 @@ Gaussian tail
 
      A ``<c-double>``.
 
-Unit Gaussian tail
--------------------
-
-.. function:: gsl-ran-ugaussian-tail
-
-   :signature: (rng, a) => (variate)
-
-   :parameter rng:
-
-     Random number generator. An instance of <gsl-rng*>.
-
-   :parameter a:
-
-      An ``<c-double>``.
-
-   :result pd:
-
-     A ``<c-double>``.
-
-.. function:: gsl-ran-ugaussian-tail-pdf
-
-   :signature: (x, a) => (pd)
-
-   :parameter rng:
-
-     Random number generator. An instance of <gsl-rng*>.
-
-   :parameter x:
-
-      An ``<c-double>``.
-
-   :parameter a:
-
-      An ``<c-double>``.
-
-   :result pd:
-
-     A ``<c-double>``.
-
 Exponential
 ===========
 
