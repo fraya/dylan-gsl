@@ -325,7 +325,6 @@ Gaussian algorithms
    ``#"ratio-method"``
      Kinderman-Monahan-Leva ratio method.
 
-
 The Gaussian tail distribution
 ==============================
 
@@ -336,6 +335,10 @@ The Gaussian tail distribution
    :supers:
 
       :class:`<gsl-randist-gaussian>`
+
+   :keyword required rng:
+
+   :keyword required sigma:
 
    :keyword required a:
 
@@ -378,7 +381,9 @@ The Ugaussian tail distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-gaussian-tail>`
+
+   :keyword required rng:
 
    :keyword required a:
 
@@ -390,19 +395,7 @@ The Ugaussian tail distribution
       Compute results for the tail of a unit Gaussian
       distribution. They are equivalent to the
       :class:`<gsl-randist-gaussian-tail>` with a standard deviation
-      of one, ``sigma`` = 1.
-
-The following operations are specialized for
-:class:`<gsl-randist-ugaussian-tail>`. See operations in
-:class:`<gsl-randist>` for more information.
-
-.. method:: gsl-randist-variate
-   :specializer: <gsl-randist-ugaussian-tail>
-   :no-contents-entry:
-
-.. method:: gsl-randist-pdf
-   :specializer: <gsl-randist-ugaussian-tail>
-   :no-contents-entry:
+      of one, ``sigma`` = 1.0d0.
 
 The Exponential Distribution
 ============================

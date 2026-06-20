@@ -584,10 +584,6 @@ define module gsl-ffi-randist
     gsl-ran-gaussian-tail-pdf;
 
   create
-    gsl-ran-ugaussian-tail,
-    gsl-ran-ugaussian-tail-pdf;
-
-  create
     gsl-ran-exponential,
     gsl-ran-exponential-pdf,
     gsl-cdf-exponential-p,

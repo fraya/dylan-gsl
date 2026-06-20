@@ -91,30 +91,6 @@ define c-function gsl-ran-ugaussian-ratio-method
   c-name: "gsl_ran_ugaussian_ratio_method";
 end;
 
-define c-function gsl-cdf-ugaussian-p
-  parameter x :: <c-double>;
-  result cd :: <c-double>;
-  c-name: "gsl_cdf_ugaussian_P";
-end;
-
-define c-function gsl-cdf-ugaussian-q
-  parameter x :: <c-double>;
-  result cd :: <c-double>;
-  c-name: "gsl_cdf_ugaussian_Q";
-end;
-
-define c-function gsl-cdf-ugaussian-pinv
-  parameter x :: <c-double>;
-  result cd :: <c-double>;
-  c-name: "gsl_cdf_ugaussian_Pinv";
-end;
-
-define c-function gsl-cdf-ugaussian-qinv
-  parameter x :: <c-double>;
-  result cd :: <c-double>;
-  c-name: "gsl_cdf_ugaussian_Qinv";
-end;
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Gaussian tail
@@ -135,26 +111,6 @@ define c-function gsl-ran-gaussian-tail-pdf
   parameter sigma :: <c-double>;
   result pd :: <c-double>;
   c-name: "gsl_ran_gaussian_tail_pdf";
-end;
-
-///////////////////////////////////////////////////////////////////////////////
-//
-// Unit Gaussian tail
-//
-///////////////////////////////////////////////////////////////////////////////
-
-define c-function gsl-ran-ugaussian-tail
-  parameter r :: <gsl-rng*>;
-  parameter a :: <c-double>;
-  result variate :: <c-double>;
-  c-name: "gsl_ran_ugaussian_tail";
-end;
-
-define c-function gsl-ran-ugaussian-tail-pdf
-  parameter x :: <c-double>;
-  parameter a :: <c-double>;
-  result pd :: <c-double>;
-  c-name: "gsl_ran_ugaussian_tail_pdf";
 end;
 
 ///////////////////////////////////////////////////////////////////////////////

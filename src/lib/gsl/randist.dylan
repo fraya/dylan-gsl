@@ -215,40 +215,9 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-ugaussian-tail> (<gsl-randist>)
-  constant slot gsl-randist-ugaussian-a :: <float>,
-    required-init-keyword: a:;
-end;
-
-define method initialize
-    (d :: <gsl-randist-ugaussian-tail>, #key) => ()
-  next-method();
-  let a = d.gsl-randist-ugaussian-a;
-  if (a.negative?)
-    signal(make(<gsl-error-invalid-argument>))
-  end;
-end;
-
-define method print-object
-    (d :: <gsl-randist-ugaussian-tail>, stream :: <stream>) => ()
-  printing-object(d, stream)
-    format(stream, "%= a: %=",
-           d.%gsl-randist-rng,
-           d.gsl-randist-ugaussian-a, stream);
-  end
-end;
-
-define method gsl-randist-variate
-    (d :: <gsl-randist-ugaussian-tail>) => (variate :: <float>)
-  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
-  let a = d.gsl-randist-ugaussian-a;
-  ffi/gsl-ran-ugaussian-tail(rng, a)
-end;
-
-define method gsl-randist-pdf
-    (d :: <gsl-randist-ugaussian-tail>, x :: <float>) => (pd :: <float>)
-  let a = d.gsl-randist-ugaussian-a;
-  ffi/gsl-ran-ugaussian-tail-pdf(x, a)
+define class <gsl-randist-ugaussian-tail> 
+    (<gsl-randist-gaussian-tail>)
+  inherited slot gsl-randist-gaussian-sigma = 1.0d0;  
 end;
     
 ///////////////////////////////////////////////////////////////////////////////
