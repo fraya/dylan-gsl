@@ -706,6 +706,8 @@ for more information.
    :specializer: <gsl-randist-gamma>
    :no-contents-entry:
 
+.. _gamma-algorithms:
+
 Gamma algorithms
 ----------------
 
