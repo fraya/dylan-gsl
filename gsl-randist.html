@@ -282,6 +282,7 @@ this design.</p>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-cauchy]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-cauchy&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh-tail&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-landau&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a></p></li>
 </ul>
@@ -973,6 +974,37 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <dd></dd></dl>
 
 </section>
+<section id="the-landau-distribution">
+<h2>The Landau distribution<a class="headerlink" href="#the-landau-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-landau]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-landau&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> (<em>required</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-landau&gt;</span></code></a>. See operations in
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-landau])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-landau&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-landau])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-landau])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-landau&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-landau])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <section id="the-gamma-distribution">
 <h2>The Gamma Distribution<a class="headerlink" href="#the-gamma-distribution" title="Link to this heading">¶</a></h2>
 <dl class="dylan class">
@@ -1225,6 +1257,10 @@ for more information.</p>
 </li>
 <li><a class="reference internal" href="#the-rayleigh-tail-distribution">The Rayleigh Tail distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh-tail]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh-tail&gt;</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-landau-distribution">The Landau distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-landau&gt;</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#the-gamma-distribution">The Gamma Distribution</a><ul>

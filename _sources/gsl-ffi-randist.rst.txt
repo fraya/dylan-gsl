@@ -613,7 +613,7 @@ Rayleigh
 
   .. function:: gsl-ran-rayleigh
 
-     :signature: (rng, sigma) => (variate)
+     :signature: gsl-ran-rayleigh(rng, sigma) => (variate)
 
      :parameter rng:
 
@@ -629,7 +629,7 @@ Rayleigh
 
 .. function:: gsl-ran-rayleigh-pdf
 
-   :signature: (x, sigma) => (pdf)
+   :signature: gsl-ran-rayleigh-pdf(x, sigma) => (pdf)
 
    :parameter x:
 
@@ -645,7 +645,7 @@ Rayleigh
 
 .. function:: gsl-cdf-rayleigh-p
 
-   :signature: (x, sigma) => (cd)
+   :signature: gsl-ran-rayleigh-p(x, sigma) => (cd)
 
    :parameter x:
 
@@ -661,7 +661,7 @@ Rayleigh
 
 .. function:: gsl-cdf-rayleigh-q
 
-   :signature: (x, sigma) => (cd)
+   :signature: gsl-ran-rayleigh-q(x, sigma) => (cd)
 
    :parameter x:
 
@@ -677,7 +677,7 @@ Rayleigh
 
 .. function:: gsl-cdf-rayleigh-pinv
 
-   :signature: (p, sigma) => (x)
+   :signature: gsl-ran-rayleigh-pinv(p, sigma) => (x)
 
    :parameter p:
 
@@ -693,7 +693,7 @@ Rayleigh
 
 .. function:: gsl-cdf-rayleigh-qinv
 
-   :signature: (p, sigma) => (x)
+   :signature: gsl-ran-rayleigh-qinv(p, sigma) => (x)
 
    :parameter p:
 
@@ -712,7 +712,7 @@ Rayleigh tail
 
 .. function:: gsl-ran-rayleigh-tail
 
-   :signature: (rng, a, sigma) => (variate)
+   :signature: gsl-ran-rayleigh-tail(rng, a, sigma) => (variate)
 
    :parameter rng:
 
@@ -732,7 +732,7 @@ Rayleigh tail
 
 .. function:: gsl-ran-rayleigh-tail-pdf
 
-   :signature: (x, a, sigma) => (pd)
+   :signature: gsl-ran-rayleigh-tail-pdf(x, a, sigma) => (pd)
 
    :parameter rng:
 
@@ -749,6 +749,33 @@ Rayleigh tail
    :parameter sigma:
 
      Scale parameter. A ``<c-double>``.
+
+   :result pd:
+
+     A ``<c-double>``
+
+The Landau distribution
+=======================
+
+.. function:: gsl-ran-landau
+
+   :signature: gsl-ran-landau(rng) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :result variate:
+
+     A ``<c-double>``
+
+.. function:: gsl-ran-landau-pdf
+
+   :signature: gsl-ran-landau-pdf(x) => (pd)
+
+   :parameter x:
+
+      An ``<c-double>``.
 
    :result pd:
 
