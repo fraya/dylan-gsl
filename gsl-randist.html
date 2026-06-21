@@ -283,6 +283,7 @@ this design.</p>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh-tail&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a></p></li>
 </ul>
 <section id="the-gsl-randist-interface">
 <h2>The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code> interface<a class="headerlink" href="#the-gsl-randist-interface" title="Link to this heading">¶</a></h2>
@@ -1050,6 +1051,67 @@ algorithms from Knuth (vol 2).</p>
 
 </section>
 </section>
+<section id="the-flat-distribution">
+<h2>The Flat Distribution<a class="headerlink" href="#the-flat-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-flat]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-flat&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>a</strong> (<em>required</em>) – Lower limit. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+<li><p><strong>b</strong> (<em>required</em>) – Upper limit. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/randist.html#the-flat-distribution">https://www.gnu.org/software/gsl/doc/html/randist.html#the-flat-distribution</a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a random variate from the flat (uniform) distribution from a to b</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>
+for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-flat])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-flat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-flat])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-flat])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-flat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-flat])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-flat])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-flat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-flat])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-flat])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-flat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-flat])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-flat])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-pinv(&lt;gsl-randist-flat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-flat])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-flat])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-flat&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-flat])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1171,6 +1233,10 @@ algorithms from Knuth (vol 2).</p>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-gamma-algorithm]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-gamma-algorithm&gt;</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-flat-distribution">The Flat Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

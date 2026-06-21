@@ -25,6 +25,7 @@ The distributions available in this module are:
 - :class:`<gsl-randist-rayleigh>`
 - :class:`<gsl-randist-rayleigh-tail>`
 - :class:`<gsl-randist-gamma>`
+- :class:`<gsl-randist-flat>`
 
 
 The ``<gsl-randist>`` interface
@@ -723,3 +724,58 @@ Gamma algorithms
    ``#"knuth"``
      This function returns a gamma variate using the
      algorithms from Knuth (vol 2).
+
+The Flat Distribution
+======================
+
+.. class:: <gsl-randist-flat>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required a:
+
+      Lower limit. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Upper limit. An instance of :drm:`<float>`
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-flat-distribution
+
+   :discussion:
+
+      Returns a random variate from the flat (uniform) distribution from a to b
+
+The following operations are specialized for
+:class:`<gsl-randist-flat>`. See operations in :class:`<gsl-randist>`
+for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-flat>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-flat>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-flat>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-flat>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-flat>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-flat>
+   :no-contents-entry:

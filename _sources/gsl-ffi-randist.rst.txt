@@ -754,8 +754,8 @@ Rayleigh tail
 
      A ``<c-double>``
 
-Gamma
-=====
+Gamma Distribution
+==================
 
 .. function:: gsl-ran-gamma
 
@@ -819,8 +819,219 @@ Gamma
 
 .. function:: gsl-cdf-gamma-p
 
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
 .. function:: gsl-cdf-gamma-q
+
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
 
 .. function:: gsl-cdf-gamma-pinv
 
-.. function:: gsl-cdf-gamma-qinv              
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-gamma-qinv
+
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+The Flat Distribution
+=====================
+
+.. function:: gsl-ran-flat
+
+   :signature: (rng, a, b) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter a:
+
+     Shape parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-flat-pdf
+
+   :signature: (x, a, b) => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     A ``<c-double>``.
+
+   :parameter b:
+
+     A ``<c-double>``.
+
+   :result pdf:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-flat-q
+
+   :signature: (x, sigma) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter sigma:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
+.. function:: gsl-cdf-flat-p
+
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     A ``<c-double>``.
+
+   :parameter b:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     Cumulative distribution function. A ``<c-double>``
+
+.. function:: gsl-cdf-flat-q
+
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     A ``<c-double>``.
+
+   :parameter b:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-flat-pinv
+
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     A ``<c-double>``.
+
+   :parameter b:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-flat-qinv
+
+   :signature: (x, a, b) => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter a:
+
+     Scale parameter. A ``<c-double>``.
+
+   :parameter b:
+
+     Scale parameter. A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
