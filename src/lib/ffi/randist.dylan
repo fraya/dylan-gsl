@@ -85,12 +85,6 @@ define c-function gsl-ran-ugaussian-pdf
   c-name: "gsl_ran_ugaussian_pdf";
 end;
 
-define c-function gsl-ran-ugaussian-ratio-method
-  parameter r :: <gsl-rng*>;
-  result v :: <c-double>;
-  c-name: "gsl_ran_ugaussian_ratio_method";
-end;
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Gaussian tail
@@ -434,21 +428,53 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-flat
-//  parameter r :: <gsl-rng*>;
-//  parameter a :: <c-double>;
-//  parameter b :: <c-double>;
-//  result variate :: <c-double>;
-//  c-name: "gsl_ran_flat";
-// end;
+define c-function gsl-ran-flat
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_flat";
+end;
 
-// define c-function gsl-ran-flat-pdf
-//  parameter x :: <c-double>;
-//  parameter a :: <c-double>;
-//  parameter b :: <c-double>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_flat_pdf";
-// end;
+define c-function gsl-ran-flat-pdf
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_flat_pdf";
+end;
+
+define c-function gsl-cdf-flat-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result p :: <c-double>;
+  c-name: "gsl_cdf_flat_P";
+end;
+
+define c-function gsl-cdf-flat-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result q :: <c-double>;
+  c-name: "gsl_cdf_flat_Q";
+end;
+
+define c-function gsl-cdf-flat-pinv
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pinv :: <c-double>;
+  c-name: "gsl_cdf_flat_Pinv";
+end;
+
+define c-function gsl-cdf-flat-qinv
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result qinv :: <c-double>;
+  c-name: "gsl_cdf_flat_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

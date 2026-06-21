@@ -543,10 +543,6 @@ end;
 
 define constant <gsl-gamma-algorithm>
   = one-of(#"default", #"knuth");
-
-define constant <gsl-randist-gamma-algorithm>
-  = one-of($gsl-randist-gamma-default,
-           $gsl-randist-gamma-knuth);
   
 define class <gsl-randist-gamma> (<gsl-randist>)
   constant slot gsl-randist-gamma-a :: <float>,
@@ -568,7 +564,7 @@ define method initialize
          #"knuth"
            => ffi/gsl-ran-gamma-knuth;
          otherwise
-           => signal(make(<gsl-error-invalid-argumen>));
+           => signal(make(<gsl-error-invalid-argument>));
        end;  
 end;
 
@@ -587,7 +583,7 @@ define method gsl-randist-variate
   let rng = d.%gsl-randist-rng.gsl-rng-ffi;
   let a = d.gsl-randist-gamma-a;
   let b = d.gsl-randist-gamma-b;
-  let algorithm = d.gsl-randist-gamma-algorithm;
+  let algorithm = d.%gsl-randist-gamma-algorithm;
   algorithm(rng, a, b)
 end;
 
@@ -624,4 +620,70 @@ define method gsl-randist-cdf-qinv
   let a = d.gsl-randist-gamma-a;
   let b = d.gsl-randist-gamma-b;
   ffi/gsl-cdf-gamma-qinv(x, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Flat Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-flat> (<gsl-randist>)
+  constant slot gsl-randist-flat-a :: <float>,
+    required-init-keyword: a:;
+  constant slot gsl-randist-flat-b :: <float>,
+    required-init-keyword: b:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-flat>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-flat-a,
+           d.gsl-randist-flat-b);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-flat>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-flat-a;
+  let b = d.gsl-randist-flat-b;
+  ffi/gsl-ran-flat(rng, a, b)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-flat>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-flat-a;
+  let b = d.gsl-randist-flat-b;
+  ffi/gsl-ran-flat-pdf(x, a, b);
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-flat>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-flat-a;
+  let b = d.gsl-randist-flat-b;
+  ffi/gsl-cdf-flat-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-flat>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-flat-a;
+  let b = d.gsl-randist-flat-b;
+  ffi/gsl-cdf-flat-q(x, a, b)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-flat>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-flat-a;
+  let b = d.gsl-randist-flat-b;
+  ffi/gsl-cdf-flat-pinv(x, a, b)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-flat>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-flat-a;
+  let b = d.gsl-randist-flat-b;
+  ffi/gsl-cdf-flat-qinv(x, a, b)
 end;

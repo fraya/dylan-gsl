@@ -459,23 +459,18 @@ define module gsl-randist
     <gsl-gaussian-algorithm>,
     <gsl-randist-gaussian>,
     gsl-randist-gaussian-sigma,
-    <gsl-randist-ugaussian>;
-
-  create
+    <gsl-randist-ugaussian>,
     <gsl-randist-gaussian-tail>,
     <gsl-randist-ugaussian-tail>,
     <gsl-randist-exponential>,
     <gsl-randist-laplace>,
     <gsl-randist-exppow>,
-    <gsl-randist-cauchy>;
-
- create
+    <gsl-randist-cauchy>,
     <gsl-randist-rayleigh>,
-    <gsl-randist-rayleigh-tail>;
-
-  create
+    <gsl-randist-rayleigh-tail>,
     <gsl-gamma-algorithm>,
-    <gsl-randist-gamma>;
+    <gsl-randist-gamma>,
+    <gsl-randist-flat>;
 
 end module;
 
