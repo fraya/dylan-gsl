@@ -501,7 +501,7 @@ end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Tail Rayleigh
+// The Rayleigh Tail Distribution
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -533,6 +533,26 @@ define method gsl-randist-pdf
   let a = d.gsl-randist-rayleigh-a;
   let sigma = d.gsl-randist-rayleigh-sigma;
   ffi/gsl-ran-rayleigh-tail-pdf(x, a, sigma)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Landau distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-landau> (<gsl-randist>)
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-landau>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  ffi/gsl-ran-landau(rng)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-landau>, x :: <float>) => (pd :: <float>)
+  ffi/gsl-ran-landau-pdf(x)
 end;
 
 ///////////////////////////////////////////////////////////////////////////////

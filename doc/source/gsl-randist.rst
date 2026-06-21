@@ -24,6 +24,7 @@ The distributions available in this module are:
 - :class:`<gsl-randist-cauchy>`
 - :class:`<gsl-randist-rayleigh>`
 - :class:`<gsl-randist-rayleigh-tail>`
+- :class:`<gsl-randist-landau>`  
 - :class:`<gsl-randist-gamma>`
 - :class:`<gsl-randist-flat>`
 
@@ -648,6 +649,27 @@ The following operations are specialized for
 
 .. method:: gsl-randist-pdf
    :specializer: <gsl-randist-rayleigh-tail>
+   :no-contents-entry:
+
+The Landau distribution
+=======================
+
+.. class:: <gsl-randist-landau>
+
+   :supers: :class:`<gsl-randist>`
+
+   :keyword required rng:
+
+The following operations are specialized for
+:class:`<gsl-randist-landau>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-landau>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-landau>
    :no-contents-entry:
 
 The Gamma Distribution

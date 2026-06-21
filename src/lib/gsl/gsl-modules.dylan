@@ -469,6 +469,7 @@ define module gsl-randist
     <gsl-randist-rayleigh>,
     <gsl-randist-rayleigh-tail>,
     <gsl-gamma-algorithm>,
+    <gsl-randist-landau>,
     <gsl-randist-gamma>,
     <gsl-randist-flat>;
 

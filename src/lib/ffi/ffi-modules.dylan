@@ -623,6 +623,10 @@ define module gsl-ffi-randist
     gsl-cdf-rayleigh-pinv,
     gsl-cdf-rayleigh-qinv;
 
+ create
+   gsl-ran-landau,
+   gsl-ran-landau-pdf;
+
   create
     gsl-ran-gamma,
     gsl-ran-gamma-knuth,
@@ -659,10 +663,6 @@ define module gsl-ffi-randist
 //  create
 //    gsl-ran-beta,
 //    gsl-ran-beta-pdf;
-
-//  create
-//    gsl-ran-landau,
-//    gsl-ran-landau-pdf;
 
 //  create
 //    gsl-ran-levy,

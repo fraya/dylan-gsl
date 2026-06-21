@@ -34,12 +34,12 @@ Here is the list of the random distributions available in the GSL library (some 
 - [X] Laplace distribution
 - [X] Exponential Power distribution
 - [X] Cauchy distribution
-- [ ] Rayleigh distribution
-- [ ] Landau distribution
+- [X] Rayleigh distribution
+- [X] Landau distribution
 - [ ] Levy Alpha-Stable distribution
 - [ ] Levy Skewed Alpha-Stable distribution
 - [X] Gamma distribution
-- [ ] Flat distribution
+- [X] Flat distribution
 - [ ] Lognormal distribution
 - [ ] Chi-squared distribution
 - [ ] Student's t-distribution
