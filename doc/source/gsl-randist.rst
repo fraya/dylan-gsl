@@ -655,6 +655,8 @@ The Landau distribution
 =======================
 
 .. class:: <gsl-randist-landau>
+   :instantiable:
+   :concrete:
 
    :supers: :class:`<gsl-randist>`
 
