@@ -24,7 +24,9 @@ The distributions available in this module are:
 - :class:`<gsl-randist-cauchy>`
 - :class:`<gsl-randist-rayleigh>`
 - :class:`<gsl-randist-rayleigh-tail>`
-- :class:`<gsl-randist-landau>`  
+- :class:`<gsl-randist-landau>`
+- :class:`<gsl-randist-levy>`
+- :class:`<gsl-randist-levy-skew>`
 - :class:`<gsl-randist-gamma>`
 - :class:`<gsl-randist-flat>`
 
@@ -672,6 +674,64 @@ The following operations are specialized for
 
 .. method:: gsl-randist-pdf
    :specializer: <gsl-randist-landau>
+   :no-contents-entry:
+
+The Levy alpha-Stable Distribution
+==================================
+
+.. class:: <gsl-randist-levy>
+   :instantiable:
+   :concrete:
+
+   :supers: :class:`<gsl-randist>`
+
+   :keyword required rng:
+
+   :keyword required c:
+
+      Scale. An instance of :class:`<float>`.
+
+   :keyword required alpha:
+
+      Scale. An instance of :class:`<float>`.
+
+The following operations are specialized for
+:class:`<gsl-randist-levy>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-levy>
+   :no-contents-entry:
+
+The Levy skew alpha-Stable Distribution
+=======================================
+
+.. class:: <gsl-randist-levy-skew>
+   :instantiable:
+   :concrete:
+
+   :supers: :class:`<gsl-randist-levy>`
+
+   :keyword required rng:
+
+   :keyword required c:
+
+      Scale. An instance of :class:`<float>`.
+
+   :keyword required alpha:
+
+      Scale. An instance of :class:`<float>`.
+
+   :keyword required beta:
+
+      Skew. An instance of :class:`<float>`.
+
+The following operations are specialized for
+:class:`<gsl-randist-levy-skew>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-levy-skew>
    :no-contents-entry:
 
 The Gamma Distribution

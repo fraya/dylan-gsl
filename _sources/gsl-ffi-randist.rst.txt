@@ -781,6 +781,57 @@ The Landau distribution
 
      A ``<c-double>``
 
+The Levy alpha-Stable distribution
+==================================
+
+.. function:: gsl-ran-levy
+
+   :signature: gsl-ran-levy(rng, c, alpha) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter c:
+
+      Scale. An instance of ``<gsl-rng*>``.
+
+   :parameter alpha:
+
+      Exponent. An instance of ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``
+
+The Levy alpha-Stable distribution
+==================================
+
+.. function:: gsl-ran-levy-skew
+
+   :signature: gsl-ran-levy-skew(rng, c, alpha, beta) => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter c:
+
+      Scale. An instance of ``<gsl-rng*>``.
+
+   :parameter alpha:
+
+      Exponent. An instance of ``<c-double>``.
+
+   :parameter beta:
+
+      Skew. An instance of ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``
+
+
 Gamma Distribution
 ==================
 
