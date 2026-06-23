@@ -623,9 +623,13 @@ define module gsl-ffi-randist
     gsl-cdf-rayleigh-pinv,
     gsl-cdf-rayleigh-qinv;
 
- create
-   gsl-ran-landau,
-   gsl-ran-landau-pdf;
+  create
+    gsl-ran-landau,
+    gsl-ran-landau-pdf;
+
+  create
+    gsl-ran-levy,
+    gsl-ran-levy-skew;
 
   create
     gsl-ran-gamma,
@@ -691,15 +695,15 @@ define module gsl-ffi-randist
 //     gsl-ran-dir-2d-trig-method,
 //     gsl-ran-dir-3d,
 //     gsl-ran-dir-nd;
-    
+
 //  create
 //    gsl-ran-poisson,
 //    gsl-ran-poisson-pdf;
-    
+
 //  create
 //    gsl-ran-bernoulli,
 //    gsl-ran-bernoulli-pdf;
-    
+
 //  create
 //    gsl-ran-binomial,
 //    gsl-ran-binomial-pdf;

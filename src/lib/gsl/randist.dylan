@@ -557,6 +557,47 @@ end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
+// The Levy alpha-Stable Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-levy> (<gsl-randist>)
+  constant slot gsl-randist-levy-c :: <float>,
+    required-init-keyword: c:;
+  constant slot gsl-randist-levy-alpha :: <float>,
+    required-init-keyword: alpha:;
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-levy>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let c = d.gsl-randist-levy-c;
+  let alpha = d.gsl-randist-levy-alpha;
+  ffi/gsl-ran-levy(rng, c, alpha)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Levy skew alpha-Stable Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-levy-skew> (<gsl-randist-levy>)
+  constant slot gsl-randist-levy-beta :: <float>,
+    required-init-keyword: beta:;
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-levy>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let c = d.gsl-randist-levy-c;
+  let alpha = d.gsl-randist-levy-alpha;
+  let beta = d.gsl-randist-levy-beta;
+  ffi/gsl-ran-levy(rng, c, alpha, beta)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
 // Gamma
 //
 ///////////////////////////////////////////////////////////////////////////////
