@@ -588,12 +588,12 @@ define class <gsl-randist-levy-skew> (<gsl-randist-levy>)
 end;
 
 define method gsl-randist-variate
-    (d :: <gsl-randist-levy>) => (variate :: <float>)
+    (d :: <gsl-randist-levy-skew>) => (variate :: <float>)
   let rng = d.%gsl-randist-rng.gsl-rng-ffi;
   let c = d.gsl-randist-levy-c;
   let alpha = d.gsl-randist-levy-alpha;
   let beta = d.gsl-randist-levy-beta;
-  ffi/gsl-ran-levy(rng, c, alpha, beta)
+  ffi/gsl-ran-levy-skew(rng, c, alpha, beta)
 end;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -747,4 +747,70 @@ define method gsl-randist-cdf-qinv
   let a = d.gsl-randist-flat-a;
   let b = d.gsl-randist-flat-b;
   ffi/gsl-cdf-flat-qinv(x, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Lognormal Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-lognormal> (<gsl-randist>)
+  constant slot gsl-randist-lognormal-zeta :: <float>,
+    required-init-keyword: zeta:;
+  constant slot gsl-randist-lognormal-sigma :: <float>,
+    required-init-keyword: sigma:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-lognormal>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= zeta: %= sigma: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-lognormal-zeta,
+           d.gsl-randist-lognormal-sigma);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-lognormal>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let zeta = d.gsl-randist-lognormal-zeta;
+  let sigma = d.gsl-randist-lognormal-sigma;
+  ffi/gsl-ran-lognormal(rng, zeta, sigma)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-lognormal>, x :: <float>) => (pd :: <float>)
+  let zeta = d.gsl-randist-lognormal-zeta;
+  let sigma = d.gsl-randist-lognormal-sigma;
+  ffi/gsl-ran-lognormal-pdf(x, zeta, sigma);
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-lognormal>, x :: <float>) => (p :: <float>)
+  let zeta = d.gsl-randist-lognormal-zeta;
+  let sigma = d.gsl-randist-lognormal-sigma;
+  ffi/gsl-cdf-lognormal-p(x, zeta, sigma)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-lognormal>, x :: <float>) => (p :: <float>)
+  let zeta = d.gsl-randist-lognormal-zeta;
+  let sigma = d.gsl-randist-lognormal-sigma;
+  ffi/gsl-cdf-lognormal-q(x, zeta, sigma)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-lognormal>, p :: <float>) => (p :: <float>)
+  let zeta = d.gsl-randist-lognormal-zeta;
+  let sigma = d.gsl-randist-lognormal-sigma;
+  ffi/gsl-cdf-lognormal-pinv(p, zeta, sigma)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-lognormal>, q :: <float>) => (p :: <float>)
+  let zeta = d.gsl-randist-lognormal-zeta;
+  let sigma = d.gsl-randist-lognormal-sigma;
+  ffi/gsl-cdf-lognormal-qinv(q, zeta, sigma)
 end;

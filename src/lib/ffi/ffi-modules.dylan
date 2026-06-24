@@ -648,9 +648,13 @@ define module gsl-ffi-randist
     gsl-cdf-flat-pinv,
     gsl-cdf-flat-qinv;
 
-//  create
-//    gsl-ran-lognormal,
-//    gsl-ran-lognormal-pdf;
+create
+    gsl-ran-lognormal,
+    gsl-ran-lognormal-pdf,
+    gsl-cdf-lognormal-p,
+    gsl-cdf-lognormal-q,
+    gsl-cdf-lognormal-pinv,
+    gsl-cdf-lognormal-qinv;
 
 //  create
 //    gsl-ran-chisq,

@@ -1113,3 +1113,126 @@ The Flat Distribution
    :result cd:
 
      A ``<c-double>``
+
+The Lognormal Distribution
+==========================
+
+.. function:: gsl-ran-lognormal
+
+   :signature: gsl-ran-lognormal rng zeta sigma => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter zeta:
+
+     A ``<c-double>``.
+
+   :parameter sigma:
+
+     A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-lognormal-pdf
+
+   :signature: gsl-ran-lognormal-pdf x zeta sigma => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter zeta:
+
+     A ``<c-double>``.
+
+   :parameter sigma:
+
+     A ``<c-double>``.
+
+   :result pdf:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-lognormal-p
+
+   :signature: gsl-cdf-lognormal-p x zeta sigma => (cd)
+
+   :parameter x:
+
+     A ``<c-double>``.
+
+   :parameter zeta:
+
+     A ``<c-double>``.
+
+   :parameter sigma:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-lognormal-q
+
+   :signature: gsl-cdf-lognormal-q x zeta sigma => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter zeta:
+
+     A ``<c-double>``.
+
+   :parameter sigma:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-lognormal-pinv
+
+   :signature: gsl-cdf-lognormal-pinv p zeta sigma => (cd)
+
+   :parameter p:
+
+     A ``<c-double>``.
+
+   :parameter zeta:
+
+     A ``<c-double>``.
+
+   :parameter sigma:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-lognormal-qinv
+
+   :signature: gsl-cdf-lognormal-qinv q zeta sigma => (cd)
+
+   :parameter q:
+
+     A ``<c-double>``.
+
+   :parameter zeta:
+
+     A ``<c-double>``.
+
+   :parameter sigma:
+
+     A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``

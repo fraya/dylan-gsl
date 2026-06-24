@@ -471,7 +471,8 @@ define module gsl-randist
     <gsl-gamma-algorithm>,
     <gsl-randist-landau>,
     <gsl-randist-gamma>,
-    <gsl-randist-flat>;
+    <gsl-randist-flat>,
+    <gsl-randist-lognormal>;
 
 end module;
 

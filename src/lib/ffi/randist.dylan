@@ -375,7 +375,7 @@ end;
 define c-function gsl-ran-landau-pdf
   parameter x :: <c-double>;
   result p :: <c-double>;
-  c-name: "gsl_ran_landau_pad";
+  c-name: "gsl_ran_landau_pdf";
 end;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -529,21 +529,53 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-lognormal
-//   parameter r :: <gsl-rng*>;
-//   parameter zeta :: <c-double>;
-//   parameter sigma :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_lognormal";
-// end;
+define c-function gsl-ran-lognormal
+  parameter r :: <gsl-rng*>;
+  parameter zeta :: <c-double>;
+  parameter sigma :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_lognormal";
+end;
 
-// define c-function gsl-ran-lognormal-pdf
-//   parameter x :: <c-double>;
-//   parameter zeta :: <c-double>;
-//   parameter sigma :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_lognormal_pdf";
-// end;
+define c-function gsl-ran-lognormal-pdf
+  parameter x :: <c-double>;
+  parameter zeta :: <c-double>;
+  parameter sigma :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_lognormal_pdf";
+end;
+
+define c-function gsl-cdf-lognormal-p
+  parameter x :: <c-double>;
+  parameter zeta :: <c-double>;
+  parameter sigma :: <c-double>;
+  result pd :: <c-double>;
+  c-name: "gsl_cdf_lognormal_P";
+end;
+
+define c-function gsl-cdf-lognormal-q
+  parameter x :: <c-double>;
+  parameter zeta :: <c-double>;
+  parameter sigma :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_lognormal_Q";
+end;
+
+define c-function gsl-cdf-lognormal-pinv
+  parameter p :: <c-double>;
+  parameter zeta :: <c-double>;
+  parameter sigma :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_lognormal_Pinv";
+end;
+
+define c-function gsl-cdf-lognormal-qinv
+  parameter q :: <c-double>;
+  parameter zeta :: <c-double>;
+  parameter sigma :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_lognormal_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

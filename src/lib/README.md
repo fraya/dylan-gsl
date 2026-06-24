@@ -36,11 +36,11 @@ Here is the list of the random distributions available in the GSL library (some 
 - [X] Cauchy distribution
 - [X] Rayleigh distribution
 - [X] Landau distribution
-- [ ] Levy Alpha-Stable distribution
-- [ ] Levy Skewed Alpha-Stable distribution
+- [X] Levy Alpha-Stable distribution
+- [X] Levy Skewed Alpha-Stable distribution
 - [X] Gamma distribution
 - [X] Flat distribution
-- [ ] Lognormal distribution
+- [X] Lognormal distribution
 - [ ] Chi-squared distribution
 - [ ] Student's t-distribution
 - [ ] F-distribution
