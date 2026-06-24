@@ -863,3 +863,55 @@ for more information.
 .. method:: gsl-randist-cdf-qinv
    :specializer: <gsl-randist-flat>
    :no-contents-entry:
+
+The Lognormal Distribution
+==========================
+
+.. class:: <gsl-randist-lognormal>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required zeta:
+
+      An instance of :drm:`<float>`
+
+   :keyword required sigma:
+
+      An instance of :drm:`<float>`
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-lognormal-distribution
+
+
+The following operations are specialized for
+:class:`<gsl-randist-lognormal>`. See operations in :class:`<gsl-randist>`
+for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:

@@ -1203,6 +1203,64 @@ for more information.</p>
 <dd></dd></dl>
 
 </section>
+<section id="the-lognormal-distribution">
+<h2>The Lognormal Distribution<a class="headerlink" href="#the-lognormal-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-lognormal]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>zeta</strong> (<em>required</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+<li><p><strong>sigma</strong> (<em>required</em>) – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">See also<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/randist.html#the-lognormal-distribution">https://www.gnu.org/software/gsl/doc/html/randist.html#the-lognormal-distribution</a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>
+for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-lognormal])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-lognormal&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-lognormal])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-lognormal])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-lognormal&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-lognormal])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-lognormal])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-lognormal&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-lognormal])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-lognormal])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-lognormal&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-lognormal])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-lognormal])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-pinv(&lt;gsl-randist-lognormal&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-lognormal])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-lognormal])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-lognormal&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-lognormal])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1340,6 +1398,10 @@ for more information.</p>
 </li>
 <li><a class="reference internal" href="#the-flat-distribution">The Flat Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-lognormal-distribution">The Lognormal Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

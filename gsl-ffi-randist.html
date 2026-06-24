@@ -1485,6 +1485,129 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 </section>
+<section id="the-lognormal-distribution">
+<h2>The Lognormal Distribution<a class="headerlink" href="#the-lognormal-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-lognormal">
+<span class="sig-name descname"><span class="pre">gsl-ran-lognormal</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-lognormal" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-ran-lognormal rng zeta sigma =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>zeta</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-lognormal-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-lognormal-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-lognormal-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-ran-lognormal-pdf x zeta sigma =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>zeta</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-p">
+<span class="sig-name descname"><span class="pre">gsl-cdf-lognormal-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-lognormal-p x zeta sigma =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>zeta</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-q">
+<span class="sig-name descname"><span class="pre">gsl-cdf-lognormal-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-q" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-lognormal-q x zeta sigma =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>zeta</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-pinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-lognormal-pinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-pinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-lognormal-pinv p zeta sigma =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>zeta</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-qinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-lognormal-qinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-qinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-lognormal-qinv q zeta sigma =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>q</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>zeta</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>sigma</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1637,6 +1760,15 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-flat-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-flat-p</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-flat-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-flat-pinv</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-flat-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-flat-qinv</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-lognormal-distribution">The Lognormal Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-lognormal"><code class="docutils literal notranslate"><span class="pre">gsl-ran-lognormal</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-lognormal-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-lognormal-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-q</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-pinv</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-qinv</span></code></a></li>
 </ul>
 </li>
 </ul>
