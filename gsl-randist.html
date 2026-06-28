@@ -287,6 +287,7 @@ this design.</p>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-levy-skew]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-levy-skew&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-chisq&gt;</span></code></a></p></li>
 </ul>
 <section id="the-gsl-randist-interface">
 <h2>The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code> interface<a class="headerlink" href="#the-gsl-randist-interface" title="Link to this heading">¶</a></h2>
@@ -297,8 +298,10 @@ this design.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rng</strong> (<em>required</em>) – Random number generator. An instance of <a class="reference internal" href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a>.  Used
-to generate random variates from the distribution.</p></li>
+<li><p><strong>rng</strong> – Random number generator. Used
+to generate random variates from the distribution. If not provided
+a new instance of <a class="reference internal" href="gsl-rng.html#dylan-gsl:gsl-rng:[gsl-rng]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng&gt;</span></code></a> is provided. This generator can be
+configured by environment variables (see <a class="reference internal" href="gsl-rng.html#rng-environment-variables"><span class="std std-ref">Random number environment variables</span></a>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Operations<span class="colon">:</span></dt>
@@ -1261,6 +1264,70 @@ for more information.</p>
 <dd></dd></dl>
 
 </section>
+<section id="the-chi-squared-distribution">
+<h2>The Chi-Squared Distribution<a class="headerlink" href="#the-chi-squared-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-chisq]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-chisq&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nu</strong> (<em>required</em>) – Degrees of freedom. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-randist-chisq&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">nu:</span><span class="w"> </span><span class="mf">3.0</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="k">rng:</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-randist-variate</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">See also<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/randist.html#the-chi-squared-distribution">https://www.gnu.org/software/gsl/doc/html/randist.html#the-chi-squared-distribution</a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-chisq&gt;</span></code></a>. See operations in
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-chisq])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-chisq])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-chisq])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-chisq])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-chisq])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-pinv(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-chisq])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1402,6 +1469,10 @@ for more information.</p>
 </li>
 <li><a class="reference internal" href="#the-lognormal-distribution">The Lognormal Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-chi-squared-distribution">The Chi-Squared Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-chisq&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

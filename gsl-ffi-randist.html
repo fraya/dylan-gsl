@@ -1608,6 +1608,123 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 </section>
+<section id="the-chi-square-distribution">
+<h2>The Chi-Square Distribution<a class="headerlink" href="#the-chi-square-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-chisq">
+<span class="sig-name descname"><span class="pre">gsl-ran-chisq</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-chisq" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-ran-chisq rng nu  =&gt; (variate)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rng</strong> – Random number generator. An instance of &lt;gsl-rng*&gt;.</p></li>
+<li><p><strong>nu</strong> – Degrees of freedom. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result variate<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-chisq-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-chisq-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-chisq-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-ran-chisq-pdf x nu =&gt; (pdf)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>nu</strong> – Degrees of freedom. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result pdf<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-p">
+<span class="sig-name descname"><span class="pre">gsl-cdf-chisq-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-chisq-p x nu =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>nu</strong> – Degrees of freedom. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-q">
+<span class="sig-name descname"><span class="pre">gsl-cdf-chisq-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-q" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-chisq-q x nu =&gt; (cd)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> – Value. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>nu</strong> – Degrees of freedom. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result cd<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-pinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-chisq-pinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-pinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-chisq-pinv p nu =&gt; (x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>p</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>nu</strong> – Degrees of freedom. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-qinv">
+<span class="sig-name descname"><span class="pre">gsl-cdf-chisq-qinv</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-qinv" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gsl-cdf-chisq-qinv q nu =&gt; (x)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>q</strong> – Probability. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>nu</strong> – Degrees of freedom. A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Result x<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1769,6 +1886,15 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-q</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-pinv</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-lognormal-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-lognormal-qinv</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-chi-square-distribution">The Chi-Square Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-chisq"><code class="docutils literal notranslate"><span class="pre">gsl-ran-chisq</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-chisq-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-chisq-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-q</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-pinv</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-qinv</span></code></a></li>
 </ul>
 </li>
 </ul>
