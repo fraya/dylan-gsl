@@ -583,19 +583,47 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-chisq
-//   parameter r :: <gsl-rng*>;
-//   parameter nu :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_chisq";
-// end;
+define c-function gsl-ran-chisq
+  parameter r :: <gsl-rng*>;
+  parameter nu :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_chisq";
+end;
 
-// define c-function gsl-ran-chisq-pdf
-//   parameter x :: <c-double>;
-//   parameter nu :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_chisq_pdf";
-// end;
+define c-function gsl-ran-chisq-pdf
+   parameter x :: <c-double>;
+   parameter nu :: <c-double>;
+   result pdf :: <c-double>;
+   c-name: "gsl_ran_chisq_pdf";
+end;
+
+define c-function gsl-cdf-chisq-p
+  parameter x :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_chisq_P";
+end;
+
+define c-function gsl-cdf-chisq-q
+  parameter x :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_chisq_Q";
+end;
+
+define c-function gsl-cdf-chisq-pinv
+  parameter p :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_chisq_Pinv";
+end;
+
+define c-function gsl-cdf-chisq-qinv
+  parameter q :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_chisq_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

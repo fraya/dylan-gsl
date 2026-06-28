@@ -29,7 +29,7 @@ The distributions available in this module are:
 - :class:`<gsl-randist-levy-skew>`
 - :class:`<gsl-randist-gamma>`
 - :class:`<gsl-randist-flat>`
-
+- :class:`<gsl-randist-chisq>`
 
 The ``<gsl-randist>`` interface
 ===============================
@@ -40,10 +40,12 @@ The ``<gsl-randist>`` interface
 
    Base class for all distributions.
 
-   :keyword required rng:
+   :keyword rng:
 
-     Random number generator. An instance of :class:`<gsl-rng>`.  Used
-     to generate random variates from the distribution.
+     Random number generator. Used
+     to generate random variates from the distribution. If not provided
+     a new instance of :class:`<gsl-rng>` is provided. This generator can be
+     configured by environment variables (see :ref:`rng_environment_variables`)
 
    :operations:
 
@@ -914,4 +916,59 @@ for more information.
 
 .. method:: gsl-randist-cdf-qinv
    :specializer: <gsl-randist-lognormal>
+   :no-contents-entry:
+
+The Chi-Squared Distribution
+============================
+
+.. class:: <gsl-randist-chisq>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist>`
+
+   :keyword required nu:
+
+      Degrees of freedom. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-chisq>, nu: 3.0d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-chi-squared-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-chisq>`. See operations in
+:class:`<gsl-randist>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-chisq>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-chisq>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-chisq>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-chisq>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-chisq>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-chisq>
    :no-contents-entry:

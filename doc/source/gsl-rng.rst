@@ -17,6 +17,8 @@ generator and a seed:
    format-out("seed = %d\n", rng.gsl-rng-seed);
    format-out("first value = %d\n", rng.gsl-rng-get);
 
+.. _rng_environment_variables:
+
 Random number environment variables
 -----------------------------------
 

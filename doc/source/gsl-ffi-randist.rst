@@ -1236,3 +1236,103 @@ The Lognormal Distribution
    :result cd:
 
      A ``<c-double>``
+
+The Chi-Square Distribution
+===========================
+
+.. function:: gsl-ran-chisq
+
+   :signature: gsl-ran-chisq rng nu  => (variate)
+
+   :parameter rng:
+
+     Random number generator. An instance of <gsl-rng*>.
+
+   :parameter nu:
+
+     Degrees of freedom. A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-chisq-pdf
+
+   :signature: gsl-ran-chisq-pdf x nu => (pdf)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter nu:
+
+     Degrees of freedom. A ``<c-double>``.
+
+   :result pdf:
+
+     A ``<c-double>``.
+
+.. function:: gsl-cdf-chisq-p
+
+   :signature: gsl-cdf-chisq-p x nu => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter nu:
+
+     Degrees of freedom. A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-chisq-q
+
+   :signature: gsl-cdf-chisq-q x nu => (cd)
+
+   :parameter x:
+
+     Value. A ``<c-double>``.
+
+   :parameter nu:
+
+     Degrees of freedom. A ``<c-double>``.
+
+   :result cd:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-chisq-pinv
+
+   :signature: gsl-cdf-chisq-pinv p nu => (x)
+
+   :parameter p:
+
+     Probability. A ``<c-double>``.
+
+   :parameter nu:
+
+     Degrees of freedom. A ``<c-double>``.
+
+   :result x:
+
+     A ``<c-double>``
+
+.. function:: gsl-cdf-chisq-qinv
+
+   :signature: gsl-cdf-chisq-qinv q nu => (x)
+
+   :parameter q:
+
+     Probability. A ``<c-double>``.
+
+   :parameter nu:
+
+     Degrees of freedom. A ``<c-double>``.
+
+   :result x:
+
+     A ``<c-double>``
+

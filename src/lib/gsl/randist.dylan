@@ -13,7 +13,8 @@ Reference: https://www.gnu.org/software/gsl/doc/html/randist.html
 
 define abstract class <gsl-randist> (<object>)
   constant slot %gsl-randist-rng :: <gsl-rng>,
-    required-init-keyword: rng:;
+    init-keyword: rng:,
+    init-value: make(<gsl-rng>);
 end;
 
 define method print-object
@@ -813,4 +814,61 @@ define method gsl-randist-cdf-qinv
   let zeta = d.gsl-randist-lognormal-zeta;
   let sigma = d.gsl-randist-lognormal-sigma;
   ffi/gsl-cdf-lognormal-qinv(q, zeta, sigma)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Chi-Square Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-chisq> (<gsl-randist>) 
+  constant slot gsl-randist-chisq-nu :: <float>,
+    required-init-keyword: nu:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-chisq>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= nu: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-chisq-nu);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-chisq>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let nu = d.gsl-randist-chisq-nu;
+  ffi/gsl-ran-chisq(rng, nu)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-chisq>, x :: <float>) => (pd :: <float>)
+  let nu = d.gsl-randist-chisq-nu;
+  ffi/gsl-ran-chisq-pdf(x, nu)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-chisq>, x :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-chisq-nu;
+  ffi/gsl-cdf-chisq-p(x, nu)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-chisq>, x :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-chisq-nu;
+  ffi/gsl-cdf-chisq-q(x, nu)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-chisq>, p :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-chisq-nu;
+  ffi/gsl-cdf-chisq-pinv(p, nu)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-chisq>, q :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-chisq-nu;
+  ffi/gsl-cdf-chisq-qinv(q, nu)
 end;

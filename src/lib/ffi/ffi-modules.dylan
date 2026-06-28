@@ -656,9 +656,13 @@ create
     gsl-cdf-lognormal-pinv,
     gsl-cdf-lognormal-qinv;
 
-//  create
-//    gsl-ran-chisq,
-//    gsl-ran-chisq-pdf;
+  create
+    gsl-ran-chisq,
+    gsl-ran-chisq-pdf,
+    gsl-cdf-chisq-p,
+    gsl-cdf-chisq-q,
+    gsl-cdf-chisq-pinv,
+    gsl-cdf-chisq-qinv;
 
 //  create
 //    gsl-ran-fdist,
