@@ -51,14 +51,6 @@ The ``<gsl-randist>`` interface
 
      - :func:`gsl-randist-variate`
      - :func:`gsl-randist-pdf`
-     - :func:`gsl-randist-cdf-p`
-     - :func:`gsl-randist-cdf-q`
-     - :func:`gsl-randist-cdf-pinv`
-     - :func:`gsl-randist-cdf-qinv`
-
-   :operations:
-
-     - :func:`gsl-randist-standard-deviation`
 
 Operations
 ----------
@@ -67,7 +59,7 @@ Operations
 
    :signature:
 
-     gsl-randist-variate (distribution) => (variate)
+     gsl-randist-variate distribution => (variate)
 
    Generates a random variate from the distribution.
 
@@ -102,6 +94,48 @@ Operations
 
      The probability density at x. An instance of :drm:`<float>`.
 
+
+The Continuous Distribution
+===========================
+
+.. class:: <gsl-randist-continuous>
+   :abstract:
+   :uninstantiable:
+
+   :supers: 
+   
+     :class:`<gsl-randist>`
+
+   Base class for all continuous distributions.
+
+   :operations:
+
+     - :func:`gsl-randist-variate`
+     - :func:`gsl-randist-pdf`
+     - :func:`gsl-randist-cdf-p`
+     - :func:`gsl-randist-cdf-q`
+     - :func:`gsl-randist-cdf-pinv`
+     - :func:`gsl-randist-cdf-qinv`
+
+The Continuous distributions available are:
+
+- :class:`<gsl-randist-gaussian>`
+- :class:`<gsl-randist-ugaussian>`
+- :class:`<gsl-randist-gaussian-tail>`
+- :class:`<gsl-randist-ugaussian-tail>`
+- :class:`<gsl-randist-exponential>`
+- :class:`<gsl-randist-laplace>`
+- :class:`<gsl-randist-exppow>`
+- :class:`<gsl-randist-cauchy>`
+- :class:`<gsl-randist-rayleigh>`
+- :class:`<gsl-randist-rayleigh-tail>`
+- :class:`<gsl-randist-landau>`
+- :class:`<gsl-randist-levy>`
+- :class:`<gsl-randist-levy-skew>`
+- :class:`<gsl-randist-gamma>`
+- :class:`<gsl-randist-flat>`
+- :class:`<gsl-randist-chisq>`
+
 .. generic-function:: gsl-randist-cdf-p
 
    Evaluates the cumulative distribution function (CDF) for the
@@ -109,11 +143,11 @@ Operations
 
    :signature:
 
-     gsl-randist-cdf-p (distribution, x) => (cd)
+     gsl-randist-cdf-p distribution x => (cd)
 
    :parameter distribution:
 
-     An instance of :class:`<gsl-randist>`.
+     An instance of :class:`<gsl-randist-continuous>`.
 
    :parameter x:
 
@@ -128,11 +162,11 @@ Operations
 
    :signature:
 
-     gsl-randist-cdf-q (distribution, x) => (cd)
+     gsl-randist-cdf-q distribution x => (cd)
 
    :parameter distribution:
 
-     An instance of :class:`<gsl-randist>`.
+     An instance of :class:`<gsl-randist-continuous>`.
 
    :parameter x:
 
@@ -150,11 +184,11 @@ Operations
 
    :signature:
 
-     gsl-randist-cdf-pinv (distribution, x) => (cd)
+     gsl-randist-cdf-pinv distribution x => (cd)
 
    :parameter distribution:
 
-     An instance of :class:`<gsl-randist>`.
+     An instance of :class:`<gsl-randist-continuous>`.
 
    :parameter x:
 
@@ -172,11 +206,11 @@ Operations
 
    :signature:
 
-     gsl-randist-cdf-qinv (distribution, x) => (cd)
+     gsl-randist-cdf-qinv distribution x => (cd)
 
    :parameter distribution:
 
-     An instance of :class:`<gsl-randist>`.
+     An instance of :class:`<gsl-randist-continuous>`.
 
    :parameter x:
 
@@ -187,7 +221,6 @@ Operations
 
      The inverse survival function at x. An instance of
      :drm:`<float>`.
-
 
 The Gaussian Distribution
 =========================
@@ -203,7 +236,9 @@ The Gaussian Distribution
    This distribution stores the type of algorithm used to generate
    random variates.
 
-   :supers: :class:`<gsl-randist>`
+   :supers: 
+   
+     :class:`<gsl-randist-continuous>`
 
    :keyword required sigma:
 
@@ -244,7 +279,7 @@ The Gaussian Distribution
 
 The following operations are defined for
 :class:`<gsl-randist-gaussian>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-gaussian>
@@ -269,11 +304,6 @@ The following operations are defined for
 .. method:: gsl-randist-cdf-qinv
    :specializer: <gsl-randist-gaussian>
    :no-contents-entry:
-
-.. method:: gsl-randist-standard-deviation
-   :specializer: <gsl-randist-gaussian>
-   :no-contents-entry:
-
 
 The Unit Gaussian distribution
 ==============================
@@ -368,7 +398,7 @@ The Gaussian tail distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-gaussian-tail>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-gaussian-tail>
@@ -412,7 +442,7 @@ The Exponential Distribution
 
    :supers:
 
-      <gsl-randist>
+      :class:`<gsl-randist-continuous>``
 
    :keyword required mu:
 
@@ -424,7 +454,7 @@ The Exponential Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-exponential>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-exponential>
@@ -459,7 +489,7 @@ The Laplace Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required a:
 
@@ -471,7 +501,7 @@ The Laplace Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-laplace>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-laplace>
@@ -506,7 +536,7 @@ The Exponential Power Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required a:
 
@@ -522,7 +552,7 @@ The Exponential Power Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-exppow>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-exppow>
@@ -549,7 +579,7 @@ The Cauchy Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required a:
 
@@ -561,7 +591,7 @@ The Cauchy Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-cauchy>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-cauchy>
@@ -596,7 +626,7 @@ The Rayleigh Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required sigma:
 
@@ -608,7 +638,7 @@ The Rayleigh Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-rayleigh>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-rayleigh>
@@ -631,7 +661,9 @@ The Rayleigh Tail distribution
 
 .. class:: <gsl-randist-rayleigh-tail>
 
-   :supers: :class:`<gsl-randist-rayleigh>`
+   :supers: 
+   
+     :class:`<gsl-randist-rayleigh>`
 
    :keyword required rng:
 
@@ -645,7 +677,7 @@ The Rayleigh Tail distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-rayleigh-tail>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-rayleigh-tail>
@@ -662,13 +694,15 @@ The Landau distribution
    :instantiable:
    :concrete:
 
-   :supers: :class:`<gsl-randist>`
+   :supers: 
+   
+     :class:`<gsl-randist-continuous>`
 
    :keyword required rng:
 
 The following operations are specialized for
 :class:`<gsl-randist-landau>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-landau>
@@ -685,7 +719,9 @@ The Levy alpha-Stable Distribution
    :instantiable:
    :concrete:
 
-   :supers: :class:`<gsl-randist>`
+   :supers: 
+   
+     :class:`<gsl-randist-continuous>`
 
    :keyword required rng:
 
@@ -699,7 +735,7 @@ The Levy alpha-Stable Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-levy>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-levy>
@@ -712,7 +748,9 @@ The Levy skew alpha-Stable Distribution
    :instantiable:
    :concrete:
 
-   :supers: :class:`<gsl-randist-levy>`
+   :supers: 
+   
+     :class:`<gsl-randist-levy>`
 
    :keyword required rng:
 
@@ -730,7 +768,7 @@ The Levy skew alpha-Stable Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-levy-skew>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-levy-skew>
@@ -745,7 +783,7 @@ The Gamma Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword algorithm:
 
@@ -766,7 +804,7 @@ The Gamma Distribution
       - https://www.gnu.org/software/gsl/doc/html/randist.html#the-gamma-distribution
 
 The following operations are specialized for
-:class:`<gsl-randist-gamma>`. See operations in :class:`<gsl-randist>`
+:class:`<gsl-randist-gamma>`. See operations in :class:`<gsl-randist-continuous>`
 for more information.
 
 .. method:: gsl-randist-variate
@@ -820,7 +858,7 @@ The Flat Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required a:
 
@@ -839,7 +877,7 @@ The Flat Distribution
       Returns a random variate from the flat (uniform) distribution from a to b
 
 The following operations are specialized for
-:class:`<gsl-randist-flat>`. See operations in :class:`<gsl-randist>`
+:class:`<gsl-randist-flat>`. See operations in :class:`<gsl-randist-continuous>`
 for more information.
 
 .. method:: gsl-randist-variate
@@ -875,7 +913,7 @@ The Lognormal Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required zeta:
 
@@ -891,7 +929,7 @@ The Lognormal Distribution
 
 
 The following operations are specialized for
-:class:`<gsl-randist-lognormal>`. See operations in :class:`<gsl-randist>`
+:class:`<gsl-randist-lognormal>`. See operations in :class:`<gsl-randist-continuous>`
 for more information.
 
 .. method:: gsl-randist-variate
@@ -927,7 +965,7 @@ The Chi-Squared Distribution
 
    :supers:
 
-      :class:`<gsl-randist>`
+      :class:`<gsl-randist-continuous>`
 
    :keyword required nu:
 
@@ -947,7 +985,7 @@ The Chi-Squared Distribution
 
 The following operations are specialized for
 :class:`<gsl-randist-chisq>`. See operations in
-:class:`<gsl-randist>` for more information.
+:class:`<gsl-randist-continuous>` for more information.
 
 .. method:: gsl-randist-variate
    :specializer: <gsl-randist-chisq>

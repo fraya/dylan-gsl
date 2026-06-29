@@ -308,16 +308,6 @@ configured by environment variables (see <a class="reference internal" href="gsl
 <dd class="field-even"><p><ul class="simple">
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-variate"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-variate</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-pdf"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-pdf</span></code></a></p></li>
-<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-p</span></code></a></p></li>
-<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-q</span></code></a></p></li>
-<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-pinv</span></code></a></p></li>
-<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-qinv</span></code></a></p></li>
-</ul>
-</p>
-</dd>
-<dt class="field-odd">Operations<span class="colon">:</span></dt>
-<dd class="field-odd"><p><ul class="simple">
-<li><p><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-standard-deviation</span></code></p></li>
 </ul>
 </p>
 </dd>
@@ -331,7 +321,7 @@ configured by environment variables (see <a class="reference internal" href="gsl
 <span class="sig-name descname"><span class="pre">gsl-randist-variate</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-randist-variate (distribution) =&gt; (variate)</p>
+<dd class="field-odd"><p>gsl-randist-variate distribution =&gt; (variate)</p>
 </dd>
 </dl>
 <p>Generates a random variate from the distribution.</p>
@@ -370,6 +360,53 @@ An instance of <a class="reference external" href="https://opendylan.org/books/d
 </dl>
 </dd></dl>
 
+</section>
+</section>
+<section id="the-continuous-distribution">
+<h2>The Continuous Distribution<a class="headerlink" href="#the-continuous-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-continuous]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-continuous&gt;</span></span> <em class="property"><span class="pre">Abstract</span> <span class="pre">Uninstantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+</dd>
+</dl>
+<p>Base class for all continuous distributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Operations<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-variate"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-variate</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-pdf"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-pdf</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-p</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-q</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-pinv</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">gsl-randist-cdf-qinv</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The Continuous distributions available are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-ugaussian&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian-tail&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-ugaussian-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-ugaussian-tail&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-exponential]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-exponential&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-laplace]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-laplace&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-exppow]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-exppow&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-cauchy]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-cauchy&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh-tail&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-landau&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-levy]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-levy&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-levy-skew]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-levy-skew&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-chisq&gt;</span></code></a></p></li>
+</ul>
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p">
 <span class="sig-name descname"><span class="pre">gsl-randist-cdf-p</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p" title="Link to this definition">¶</a></dt>
@@ -377,11 +414,11 @@ An instance of <a class="reference external" href="https://opendylan.org/books/d
 distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-randist-cdf-p (distribution, x) =&gt; (cd)</p>
+<dd class="field-odd"><p>gsl-randist-cdf-p distribution x =&gt; (cd)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the cumulative distribution
 function.  An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -397,11 +434,11 @@ function.  An instance of <a class="reference external" href="https://opendylan.
 <span class="sig-name descname"><span class="pre">gsl-randist-cdf-q</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-randist-cdf-q (distribution, x) =&gt; (cd)</p>
+<dd class="field-odd"><p>gsl-randist-cdf-q distribution x =&gt; (cd)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the survival function.  An
 instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -419,11 +456,11 @@ instance of <a class="reference external" href="https://opendylan.org/books/drm/
 the distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-randist-cdf-pinv (distribution, x) =&gt; (cd)</p>
+<dd class="field-odd"><p>gsl-randist-cdf-pinv distribution x =&gt; (cd)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the inverse cumulative
 distribution function.  An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -441,11 +478,11 @@ distribution function.  An instance of <a class="reference external" href="https
 the distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gsl-randist-cdf-qinv (distribution, x) =&gt; (cd)</p>
+<dd class="field-odd"><p>gsl-randist-cdf-qinv distribution x =&gt; (cd)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>.</p></li>
+<li><p><strong>distribution</strong> – An instance of <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>.</p></li>
 <li><p><strong>x</strong> – The value at which to evaluate the inverse survival function.  An
 instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a>.</p></li>
 </ul>
@@ -457,7 +494,6 @@ instance of <a class="reference external" href="https://opendylan.org/books/drm/
 </dl>
 </dd></dl>
 
-</section>
 </section>
 <section id="the-gaussian-distribution">
 <h2>The Gaussian Distribution<a class="headerlink" href="#the-gaussian-distribution" title="Link to this heading">¶</a></h2>
@@ -471,7 +507,7 @@ This distribution stores the type of algorithm used to generate
 random variates.</p>
 <dl class="field-list">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -513,7 +549,7 @@ the algorithm is not one of <code class="docutils literal notranslate"><span cla
 
 <p>The following operations are defined for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gaussian])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-gaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gaussian])" title="Link to this definition">¶</a></dt>
@@ -542,11 +578,6 @@ the algorithm is not one of <code class="docutils literal notranslate"><span cla
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gaussian])">
 <span class="sig-name descname"><span class="pre">gsl-randist-cdf-qinv(&lt;gsl-randist-gaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv([gsl-randist-gaussian])" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="dylan method">
-<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-standard-deviation([gsl-randist-gaussian])">
-<span class="sig-name descname"><span class="pre">gsl-randist-standard-deviation(&lt;gsl-randist-gaussian&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-standard-deviation([gsl-randist-gaussian])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -642,7 +673,7 @@ are larger than the lower limit <code class="docutils literal notranslate"><span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gaussian-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gaussian-tail&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gaussian-tail])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-gaussian-tail&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gaussian-tail])" title="Link to this definition">¶</a></dt>
@@ -687,7 +718,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-exponential&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-exponential]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p>&lt;gsl-randist&gt;</p>
+<dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;`</span></code></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -705,7 +736,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-exponential]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-exponential&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-exponential])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-exponential&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-exponential])" title="Link to this definition">¶</a></dt>
@@ -744,7 +775,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-laplace&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-laplace]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -762,7 +793,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-laplace]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-laplace&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-laplace])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-laplace&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-laplace])" title="Link to this definition">¶</a></dt>
@@ -801,7 +832,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-exppow&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-exppow]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -820,7 +851,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-exppow]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-exppow&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-exppow])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-exppow&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-exppow])" title="Link to this definition">¶</a></dt>
@@ -849,7 +880,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-cauchy&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-cauchy]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -867,7 +898,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-cauchy]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-cauchy&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continous&gt;</span></code> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-cauchy])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-cauchy&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-cauchy])" title="Link to this definition">¶</a></dt>
@@ -906,7 +937,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-rayleigh&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -924,7 +955,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-rayleigh])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-rayleigh&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-rayleigh])" title="Link to this definition">¶</a></dt>
@@ -967,7 +998,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-rayleigh-tail]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-rayleigh-tail&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-rayleigh-tail])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-rayleigh-tail&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-rayleigh-tail])" title="Link to this definition">¶</a></dt>
@@ -986,7 +1017,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-landau&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -998,7 +1029,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-landau]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-landau&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-landau])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-landau&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-landau])" title="Link to this definition">¶</a></dt>
@@ -1017,7 +1048,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-levy&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-levy]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1031,7 +1062,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-levy]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-levy&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-levy])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-levy&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-levy])" title="Link to this definition">¶</a></dt>
@@ -1060,7 +1091,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-levy-skew]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-levy-skew&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-levy-skew])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-levy-skew&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-levy-skew])" title="Link to this definition">¶</a></dt>
@@ -1074,7 +1105,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-gamma&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1094,7 +1125,7 @@ of one, <code class="docutils literal notranslate"><span class="pre">sigma</span
 </dd></dl>
 
 <p>The following operations are specialized for
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gamma]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gamma&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>
 for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-gamma])">
@@ -1152,7 +1183,7 @@ algorithms from Knuth (vol 2).</p>
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-flat&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1173,7 +1204,7 @@ algorithms from Knuth (vol 2).</p>
 </dd></dl>
 
 <p>The following operations are specialized for
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-flat]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-flat&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>
 for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-flat])">
@@ -1213,7 +1244,7 @@ for more information.</p>
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1231,7 +1262,7 @@ for more information.</p>
 </dd></dl>
 
 <p>The following operations are specialized for
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-lognormal]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-lognormal&gt;</span></code></a>. See operations in <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a>
 for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-lognormal])">
@@ -1271,7 +1302,7 @@ for more information.</p>
 <span class="sig-name descname"><span class="pre">&lt;gsl-randist-chisq&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list">
 <dt class="field-odd">Superclasses<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
 </dd>
 <dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1296,7 +1327,7 @@ for more information.</p>
 
 <p>The following operations are specialized for
 <a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-chisq]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-chisq&gt;</span></code></a>. See operations in
-<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code></a> for more information.</p>
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-chisq])">
 <span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-chisq&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-chisq])" title="Link to this definition">¶</a></dt>
@@ -1391,12 +1422,16 @@ for more information.</p>
 <li><a class="reference internal" href="#operations">Operations</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-variate"><code class="docutils literal notranslate"><span class="pre">gsl-randist-variate</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-randist-pdf</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-continuous-distribution">The Continuous Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p"><code class="docutils literal notranslate"><span class="pre">gsl-randist-cdf-p</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q"><code class="docutils literal notranslate"><span class="pre">gsl-randist-cdf-q</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-randist-cdf-pinv</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-randist-cdf-qinv</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#the-gaussian-distribution">The Gaussian Distribution</a><ul>
