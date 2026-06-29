@@ -448,7 +448,10 @@ define module gsl-randist
   create
     <gsl-randist>,
     gsl-randist-variate,
-    gsl-randist-pdf,
+    gsl-randist-pdf;
+
+  create
+    <gsl-randist-continuous>,
     gsl-randist-cdf-p,
     gsl-randist-cdf-q,
     gsl-randist-cdf-pinv,
@@ -473,7 +476,9 @@ define module gsl-randist
     <gsl-randist-gamma>,
     <gsl-randist-flat>,
     <gsl-randist-lognormal>,
-    <gsl-randist-chisq>;
+    <gsl-randist-chisq>,
+    <gsl-randist-fdist>,
+    <gsl-randist-tdist>;
 
 end module;
 

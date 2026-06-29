@@ -664,45 +664,81 @@ create
     gsl-cdf-chisq-pinv,
     gsl-cdf-chisq-qinv;
 
-//  create
-//    gsl-ran-fdist,
-//    gsl-ran-fdist-pdf;
+  create
+    gsl-ran-fdist,
+    gsl-ran-fdist-pdf,
+    gsl-cdf-fdist-p,
+    gsl-cdf-fdist-q,
+    gsl-cdf-fdist-pinv,
+    gsl-cdf-fdist-qinv;
 
-//  create
-//    gsl-ran-tdist,
-//    gsl-ran-tdist-pdf;
+  create
+    gsl-ran-tdist,
+    gsl-ran-tdist-pdf,
+    gsl-cdf-tdist-p,
+    gsl-cdf-tdist-q,
+    gsl-cdf-tdist-pinv,
+    gsl-cdf-tdist-qinv;
 
-//  create
-//    gsl-ran-beta,
-//    gsl-ran-beta-pdf;
+  create
+    gsl-ran-beta,
+    gsl-ran-beta-pdf,
+    gsl-cdf-beta-p,
+    gsl-cdf-beta-q,
+    gsl-cdf-beta-pinv,
+    gsl-cdf-beta-qinv;
 
-//  create
-//    gsl-ran-levy,
-//    gsl-ran-levy-skew;
+  create
+    gsl-ran-logistic,
+    gsl-ran-logistic-pdf,
+    gsl-cdf-logistic-p,
+    gsl-cdf-logistic-q,
+    gsl-cdf-logistic-pinv,
+    gsl-cdf-logistic-qinv;
 
-//  create
-//    gsl-ran-logistic,
-//    gsl-ran-logistic-pdf;
+  create
+    gsl-ran-pareto,
+    gsl-ran-pareto-pdf,
+    gsl-cdf-pareto-p,
+    gsl-cdf-pareto-q,
+    gsl-cdf-pareto-pinv,
+    gsl-cdf-pareto-qinv;
 
-//  create
-//    gsl-ran-pareto,
-//    gsl-ran-pareto-pdf;
+  create
+    gsl-ran-dir-2d,
+    gsl-ran-dir-2d-trig-method,
+    gsl-ran-dir-3d,
+    gsl-ran-dir-nd;
 
-//  create
-//    gsl-ran-weibull,
-//    gsl-ran-weibull-pdf;
+  create
+    gsl-ran-weibull,
+    gsl-ran-weibull-pdf,
+    gsl-cdf-weibull-p,
+    gsl-cdf-weibull-q,
+    gsl-cdf-weibull-pinv,
+    gsl-cdf-weibull-qinv;
 
-//  create
-//    gsl-ran-gumbel1,
-//    gsl-ran-gumbel1-pdf,
-//    gsl-ran-gumbel2,
-//    gsl-ran-gumbel2-pdf;
+  create
+    gsl-ran-gumbel1,
+    gsl-ran-gumbel1-pdf,
+    gsl-cdf-gumbel1-p,
+    gsl-cdf-gumbel1-q,
+    gsl-cdf-gumbel1-pinv,
+    gsl-cdf-gumbel1-qinv;
 
-//   create
-//     gsl-ran-dir-2d,
-//     gsl-ran-dir-2d-trig-method,
-//     gsl-ran-dir-3d,
-//     gsl-ran-dir-nd;
+  create
+    gsl-ran-gumbel2,
+    gsl-ran-gumbel2-pdf,
+    gsl-cdf-gumbel2-p,
+    gsl-cdf-gumbel2-q,
+    gsl-cdf-gumbel2-pinv,
+    gsl-cdf-gumbel2-qinv;
+
+  create
+    gsl-ran-dirichlet,
+    gsl-ran-dirichlet-pdf,
+    gsl-ran-dirichlet-lnpdf;
+
 
 //  create
 //    gsl-ran-poisson,
@@ -727,11 +763,6 @@ create
 //    gsl-ran-geometric,
 //    gsl-ran-hypergeometric,
 //    gsl-ran-logarithmic;
-
-//   create
-//     gsl-ran-dirichlet,
-//     gsl-ran-dirichlet-pdf,
-//     gsl-ran-dirichlet-lnpdf;
 
 end module;
 

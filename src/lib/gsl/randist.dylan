@@ -30,21 +30,6 @@ define generic gsl-randist-variate
 define generic gsl-randist-pdf
   (d :: <gsl-randist>, x :: <float>) => (pd :: <float>);
 
-define generic gsl-randist-cdf-p
-  (d :: <gsl-randist>, x :: <float>) => (cd :: <float>);
-
-define generic gsl-randist-cdf-q
-  (d :: <gsl-randist>, x :: <float>) => (cd :: <float>);
-
-define generic gsl-randist-cdf-pinv
-  (d :: <gsl-randist>, x :: <float>) => (cd :: <float>);
-
-define generic gsl-randist-cdf-qinv
-  (d :: <gsl-randist>, x :: <float>) => (cd :: <float>);
-
-
-// Default implementations for the generic functions.
-
 define method gsl-randist-variate
     (d :: <gsl-randist>) => (variate :: <float>)
   error(make(<gsl-error-unsupported>))
@@ -55,23 +40,45 @@ define method gsl-randist-pdf
   error(make(<gsl-error-unsupported>))
 end;
 
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Continuous Distribution interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define abstract class <gsl-randist-continuous> (<gsl-randist>) end;
+
+define generic gsl-randist-cdf-p
+  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+
+define generic gsl-randist-cdf-q
+  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+
+define generic gsl-randist-cdf-pinv
+  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+
+define generic gsl-randist-cdf-qinv
+  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+
+// Default implementations for the generic functions.
+
 define method gsl-randist-cdf-p
-    (d :: <gsl-randist>, x :: <float>) => (cd :: <float>)
+    (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>)
   error(make(<gsl-error-unsupported>))
 end;
 
 define method gsl-randist-cdf-q
-    (d :: <gsl-randist>, x :: <float>) => (cd :: <float>)
+    (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>)
   error(make(<gsl-error-unsupported>))
 end;
 
 define method gsl-randist-cdf-pinv
-    (d :: <gsl-randist>, x :: <float>) => (cd :: <float>)
+    (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>)
   error(make(<gsl-error-unsupported>))
 end;
 
 define method gsl-randist-cdf-qinv
-    (d :: <gsl-randist>, x :: <float>) => (cd :: <float>)
+    (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>)
   error(make(<gsl-error-unsupported>))
 end;
 
@@ -84,7 +91,7 @@ end;
 define constant <gsl-gaussian-algorithm>
   = one-of(#"default", #"ziggurat", #"ratio");
 
-define class <gsl-randist-gaussian> (<gsl-randist>)
+define class <gsl-randist-gaussian> (<gsl-randist-continuous>)
   constant slot gsl-randist-gaussian-sigma :: <float>,
     required-init-keyword: sigma:;
   slot %gsl-randist-gaussian-algorithm :: <function>;
@@ -226,7 +233,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-exponential> (<gsl-randist>) 
+define class <gsl-randist-exponential> (<gsl-randist-continuous>) 
   constant slot gsl-randist-exponential-mu :: <float>,
     required-init-keyword: mu:;
 end;
@@ -283,7 +290,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-laplace> (<gsl-randist>) 
+define class <gsl-randist-laplace> (<gsl-randist-continuous>) 
   constant slot gsl-randist-laplace-a :: <float>,
     required-init-keyword: a:;
 end;
@@ -340,7 +347,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-exppow> (<gsl-randist>) 
+define class <gsl-randist-exppow> (<gsl-randist-continuous>) 
   constant slot gsl-randist-exppow-a :: <float>,
     required-init-keyword: a:;
   constant slot gsl-randist-exppow-b :: <float>,
@@ -392,7 +399,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-cauchy> (<gsl-randist>) 
+define class <gsl-randist-cauchy> (<gsl-randist-continuous>) 
   constant slot gsl-randist-cauchy-a :: <float>,
     required-init-keyword: a:;
 end;
@@ -449,7 +456,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-rayleigh> (<gsl-randist>) 
+define class <gsl-randist-rayleigh> (<gsl-randist-continuous>) 
   constant slot gsl-randist-rayleigh-sigma :: <float>,
     required-init-keyword: sigma:;
 end;
@@ -542,7 +549,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-landau> (<gsl-randist>)
+define class <gsl-randist-landau> (<gsl-randist-continuous>)
 end;
 
 define method gsl-randist-variate
@@ -562,7 +569,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-levy> (<gsl-randist>)
+define class <gsl-randist-levy> (<gsl-randist-continuous>)
   constant slot gsl-randist-levy-c :: <float>,
     required-init-keyword: c:;
   constant slot gsl-randist-levy-alpha :: <float>,
@@ -606,7 +613,7 @@ end;
 define constant <gsl-gamma-algorithm>
   = one-of(#"default", #"knuth");
   
-define class <gsl-randist-gamma> (<gsl-randist>)
+define class <gsl-randist-gamma> (<gsl-randist-continuous>)
   constant slot gsl-randist-gamma-a :: <float>,
     required-init-keyword: a:;
   constant slot gsl-randist-gamma-b :: <float>,
@@ -690,7 +697,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-flat> (<gsl-randist>)
+define class <gsl-randist-flat> (<gsl-randist-continuous>)
   constant slot gsl-randist-flat-a :: <float>,
     required-init-keyword: a:;
   constant slot gsl-randist-flat-b :: <float>,
@@ -756,7 +763,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-lognormal> (<gsl-randist>)
+define class <gsl-randist-lognormal> (<gsl-randist-continuous>)
   constant slot gsl-randist-lognormal-zeta :: <float>,
     required-init-keyword: zeta:;
   constant slot gsl-randist-lognormal-sigma :: <float>,
@@ -822,7 +829,7 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define class <gsl-randist-chisq> (<gsl-randist>) 
+define class <gsl-randist-chisq> (<gsl-randist-continuous>) 
   constant slot gsl-randist-chisq-nu :: <float>,
     required-init-keyword: nu:;
 end;
@@ -871,4 +878,128 @@ define method gsl-randist-cdf-qinv
     (d :: <gsl-randist-chisq>, q :: <float>) => (p :: <float>)
   let nu = d.gsl-randist-chisq-nu;
   ffi/gsl-cdf-chisq-qinv(q, nu)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The F-distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-fdist> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-fdist-nu1 :: <float>,
+    required-init-keyword: nu1:;
+  constant slot gsl-randist-fdist-nu2 :: <float>,
+    required-init-keyword: nu2:;
+end;
+
+
+define method print-object
+    (d :: <gsl-randist-fdist>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= nu1: %= nu2: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-fdist-nu1,
+           d.gsl-randist-fdist-nu2);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-fdist>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let nu1 = d.gsl-randist-fdist-nu1;
+  let nu2 = d.gsl-randist-fdist-nu2;
+  ffi/gsl-ran-fdist(rng, nu1, nu2)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-fdist>, x :: <float>) => (pd :: <float>)
+  let nu1 = d.gsl-randist-fdist-nu1;
+  let nu2 = d.gsl-randist-fdist-nu2;
+  ffi/gsl-ran-fdist-pdf(x, nu1, nu2)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-fdist>, x :: <float>) => (p :: <float>)
+  let nu1 = d.gsl-randist-fdist-nu1;
+  let nu2 = d.gsl-randist-fdist-nu2;
+  ffi/gsl-cdf-fdist-p(x, nu1, nu2)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-fdist>, x :: <float>) => (p :: <float>)
+  let nu1 = d.gsl-randist-fdist-nu1;
+  let nu2 = d.gsl-randist-fdist-nu2;
+  ffi/gsl-cdf-fdist-q(x, nu1, nu2)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-fdist>, p :: <float>) => (p :: <float>)
+  let nu1 = d.gsl-randist-fdist-nu1;
+  let nu2 = d.gsl-randist-fdist-nu2;
+  ffi/gsl-cdf-fdist-pinv(p, nu1, nu2)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-fdist>, q :: <float>) => (p :: <float>)
+  let nu1 = d.gsl-randist-fdist-nu1;
+  let nu2 = d.gsl-randist-fdist-nu2;
+  ffi/gsl-cdf-fdist-qinv(q, nu1, nu2)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The t-distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-tdist> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-tdist-nu :: <float>,
+    required-init-keyword: nu:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-tdist>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= nu: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-tdist-nu);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-tdist>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let nu = d.gsl-randist-tdist-nu;
+  ffi/gsl-ran-tdist(rng, nu)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-tdist>, x :: <float>) => (pd :: <float>)
+  let nu = d.gsl-randist-tdist-nu;
+  ffi/gsl-ran-tdist-pdf(x, nu)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-tdist>, x :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-tdist-nu;
+  ffi/gsl-cdf-tdist-p(x, nu)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-tdist>, x :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-tdist-nu;
+  ffi/gsl-cdf-tdist-q(x, nu)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-tdist>, p :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-tdist-nu;
+  ffi/gsl-cdf-tdist-pinv(p, nu)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-tdist>, q :: <float>) => (p :: <float>)
+  let nu = d.gsl-randist-tdist-nu;
+  ffi/gsl-cdf-tdist-qinv(q, nu)
 end;

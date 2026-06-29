@@ -631,21 +631,53 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-fdist
-//   parameter r :: <gsl-rng*>;
-//   parameter nu1 :: <c-double>;
-//   parameter nu2 :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_fdist";
-// end;
+define c-function gsl-ran-fdist
+  parameter r :: <gsl-rng*>;
+  parameter nu1 :: <c-double>;
+  parameter nu2 :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_fdist";
+end;
 
-// define c-function gsl-ran-fdist-pdf
-//   parameter x :: <c-double>;
-//   parameter nu1 :: <c-double>;
-//   parameter nu2 :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_fdist_pdf";
-// end;
+define c-function gsl-ran-fdist-pdf
+  parameter x :: <c-double>;
+  parameter nu1 :: <c-double>;
+  parameter nu2 :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_fdist_pdf";
+end;
+
+define c-function gsl-cdf-fdist-p
+  parameter x :: <c-double>;
+  parameter nu1 :: <c-double>;
+  parameter nu2 :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_fdist_P";
+end;
+
+define c-function gsl-cdf-fdist-q
+  parameter x :: <c-double>;
+  parameter nu1 :: <c-double>;
+  parameter nu2 :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_fdist_Q";
+end;
+
+define c-function gsl-cdf-fdist-pinv
+  parameter p :: <c-double>;
+  parameter nu1 :: <c-double>;
+  parameter nu2 :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_fdist_Pinv";
+end;
+
+define c-function gsl-cdf-fdist-qinv
+  parameter q :: <c-double>;
+  parameter nu1 :: <c-double>;
+  parameter nu2 :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_fdist_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -653,19 +685,47 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-tdist
-//   parameter r :: <gsl-rng*>;
-//   parameter nu :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_tdist";
-// end;
+define c-function gsl-ran-tdist
+  parameter r :: <gsl-rng*>;
+  parameter nu :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_tdist";
+end;
 
-// define c-function gsl-ran-tdist-pdf
-//   parameter x :: <c-double>;
-//   parameter nu :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_tdist_pdf";
-// end;
+define c-function gsl-ran-tdist-pdf
+  parameter x :: <c-double>;
+  parameter nu :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_tdist_pdf";
+end;
+
+define c-function gsl-cdf-tdist-p
+  parameter x :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_tdist_P";
+end;
+
+define c-function gsl-cdf-tdist-q
+  parameter x :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_tdist_Q";
+end;
+
+define c-function gsl-cdf-tdist-pinv
+  parameter p :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_tdist_Pinv";
+end;
+
+define c-function gsl-cdf-tdist-qinv
+  parameter q :: <c-double>;
+  parameter nu :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_tdist_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -673,21 +733,53 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-beta
-//   parameter r :: <gsl-rng*>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_beta";
-// end;
+define c-function gsl-ran-beta
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_beta";
+end;
 
-// define c-function gsl-ran-beta-pdf
-//   parameter x :: <c-double>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_beta_pdf";
-// end;
+define c-function gsl-ran-beta-pdf
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_beta_pdf";
+end;
+
+define c-function gsl-cdf-beta-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_beta_P";
+end;
+
+define c-function gsl-cdf-beta-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_beta_Q";
+end;
+
+define c-function gsl-cdf-beta-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_beta_Pinv";
+end;
+
+define c-function gsl-cdf-beta-qinv
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_beta_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -709,46 +801,51 @@ end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Levy
-//
-///////////////////////////////////////////////////////////////////////////////
-
-// define c-function gsl-ran-levy
-//   parameter r :: <gsl-rng*>;
-//   parameter c :: <c-double>;
-//   parameter alpha :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_levy";
-// end;
-
-// define c-function gsl-ran-levy-skew
-//   parameter r :: <gsl-rng*>;
-//   parameter c :: <c-double>;
-//   parameter alpha :: <c-double>;
-//   parameter beta :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_levy_skew";
-// end;
-
-///////////////////////////////////////////////////////////////////////////////
-//
 // Logistic
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-logistic
-//   parameter r :: <gsl-rng*>;
-//   parameter a :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_logistic";
-// end;
+define c-function gsl-ran-logistic
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_logistic";
+end;
 
-// define c-function gsl-ran-logistic-pdf
-//   parameter x :: <c-double>;
-//   parameter a :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_logistic_pdf";
-// end;
+define c-function gsl-ran-logistic-pdf
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_logistic_pdf";
+end;
+
+define c-function gsl-cdf-logistic-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_logistic_P";
+end;
+
+define c-function gsl-cdf-logistic-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_logistic_Q";
+end;
+
+define c-function gsl-cdf-logistic-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_logistic_Pinv";
+end;
+
+define c-function gsl-cdf-logistic-qinv
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_logistic_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -756,81 +853,53 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-pareto
-//   parameter r :: <gsl-rng*>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_pareto";
-// end;
+define c-function gsl-ran-pareto
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_pareto";
+end;
 
-// define c-function gsl-ran-pareto-pdf
-//   parameter x :: <c-double>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_pareto_pdf";
-// end;
+define c-function gsl-ran-pareto-pdf
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_pareto_pdf";
+end;
 
-///////////////////////////////////////////////////////////////////////////////
-//
-// Weibull
-//
-///////////////////////////////////////////////////////////////////////////////
+define c-function gsl-cdf-pareto-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_pareto_P";
+end;
 
-// define c-function gsl-ran-weibull
-//   parameter r :: <gsl-rng*>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_weibull";
-// end;
+define c-function gsl-cdf-pareto-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_pareto_Q";
+end;
 
-// define c-function gsl-ran-weibull-pdf
-//   parameter x :: <c-double>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_weibull_pdf";
-// end;
+define c-function gsl-cdf-pareto-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_pareto_Pinv";
+end;
 
-///////////////////////////////////////////////////////////////////////////////
-//
-// Gumbel
-//
-///////////////////////////////////////////////////////////////////////////////
-
-// define c-function gsl-ran-gumbel1
-//   parameter r :: <gsl-rng*>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_gumbel1";
-// end;
-
-// define c-function gsl-ran-gumbel1-pdf
-//   parameter x :: <c-double>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_gumbel1_pdf";
-// end;
-
-// define c-function gsl-ran-gumbel2
-//   parameter r :: <gsl-rng*>;
-//   parameter a :: <c-double>;
-//   parameter b :: <c-double>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_gumbel2";
-// end;
-
-// define c-function gsl-ran-gumbel2-pdf
-//   parameter x :: <c-double>;
-//  parameter a :: <c-double>;
-//  parameter b :: <c-double>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_gumbel2_pdf";
-// end;
+define c-function gsl-cdf-pareto-qinv
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_pareto_Qinv";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -838,34 +907,226 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-dir-2d
-//   parameter r :: <gsl-rng*>;
-//   output parameter x :: <c-double*>;
-//   output parameter y :: <c-double*>;
-//   c-name: "gsl_ran_dir_2d";
-// end;
+define c-function gsl-ran-dir-2d
+   parameter r :: <gsl-rng*>;
+   output parameter x :: <c-double*>;
+   output parameter y :: <c-double*>;
+   c-name: "gsl_ran_dir_2d";
+end;
 
-// define c-function gsl-ran-dir-2d-trig-method
-//  parameter r :: <gsl-rng*>;
-//  output parameter x :: <c-double*>;
-//  output parameter y :: <c-double*>;
-//  c-name: "gsl_ran_dir_2d_trig_method";
-// end;
+define c-function gsl-ran-dir-2d-trig-method
+  parameter r :: <gsl-rng*>;
+  output parameter x :: <c-double*>;
+  output parameter y :: <c-double*>;
+  c-name: "gsl_ran_dir_2d_trig_method";
+end;
 
-//define c-function gsl-ran-dir-3d
-//  parameter r :: <gsl-rng*>;
-//  output parameter x :: <c-double*>;
-//  output parameter y :: <c-double*>;
-//  output parameter z :: <c-double*>;
-//  c-name: "gsl_ran_dir_3d";
-// end;
+define c-function gsl-ran-dir-3d
+  parameter r :: <gsl-rng*>;
+  output parameter x :: <c-double*>;
+  output parameter y :: <c-double*>;
+  output parameter z :: <c-double*>;
+  c-name: "gsl_ran_dir_3d";
+end;
 
-// define c-function gsl-ran-dir-nd
-//   parameter r :: <gsl-rng*>;
-//   parameter n :: <c-size-t>;
-//   parameter x :: <c-double*>;
-//   c-name: "gsl_ran_dir_nd";
-// end;
+define c-function gsl-ran-dir-nd
+  parameter r :: <gsl-rng*>;
+  parameter n :: <c-size-t>;
+  output parameter x :: <c-double*>;
+  c-name: "gsl_ran_dir_nd";
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Weibull
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define c-function gsl-ran-weibull
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_weibull";
+end;
+
+define c-function gsl-ran-weibull-pdf
+   parameter x :: <c-double>;
+   parameter a :: <c-double>;
+   parameter b :: <c-double>;
+   result pdf :: <c-double>;
+   c-name: "gsl_ran_weibull_pdf";
+end;
+
+define c-function gsl-cdf-weibull-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_weibull_P";
+end;
+
+define c-function gsl-cdf-weibull-q
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_weibull_Q";
+end;
+
+define c-function gsl-cdf-weibull-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_weibull_Pinv";
+end;
+
+define c-function gsl-cdf-weibull-qinv
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_weibull_Qinv";
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Type-1 Gumbel Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define c-function gsl-ran-gumbel1
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_gumbel1";
+end;
+
+define c-function gsl-ran-gumbel1-pdf
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_gumbel1_pdf";
+end;
+
+define c-function gsl-cdf-gumbel1-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel1_P";
+end;
+
+define c-function gsl-cdf-gumbel1-q
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel1_Q";
+end;
+
+define c-function gsl-cdf-gumbel1-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel1_Pinv";
+end;
+
+define c-function gsl-cdf-gumbel1-qinv
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel1_Qinv";
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Type-2 Gumbel Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define c-function gsl-ran-gumbel2
+  parameter r :: <gsl-rng*>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result variate :: <c-double>;
+  c-name: "gsl_ran_gumbel2";
+end;
+
+define c-function gsl-ran-gumbel2-pdf
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_gumbel2_pdf";
+end;
+
+define c-function gsl-cdf-gumbel2-p
+  parameter x :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel2_P";
+end;
+
+define c-function gsl-cdf-gumbel2-q
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel2_Q";
+end;
+
+define c-function gsl-cdf-gumbel2-pinv
+  parameter p :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel2_Pinv";
+end;
+
+define c-function gsl-cdf-gumbel2-qinv
+  parameter q :: <c-double>;
+  parameter a :: <c-double>;
+  parameter b :: <c-double>;
+  result cd :: <c-double>;
+  c-name: "gsl_cdf_gumbel2_Qinv";
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Dirichlet Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define c-function gsl-ran-dirichlet
+  parameter r :: <gsl-rng*>;
+  parameter K :: <c-size-t>;
+  parameter alpha :: <c-double*>;
+  output parameter theta :: <c-double*>;
+  c-name: "gsl_ran_dirichlet";
+end;
+
+define c-function gsl-ran-dirichlet-pdf
+  parameter K :: <c-size-t>;
+  parameter alpha :: <c-double*>;
+  parameter theta :: <c-double*>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_dirichlet_pdf";
+end;
+
+define c-function gsl-ran-dirichlet-lnpdf
+  parameter K :: <c-size-t>;
+  parameter alpha :: <c-double*>;
+  parameter theta :: <c-double*>;
+  result lnpdf :: <c-double>;
+  c-name: "gsl_ran_dirichlet_lnpdf";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

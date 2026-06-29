@@ -92,6 +92,16 @@ define test test-gsl-randist-chisq ()
   test-randist-variate(randist);
 end;
 
+define test test-gsl-randist-fdist ()
+  let randist = make(<gsl-randist-fdist>, nu1: 5.0d0, nu2: 2.0d0);
+  test-randist-variate(randist);
+end;
+
+define test test-gsl-randist-tdist ()
+  let randist = make(<gsl-randist-tdist>, nu: 5.0d0);
+  test-randist-variate(randist);
+end;
+
 define suite gsl-randist-suite ()
   test test-gsl-randist-ugaussian;
   test test-gsl-randist-gaussian;
@@ -108,4 +118,6 @@ define suite gsl-randist-suite ()
   test test-gsl-randist-flat;
   test test-gsl-randist-lognormal;
   test test-gsl-randist-chisq;
+  test test-gsl-randist-fdist;
+  test test-gsl-randist-tdist;
 end suite;
