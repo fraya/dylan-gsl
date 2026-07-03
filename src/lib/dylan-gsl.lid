@@ -25,6 +25,7 @@ Files: library.dylan
        gsl/running-statistics.dylan
 C-Source-Files: complex-shim.c
 C-Source-Files: rng-shim.c
+C-Source-Files: randist-shim.c
 C-libraries: -lgsl -lgslcblas -lm
 Target-Type: dll
 

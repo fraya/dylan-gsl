@@ -25,7 +25,7 @@ define method print-object
 end;
 
 define generic gsl-randist-variate
-  (d :: <gsl-randist>) => (variate :: <float>);
+  (d :: <gsl-randist>) => (variate :: <object>);
 
 define generic gsl-randist-pdf
   (d :: <gsl-randist>, x :: <float>) => (pd :: <float>);
@@ -439,15 +439,15 @@ define method gsl-randist-cdf-q
 end;
 
 define method gsl-randist-cdf-pinv
-    (d :: <gsl-randist-cauchy>, x :: <float>) => (cd :: <float>)
+    (d :: <gsl-randist-cauchy>, p :: <float>) => (cd :: <float>)
   let a = d.gsl-randist-cauchy-a;
-  ffi/gsl-cdf-cauchy-pinv(x, a)
+  ffi/gsl-cdf-cauchy-pinv(p, a)
 end;
 
 define method gsl-randist-cdf-qinv
-    (d :: <gsl-randist-cauchy>, x :: <float>) => (cd :: <float>)
+    (d :: <gsl-randist-cauchy>, q :: <float>) => (cd :: <float>)
   let a = d.gsl-randist-cauchy-a;
-  ffi/gsl-cdf-cauchy-qinv(x, a)
+  ffi/gsl-cdf-cauchy-qinv(q, a)
 end;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1003,3 +1003,454 @@ define method gsl-randist-cdf-qinv
   let nu = d.gsl-randist-tdist-nu;
   ffi/gsl-cdf-tdist-qinv(q, nu)
 end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Beta Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-beta> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-beta-a :: <float>,
+    required-init-keyword: a:;
+  constant slot gsl-randist-beta-b :: <float>,
+    required-init-keyword: b:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-beta>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-beta-a,
+           d.gsl-randist-beta-b);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-beta>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-beta-a;
+  let b = d.gsl-randist-beta-b;
+  ffi/gsl-ran-beta(rng, a, b)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-beta>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-beta-a;
+  let b = d.gsl-randist-beta-b;
+  ffi/gsl-ran-beta-pdf(x, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Logistic Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-logistic> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-logistic-a :: <float>,
+    required-init-keyword: a:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-logistic>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-logistic-a);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-logistic>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-logistic-a;
+  ffi/gsl-ran-logistic(rng, a)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-logistic>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-logistic-a;
+  ffi/gsl-ran-logistic-pdf(x, a)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-logistic>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-logistic-a;
+  ffi/gsl-cdf-logistic-p(x, a)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-logistic>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-logistic-a;
+  ffi/gsl-cdf-logistic-q(x, a)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-logistic>, p :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-logistic-a;
+  ffi/gsl-cdf-logistic-pinv(p, a)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-logistic>, q :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-logistic-a;
+  ffi/gsl-cdf-logistic-qinv(q, a)
+end;  
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Pareto Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-pareto> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-pareto-a :: <float>,
+    required-init-keyword: a:;
+  constant slot gsl-randist-pareto-b :: <float>,
+    required-init-keyword: b:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-pareto>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-pareto-a,
+           d.gsl-randist-pareto-b);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-pareto>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-pareto-a;
+  let b = d.gsl-randist-pareto-b;
+  ffi/gsl-ran-pareto(rng, a, b)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-pareto>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-pareto-a;
+  let b = d.gsl-randist-pareto-b;
+  ffi/gsl-ran-pareto-pdf(x, a, b)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-pareto>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-pareto-a;
+  let b = d.gsl-randist-pareto-b;
+  ffi/gsl-cdf-pareto-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-pareto>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-pareto-a;
+  let b = d.gsl-randist-pareto-b;
+  ffi/gsl-cdf-pareto-q(x, a, b)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-pareto>, p :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-pareto-a;
+  let b = d.gsl-randist-pareto-b;
+  ffi/gsl-cdf-pareto-pinv(p, a, b)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-pareto>, q :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-pareto-a;
+  let b = d.gsl-randist-pareto-b;
+  ffi/gsl-cdf-pareto-qinv(q, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Spherical Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-dir-2d> (<gsl-randist-continuous>) 
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-dir-2d>) => (v2d :: <gsl-vector>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let v2d = make(<gsl-vector>, size: 2);
+  let (x, y) = ffi/gsl-ran-dir-2d(rng);
+  v2d[0] := x; v2d[1] := y;
+  v2d
+end;
+
+define class <gsl-randist-dir-3d> (<gsl-randist-continuous>) 
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-dir-3d>) => (v3d :: <gsl-vector>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let v3d = make(<gsl-vector>, size: 3);
+  let (x, y, z) = ffi/gsl-ran-dir-3d(rng);
+  v3d[0] := x; v3d[1] := y; v3d[2] := z;
+  v3d
+end;
+
+define class <gsl-randist-dir-nd> (<gsl-randist-continuous>)
+  constant slot gsl-randist-dir-nd-n :: <integer>,
+    required-init-keyword: n:;
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-dir-nd>) => (vnd :: <gsl-vector>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let n = d.gsl-randist-dir-nd-n;
+  let vnd = make(<gsl-vector>, size: n);
+  let x = ffi/gsl-ran-dir-nd(rng, n);
+  for (i from 0 below n)
+    vnd[i] := x[i]
+  end;
+  vnd
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Weibull Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-weibull> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-weibull-a :: <float>,
+    required-init-keyword: a:;
+  constant slot gsl-randist-weibull-b :: <float>,
+    required-init-keyword: b:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-weibull>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-weibull-a,
+           d.gsl-randist-weibull-b);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-weibull>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-weibull-a;
+  let b = d.gsl-randist-weibull-b;
+  ffi/gsl-ran-weibull(rng, a, b)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-weibull>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-weibull-a;
+  let b = d.gsl-randist-weibull-b;
+  ffi/gsl-ran-weibull-pdf(x, a, b)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-weibull>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-weibull-a;
+  let b = d.gsl-randist-weibull-b;
+  ffi/gsl-cdf-weibull-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-weibull>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-weibull-a;
+  let b = d.gsl-randist-weibull-b;
+  ffi/gsl-cdf-weibull-q(x, a, b)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-weibull>, p :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-weibull-a;
+  let b = d.gsl-randist-weibull-b;
+  ffi/gsl-cdf-weibull-pinv(p, a, b)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-weibull>, q :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-weibull-a;
+  let b = d.gsl-randist-weibull-b;
+  ffi/gsl-cdf-weibull-qinv(q, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Type-1 Gumbel Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-gumbel1> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-gumbel1-a :: <float>,
+    required-init-keyword: a:;
+  constant slot gsl-randist-gumbel1-b :: <float>,
+    required-init-keyword: b:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-gumbel1>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-gumbel1-a,
+           d.gsl-randist-gumbel1-b);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-gumbel1>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-gumbel1-a;
+  let b = d.gsl-randist-gumbel1-b;
+  ffi/gsl-ran-gumbel1(rng, a, b)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-gumbel1>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-gumbel1-a;
+  let b = d.gsl-randist-gumbel1-b;
+  ffi/gsl-ran-gumbel1-pdf(x, a, b)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-gumbel1>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel1-a;
+  let b = d.gsl-randist-gumbel1-b;
+  ffi/gsl-cdf-gumbel1-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-gumbel1>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel1-a;
+  let b = d.gsl-randist-gumbel1-b;
+  ffi/gsl-cdf-gumbel1-q(x, a, b)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-gumbel1>, p :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel1-a;
+  let b = d.gsl-randist-gumbel1-b;
+  ffi/gsl-cdf-gumbel1-pinv(p, a, b)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-gumbel1>, q :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel1-a;
+  let b = d.gsl-randist-gumbel1-b;
+  ffi/gsl-cdf-gumbel1-qinv(q, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Type-2 Gumbel Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-gumbel2> (<gsl-randist-continuous>) 
+  constant slot gsl-randist-gumbel2-a :: <float>,
+    required-init-keyword: a:;
+  constant slot gsl-randist-gumbel2-b :: <float>,
+    required-init-keyword: b:;
+end;
+
+define method print-object
+    (d :: <gsl-randist-gumbel2>, stream :: <stream>) => ()
+  printing-object(d, stream)
+    format(stream, "%= a: %= b: %=",
+           d.%gsl-randist-rng,
+           d.gsl-randist-gumbel2-a,
+           d.gsl-randist-gumbel2-b);
+  end
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-gumbel2>) => (variate :: <float>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let a = d.gsl-randist-gumbel2-a;
+  let b = d.gsl-randist-gumbel2-b;
+  ffi/gsl-ran-gumbel2(rng, a, b)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-gumbel2>, x :: <float>) => (pd :: <float>)
+  let a = d.gsl-randist-gumbel2-a;
+  let b = d.gsl-randist-gumbel2-b;
+  ffi/gsl-ran-gumbel2-pdf(x, a, b)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-gumbel2>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel2-a;
+  let b = d.gsl-randist-gumbel2-b;
+  ffi/gsl-cdf-gumbel2-p(x, a, b)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-gumbel2>, x :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel2-a;
+  let b = d.gsl-randist-gumbel2-b;
+  ffi/gsl-cdf-gumbel2-q(x, a, b)
+end;
+
+define method gsl-randist-cdf-pinv
+    (d :: <gsl-randist-gumbel2>, p :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel2-a;
+  let b = d.gsl-randist-gumbel2-b;
+  ffi/gsl-cdf-gumbel2-pinv(p, a, b)
+end;
+
+define method gsl-randist-cdf-qinv
+    (d :: <gsl-randist-gumbel2>, q :: <float>) => (p :: <float>)
+  let a = d.gsl-randist-gumbel2-a;
+  let b = d.gsl-randist-gumbel2-b;
+  ffi/gsl-cdf-gumbel2-qinv(q, a, b)
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// The Dirichlet Distribution
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// define class <gsl-randist-dirichlet> (<gsl-randist-continuous>) 
+//   constant slot gsl-randist-dirichlet-alpha :: <vector>,
+//     required-init-keyword: alpha:;
+//   constant slot gsl-randist-dirichlet-theta :: <vector>,
+//     required-init-keyword: theta:;
+// end;
+
+// define method print-object
+//     (d :: <gsl-randist-dirichlet>, stream :: <stream>) => ()
+//   printing-object(d, stream)
+//     format(stream, "%= alpha: %= theta: %=",
+//            d.%gsl-randist-rng,
+//            d.gsl-randist-dirichlet-alpha,
+//            d.gsl-randist-dirichlet-theta);
+//   end
+// end;
+
+// define method gsl-randist-variate
+//     (d :: <gsl-randist-dirichlet>) => (variate :: <vector>)
+//   let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+//   let alpha = d.gsl-randist-dirichlet-alpha;
+//   let theta = d.gsl-randist-dirichlet-theta;
+//   ffi/gsl-ran-dirichlet(rng, alpha.size, alpha)
+// end;
+
+// define method gsl-randist-pdf
+//     (d :: <gsl-randist-dirichlet>) => (pd :: <float>)
+//   let alpha = d.gsl-randist-dirichlet-alpha;
+//   let theta = d.gsl-randist-dirichlet-theta;
+//   ffi/gsl-ran-dirichlet-pdf(x, alpha.size, alpha, theta)
+// end;
+
+// define function gsl-randist-dirichlet-ln-pdf
+//     (d :: <gsl-randist-dirichlet>) => (lnpd :: <float>)
+//   let alpha = d.gsl-randist-dirichlet-alpha;
+//   let theta = d.gsl-randist-dirichlet-theta;
+//   ffi/gsl-ran-dirichlet-lnpdf(alpha.size, alpha, theta)
+// end;

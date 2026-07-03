@@ -1,13 +1,14 @@
 Module: dylan-gsl-test-suite
 
-define function test-randist-variate
+define function test-randist
    (distribution :: <gsl-randist>) => ()
-  assert-no-errors(distribution.gsl-randist-variate);
+  assert-no-errors(gsl-randist-variate(distribution));
+  assert-no-errors(gsl-randist-pdf(distribution, 1.0d0));
 end;
 
 define test test-gsl-randist-gaussian ()
   let randist = make(<gsl-randist-gaussian>, sigma: 0.25d0);
-  test-randist-variate(randist);
+  test-randist(randist);
   assert-signals(<gsl-error-invalid-argument>, 
                  make(<gsl-randist-gaussian>, sigma: 0.5d0, algorithm: #"foo"),
                  "Error invalid argument creating gaussian with invalid algorithm");
@@ -15,14 +16,14 @@ end;
 
 define test test-gsl-randist-ugaussian ()
   let randist = make(<gsl-randist-ugaussian>);
-  test-randist-variate(randist);
+  test-randist(randist);
   assert-equal(randist.gsl-randist-gaussian-sigma, 1.0d0,
                "Ugaussian sigma default value must be 1.0");
 end;
 
 define test test-gsl-randist-gaussian-tail ()
   let randist = make(<gsl-randist-gaussian-tail>, sigma: 0.25d0, a: 2.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
   assert-signals(<gsl-error-invalid-argument>,
                  make(<gsl-randist-gaussian-tail>, sigma: 0.2d0, a: -3.0d0),
                  "Error invalid argument creating gaussian tail with invalid a");
@@ -30,7 +31,7 @@ end;
 
 define test test-gsl-randist-ugaussian-tail ()
   let randist = make(<gsl-randist-ugaussian-tail>, a: 2.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
   assert-signals(<gsl-error-invalid-argument>,
                  make(<gsl-randist-ugaussian-tail>, a: -3.0d0),
                  "Error invalid argument creating ugaussian tail with invalid a");
@@ -39,67 +40,79 @@ end;
 
 define test test-gsl-randist-exponential ()
   let randist = make(<gsl-randist-exponential>, beta: 2.0d0, mu: 0.5d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-laplace ()
   let randist = make(<gsl-randist-laplace>, a: 1.5d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-exppow ()
   let randist = make(<gsl-randist-exppow>, a: 0.5d0, b: 1.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-cauchy ()
-  let randist = make(<gsl-randist-cauchy>, a: 0.0d0, b: 1.0d0);
-  test-randist-variate(randist);
+  let randist = make(<gsl-randist-cauchy>, a: 1.0d0);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-rayleigh ()
   let randist = make(<gsl-randist-rayleigh>, sigma: 1.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-rayleigh-tail ()
   let randist = make(<gsl-randist-rayleigh-tail>, sigma: 1.0d0, a: 1.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-landau ()
   let randist = make(<gsl-randist-landau>);
-  test-randist-variate(randist);
+  assert-no-errors(randist.gsl-randist-variate);
+  assert-no-errors(gsl-randist-pdf(randist, 1.0d0));
 end;
 
 define test test-gsl-randist-gamma ()
   let randist = make(<gsl-randist-gamma>, a: 1.0d0, b: 1.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-flat ()
   let randist = make(<gsl-randist-flat>, a: 0.0d0, b: 1.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-lognormal ()
   let randist = make(<gsl-randist-lognormal>, zeta: 0.0d0, sigma: 1.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-chisq ()
   let randist = make(<gsl-randist-chisq>, nu: 5.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-fdist ()
   let randist = make(<gsl-randist-fdist>, nu1: 5.0d0, nu2: 2.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
 end;
 
 define test test-gsl-randist-tdist ()
   let randist = make(<gsl-randist-tdist>, nu: 5.0d0);
-  test-randist-variate(randist);
+  test-randist(randist);
+end;
+
+define test test-gsl-randist-beta ()
+  // https://www.statlect.com/probability-distributions/beta-distribution
+  let randist = make(<gsl-randist-beta>, a: 3.8d0, b: 91.2d0);
+  test-randist(randist);
+end;
+
+define test test-gsl-randist-logistic ()
+  let randist = make(<gsl-randist-logistic>, a: 1.0d0);
+  test-randist(randist);
 end;
 
 define suite gsl-randist-suite ()
@@ -120,4 +133,6 @@ define suite gsl-randist-suite ()
   test test-gsl-randist-chisq;
   test test-gsl-randist-fdist;
   test test-gsl-randist-tdist;
+  test test-gsl-randist-beta;
+  test test-gsl-randist-logistic;
 end suite;

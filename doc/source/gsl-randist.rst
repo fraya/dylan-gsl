@@ -12,7 +12,7 @@ library interface, reducing both the function count and the number of
 parameters per function. See :class:`<gsl-randist>` for examples of
 this design.
 
-The distributions available in this module are:
+The continuous distributions available in this module are:
 
 - :class:`<gsl-randist-gaussian>`
 - :class:`<gsl-randist-ugaussian>`
@@ -29,7 +29,20 @@ The distributions available in this module are:
 - :class:`<gsl-randist-levy-skew>`
 - :class:`<gsl-randist-gamma>`
 - :class:`<gsl-randist-flat>`
+- :class:`<gsl-randist-lognormal>`
 - :class:`<gsl-randist-chisq>`
+- :class:`<gsl-randist-fdist>`
+- :class:`<gsl-randist-tdist>`
+- :class:`<gsl-randist-beta>`
+- :class:`<gsl-randist-logistic>`
+- :class:`<gsl-randist-pareto>`
+- :class:`<gsl-randist-dir-2d>`
+- :class:`<gsl-randist-dir-3d>`
+- :class:`<gsl-randist-dir-nd>`
+- :class:`<gsl-randist-weibull>`
+- :class:`<gsl-randist-gumbel1>`
+- :class:`<gsl-randist-gumbel2>`
+- :class:`<gsl-randist-dirichlet>`
 
 The ``<gsl-randist>`` interface
 ===============================
@@ -70,7 +83,7 @@ Operations
    :result variate:
 
      A random variate from the distribution.  An instance of
-     :drm:`<float>`.
+     :drm:`<object>`.
 
 .. generic-function:: gsl-randist-pdf
 
@@ -102,8 +115,8 @@ The Continuous Distribution
    :abstract:
    :uninstantiable:
 
-   :supers: 
-   
+   :supers:
+
      :class:`<gsl-randist>`
 
    Base class for all continuous distributions.
@@ -116,25 +129,6 @@ The Continuous Distribution
      - :func:`gsl-randist-cdf-q`
      - :func:`gsl-randist-cdf-pinv`
      - :func:`gsl-randist-cdf-qinv`
-
-The Continuous distributions available are:
-
-- :class:`<gsl-randist-gaussian>`
-- :class:`<gsl-randist-ugaussian>`
-- :class:`<gsl-randist-gaussian-tail>`
-- :class:`<gsl-randist-ugaussian-tail>`
-- :class:`<gsl-randist-exponential>`
-- :class:`<gsl-randist-laplace>`
-- :class:`<gsl-randist-exppow>`
-- :class:`<gsl-randist-cauchy>`
-- :class:`<gsl-randist-rayleigh>`
-- :class:`<gsl-randist-rayleigh-tail>`
-- :class:`<gsl-randist-landau>`
-- :class:`<gsl-randist-levy>`
-- :class:`<gsl-randist-levy-skew>`
-- :class:`<gsl-randist-gamma>`
-- :class:`<gsl-randist-flat>`
-- :class:`<gsl-randist-chisq>`
 
 .. generic-function:: gsl-randist-cdf-p
 
@@ -236,8 +230,8 @@ The Gaussian Distribution
    This distribution stores the type of algorithm used to generate
    random variates.
 
-   :supers: 
-   
+   :supers:
+
      :class:`<gsl-randist-continuous>`
 
    :keyword required sigma:
@@ -661,8 +655,8 @@ The Rayleigh Tail distribution
 
 .. class:: <gsl-randist-rayleigh-tail>
 
-   :supers: 
-   
+   :supers:
+
      :class:`<gsl-randist-rayleigh>`
 
    :keyword required rng:
@@ -694,8 +688,8 @@ The Landau distribution
    :instantiable:
    :concrete:
 
-   :supers: 
-   
+   :supers:
+
      :class:`<gsl-randist-continuous>`
 
    :keyword required rng:
@@ -719,8 +713,8 @@ The Levy alpha-Stable Distribution
    :instantiable:
    :concrete:
 
-   :supers: 
-   
+   :supers:
+
      :class:`<gsl-randist-continuous>`
 
    :keyword required rng:
@@ -748,8 +742,8 @@ The Levy skew alpha-Stable Distribution
    :instantiable:
    :concrete:
 
-   :supers: 
-   
+   :supers:
+
      :class:`<gsl-randist-levy>`
 
    :keyword required rng:
@@ -1010,3 +1004,688 @@ The following operations are specialized for
 .. method:: gsl-randist-cdf-qinv
    :specializer: <gsl-randist-chisq>
    :no-contents-entry:
+
+The F-Distribution
+==================
+
+.. class:: <gsl-randist-fdist>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required nu1:
+
+      Degrees of freedom. An instance of :drm:`<float>`
+
+   :keyword required nu2:
+
+      Degrees of freedom. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-fdist>, nu1: 3.0d0, nu2: 4.0d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-f-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-fdist>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-fdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-fdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-fdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-fdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-fdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-fdist>
+   :no-contents-entry:
+
+The Student's T Distribution
+============================
+
+.. class:: <gsl-randist-tdist>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required nu:
+
+      Degrees of freedom. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-tdist>, nu: 3.0d0);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-student-tdist-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-tdist>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-tdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-tdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-tdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-tdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-tdist>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-tdist>
+   :no-contents-entry:
+
+The Beta Distribution
+=====================
+
+.. class:: <gsl-randist-beta>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required a:
+
+      Shape parameter. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Shape parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-beta>, a: 1.0d0, b: 2.0d0);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-beta-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-beta>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-beta>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-beta>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-beta>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-beta>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-beta>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-beta>
+   :no-contents-entry:
+
+The Logistic Distribution
+=========================
+
+.. class:: <gsl-randist-logistic>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required a:
+
+      Scale parameter. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Shift parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-logistic>, a: 1.0d0, b: 2.0d0);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-logistic-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-logistic>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-logistic>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-logistic>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-logistic>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-logistic>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-logistic>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-logistic>
+   :no-contents-entry:
+
+The Pareto Distribution
+=======================
+
+.. class:: <gsl-randist-pareto>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required a:
+
+      Scale parameter. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Shift parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-pareto>, a: 1.0d0, b: 2.0d0);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-pareto-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-pareto>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-pareto>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-pareto>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-pareto>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-pareto>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-pareto>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-pareto>
+   :no-contents-entry:
+
+The Special Vector Distributions
+================================
+
+.. class:: <gsl-randist-dir2d>
+
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-dir2d>);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-special-vector-distributions
+
+The following operations are specialized for
+:class:`<gsl-randist-dir2d>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-dir-2d>
+   
+   :signature: gsl-randist-variate distribution => (v2d)
+
+   :param distribution:
+
+      A :class:`<gsl-randist-dir-2d>` instance.
+
+   :result v2d:
+
+      A random variate from the distribution.  An instance of
+      :drm:`<gsl-vector>` with 2 elements (x and y).
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-dir-2d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-dir-2d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-dir-2d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-dir-2d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-dir-2d>
+   :no-contents-entry:
+
+.. class:: <gsl-randist-dir-3d>
+
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-dir3d>);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-special-vector-distributions
+
+The following operations are specialized for
+:class:`<gsl-randist-dir3d>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-dir-3d>
+   
+   :signature: gsl-randist-variate distribution => (v3d)
+
+   :param distribution:
+
+      A :class:`<gsl-randist-dir-3d>` instance.
+
+   :result v3d:
+
+      A random variate from the distribution.  An instance of
+      :drm:`<gsl-vector>` with 3 elements (x, y and z).
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-dir-3d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-dir-3d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-dir-3d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-dir-3d>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-dir-3d>
+   :no-contents-entry:
+
+.. class:: <gsl-randist-dir-nd>
+
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required n:
+
+      The dimension of the vector. An instance of :drm:`<integer>`.
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-dir-nd>, n: 2);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-special-vector-distributions
+
+The following operations are specialized for
+:class:`<gsl-randist-dir-nd>`.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-dir-nd>
+   
+   :signature: gsl-randist-variate distribution => (vnd)
+
+   :param distribution:
+
+      A :class:`<gsl-randist-dir-nd>` instance.
+
+   :result vnd:
+
+      A random variate from the distribution.  An instance of
+      :drm:`<gsl-vector>` with n elements.
+
+The Weibull Distribution
+========================
+
+.. class:: <gsl-randist-weibull>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required a:
+
+      Scale parameter. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Shift parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-weibull>, a: 1.0d0, b: 2.0d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-weibull-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-weibull>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-weibull>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-weibull>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-weibull>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-weibull>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-weibull>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-weibull>
+   :no-contents-entry:
+
+The Type-1 Gumbel Distribution
+==============================
+
+.. class:: <gsl-randist-gumbel1>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required a:
+
+      Scale parameter. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Shift parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-gumbel1>, a: 1.0d0, b: 2.0d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-gumbel-distribution 
+
+The following operations are specialized for
+:class:`<gsl-randist-gumbel1>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-gumbel1>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-gumbel1>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-gumbel1>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-gumbel1>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-gumbel1>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-gumbel1>
+   :no-contents-entry:
+
+The Type-2 Gumbel Distribution
+==============================
+
+.. class:: <gsl-randist-gumbel2>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required a:
+
+      Scale parameter. An instance of :drm:`<float>`
+
+   :keyword required b:
+
+      Shift parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-gumbel2>, a: 1.0d0, b: 2.0d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-gumbel-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-gumbel2>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-gumbel2>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-gumbel2>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-gumbel2>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-gumbel2>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-pinv
+   :specializer: <gsl-randist-gumbel2>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-qinv
+   :specializer: <gsl-randist-gumbel2>
+   :no-contents-entry:
+
+The Dirichlet Distribution
+==========================
+
+.. class:: <gsl-randist-dirichlet>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required alpha:
+
+      Shape parameter. An instance of :drm:`<float>`
+
+   :keyword required theta:
+
+      Shift parameter. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-dirichlet>, a: 1.0d0, b: 2.0d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-dirichlet-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-dirichlet>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-dirichlet>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-dirichlet>
+   :no-contents-entry:
+
+.. function:: gsl-randist-ln-pdf
+
+   This function computes the logarithm of the probability density
+   p(θ1 , . . . , θK ) for a Dirichlet distribution with parameters
+   alpha[K].
+
+   :signature: gsl-randist-ln-pdf distribution => (lnpdf)
+
+   :parameter distribution:
+
+      An instance of :class:`<gsl-randist-dirichlet>`.
+
+   :result lnpdf:
+
+      An instance of :class:`<float>`. Logarithm of the probability
+      density. 
+   

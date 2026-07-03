@@ -278,14 +278,14 @@ end;
 
 define c-function gsl-cdf-cauchy-pinv
   parameter p :: <c-double>;
-  parameter a :: <c-double>;
+  parameter p :: <c-double>;
   result cd :: <c-double>;
   c-name: "gsl_cdf_cauchy_Pinv";
 end;
 
 define c-function gsl-cdf-cauchy-qinv
   parameter q :: <c-double>;
-  parameter sigma :: <c-double>;
+  parameter q :: <c-double>;
   result x :: <c-double>;
   c-name: "gsl_cdf_cauchy_Qinv";
 end;
@@ -783,24 +783,6 @@ end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Landau
-//
-///////////////////////////////////////////////////////////////////////////////
-
-// define c-function gsl-ran-landau
-//   parameter r :: <gsl-rng*>;
-//   result variate :: <c-double>;
-//   c-name: "gsl_ran_landau";
-// end;
-
-// define c-function gsl-ran-landau-pdf
-//   parameter x :: <c-double>;
-//   result pdf :: <c-double>;
-//   c-name: "gsl_ran_landau_pdf";
-// end;
-
-///////////////////////////////////////////////////////////////////////////////
-//
 // Logistic
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -932,8 +914,8 @@ end;
 define c-function gsl-ran-dir-nd
   parameter r :: <gsl-rng*>;
   parameter n :: <c-size-t>;
-  output parameter x :: <c-double*>;
-  c-name: "gsl_ran_dir_nd";
+  result x :: <c-double*>;
+  c-name: "gsl_ran_dir_nd_shim";
 end;
 
 ///////////////////////////////////////////////////////////////////////////////

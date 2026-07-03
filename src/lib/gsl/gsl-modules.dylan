@@ -478,7 +478,14 @@ define module gsl-randist
     <gsl-randist-lognormal>,
     <gsl-randist-chisq>,
     <gsl-randist-fdist>,
-    <gsl-randist-tdist>;
+    <gsl-randist-tdist>,
+    <gsl-randist-beta>,
+    <gsl-randist-logistic>,
+    <gsl-randist-pareto>,
+    <gsl-randist-dir-2d>,
+    <gsl-randist-dir-3d>,
+    <gsl-randist-dir-nd>,
+    <gsl-randist-weibull>;
 
 end module;
 
@@ -491,6 +498,7 @@ define module gsl-randist-impl
   use gsl-rng;
   use gsl-rng-impl,
     import: { gsl-rng-ffi };
+  use gsl-vector;
   use gsl-ffi-randist,
     prefix: "ffi/";
   use gsl-randist;
