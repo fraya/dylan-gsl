@@ -1116,35 +1116,35 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-struct <gsl-ran-discrete>
-//  pointer-type-name: <gsl-ran-discrete*>;
-// end;
+define c-struct <gsl-ran-discrete>
+  pointer-type-name: <gsl-ran-discrete*>;
+end;
 
-// define c-function gsl-ran-discrete-preproc
-//  parameter K :: <c-size-t>;
-//  parameter P :: <c-double*>;
-//  result g :: <gsl-ran-discrete*>;
-//  c-name: "gsl_ran_discrete_preproc";
-// end;
+define c-function gsl-ran-discrete-preproc
+ parameter K :: <c-size-t>;
+ parameter P :: <c-double*>;
+ result g :: <gsl-ran-discrete*>;
+ c-name: "gsl_ran_discrete_preproc";
+end;
 
-// define c-function gsl-ran-discrete
-//  parameter r :: <gsl-rng*>;
-//  parameter g :: <gsl-ran-discrete*>;
-//  result k :: <c-size-t>;
-//  c-name: "gsl_ran_discrete";
-// end;
+define c-function gsl-ran-discrete
+ parameter r :: <gsl-rng*>;
+ parameter g :: <gsl-ran-discrete*>;
+ result k :: <c-size-t>;
+ c-name: "gsl_ran_discrete";
+end;
 
-// define c-function gsl-ran-discrete-pdf
-//  parameter k :: <c-size-t>;
-//  parameter g :: <gsl-ran-discrete*>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_discrete_pdf";
-// end;
+define c-function gsl-ran-discrete-pdf
+ parameter k :: <c-size-t>;
+ parameter g :: <gsl-ran-discrete*>;
+ result pdf :: <c-double>;
+ c-name: "gsl_ran_discrete_pdf";
+end;
 
-// define c-function gsl-ran-discrete-free
-//  parameter g :: <gsl-ran-discrete*>;
-//  c-name: "gsl_ran_discrete_free";
-// end;
+define c-function gsl-ran-discrete-free
+ parameter g :: <gsl-ran-discrete*>;
+ c-name: "gsl_ran_discrete_free";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

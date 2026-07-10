@@ -739,6 +739,12 @@ create
     gsl-ran-dirichlet-pdf,
     gsl-ran-dirichlet-lnpdf;
 
+  create
+    <gsl-ran-discrete*>,
+    gsl-ran-discrete-preproc,
+    gsl-ran-discrete,
+    gsl-ran-discrete-pdf,
+    gsl-ran-discrete-free;
 
 //  create
 //    gsl-ran-poisson,
