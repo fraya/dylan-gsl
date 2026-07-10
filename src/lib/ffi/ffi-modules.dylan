@@ -746,9 +746,11 @@ create
     gsl-ran-discrete-pdf,
     gsl-ran-discrete-free;
 
-//  create
-//    gsl-ran-poisson,
-//    gsl-ran-poisson-pdf;
+  create
+    gsl-ran-poisson,
+    gsl-ran-poisson-pdf,
+    gsl-cdf-poisson-p,
+    gsl-cdf-poisson-q;
 
 //  create
 //    gsl-ran-bernoulli,

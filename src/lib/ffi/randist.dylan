@@ -1121,8 +1121,8 @@ define c-struct <gsl-ran-discrete>
 end;
 
 define c-function gsl-ran-discrete-preproc
- parameter K :: <c-size-t>;
- parameter P :: <c-double*>;
+ parameter k :: <c-size-t>;
+ parameter p :: <c-double*>;
  result g :: <gsl-ran-discrete*>;
  c-name: "gsl_ran_discrete_preproc";
 end;
@@ -1152,19 +1152,32 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-//define c-function gsl-ran-poisson
-//  parameter r :: <gsl-rng*>;
-//  parameter mu :: <c-double>;
-//  result variate :: <c-unsigned-int>;
-//  c-name: "gsl_ran_poisson";
-// end;
+define c-function gsl-ran-poisson
+  parameter r :: <gsl-rng*>;
+  parameter mu :: <c-double>;
+  result variate :: <c-unsigned-int>;
+  c-name: "gsl_ran_poisson";
+end;
 
-// define c-function gsl-ran-poisson-pdf
-//  parameter k :: <c-unsigned-int>;
-//  parameter mu :: <c-double>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_poisson_pdf";
-// end;
+define c-function gsl-ran-poisson-pdf
+  parameter k :: <c-unsigned-int>;
+  parameter mu :: <c-double>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_poisson_pdf";
+end;
+
+define c-function gsl-cdf-poisson-p  parameter k :: <c-unsigned-int>;
+  parameter mu :: <c-double>;
+  result cdf :: <c-double>;
+  c-name: "gsl_cdf_poisson_P";
+end;
+
+define c-function gsl-cdf-poisson-q
+  parameter k :: <c-unsigned-int>;
+  parameter mu :: <c-double>;
+  result cdf :: <c-double>;
+  c-name: "gsl_cdf_poisson_Q";
+end;  
 
 ///////////////////////////////////////////////////////////////////////////////
 //
