@@ -1336,3 +1336,53 @@ The Chi-Square Distribution
 
      A ``<c-double>``
 
+Discrete distributions
+======================
+
+.. class:: <gsl-ran-discrete*>
+
+.. function:: gsl-ran-discrete-preproc
+
+   :parameter k:
+
+     A ``<c-size-t>``.
+
+   :parameter p:
+
+     A ``<c-double*>``.
+
+   :result g:
+
+     A :class:`<gsl-ran-discrete*>`
+
+.. function:: gsl-ran-discrete
+
+   :parameter r:
+
+     A :class:`<gsl-rng*>`
+
+   :parameter g:
+
+     A :class:`<gsl-ran-discrete*>`
+
+   :result k:
+
+.. function:: gsl-ran-discrete-pdf
+
+   :parameter k:
+
+     A ``<c-size-t>``.
+
+   :parameter g:
+
+     A :class:`<gsl-ran-discrete*>`
+
+   :result pdf:
+
+     A ``<c-double>``
+
+.. function:: gsl-ran-discrete-free
+
+   :parameter g:
+
+     A :class:`<gsl-ran-discrete*>`

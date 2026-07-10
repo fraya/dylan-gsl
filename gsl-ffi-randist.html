@@ -1725,6 +1725,73 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 </section>
+<section id="discrete-distributions">
+<h2>Discrete distributions<a class="headerlink" href="#discrete-distributions" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-ran-discrete*&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-preproc">
+<span class="sig-name descname"><span class="pre">gsl-ran-discrete-preproc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-preproc" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-size-t&gt;</span></code>.</p></li>
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double*&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result g<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ran-discrete*&gt;</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-discrete">
+<span class="sig-name descname"><span class="pre">gsl-ran-discrete</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – A <a class="reference internal" href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng*&gt;</span></code></a></p></li>
+<li><p><strong>g</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ran-discrete*&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Result k<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-discrete-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-size-t&gt;</span></code>.</p></li>
+<li><p><strong>g</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ran-discrete*&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-free">
+<span class="sig-name descname"><span class="pre">gsl-ran-discrete-free</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-free" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g</strong> – A <a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-ran-discrete*&gt;</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1895,6 +1962,14 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-q"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-q</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-pinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-pinv</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-chisq-qinv"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-chisq-qinv</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#discrete-distributions">Discrete distributions</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:[gsl-ran-discrete*]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-ran-discrete*&gt;</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-preproc"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete-preproc</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-free"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete-free</span></code></a></li>
 </ul>
 </li>
 </ul>
