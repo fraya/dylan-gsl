@@ -1446,3 +1446,34 @@ The Poisson Distribution
    :result cdf:
 
      A ``<c-double>``.
+
+The Bernoulli Distribution
+==========================
+
+.. function:: gsl-ran-bernoulli
+
+   :parameter r:
+
+     A :class:`<gsl-rng*>`
+
+   :parameter p:
+
+     A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-unsigned-int>``.
+
+.. function:: gsl-ran-poisson-pdf
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter p:
+
+     A ``<c-double>``.
+
+   :result pdf:
+
+     A ``<c-double>``.

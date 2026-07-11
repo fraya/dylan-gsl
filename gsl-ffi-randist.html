@@ -1859,6 +1859,41 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 </section>
+<section id="the-bernoulli-distribution">
+<h2>The Bernoulli Distribution<a class="headerlink" href="#the-bernoulli-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-bernoulli">
+<span class="sig-name descname"><span class="pre">gsl-ran-bernoulli</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-bernoulli" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – A <a class="reference internal" href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng*&gt;</span></code></a></p></li>
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result variate<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan">
+<span class="sig-name descname"><span class="pre">gsl-ran-poisson-pdf</span></span> <em class="property"><span class="pre">Function</span></em></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -2044,6 +2079,10 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-poisson-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-poisson-pdf</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-p"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cdf-poisson-p</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-q"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cdf-poisson-q</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-bernoulli-distribution">The Bernoulli Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-bernoulli"><code class="docutils literal notranslate"><span class="pre">gsl-ran-bernoulli</span></code></a></li>
 </ul>
 </li>
 </ul>
