@@ -1894,6 +1894,135 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 </section>
+<section id="the-binomial-distribution">
+<h2>The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-binomial">
+<span class="sig-name descname"><span class="pre">gsl-ran-binomial</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-binomial" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – A <a class="reference internal" href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng*&gt;</span></code></a></p></li>
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>n</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-binomial-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-binomial-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-binomial-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>n</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-cdf-binomial-p">
+<span class="sig-name descname"><span class="pre">gsl-cdf-binomial-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-binomial-p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>p</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+<li><p><strong>n</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result cdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-binomial-q">
+<span class="sig-name descname"><span class="pre">gsl-ran-cdf-binomial-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-binomial-q" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result cdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="the-multinomial-distribution">
+<h2>The Multinomial Distribution<a class="headerlink" href="#the-multinomial-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial">
+<span class="sig-name descname"><span class="pre">gsl-ran-multinomial</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – A <a class="reference internal" href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng*&gt;</span></code></a></p></li>
+<li><p><strong>k</strong> – <blockquote>
+<div><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">parameter nn<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">parameter p<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">parameter n<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-multinomial-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>p</strong></p></li>
+<li><p><strong>n</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial-lnpdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-multinomial-lnpdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial-lnpdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>p</strong></p></li>
+<li><p><strong>n</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Result lnpdf<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -2083,6 +2212,19 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </li>
 <li><a class="reference internal" href="#the-bernoulli-distribution">The Bernoulli Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-bernoulli"><code class="docutils literal notranslate"><span class="pre">gsl-ran-bernoulli</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-binomial-distribution">The Binomial Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-binomial"><code class="docutils literal notranslate"><span class="pre">gsl-ran-binomial</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-binomial-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-binomial-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-cdf-binomial-p"><code class="docutils literal notranslate"><span class="pre">gsl-cdf-binomial-p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-binomial-q"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cdf-binomial-q</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-multinomial-distribution">The Multinomial Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial"><code class="docutils literal notranslate"><span class="pre">gsl-ran-multinomial</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-multinomial-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-multinomial-lnpdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-multinomial-lnpdf</span></code></a></li>
 </ul>
 </li>
 </ul>
