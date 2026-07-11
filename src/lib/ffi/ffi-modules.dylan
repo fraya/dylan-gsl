@@ -752,9 +752,9 @@ create
     gsl-cdf-poisson-p,
     gsl-cdf-poisson-q;
 
-//  create
-//    gsl-ran-bernoulli,
-//    gsl-ran-bernoulli-pdf;
+  create
+    gsl-ran-bernoulli,
+    gsl-ran-bernoulli-pdf;
 
 //  create
 //    gsl-ran-binomial,

@@ -1186,19 +1186,19 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-bernoulli
-//  parameter r :: <gsl-rng*>;
-//  parameter p :: <c-double>;
-//  result variate :: <c-unsigned-int>;
-//  c-name: "gsl_ran_bernoulli";
-// end;
+define c-function gsl-ran-bernoulli
+ parameter r :: <gsl-rng*>;
+ parameter p :: <c-double>;
+ result variate :: <c-unsigned-int>;
+ c-name: "gsl_ran_bernoulli";
+end;
 
-// define c-function gsl-ran-bernoulli-pdf
-//  parameter k :: <c-unsigned-int>;
-//  parameter p :: <c-double>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_bernoulli_pdf";
-// end;
+define c-function gsl-ran-bernoulli-pdf
+ parameter k :: <c-unsigned-int>;
+ parameter p :: <c-double>;
+ result pdf :: <c-double>;
+ c-name: "gsl_ran_bernoulli_pdf";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
