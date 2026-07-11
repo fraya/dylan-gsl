@@ -1792,6 +1792,73 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 </section>
+<section id="the-poisson-distribution">
+<h2>The Poisson Distribution<a class="headerlink" href="#the-poisson-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-poisson">
+<span class="sig-name descname"><span class="pre">gsl-ran-poisson</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-poisson" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – A <a class="reference internal" href="gsl-ffi-rng.html#dylan-gsl:gsl-ffi-rng:[gsl-rng*]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-rng*&gt;</span></code></a></p></li>
+<li><p><strong>mu</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result variate<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-poisson-pdf">
+<span class="sig-name descname"><span class="pre">gsl-ran-poisson-pdf</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-poisson-pdf" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result pdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-p">
+<span class="sig-name descname"><span class="pre">gsl-ran-cdf-poisson-p</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-p" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result cdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-q">
+<span class="sig-name descname"><span class="pre">gsl-ran-cdf-poisson-q</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-q" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-unsigned-int&gt;</span></code>.</p></li>
+<li><p><strong>mu</strong> – A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result cdf<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">&lt;c-double&gt;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -1970,6 +2037,13 @@ standard deviation = 1.  A <code class="docutils literal notranslate"><span clas
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete-pdf</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-discrete-free"><code class="docutils literal notranslate"><span class="pre">gsl-ran-discrete-free</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-poisson-distribution">The Poisson Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-poisson"><code class="docutils literal notranslate"><span class="pre">gsl-ran-poisson</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-poisson-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-ran-poisson-pdf</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-p"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cdf-poisson-p</span></code></a></li>
+<li><a class="reference internal" href="#dylan-gsl:gsl-ffi-randist:gsl-ran-cdf-poisson-q"><code class="docutils literal notranslate"><span class="pre">gsl-ran-cdf-poisson-q</span></code></a></li>
 </ul>
 </li>
 </ul>
