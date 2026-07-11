@@ -1386,3 +1386,63 @@ Discrete distributions
    :parameter g:
 
      A :class:`<gsl-ran-discrete*>`
+
+The Poisson Distribution
+========================
+
+.. function:: gsl-ran-poisson
+
+   :parameter r:
+
+     A :class:`<gsl-rng*>`
+
+   :parameter mu:
+
+     A ``<c-double>``.
+
+   :result variate:
+
+     A ``<c-unsigned-int>``.
+
+.. function:: gsl-ran-poisson-pdf
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter mu:
+
+     A ``<c-double>``.
+
+   :result pdf:
+
+     A ``<c-double>``.
+
+
+.. function:: gsl-ran-cdf-poisson-p
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter mu:
+
+     A ``<c-double>``.
+
+   :result cdf:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-cdf-poisson-q
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter mu:
+
+     A ``<c-double>``.
+
+   :result cdf:
+
+     A ``<c-double>``.

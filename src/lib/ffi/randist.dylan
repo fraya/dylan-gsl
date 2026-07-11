@@ -1166,7 +1166,8 @@ define c-function gsl-ran-poisson-pdf
   c-name: "gsl_ran_poisson_pdf";
 end;
 
-define c-function gsl-cdf-poisson-p  parameter k :: <c-unsigned-int>;
+define c-function gsl-cdf-poisson-p  
+  parameter k :: <c-unsigned-int>;
   parameter mu :: <c-double>;
   result cdf :: <c-double>;
   c-name: "gsl_cdf_poisson_P";
