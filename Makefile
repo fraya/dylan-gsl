@@ -1,7 +1,7 @@
 
 DYLAN	?= $${HOME}/dylan
 
-.PHONY: build install test dist clean distclean
+.PHONY: build install test doc dist clean distclean
 
 build:
 	deft update
@@ -14,6 +14,9 @@ install: build
 test:
 	deft update
 	deft test -- --progress none --report surefire --report-file=_build/TEST-dylan-gsl.xml
+
+doc:
+	podman run --rm -v ./doc:/docs ghcr.io/fraya/dylan-docs make html
 
 dist: distclean install
 
