@@ -1477,3 +1477,111 @@ The Bernoulli Distribution
    :result pdf:
 
      A ``<c-double>``.
+
+The Binomial Distribution
+=========================
+
+.. function:: gsl-ran-binomial
+
+   :parameter r:
+
+     A :class:`<gsl-rng*>`
+
+   :parameter p:
+
+     A ``<c-double>``.
+
+   :parameter n:
+
+     A ``<c-unsigned-int>``.
+
+   :result pdf:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-binomial-pdf
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter p:
+
+     A ``<c-double>``.
+
+   :parameter n:
+
+     A ``<c-unsigned-int>``.
+
+   :result pdf:
+
+     A ``<c-double>``.
+
+.. function:: gsl-cdf-binomial-p
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter p:
+
+     A ``<c-double>``.
+
+   :parameter n:
+
+     A ``<c-unsigned-int>``.
+
+   :result cdf:
+
+     A ``<c-double>``.
+
+.. function:: gsl-ran-cdf-binomial-q
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter mu:
+
+     A ``<c-double>``.
+
+   :result cdf:
+
+     A ``<c-double>``.
+
+The Multinomial Distribution
+============================
+
+.. function:: gsl-ran-multinomial
+
+  :parameter r:
+
+     A :class:`<gsl-rng*>`
+
+  :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter nn:
+   :parameter p:
+   :parameter n:
+
+.. function:: gsl-ran-multinomial-pdf
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter p:
+   :parameter n:
+   :result pdf:
+
+.. function:: gsl-ran-multinomial-lnpdf
+
+   :parameter k:
+
+     A ``<c-unsigned-int>``.
+
+   :parameter p:
+   :parameter n:
+   :result lnpdf:

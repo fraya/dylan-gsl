@@ -1206,21 +1206,37 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-binomial
-//  parameter r :: <gsl-rng*>;
-//  parameter p :: <c-double>;
-//  parameter n :: <c-unsigned-int>;
-//  result variate :: <c-unsigned-int>;
-//  c-name: "gsl_ran_binomial";
-// end;
+define c-function gsl-ran-binomial
+  parameter r :: <gsl-rng*>;
+  parameter p :: <c-double>;
+  parameter n :: <c-unsigned-int>;
+  result variate :: <c-unsigned-int>;
+  c-name: "gsl_ran_binomial";
+end;
 
-// define c-function gsl-ran-binomial-pdf
-//  parameter k :: <c-unsigned-int>;
-//  parameter p :: <c-double>;
-//  parameter n :: <c-unsigned-int>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_binomial_pdf";
-// end;
+define c-function gsl-ran-binomial-pdf
+  parameter k :: <c-unsigned-int>;
+  parameter p :: <c-double>;
+  parameter n :: <c-unsigned-int>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_binomial_pdf";
+end;
+
+define c-function gsl-cdf-binomial-p
+  parameter k :: <c-unsigned-int>;
+  parameter p :: <c-double>;
+  parameter n :: <c-unsigned-int>;
+  result cdf  :: <c-double>;
+  c-name: "gsl_cdf_binomial_P";
+end;
+
+define c-function gsl-cdf-binomial-q
+  parameter k :: <c-unsigned-int>;
+  parameter p :: <c-double>;
+  parameter n :: <c-unsigned-int>;
+  result cdf  :: <c-double>;
+  c-name: "gsl_cdf_binomial_Q";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -1228,30 +1244,30 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-multinomial
-//  parameter r :: <gsl-rng*>;
-//  parameter K :: <c-size-t>;
-//  parameter N :: <c-unsigned-int>;
-//  parameter p :: <c-double*>;
-//  parameter n :: <c-unsigned-int*>;
-//  c-name: "gsl_ran_multinomial";
-// end;
+define c-function gsl-ran-multinomial
+  parameter r :: <gsl-rng*>;
+  parameter k :: <c-size-t>;
+  parameter n :: <c-unsigned-int>;
+  parameter p :: <c-double*>;
+  result nv :: <c-unsigned-int*>;
+  c-name: "gsl_ran_multinomial_shim";
+end;
 
-// define c-function gsl-ran-multinomial-pdf
-//  parameter K :: <c-size-t>;
-//  parameter p :: <c-double*>;
-//  parameter n :: <c-unsigned-int*>;
-//  result pdf :: <c-double>;
-//  c-name: "gsl_ran_multinomial_pdf";
-// end;
+define c-function gsl-ran-multinomial-pdf
+  parameter k :: <c-size-t>;
+  parameter p :: <c-double*>;
+  parameter n :: <c-unsigned-int*>;
+  result pdf :: <c-double>;
+  c-name: "gsl_ran_multinomial_pdf";
+end;
 
-// define c-function gsl-ran-multinomial-lnpdf
-//  parameter K :: <c-size-t>;
-//  parameter p :: <c-double*>;
-//  parameter n :: <c-unsigned-int*>;
-//  result lnpdf :: <c-double>;
-//  c-name: "gsl_ran_multinomial_lnpdf";
-// end;
+define c-function gsl-ran-multinomial-lnpdf
+  parameter k :: <c-size-t>;
+  parameter p :: <c-double*>;
+  parameter n :: <c-unsigned-int*>;
+  result lnpdf :: <c-double>;
+  c-name: "gsl_ran_multinomial_lnpdf";
+end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //

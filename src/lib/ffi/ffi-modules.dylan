@@ -756,14 +756,16 @@ create
     gsl-ran-bernoulli,
     gsl-ran-bernoulli-pdf;
 
-//  create
-//    gsl-ran-binomial,
-//    gsl-ran-binomial-pdf;
+  create
+    gsl-ran-binomial,
+    gsl-ran-binomial-pdf,
+    gsl-cdf-binomial-p,
+    gsl-cdf-binomial-q;
 
-//  create
-//    gsl-ran-multinomial,
-//    gsl-ran-multinomial-pdf,
-//    gsl-ran-multinomial-lnpdf;
+  create
+    gsl-ran-multinomial,
+    gsl-ran-multinomial-pdf,
+    gsl-ran-multinomial-lnpdf;
 
 //  create
 //    gsl-ran-negative-binomial,
