@@ -767,8 +767,13 @@ create
     gsl-ran-multinomial-pdf,
     gsl-ran-multinomial-lnpdf;
 
+  create
+    gsl-ran-negative-binomial,
+    gsl-ran-negative-binomial-pdf,
+    gsl-cdf-negative-binomial-p,
+    gsl-cdf-negative-binomial-q;
+
 //  create
-//    gsl-ran-negative-binomial,
 //    gsl-ran-pascal,
 //    gsl-ran-geometric,
 //    gsl-ran-hypergeometric,

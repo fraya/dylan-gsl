@@ -1275,13 +1275,37 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// define c-function gsl-ran-negative-binomial
-//  parameter r :: <gsl-rng*>;
-//  parameter p :: <c-double>;
-//  parameter n :: <c-double>;
-//  result variate :: <c-unsigned-int>;
-//  c-name: "gsl_ran_negative_binomial";
-// end;
+define c-function gsl-ran-negative-binomial
+ parameter r :: <gsl-rng*>;
+ parameter p :: <c-double>;
+ parameter n :: <c-double>;
+ result variate :: <c-unsigned-int>;
+ c-name: "gsl_ran_negative_binomial";
+end;
+
+define c-function gsl-ran-negative-binomial-pdf
+ parameter k :: <c-unsigned-int>;
+ parameter p :: <c-double>;
+ parameter n :: <c-double>;
+ result variate :: <c-unsigned-int>;
+ c-name: "gsl_ran_negative_binomial_pdf";
+end;
+
+define c-function gsl-cdf-negative-binomial-p
+ parameter k :: <c-unsigned-int>;
+ parameter p :: <c-double>;
+ parameter n :: <c-double>;
+ result variate :: <c-unsigned-int>;
+ c-name: "gsl_ran_negative_binomial_P";
+end;
+
+define c-function gsl-cdf-negative-binomial-q
+ parameter k :: <c-unsigned-int>;
+ parameter p :: <c-double>;
+ parameter n :: <c-double>;
+ result variate :: <c-unsigned-int>;
+ c-name: "gsl_ran_negative_binomial_Q";
+end;
 
 //define c-function gsl-ran-pascal
 //  parameter r :: <gsl-rng*>;
