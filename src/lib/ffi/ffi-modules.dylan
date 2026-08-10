@@ -762,10 +762,10 @@ create
     gsl-cdf-binomial-p,
     gsl-cdf-binomial-q;
 
-  create
-    gsl-ran-multinomial,
-    gsl-ran-multinomial-pdf,
-    gsl-ran-multinomial-lnpdf;
+//  create
+//    gsl-ran-multinomial,
+//    gsl-ran-multinomial-pdf,
+//    gsl-ran-multinomial-lnpdf;
 
   create
     gsl-ran-negative-binomial,

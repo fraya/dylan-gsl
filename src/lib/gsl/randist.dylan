@@ -28,7 +28,7 @@ define generic gsl-randist-variate
   (d :: <gsl-randist>) => (variate :: <object>);
 
 define generic gsl-randist-pdf
-  (d :: <gsl-randist>, x :: <float>) => (pd :: <float>);
+  (d :: <gsl-randist>, x :: <number>) => (pd :: <float>);
 
 define method gsl-randist-variate
     (d :: <gsl-randist>) => (variate :: <float>)
@@ -36,7 +36,7 @@ define method gsl-randist-variate
 end;
 
 define method gsl-randist-pdf
-    (d :: <gsl-randist>, x :: <float>) => (pd :: <float>)
+    (d :: <gsl-randist>, x :: <number>) => (pd :: <float>)
   error(make(<gsl-error-unsupported>))
 end;
 
@@ -49,16 +49,16 @@ end;
 define abstract class <gsl-randist-continuous> (<gsl-randist>) end;
 
 define generic gsl-randist-cdf-p
-  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+  (d :: <gsl-randist-continuous>, x :: <number>) => (cd :: <float>);
 
 define generic gsl-randist-cdf-q
-  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+  (d :: <gsl-randist-continuous>, x :: <number>) => (cd :: <float>);
 
 define generic gsl-randist-cdf-pinv
-  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+  (d :: <gsl-randist-continuous>, x :: <number>) => (cd :: <float>);
 
 define generic gsl-randist-cdf-qinv
-  (d :: <gsl-randist-continuous>, x :: <float>) => (cd :: <float>);
+  (d :: <gsl-randist-continuous>, x :: <number>) => (cd :: <float>);
 
 // Default implementations for the generic functions.
 
@@ -1454,3 +1454,88 @@ end;
 //   let theta = d.gsl-randist-dirichlet-theta;
 //   ffi/gsl-ran-dirichlet-lnpdf(alpha.size, alpha, theta)
 // end;
+
+///////////////////////////////////////////////////////////////////////
+//
+// Binomial distribution
+//
+///////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-binomial> (<gsl-randist-continuous>)
+  constant slot gsl-randist-binomial-p :: <float>,
+    required-init-keyword: p:;
+  constant slot gsl-randist-binomial-n :: <integer>,
+    required-init-keyword: n:;
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-binomial>) => (variate :: <integer>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let p = d.gsl-randist-binomial-p;
+  let n = d.gsl-randist-binomial-n;
+  ffi/gsl-ran-binomial(rng, p, n)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-binomial>, k :: <integer>) => (pdf :: <float>)
+  let p = d.gsl-randist-binomial-p;
+  let n = d.gsl-randist-binomial-n;
+  ffi/gsl-ran-binomial-pdf(k, p, n)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-binomial>, k :: <integer>) => (p :: <float>)
+  let p = d.gsl-randist-binomial-p;
+  let n = d.gsl-randist-binomial-n;
+  ffi/gsl-cdf-binomial-p(k, p, n)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-binomial>, k :: <integer>) => (q :: <float>)
+  let p = d.gsl-randist-binomial-p;
+  let n = d.gsl-randist-binomial-n;
+  ffi/gsl-cdf-binomial-q(k, p, n)
+end;
+
+///////////////////////////////////////////////////////////////////////
+//
+// The Negative Binomial Distribution
+//
+///////////////////////////////////////////////////////////////////////
+
+define class <gsl-randist-negative-binomial> (<gsl-randist-continuous>)
+  constant slot gsl-randist-negative-binomial-p :: <float>,
+    required-init-keyword: p:;
+  constant slot gsl-randist-negative-binomial-n :: <float>,
+    required-init-keyword: n:;
+end;
+
+define method gsl-randist-variate
+    (d :: <gsl-randist-negative-binomial>) => (variate :: <integer>)
+  let rng = d.%gsl-randist-rng.gsl-rng-ffi;
+  let p = d.gsl-randist-negative-binomial-p;
+  let n = d.gsl-randist-negative-binomial-n;
+  ffi/gsl-ran-negative-binomial(rng, p, n)
+end;
+
+define method gsl-randist-pdf
+    (d :: <gsl-randist-negative-binomial>, k :: <integer>) => (pdf :: <float>)
+  let p = d.gsl-randist-negative-binomial-p;
+  let n = d.gsl-randist-negative-binomial-n;
+  ffi/gsl-ran-negative-binomial-pdf(k, p, n)
+end;
+
+define method gsl-randist-cdf-p
+    (d :: <gsl-randist-negative-binomial>, k :: <integer>) => (p :: <float>)
+  let p = d.gsl-randist-negative-binomial-p;
+  let n = d.gsl-randist-negative-binomial-n;
+  ffi/gsl-cdf-negative-binomial-p(k, p, n)
+end;
+
+define method gsl-randist-cdf-q
+    (d :: <gsl-randist-negative-binomial>, k :: <integer>) => (q :: <float>)
+  let p = d.gsl-randist-negative-binomial-p;
+  let n = d.gsl-randist-negative-binomial-n;
+  ffi/gsl-cdf-negative-binomial-q(k, p, n)
+end;
+

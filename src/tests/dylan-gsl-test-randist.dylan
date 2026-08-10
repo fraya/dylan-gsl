@@ -115,6 +115,19 @@ define test test-gsl-randist-logistic ()
   test-randist(randist);
 end;
 
+define test test-gsl-randist-binomial ()
+  let randist = make(<gsl-randist-binomial>, n: 5, p: 0.5d0);
+  assert-no-errors(gsl-randist-variate(randist));
+  assert-no-errors(gsl-randist-pdf(randist, 1));
+end;
+
+define test test-gsl-randist-negative-binomial ()
+  let randist = make(<gsl-randist-negative-binomial>, n: 5.0d0, p: 0.5d0);
+  assert-no-errors(gsl-randist-variate(randist));
+  assert-no-errors(gsl-randist-pdf(randist, 1));
+end;
+
+
 define suite gsl-randist-suite ()
   test test-gsl-randist-ugaussian;
   test test-gsl-randist-gaussian;
@@ -135,4 +148,6 @@ define suite gsl-randist-suite ()
   test test-gsl-randist-tdist;
   test test-gsl-randist-beta;
   test test-gsl-randist-logistic;
+  test test-gsl-randist-binomial;
+  test test-gsl-randist-negative-binomial;
 end suite;

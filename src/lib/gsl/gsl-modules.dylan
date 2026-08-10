@@ -485,7 +485,9 @@ define module gsl-randist
     <gsl-randist-dir-2d>,
     <gsl-randist-dir-3d>,
     <gsl-randist-dir-nd>,
-    <gsl-randist-weibull>;
+    <gsl-randist-weibull>,
+    <gsl-randist-binomial>,
+    <gsl-randist-negative-binomial>;
 
 end module;
 

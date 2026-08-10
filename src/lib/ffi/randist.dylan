@@ -1244,34 +1244,34 @@ end;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-define c-function gsl-ran-multinomial
-  parameter r :: <gsl-rng*>;
-  parameter k :: <c-size-t>;
-  parameter n :: <c-unsigned-int>;
-  parameter p :: <c-double*>;
-  result nv :: <c-unsigned-int*>;
-  c-name: "gsl_ran_multinomial_shim";
-end;
+// define c-function gsl-ran-multinomial
+//  parameter r :: <gsl-rng*>;
+//  parameter k :: <c-size-t>;
+//  parameter n :: <c-unsigned-int>;
+//  parameter p :: <c-double*>;
+//  result nv :: <c-unsigned-int*>;
+//  c-name: "gsl_ran_multinomial_shim";
+// end;
 
-define c-function gsl-ran-multinomial-pdf
-  parameter k :: <c-size-t>;
-  parameter p :: <c-double*>;
-  parameter n :: <c-unsigned-int*>;
-  result pdf :: <c-double>;
-  c-name: "gsl_ran_multinomial_pdf";
-end;
+// define c-function gsl-ran-multinomial-pdf
+//  parameter k :: <c-size-t>;
+//  parameter p :: <c-double*>;
+//  parameter n :: <c-unsigned-int*>;
+//  result pdf :: <c-double>;
+//  c-name: "gsl_ran_multinomial_pdf";
+// end;
 
-define c-function gsl-ran-multinomial-lnpdf
-  parameter k :: <c-size-t>;
-  parameter p :: <c-double*>;
-  parameter n :: <c-unsigned-int*>;
-  result lnpdf :: <c-double>;
-  c-name: "gsl_ran_multinomial_lnpdf";
-end;
+// define c-function gsl-ran-multinomial-lnpdf
+//  parameter k :: <c-size-t>;
+//  parameter p :: <c-double*>;
+//  parameter n :: <c-unsigned-int*>;
+//  result lnpdf :: <c-double>;
+//  c-name: "gsl_ran_multinomial_lnpdf";
+// end;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Discrete additional distributions
+// The Negative Binomial Distribution
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -1287,7 +1287,7 @@ define c-function gsl-ran-negative-binomial-pdf
  parameter k :: <c-unsigned-int>;
  parameter p :: <c-double>;
  parameter n :: <c-double>;
- result variate :: <c-unsigned-int>;
+ result variate :: <c-double>;
  c-name: "gsl_ran_negative_binomial_pdf";
 end;
 
@@ -1295,16 +1295,16 @@ define c-function gsl-cdf-negative-binomial-p
  parameter k :: <c-unsigned-int>;
  parameter p :: <c-double>;
  parameter n :: <c-double>;
- result variate :: <c-unsigned-int>;
- c-name: "gsl_ran_negative_binomial_P";
+ result variate :: <c-double>;
+ c-name: "gsl_cdf_negative_binomial_P";
 end;
 
 define c-function gsl-cdf-negative-binomial-q
  parameter k :: <c-unsigned-int>;
  parameter p :: <c-double>;
  parameter n :: <c-double>;
- result variate :: <c-unsigned-int>;
- c-name: "gsl_ran_negative_binomial_Q";
+ result variate :: <c-double>;
+ c-name: "gsl_cdf_negative_binomial_Q";
 end;
 
 //define c-function gsl-ran-pascal

@@ -43,6 +43,9 @@ The continuous distributions available in this module are:
 - :class:`<gsl-randist-gumbel1>`
 - :class:`<gsl-randist-gumbel2>`
 - :class:`<gsl-randist-dirichlet>`
+- :class:`<gsl-randist-poisson>`
+- :class:`<gsl-randist-binomial>`
+- :class:`<gsl-randist-negative-binomial>`
 
 The ``<gsl-randist>`` interface
 ===============================
@@ -1689,3 +1692,103 @@ The following operations are specialized for
       An instance of :class:`<float>`. Logarithm of the probability
       density. 
    
+The Binomial Distribution
+=========================
+
+.. class:: <gsl-randist-binomial>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required n:
+
+      Number of trials. An instance of :drm:`<integer>`
+
+   :keyword required p:
+
+      Probability of success. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let d = make(<gsl-randist-binomial>, n: 10, p: 0.5d0);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-binomial-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-binomial>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-binomial>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-binomial>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-binomial>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-binomial>
+   :no-contents-entry:
+
+The Negative Binomial Distribution
+=================================
+
+.. class:: <gsl-randist-negative-binomial>
+   :instantiable:
+   :concrete:
+
+   :supers:
+
+      :class:`<gsl-randist-continuous>`
+
+   :keyword required n:
+
+      Number of successes. An instance of :drm:`<integer>`
+
+   :keyword required p:
+
+      Probability of success. An instance of :drm:`<float>`
+
+   :example:
+
+     .. code-block:: dylan
+
+        let r = make(<gsl-rng>);
+        let d = make(<gsl-randist-negative-binomial>, n: 10, p: 0.5d0, rng: r);
+        let k = d.gsl-randist-variate;
+
+   :seealso:
+
+      - https://www.gnu.org/software/gsl/doc/html/randist.html#the-negative-binomial-distribution
+
+The following operations are specialized for
+:class:`<gsl-randist-negative-binomial>`. See operations in
+:class:`<gsl-randist-continuous>` for more information.
+
+.. method:: gsl-randist-variate
+   :specializer: <gsl-randist-negative-binomial>
+   :no-contents-entry:
+
+.. method:: gsl-randist-pdf
+   :specializer: <gsl-randist-negative-binomial>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-p
+   :specializer: <gsl-randist-negative-binomial>
+   :no-contents-entry:
+
+.. method:: gsl-randist-cdf-q
+   :specializer: <gsl-randist-negative-binomial>
+   :no-contents-entry:
