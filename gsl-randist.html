@@ -301,6 +301,9 @@ this design.</p>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gumbel1]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gumbel1&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-gumbel2]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-gumbel2&gt;</span></code></a></p></li>
 <li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-dirichlet]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-dirichlet&gt;</span></code></a></p></li>
+<li><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-poisson&gt;</span></code></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-binomial]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-binomial&gt;</span></code></a></p></li>
+<li><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-negative-binomial]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-negative-binomial&gt;</span></code></a></p></li>
 </ul>
 <section id="the-gsl-randist-interface">
 <h2>The <code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist&gt;</span></code> interface<a class="headerlink" href="#the-gsl-randist-interface" title="Link to this heading">¶</a></h2>
@@ -2136,6 +2139,115 @@ density.</p>
 </dd></dl>
 
 </section>
+<section id="the-binomial-distribution">
+<h2>The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-binomial]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-binomial&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-binomial]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>n</strong> (<em>required</em>) – Number of trials. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p></li>
+<li><p><strong>p</strong> (<em>required</em>) – Probability of success. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-randist-binomial&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">n:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">p:</span><span class="w"> </span><span class="mf">0.5</span><span class="n">d0</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-randist-variate</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">See also<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/randist.html#the-binomial-distribution">https://www.gnu.org/software/gsl/doc/html/randist.html#the-binomial-distribution</a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-binomial]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-binomial&gt;</span></code></a>. See operations in
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="the-negative-binomial-distribution">
+<h2>The Negative Binomial Distribution<a class="headerlink" href="#the-negative-binomial-distribution" title="Link to this heading">¶</a></h2>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:[gsl-randist-negative-binomial]">
+<span class="sig-name descname"><span class="pre">&lt;gsl-randist-negative-binomial&gt;</span></span> <em class="property"><span class="pre">Concrete</span> <span class="pre">Instantiable</span> <span class="pre">Class</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:[gsl-randist-negative-binomial]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>n</strong> (<em>required</em>) – Number of successes. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p></li>
+<li><p><strong>p</strong> (<em>required</em>) – Probability of success. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#float"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;float&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-rng&gt;</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;gsl-randist-negative-binomial&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">n:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">p:</span><span class="w"> </span><span class="mf">0.5</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="k">rng:</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">gsl-randist-variate</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">See also<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/gsl/doc/html/randist.html#the-negative-binomial-distribution">https://www.gnu.org/software/gsl/doc/html/randist.html#the-negative-binomial-distribution</a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The following operations are specialized for
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-negative-binomial]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-negative-binomial&gt;</span></code></a>. See operations in
+<a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-continuous]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;gsl-randist-continuous&gt;</span></code></a> for more information.</p>
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-negative-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-variate(&lt;gsl-randist-negative-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-variate([gsl-randist-negative-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-negative-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-pdf(&lt;gsl-randist-negative-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-pdf([gsl-randist-negative-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-negative-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-p(&lt;gsl-randist-negative-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-p([gsl-randist-negative-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-negative-binomial])">
+<span class="sig-name descname"><span class="pre">gsl-randist-cdf-q(&lt;gsl-randist-negative-binomial&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dylan-gsl:gsl-randist:gsl-randist-cdf-q([gsl-randist-negative-binomial])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 </section>
 
         </article>
@@ -2331,6 +2443,14 @@ density.</p>
 <li><a class="reference internal" href="#the-dirichlet-distribution">The Dirichlet Distribution</a><ul>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-dirichlet]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-dirichlet&gt;</span></code></a></li>
 <li><a class="reference internal" href="#dylan-gsl:gsl-randist:gsl-randist-ln-pdf"><code class="docutils literal notranslate"><span class="pre">gsl-randist-ln-pdf</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-binomial-distribution">The Binomial Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-binomial]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-binomial&gt;</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-negative-binomial-distribution">The Negative Binomial Distribution</a><ul>
+<li><a class="reference internal" href="#dylan-gsl:gsl-randist:[gsl-randist-negative-binomial]"><code class="docutils literal notranslate"><span class="pre">&lt;gsl-randist-negative-binomial&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>
