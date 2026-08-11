@@ -31,7 +31,7 @@ define generic gsl-randist-pdf
   (d :: <gsl-randist>, x :: <number>) => (pd :: <float>);
 
 define method gsl-randist-variate
-    (d :: <gsl-randist>) => (variate :: <float>)
+    (d :: <gsl-randist>) => (variate :: <object>)
   error(make(<gsl-error-unsupported>))
 end;
 
