@@ -1743,7 +1743,7 @@ The following operations are specialized for
    :no-contents-entry:
 
 The Negative Binomial Distribution
-=================================
+==================================
 
 .. class:: <gsl-randist-negative-binomial>
    :instantiable:
